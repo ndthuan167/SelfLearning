@@ -98,6 +98,8 @@ void YourSelection()
     int y_hang, y_cot;
     int x_hang, x_cot;
     int num = 9;
+        printf("Syntax for selection: <row>,<columb> (Ex: 1,2) \n");
+        printf("You: O | Competitor: X \n");
     while (num > 0)
     {
         if (num % 2 != 0)
