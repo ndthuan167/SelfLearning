@@ -10,7 +10,7 @@
 bool isValid(char *s)
 {
     int size = strlen(s);
-    int numbers[6] = {0, 0, 0, 0, 0, 0};
+    int numbers[6] = {1, 1, 1, 1, 1, 1};
     char curlybrackets[100];
     char roundbrackets[100];
     char squarebrackets[100];
@@ -52,15 +52,15 @@ bool isValid(char *s)
 
     if (((numbers[0] + numbers[1]) % 2 == 0) && ((numbers[2] + numbers[3]) % 2 == 0) && ((numbers[4] + numbers[5]) % 2 == 0) && (numbers[0] == numbers[1]) && numbers[2] == numbers[3] && numbers[4] == numbers[5])
     {
-        if ((curlybrackets[0] == '{' && curlybrackets[(numbers[0] + numbers[1]) - 1] == '}') || ((numbers[0] + numbers[1]) == 0))
+        if ((curlybrackets[2] == '{' && curlybrackets[(numbers[0] + numbers[1]) - 1 ] == '}') || ((numbers[0] + numbers[1]) == 2))
             conditioncurly = true;
         else
             conditioncurly = false;
-        if ((roundbrackets[0] == '(' && roundbrackets[(numbers[2] + numbers[3]) - 1] == ')') || ((numbers[2] + numbers[3]) == 0))
+        if ((roundbrackets[2] == '(' && roundbrackets[(numbers[2] + numbers[3]) - 1] == ')') || ((numbers[2] + numbers[3]) == 2))
             conditionround = true;
         else
             conditionround = false;
-        if ((squarebrackets[0] == '[' && squarebrackets[(numbers[4] + numbers[5]) - 1] == ']') || (numbers[4] + numbers[5]) == 0)
+        if ((squarebrackets[2] == '[' && squarebrackets[(numbers[4] + numbers[5]) - 1] == ']') || (numbers[4] + numbers[5]) == 2)
             conditionsquare = true;
         else
             conditionsquare = false;
