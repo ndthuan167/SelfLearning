@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 typedef struct Time
 {
     int Hour;
@@ -51,7 +51,7 @@ int main()
         // Nothing to do
         break;
     }
-    
+
     return 0;
 }
 
@@ -108,6 +108,9 @@ void CheckTimeInDay(int Hour, int Minute)
         printf("%d ", timeout88.Minute);
     else
         printf("0%d ", timeout88.Minute);
+
+    printf("\n");
+    system("pause");
 }
 
 void CheckTimeInFriday(int Hour, int Minute)
@@ -139,4 +142,7 @@ void CheckTimeInFriday(int Hour, int Minute)
         printf("%d ", timeOutonFriday.Minute);
     else
         printf("0%d ", timeOutonFriday.Minute);
+
+    printf("\n");
+    system("pause");
 }
