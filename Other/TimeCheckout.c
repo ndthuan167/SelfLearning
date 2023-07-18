@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 typedef struct Time
 {
     int Hour;
@@ -9,13 +10,15 @@ typedef struct Time
 
 TimeIN ShowTimeOfYourTimeIn(char *TimeIn);
 
-void CheckTimeInDay(int Hour, int Minute);
-void CheckTimeInFriday(int Hour, int Minute);
+void CheckTimeOnToday(int Hour, int Minute);
+void CheckTimeOnFriday(int Hour, int Minute);
+void CheckYourWorkedTimeOnToday(int Hour, int Minute);
 
 enum YourSlection
 {
-    CHECK_IN_DAY = 1,
-    CHECK_IN_FRIDAY,
+    CHECK_ON_TODAY = 1,
+    CHECK_ON_FRIDAY,
+    CHECK_WORKED_TIME,
 };
 
 int main()
@@ -26,14 +29,15 @@ int main()
     scanf("%s", TimeIn);
     printf("\n");
 
-    printf("* 1. Check time out on today.     *\n");
-    printf("* 2. Check time out on Friday.  *\n");
+    printf("* 1. Check time out on today.       *\n");
+    printf("* 2. Check time out on Friday.      *\n");
+    printf("* 3. Check your worked time today.  *\n");
     printf("\n");
 
     printf("Enter your selection: ");
     scanf("%d", &selection);
 
-    while (selection != CHECK_IN_DAY && selection != CHECK_IN_FRIDAY)
+    while (selection != CHECK_ON_TODAY && selection != CHECK_ON_FRIDAY && selection != CHECK_WORKED_TIME)
     {
         printf("Please re-enter your selection: ");
         scanf("%d", &selection);
@@ -41,11 +45,14 @@ int main()
 
     switch (selection)
     {
-    case CHECK_IN_DAY:
-        CheckTimeInDay(ShowTimeOfYourTimeIn(TimeIn).Hour, ShowTimeOfYourTimeIn(TimeIn).Minute);
+    case CHECK_ON_TODAY:
+        CheckTimeOnToday(ShowTimeOfYourTimeIn(TimeIn).Hour, ShowTimeOfYourTimeIn(TimeIn).Minute);
         break;
-    case CHECK_IN_FRIDAY:
-        CheckTimeInFriday(ShowTimeOfYourTimeIn(TimeIn).Hour, ShowTimeOfYourTimeIn(TimeIn).Minute);
+    case CHECK_ON_FRIDAY:
+        CheckTimeOnFriday(ShowTimeOfYourTimeIn(TimeIn).Hour, ShowTimeOfYourTimeIn(TimeIn).Minute);
+        break;
+    case CHECK_WORKED_TIME:
+        CheckYourWorkedTimeOnToday(ShowTimeOfYourTimeIn(TimeIn).Hour, ShowTimeOfYourTimeIn(TimeIn).Minute);
         break;
     default:
         // Nothing to do
@@ -85,7 +92,7 @@ TimeIN ShowTimeOfYourTimeIn(char *TimeIn)
 
     return timein;
 }
-void CheckTimeInDay(int Hour, int Minute)
+void CheckTimeOnToday(int Hour, int Minute)
 {
     TimeOUT timeout10, timeout88;
 
@@ -113,7 +120,7 @@ void CheckTimeInDay(int Hour, int Minute)
     system("pause");
 }
 
-void CheckTimeInFriday(int Hour, int Minute)
+void CheckTimeOnFriday(int Hour, int Minute)
 {
     char yourtimeworkFriday[5];
     printf("Enter your time have to work on Friday: ");
@@ -143,6 +150,39 @@ void CheckTimeInFriday(int Hour, int Minute)
     else
         printf("0%d ", timeOutonFriday.Minute);
 
+    printf("\n");
+    system("pause");
+}
+
+void CheckYourWorkedTimeOnToday(int Hour, int Minute)
+{
+    char yourTimeOutToday[5];
+    printf("Enter your time out to check your worked time: ");
+    scanf("%s", yourTimeOutToday);
+
+    TimeOUT TimeOutToday;
+    TimeWork TimeWorkedToday;
+
+    TimeOutToday.Hour = ShowTimeOfYourTimeIn(yourTimeOutToday).Hour;
+    TimeOutToday.Minute = ShowTimeOfYourTimeIn(yourTimeOutToday).Minute;
+
+    if (TimeOutToday.Minute < Minute)
+    {
+        TimeWorkedToday.Minute = (TimeOutToday.Minute + 60) - Minute;
+        TimeWorkedToday.Hour = (TimeOutToday.Hour - 1) - 1 - Hour;
+    }
+    else
+    {
+        TimeWorkedToday.Minute = TimeOutToday.Minute - Minute;
+        TimeWorkedToday.Hour = TimeOutToday.Hour - 1 - Hour;
+    }
+    printf("Your worked time on Today is: %d", TimeWorkedToday.Hour);
+    printf(" hours ");
+    if (TimeWorkedToday.Minute >= 10)
+        printf("%d ", TimeWorkedToday.Minute);
+    else
+        printf("0%d ", TimeWorkedToday.Minute);
+    printf("minutes");
     printf("\n");
     system("pause");
 }
