@@ -81,6 +81,10 @@ TimeIN ShowTimeOfYourTimeIn(char *TimeIn)
     {
         Hour = (int)TimeIn[0] - 48;
     }
+    else if ((indexof58 == 2) && (TimeIn[0] == 48))
+    {
+        Hour = (int)TimeIn[1] - 48;
+    }
     else
     {
         Hour = 10 + (int)(TimeIn[1] - 48);
@@ -165,7 +169,6 @@ void CheckYourWorkedTimeOnToday(int Hour, int Minute)
 
     TimeOutToday.Hour = ShowTimeOfYourTimeIn(yourTimeOutToday).Hour;
     TimeOutToday.Minute = ShowTimeOfYourTimeIn(yourTimeOutToday).Minute;
-
     if (TimeOutToday.Minute < Minute)
     {
         TimeWorkedToday.Minute = (TimeOutToday.Minute + 60) - Minute;
