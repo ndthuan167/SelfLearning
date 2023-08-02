@@ -87,7 +87,14 @@ TimeIN ShowTimeOfYourTimeIn(char *TimeIn)
     }
     else
     {
-        Hour = 10 + (int)(TimeIn[1] - 48);
+        if (TimeIn[0] > 49)
+        {
+            Hour = (int)(TimeIn[0] - 48) * 10 + (int)(TimeIn[1] - 48);
+        }
+        else
+        {
+            Hour = 10 + (int)(TimeIn[1] - 48);
+        }
     }
     Minute = (int)(TimeIn[indexof58 + 1] - 48) * 10 + (int)(TimeIn[indexof58 + 2] - 48);
 
@@ -126,26 +133,30 @@ void CheckTimeOnToday(int Hour, int Minute)
 
 void CheckTimeOnFriday(int Hour, int Minute)
 {
-    char yourtimeworkFriday[5];
-    printf("Enter your time have to work on Friday: ");
-    scanf("%s", yourtimeworkFriday);
+    char yourtimetotalworked[5];
+    printf("Enter your total time in this week: ");
+    scanf("%s", yourtimetotalworked);
 
-    TimeWork timeworkFriday;
+    TimeWork timetotalworked;
     TimeOUT timeOutonFriday;
+    TimeWork timeworkonFriday;
 
-    timeworkFriday.Hour = ShowTimeOfYourTimeIn(yourtimeworkFriday).Hour;
-    timeworkFriday.Minute = ShowTimeOfYourTimeIn(yourtimeworkFriday).Minute;
+    timetotalworked.Hour = ShowTimeOfYourTimeIn(yourtimetotalworked).Hour;
+    timetotalworked.Minute = ShowTimeOfYourTimeIn(yourtimetotalworked).Minute;
 
-    timeOutonFriday.Minute = Minute + timeworkFriday.Minute;
+    timeworkonFriday.Minute = 60 - timetotalworked.Minute;
+    timeworkonFriday.Hour = 44 - timetotalworked.Hour - 1;
+
+    timeOutonFriday.Minute = Minute + timeworkonFriday.Minute;
     if (timeOutonFriday.Minute >= 60)
     {
-        timeOutonFriday.Hour = (Hour + 1) + timeworkFriday.Hour + 1;
+        timeOutonFriday.Hour = (Hour + 1) + timeworkonFriday.Hour + 1;
         timeOutonFriday.Minute = timeOutonFriday.Minute - 60;
     }
     else
     {
-        timeOutonFriday.Hour = (Hour + 1) + timeworkFriday.Hour;
-        timeOutonFriday.Minute = Minute + timeworkFriday.Minute;
+        timeOutonFriday.Hour = (Hour + 1) + timeworkonFriday.Hour;
+        timeOutonFriday.Minute = Minute + timeworkonFriday.Minute;
     }
     printf("Your time out on Friday is: %d", timeOutonFriday.Hour);
     printf(":");
