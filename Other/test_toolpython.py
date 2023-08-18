@@ -1,14 +1,8 @@
-# import sys
-# from PyQt5 import QtWidgets, uic
-#
-# import pandas as pd
-# import numpy as np
-#
-# app = QtWidgets.QApplication(sys.argv)
-#
-# window = uic.loadUi("untitled.ui")
-# window.show()
-# app.exec()
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTextEdit, QFileDialog
+from PyQt5 import QtCore
+from PyQt5 import uic
+import sys
+import os
 import numpy as np
 import xlrd
 import re
@@ -18,28 +12,24 @@ pulsenumbercourse = []
 listcoursenodata = []
 listcourseadded = []
 IndexList = []
-wb = xlrd.open_workbook('D:/LearningCode/Python/test.xlsx')
-sheet = wb.sheet_by_index(0)
 course1 = []
 course = []
-
+text = []
+textnew = []
 course_no_data = ['A', '0', '0', '0', '0', '0', '0']
 
-listcourse = ["COURSE_NORMAL", "COURSE_TIMEDRY", "COURSE_HEAVYDUTY", "COURSE_HIGH_SPEED", "COURSE_SMALL_LOAD", "COURSE_DELICATES", "COURSE_SANITIZE_WITH_STEAM", "COURSE_WRINKLE_AWAY",	"COURSE_REFRESH",	"COURSE_TOWELS", "COURSE_BEDDING", "COURSE_ACTIVEWEAR", "COURSE_JEAN", "COURSE_SHIRTS", "COURSE_WOOL", "COURSE_PERMPRESS", "COURSE_ECONORMAL",	"COURSE_AIRFLUFF", "COURSE_RACKDRY", "COURSE_SIZE"]
+listcourseconvert = []
 
-for indexx in range(2, sheet.nrows):
-    for indexy in range(0, sheet.ncols):
-        course1.insert(indexy, sheet.cell_value(indexx, indexy))
-    course.append(course1)
-    course1 = []
-
-for each_course in course:
-    for index in range(1, len(each_course)):
-        each_course[index] = "".join(re.findall('\d', each_course[index]))
+listcourse = ["COURSE_NORMAL", "COURSE_TIMEDRY", "COURSE_HEAVYDUTY", "COURSE_QUICKDRY", "COURSE_DELICATES",
+              "COURSE_SANITIZE_WITH_STEAM", "COURSE_WRINKLE_AWAY",
+              "COURSE_REFRESH", "COURSE_TOWELS", "COURSE_BEDDING", "COURSE_PET_CARE", "COURSE_JEAN", "COURSE_SHIRTS",
+              "COURSE_WOOL", "COURSE_PERMPRESS",
+              "COURSE_ECONORMAL", "COURSE_AIRFLUFF", "COURSE_RACKDRY", "COURSE_SANITIZE", "COURSE_LOW_TEMP",
+              "COURSE_CLOUD", "COURSE_ACTIVEWEAR", "COURSE_WRINKLE_RELEASE", "COURSE_SIZE"]
 
 
 def ChangeCourseNameCOURSE(coursenamebefore):
-    if(coursenamebefore == "Normal"):
+    if (coursenamebefore == "Normal"):
         coursenamebefore = "COURSE_NORMAL"
     elif (coursenamebefore == "Heavy Duty"):
         coursenamebefore = "COURSE_HEAVYDUTY"
@@ -59,6 +49,8 @@ def ChangeCourseNameCOURSE(coursenamebefore):
         coursenamebefore = "COURSE_SHIRTS"
     elif (coursenamebefore == "Jeans"):
         coursenamebefore = "COURSE_JEAN"
+    elif (coursenamebefore == "Denim"):
+        coursenamebefore = "COURSE_JEAN"
     elif (coursenamebefore == "Eco Normal "):
         coursenamebefore = "COURSE_ECONORMAL"
     elif (coursenamebefore == "Low Temp."):
@@ -67,11 +59,16 @@ def ChangeCourseNameCOURSE(coursenamebefore):
         coursenamebefore = "COURSE_SANITIZE_WITH_STEAM"
     elif (coursenamebefore == "Small Load"):
         coursenamebefore = "COURSE_SMALL_LOAD"
+    elif (coursenamebefore == "Pet Care Dry"):
+        coursenamebefore = "COURSE_PET_CARE"
+    elif (coursenamebefore == "Sanitize"):
+        coursenamebefore = "COURSE_SANITIZE"
 
-    return  coursenamebefore
+    return coursenamebefore
+
 
 def ChangeCourseNamecourse(coursenamebefore):
-    if(coursenamebefore == "COURSE_NORMAL"):
+    if (coursenamebefore == "COURSE_NORMAL"):
         coursenamebefore = "Normal"
     elif (coursenamebefore == "COURSE_HEAVYDUTY"):
         coursenamebefore = "Heavy Duty"
@@ -86,7 +83,7 @@ def ChangeCourseNamecourse(coursenamebefore):
     elif (coursenamebefore == "COURSE_TOWELS"):
         coursenamebefore = "Towels"
     elif (coursenamebefore == "COURSE_AIRFLUFF"):
-        coursenamebefore = "Air Sanitize"
+        coursenamebefore = "Air Fluff"
     elif (coursenamebefore == "COURSE_SHIRTS"):
         coursenamebefore = "Shirts"
     elif (coursenamebefore == "COURSE_JEAN"):
@@ -94,7 +91,7 @@ def ChangeCourseNamecourse(coursenamebefore):
     elif (coursenamebefore == "COURSE_ECONORMAL"):
         coursenamebefore = "Eco Normal "
     elif (coursenamebefore == "COURSE_LOW_TEMP"):
-        coursenamebefore = "Low Temp."
+        coursenamebefore = "Low Temp"
     elif (coursenamebefore == "COURSE_SANITIZE_WITH_STEAM"):
         coursenamebefore = "Steam Sanitize"
     elif (coursenamebefore == "COURSE_SMALL_LOAD"):
@@ -111,36 +108,91 @@ def ChangeCourseNamecourse(coursenamebefore):
         coursenamebefore = "Wool"
     elif (coursenamebefore == "COURSE_RACKDRY"):
         coursenamebefore = "Rack Dry"
-                
-    return  coursenamebefore
+    elif (coursenamebefore == "COURSE_WRINKLE_RELEASE"):
+        coursenamebefore = "Wrinkle Release"
+    elif (coursenamebefore == "COURSE_OPTIMIZED_DRY"):
+        coursenamebefore = "Optimized Dry"
+    elif (coursenamebefore == "COURSE_CLOUD"):
+        coursenamebefore = "Downloaded"
+    elif (coursenamebefore == "COURSE_SANITIZE"):
+        coursenamebefore = "Sanitize"
+    elif (coursenamebefore == "COURSE_QUICKDRY"):
+        coursenamebefore = "Quick Dry"
+    elif (coursenamebefore == "COURSE_PET_CARE"):
+        coursenamebefore = "Pet Care"
 
-for index in range(0,len(course)):
+    return coursenamebefore
+
+
+wb = xlrd.open_workbook('C:/Users/dinhthuan.ng/PycharmProjects/pythonProject/test.xlsx')
+sheet = wb.sheet_by_index(0)
+
+for indexx in range(2, sheet.nrows):
+    for indexy in range(0, sheet.ncols):
+        course1.insert(indexy, sheet.cell_value(indexx, indexy))
+    course.append(course1)
+    course1 = []
+
+for each_course in course:
+    for index in range(1, len(each_course)):
+        each_course[index] = "".join(re.findall('\d', each_course[index]))
+
+for index in range(0, len(course)):
     pulsenumbercourse.insert(index, ChangeCourseNameCOURSE(course[index][0]))
 
 coursenotuse = np.setdiff1d(pulsenumbercourse, listcourse)
-for index in range(0,len(course)):
-    if(ChangeCourseNameCOURSE(course[index][0]) == coursenotuse):
-        course.remove(course[12])
-        break
 
-for index in range(len(course), 19):
-    course.insert(index,course_no_data)
-for index in range(0,len(course)):
+for index in range(len(course), len(listcourse) - 1):
+    course.insert(index, course_no_data)
+for index in range(0, len(course)):
     listcourseadded.insert(index, ChangeCourseNameCOURSE(course[index][0]))
 
-listcoursenodata = set(listcourseadded) ^set(listcourse)
+listcoursenodata = set(listcourseadded) ^ set(listcourse)
 listcoursenodata.remove('COURSE_SIZE')
 listcoursenodata.remove('A')
 
-listcourseadded[len(listcourseadded) - len(listcoursenodata) : len(listcourseadded)] = listcoursenodata
+listcourseadded[len(listcourseadded) - len(listcoursenodata): len(listcourseadded)] = listcoursenodata
 
 for index in range(0, len(listcourse)):
     for indec in range(0, len(listcourseadded)):
-        if(listcourse[index] == listcourseadded[indec]):
+        if (listcourse[index] == listcourseadded[indec]):
             IndexList.insert(index, indec)
 
-print("PRIVATE const U16 mcau16NoMeetAddTimeByPulse[COURSE_SIZE][INITIAL_PULSE_LEVEL_SIZE] =		//종료 3분 전까지 건조가 충분히 이뤄지지 않으면 아래 조건에 맞도록")
-print("{//		PULSE_LEVEL_0,	PULSE_LEVEL_1,	PULSE_LEVEL_2,	PULSE_LEVEL_3,	PULSE_LEVEL_4,	PULSE_LEVEL_5")
-for index in range(len(listcourseadded)):
-    print("   {	MIN("+ str(course[IndexList[index]][1]) +"),    MIN("+ str(course[IndexList[index]][2])+"),     MIN("+str(course[IndexList[index]][3])+"),    MIN("+ str(course[IndexList[index]][4])+ "),    MIN("+ str(course[IndexList[index]][5])+"),   MIN("+ str(course[IndexList[index]][6])+") },	//" + str(listcourse[index]) + ",       // "+ str(index) + "  "+ str(ChangeCourseNamecourse(listcourseadded[IndexList[index]])))
-print("};")
+
+class UI(QMainWindow):
+    def __init__(self):
+        super(UI, self).__init__()
+        uic.loadUi("UI_Tool.ui", self)
+
+        self.Text = "This box will show mcau16NoMeetAddTimeByPulse array after gen"
+        self.textEdit.setPlainText(self.Text)
+        self.pushButton.clicked.connect(self.clickme)
+        self.pushButton_2.clicked.connect(self.showtext)
+        self.show()
+
+    def showtext(self):
+        text = self.textEdit_2.toPlainText()
+        textnew = str(text).replace("\n", "")
+        textnew = textnew.replace("\t", "")
+        listcourseconvert1 = textnew.split(",")
+        return listcourseconvert1
+        # print(abc[0])
+
+    def clickme(self):
+        self.Text = "PRIVATE const U16 mcau16NoMeetAddTimeByPulse[COURSE_SIZE][INITIAL_PULSE_LEVEL_SIZE] =		//종료 3분 전까지 건조가 충분히 이뤄지지 않으면 아래 조건에 맞도록"
+        self.textEdit.setPlainText(self.Text)
+        self.textEdit.append(
+            "{//		PULSE_LEVEL_0,	PULSE_LEVEL_1,	PULSE_LEVEL_2,	PULSE_LEVEL_3,	PULSE_LEVEL_4,	PULSE_LEVEL_5")
+        for index in range(0, len(listcourseadded)):
+            list = "    {   MIN(" + str(course[IndexList[index]][1]) + "),    MIN(" + str(
+                course[IndexList[index]][2]) + "),     MIN(" + str(course[IndexList[index]][3]) + "),    MIN(" + str(
+                course[IndexList[index]][4]) + "),    MIN(" + str(course[IndexList[index]][5]) + "),   MIN(" \
+                   + str(course[IndexList[index]][6]) + ") },	//" + str(listcourse[index]) + ",       // " + str(
+                index) + "  " + str(ChangeCourseNamecourse(listcourseadded[IndexList[index]]))
+            self.textEdit.append(list)
+        self.textEdit.append("};")
+
+
+app = QApplication(sys.argv)
+window = UI()
+app.exec_()
