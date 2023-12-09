@@ -1,0 +1,50 @@
+<RCC>
+    <qresource prefix="/Icon">
+        <file>Image/Icon.jpg</file>
+        <file>Image/time.png</file>
+        <file>Image/next.png</file>
+        <file>Image/back.png</file>
+        <file>Image/sun.png</file>
+        <file>Image/night.png</file>
+        <file>Image/backgroundcalendar.jpg</file>
+        <file>Image/plus.png</file>
+        <file>Image/manager.png</file>
+        <file>Image/icons8-money-48.png</file>
+        <file>Image/icons8-revenue-48.png</file>
+        <file>Image/icons8-excel-48.png</file>
+        <file>Image/icons8-eye-15.png</file>
+        <file>Image/icons8-note-30.png</file>
+        <file>Image/icons8-plan-30.png</file>
+        <file>Image/icons8-menu-48.png</file>
+        <file>Image/icons8-password-48.png</file>
+        <file>Image/icons8-login-48.png</file>
+        <file>Image/icons8-goal-40.png</file>
+        <file>Image/icons8-money-40.png</file>
+        <file>Image/icons8-note-40.png</file>
+        <file>Image/icons8-down-24.png</file>
+        <file>Image/icons8-down-25.png</file>
+        <file>Image/icons8-next-50.png</file>
+        <file>Image/icons8-calendar-48.png</file>
+    </qresource>
+    <qresource prefix="/IconApplication">
+        <file>Image/facebook.png</file>
+        <file>Image/youtube.png</file>
+        <file>Image/github.png</file>
+        <file>Image/vscode.png</file>
+        <file>Image/zalo.png</file>
+        <file>Image/icons8-google-96.png</file>
+    </qresource>
+    <qresource prefix="/ImagePersonal">
+        <file>Image/ImagePersonal/1.jpg</file>
+        <file>Image/ImagePersonal/2.jpg</file>
+        <file>Image/ImagePersonal/3.jpg</file>
+        <file>Image/ImagePersonal/4.jpg</file>
+        <file>Image/ImagePersonal/8.jpg</file>
+        <file>Image/ImagePersonal/9.jpg</file>
+        <file>Image/ImagePersonal/10.jpg</file>
+        <file>Image/ImagePersonal/11.jpg</file>
+        <file>Image/ImagePersonal/5.jpg</file>
+        <file>Image/ImagePersonal/6.jpg</file>
+        <file>Image/ImagePersonal/7.jpg</file>
+    </qresource>
+</RCC>
