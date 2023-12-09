@@ -946,8 +946,8 @@ border-radius: 20px</string>
       <widget class="QLabel" name="label_total_thu">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>250</y>
+         <x>40</x>
+         <y>278</y>
          <width>151</width>
          <height>25</height>
         </rect>

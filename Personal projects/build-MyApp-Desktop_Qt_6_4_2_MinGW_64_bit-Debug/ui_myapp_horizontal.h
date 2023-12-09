@@ -627,7 +627,7 @@ public:
         pushButton_Plus_thu->setIconSize(QSize(40, 40));
         label_total_thu = new QLabel(frame_thu);
         label_total_thu->setObjectName("label_total_thu");
-        label_total_thu->setGeometry(QRect(40, 280, 151, 25));
+        label_total_thu->setGeometry(QRect(30, 250, 151, 25));
         QFont font6;
         font6.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
         font6.setPointSize(10);

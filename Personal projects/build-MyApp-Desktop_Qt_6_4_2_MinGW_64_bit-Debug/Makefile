@@ -70,560 +70,560 @@ release-install: FORCE
 release-uninstall: FORCE
 	$(MAKE) -f $(MAKEFILE).Release uninstall
 
-Makefile: ../MyApp/MyApp.pro ../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf ../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_pre.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/device_config.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/sanitize.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/gcc-base.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-base.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-vulkan.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-win32.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-desktop.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/qconfig.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bodymovin_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_functions.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_config.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_post.prf \
+Makefile: ../MyApp/MyApp.pro D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_pre.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/device_config.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/sanitize.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/gcc-base.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-base.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-vulkan.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-win32.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-desktop.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/qconfig.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bodymovin_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_functions.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_config.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qml_debug.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/entrypoint.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/precompile_header.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/warn_on.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources_functions.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/moc.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/opengl.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/uic.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qmake_use.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/file_copies.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/testcase_targets.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exceptions.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/yacc.prf \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/lex.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qml_debug.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/entrypoint.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/precompile_header.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/warn_on.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources_functions.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/moc.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/opengl.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/uic.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qmake_use.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/file_copies.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/testcase_targets.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exceptions.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/yacc.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/lex.prf \
 		../MyApp/MyApp.pro \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Widgets.prl \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Gui.prl \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Core.prl \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6EntryPoint.prl \
-		../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/build_pass.prf \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Widgets.prl \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Gui.prl \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Core.prl \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6EntryPoint.prl \
+		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/build_pass.prf \
 		../MyApp/ResourceFile.qrc
 	$(QMAKE) -o Makefile ..\MyApp\MyApp.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_pre.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/device_config.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/sanitize.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/gcc-base.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-base.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-vulkan.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-win32.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-desktop.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/qconfig.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bodymovin_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_functions.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_config.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_post.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_pre.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/device_config.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/sanitize.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/gcc-base.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-base.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-vulkan.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/g++-win32.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/common/windows-desktop.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/qconfig.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_freetype.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_ext_libpng.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3danimation_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dcore_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dextras_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dinput_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickextras_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickinput_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickrender_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_3drender_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_activeqt_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axbase_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axcontainer_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_axserver_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_bodymovin_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_charts_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_concurrent_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core5compat_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_core_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualization_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_datavisualizationqml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designer_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_gui_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_help_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_httpserver_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_jsonrpc_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_languageserver_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_linguist_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_networkauth_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_nfc_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_openglwidgets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_png_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioning_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_positioningquick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlintegration_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3deffects_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysics_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dphysicshelpers_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_remoteobjectsqml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_repparser_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_scxmlqml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensors_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sensorsquick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialbus_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_serialport_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachine_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_statemachineqml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svg_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_svgwidgets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_texttospeech_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_tools_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_virtualkeyboard_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webchannel_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_websockets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webview_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_webviewquick_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_xml_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_functions.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt_config.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/win32-g++/qmake.conf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/spec_post.prf:
 .qmake.stash:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qml_debug.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/entrypoint.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/precompile_header.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/warn_on.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources_functions.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/moc.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/opengl.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/uic.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qmake_use.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/file_copies.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/testcase_targets.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exceptions.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/yacc.prf:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/lex.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qml_debug.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/entrypoint.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/precompile_header.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/warn_on.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qt.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources_functions.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resources.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/moc.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/opengl.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/uic.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/qmake_use.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/file_copies.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/windows.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/testcase_targets.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exceptions.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/yacc.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/lex.prf:
 ../MyApp/MyApp.pro:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Widgets.prl:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Gui.prl:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Core.prl:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6EntryPoint.prl:
-../../../Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/build_pass.prf:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Widgets.prl:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Gui.prl:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6Core.prl:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/lib/Qt6EntryPoint.prl:
+D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/build_pass.prf:
 ../MyApp/ResourceFile.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\MyApp\MyApp.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
