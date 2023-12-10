@@ -51,6 +51,8 @@ public slots:
 
     int ReturnNumberOfImage();
 
+    void SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, QString text_day, QString textmoney, QString textcontent);
+
 private:
     Ui::MyApp *ui;
     myApp_horizontal *myapp_horizon;
@@ -60,6 +62,9 @@ private:
 
     int today = 0;
     QString total_date;
+
+    int number_of_setThu = 0;
+    int number_of_setChi = 0;
 
     QString SunNight;
     bool showframetest = false;

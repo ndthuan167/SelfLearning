@@ -25,6 +25,7 @@
         <file>Image/icons8-down-25.png</file>
         <file>Image/icons8-next-50.png</file>
         <file>Image/icons8-calendar-48.png</file>
+        <file>Image/icons8-month-64.png</file>
     </qresource>
     <qresource prefix="/IconApplication">
         <file>Image/facebook.png</file>

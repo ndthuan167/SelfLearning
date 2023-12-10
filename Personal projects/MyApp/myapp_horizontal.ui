@@ -974,6 +974,161 @@ border-radius: 20px</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_MonthThu">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>151</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/*#comboBox_MonthThu {
+    border: 0px solid gray;
+    border-radius: 10px;
+    min-width: 6em;
+	padding-left: 25;
+	background-color: #5CB8E4;
+	color: white
+}
+
+#comboBox_MonthThu:on {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#comboBox_MonthThu QAbstractItemView {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: transparent;
+    border: 1px solid gray;
+    padding: 4px 4px 4px 4px
+}
+
+#comboBox_MonthThu::drop-down {
+	image: url(&quot;:/Icon/Image/icons8-month-64.png&quot;);
+	width:20;
+	padding-right: 5
+}
+*/
+
+#comboBox_MonthThu {
+	border: 0px solid;
+	border-radius: 10px;
+	background-color: #5CB8E4;
+	padding: 1px 23px 1px 15px;
+	min-width: 6em;
+	color: #ffffff;
+}
+#comboBox_MonthThu::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 20px;
+ 
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+#comboBox_MonthThu::down-arrow {
+	image: url(&quot;:/Icon/Image/icons8-month-64.png&quot;);
+	width: 20;
+	height: 20;
+	padding-right: 5
+}
+ 
+#comboBox_MonthThu QAbstractItemView {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: white;
+    border: 0px solid gray;
+    padding: 4px 4px 4px 4px;
+	color: #3081D0;
+	border-radius: 15;
+}</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="maxVisibleItems">
+        <number>10</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Tháng 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 6</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 7</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 9</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 11</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 12</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <widget class="QFrame" name="frame_chi">
       <property name="geometry">
@@ -1091,6 +1246,132 @@ border-radius: 20px</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_MonthChi">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>151</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#comboBox_MonthChi {
+	border: 0px solid;
+	border-radius: 10px;
+	background-color: #F5A962;
+	padding: 1px 23px 1px 15px;
+	min-width: 6em;
+	color: #ffffff;
+}
+#comboBox_MonthChi::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 20px;
+ 
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+#comboBox_MonthChi::down-arrow {
+	image: url(&quot;:/Icon/Image/icons8-month-64.png&quot;);
+	width: 20;
+	height: 20;
+	padding-right: 5
+}
+ 
+#comboBox_MonthChi QAbstractItemView {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: white;
+    border: 0px solid gray;
+    padding: 4px 4px 4px 4px;
+	color: #F5A962;
+	border-radius: 15;
+}</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="maxVisibleItems">
+        <number>10</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Tháng 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 6</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 7</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 9</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 11</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tháng 12</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <widget class="QLabel" name="label_total">
       <property name="geometry">
@@ -1170,7 +1451,7 @@ thu chi</string>
       <property name="geometry">
        <rect>
         <x>530</x>
-        <y>60</y>
+        <y>55</y>
         <width>28</width>
         <height>28</height>
        </rect>

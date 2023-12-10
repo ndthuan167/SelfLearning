@@ -63,10 +63,12 @@ public:
     QFrame *frame_thu;
     QPushButton *pushButton_Plus_thu;
     QLabel *label_total_thu;
+    QComboBox *comboBox_MonthThu;
     QFrame *frame_chi;
     QPushButton *pushButton_Plus_chi;
     QLabel *label_6;
     QLabel *label_total_chi;
+    QComboBox *comboBox_MonthChi;
     QLabel *label_total;
     QLabel *label_3;
     QLabel *label_4;
@@ -627,7 +629,7 @@ public:
         pushButton_Plus_thu->setIconSize(QSize(40, 40));
         label_total_thu = new QLabel(frame_thu);
         label_total_thu->setObjectName("label_total_thu");
-        label_total_thu->setGeometry(QRect(30, 250, 151, 25));
+        label_total_thu->setGeometry(QRect(40, 278, 151, 25));
         QFont font6;
         font6.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
         font6.setPointSize(10);
@@ -640,6 +642,88 @@ public:
 "	color: white\n"
 "}"));
         label_total_thu->setAlignment(Qt::AlignCenter);
+        comboBox_MonthThu = new QComboBox(frame_thu);
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->addItem(QString());
+        comboBox_MonthThu->setObjectName("comboBox_MonthThu");
+        comboBox_MonthThu->setGeometry(QRect(20, 10, 151, 25));
+        comboBox_MonthThu->setFont(font6);
+        comboBox_MonthThu->setLayoutDirection(Qt::LeftToRight);
+        comboBox_MonthThu->setAutoFillBackground(false);
+        comboBox_MonthThu->setStyleSheet(QString::fromUtf8("/*#comboBox_MonthThu {\n"
+"    border: 0px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"	padding-left: 25;\n"
+"	background-color: #5CB8E4;\n"
+"	color: white\n"
+"}\n"
+"\n"
+"#comboBox_MonthThu:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"#comboBox_MonthThu QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"#comboBox_MonthThu::drop-down {\n"
+"	image: url(\":/Icon/Image/icons8-month-64.png\");\n"
+"	width:20;\n"
+"	padding-right: 5\n"
+"}\n"
+"*/\n"
+"\n"
+"#comboBox_MonthThu {\n"
+"	border: 0px solid;\n"
+"	border-radius: 10px;\n"
+"	background-color: #5CB8E4;\n"
+"	padding: 1px 23px 1px 15px;\n"
+"	min-width: 6em;\n"
+"	color: #ffffff;\n"
+"}\n"
+"#comboBox_MonthThu::drop-down {\n"
+"	subcontrol-origin: padding;\n"
+"	subcontrol-position: top right;\n"
+"	width: 20px;\n"
+" \n"
+"	border-to"
+                        "p-right-radius: 3px;\n"
+"	border-bottom-right-radius: 3px;\n"
+"}\n"
+"#comboBox_MonthThu::down-arrow {\n"
+"	image: url(\":/Icon/Image/icons8-month-64.png\");\n"
+"	width: 20;\n"
+"	height: 20;\n"
+"	padding-right: 5\n"
+"}\n"
+" \n"
+"#comboBox_MonthThu QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background-color: white;\n"
+"    border: 0px solid gray;\n"
+"    padding: 4px 4px 4px 4px;\n"
+"	color: #3081D0;\n"
+"	border-radius: 15;\n"
+"}"));
+        comboBox_MonthThu->setEditable(false);
+        comboBox_MonthThu->setMaxVisibleItems(10);
         frame_chi = new QFrame(frame_thuchi);
         frame_chi->setObjectName("frame_chi");
         frame_chi->setGeometry(QRect(10, 370, 561, 351));
@@ -691,6 +775,58 @@ public:
 "	color: white\n"
 "}"));
         label_total_chi->setAlignment(Qt::AlignCenter);
+        comboBox_MonthChi = new QComboBox(frame_chi);
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->addItem(QString());
+        comboBox_MonthChi->setObjectName("comboBox_MonthChi");
+        comboBox_MonthChi->setGeometry(QRect(20, 10, 151, 25));
+        comboBox_MonthChi->setFont(font6);
+        comboBox_MonthChi->setLayoutDirection(Qt::LeftToRight);
+        comboBox_MonthChi->setAutoFillBackground(false);
+        comboBox_MonthChi->setStyleSheet(QString::fromUtf8("#comboBox_MonthChi {\n"
+"	border: 0px solid;\n"
+"	border-radius: 10px;\n"
+"	background-color: #F5A962;\n"
+"	padding: 1px 23px 1px 15px;\n"
+"	min-width: 6em;\n"
+"	color: #ffffff;\n"
+"}\n"
+"#comboBox_MonthChi::drop-down {\n"
+"	subcontrol-origin: padding;\n"
+"	subcontrol-position: top right;\n"
+"	width: 20px;\n"
+" \n"
+"	border-top-right-radius: 3px;\n"
+"	border-bottom-right-radius: 3px;\n"
+"}\n"
+"#comboBox_MonthChi::down-arrow {\n"
+"	image: url(\":/Icon/Image/icons8-month-64.png\");\n"
+"	width: 20;\n"
+"	height: 20;\n"
+"	padding-right: 5\n"
+"}\n"
+" \n"
+"#comboBox_MonthChi QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background-color: white;\n"
+"    border: 0px solid gray;\n"
+"    padding: 4px 4px 4px 4px;\n"
+"	color: #F5A962;\n"
+"	border-radius: 15;\n"
+"}"));
+        comboBox_MonthChi->setEditable(false);
+        comboBox_MonthChi->setMaxVisibleItems(10);
         label_total = new QLabel(frame_thuchi);
         label_total->setObjectName("label_total");
         label_total->setGeometry(QRect(130, 10, 371, 31));
@@ -718,7 +854,7 @@ public:
         label_4->setScaledContents(true);
         label_5 = new QLabel(frame_thuchi);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(530, 60, 28, 28));
+        label_5->setGeometry(QRect(530, 55, 28, 28));
         label_5->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-revenue-48.png")));
         label_5->setScaledContents(true);
         pushButton_Excel = new QPushButton(frame_thuchi);
@@ -1360,6 +1496,8 @@ public:
 
         retranslateUi(myApp_horizontal);
 
+        comboBox_MonthThu->setCurrentIndex(0);
+        comboBox_MonthChi->setCurrentIndex(0);
         comboBox_3->setCurrentIndex(0);
         comboBox_4->setCurrentIndex(0);
 
@@ -1392,9 +1530,35 @@ public:
         label_image_2->setText(QString());
         pushButton_Plus_thu->setText(QCoreApplication::translate("myApp_horizontal", "+", nullptr));
         label_total_thu->setText(QCoreApplication::translate("myApp_horizontal", "T\341\273\225ng: 10 000 000 VN\304\220", nullptr));
+        comboBox_MonthThu->setItemText(0, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 1", nullptr));
+        comboBox_MonthThu->setItemText(1, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 2", nullptr));
+        comboBox_MonthThu->setItemText(2, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 3", nullptr));
+        comboBox_MonthThu->setItemText(3, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 4", nullptr));
+        comboBox_MonthThu->setItemText(4, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 5", nullptr));
+        comboBox_MonthThu->setItemText(5, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 6", nullptr));
+        comboBox_MonthThu->setItemText(6, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 7", nullptr));
+        comboBox_MonthThu->setItemText(7, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 8", nullptr));
+        comboBox_MonthThu->setItemText(8, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 9", nullptr));
+        comboBox_MonthThu->setItemText(9, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 10", nullptr));
+        comboBox_MonthThu->setItemText(10, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 11", nullptr));
+        comboBox_MonthThu->setItemText(11, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 12", nullptr));
+
         pushButton_Plus_chi->setText(QCoreApplication::translate("myApp_horizontal", "-", nullptr));
         label_6->setText(QString());
         label_total_chi->setText(QCoreApplication::translate("myApp_horizontal", "T\341\273\225ng: 10 000 000 VN\304\220", nullptr));
+        comboBox_MonthChi->setItemText(0, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 1", nullptr));
+        comboBox_MonthChi->setItemText(1, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 2", nullptr));
+        comboBox_MonthChi->setItemText(2, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 3", nullptr));
+        comboBox_MonthChi->setItemText(3, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 4", nullptr));
+        comboBox_MonthChi->setItemText(4, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 5", nullptr));
+        comboBox_MonthChi->setItemText(5, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 6", nullptr));
+        comboBox_MonthChi->setItemText(6, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 7", nullptr));
+        comboBox_MonthChi->setItemText(7, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 8", nullptr));
+        comboBox_MonthChi->setItemText(8, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 9", nullptr));
+        comboBox_MonthChi->setItemText(9, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 10", nullptr));
+        comboBox_MonthChi->setItemText(10, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 11", nullptr));
+        comboBox_MonthChi->setItemText(11, QCoreApplication::translate("myApp_horizontal", "Th\303\241ng 12", nullptr));
+
         label_total->setText(QCoreApplication::translate("myApp_horizontal", "T\341\273\225ng t\303\255ch l\305\251y: *** *** *** VN\304\220", nullptr));
         label_3->setText(QCoreApplication::translate("myApp_horizontal", "Qu\341\272\243n l\303\275 \n"
 "thu chi", nullptr));

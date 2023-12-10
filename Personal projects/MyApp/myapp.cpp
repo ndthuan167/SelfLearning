@@ -65,6 +65,10 @@ void MyApp::ShowFrameTest()
     if (showframetest == false) showframetest = true;
     else    showframetest = false;
 
+    ui->plainTextEdit_3->setPlainText("");
+    ui->plainTextEdit_2->setPlainText("");
+    ui->label_date_selected_Thu->setText("");
+
     if (showframetest == true)
     {
         ui->frametest->setGeometry(30, 340 ,201,181);
@@ -89,6 +93,7 @@ void MyApp::ShowFrameTest()
 
 void MyApp::EnterThuAndClose()
 {
+    number_of_setThu++;
     QPropertyAnimation *animation = new QPropertyAnimation(ui->frametest, "geometry");
     animation->setDuration(100);
     animation->setEndValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y()+ui->frametest->geometry().height(), 0, 0));
@@ -97,10 +102,26 @@ void MyApp::EnterThuAndClose()
     animation->start();
     showframetest = false;
 
+    QString text_day = ui->label_date_selected_Thu->text().mid(0,2);
+    QString text_content = ui->comboBox->currentText();
+    QString text_money = ui->plainTextEdit_3->toPlainText();
+
+    if (number_of_setThu == 1)
+        MyApp::SetThuFrameResult("Thu", 27,395, text_day, text_money, text_content);
+    if (number_of_setThu == 2)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 28 +5, text_day, text_money, text_content);
+    if (number_of_setThu == 3)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 2*(28 +5), text_day, text_money, text_content);
+    if (number_of_setThu == 4)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 3*(28 +5), text_day, text_money, text_content);
 }
 
 void MyApp::ShowPopUpChi()
 {
+    ui->plainTextEdit_5->setPlainText("");
+    ui->plainTextEdit_4->setPlainText("");
+    ui->label_date_selected->setText("");
+
     if (showPopupChi == false) showPopupChi = true;
     else    showPopupChi = false;
 
@@ -129,6 +150,7 @@ void MyApp::ShowPopUpChi()
 
 void MyApp::EnterChiAndClose()
 {
+    number_of_setChi++;
     QPropertyAnimation *animation = new QPropertyAnimation(ui->PopupChi, "geometry");
     animation->setDuration(100);
     animation->setEndValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y()+ui->PopupChi->geometry().height(), 0, 0));
@@ -136,6 +158,19 @@ void MyApp::EnterChiAndClose()
 
     animation->start();
     showPopupChi = false;
+
+    QString text_day = ui->label_date_selected->text().mid(0,2);
+    QString text_content = ui->comboBox_2->currentText();
+    QString text_money = ui->plainTextEdit_5->toPlainText();
+
+    if (number_of_setChi == 1)
+        MyApp::SetThuFrameResult("Chi", 240, 395, text_day, text_money, text_content);
+    if (number_of_setChi == 2)
+        MyApp::SetThuFrameResult("Chi", 240,395 + 28 +5, text_day, text_money, text_content);
+    if (number_of_setChi == 3)
+        MyApp::SetThuFrameResult("Chi", 240,395 + 2*(28 +5), text_day, text_money, text_content);
+    if (number_of_setChi == 4)
+        MyApp::SetThuFrameResult("Chi", 240,395 + 3*(28 +5), text_day, text_money, text_content);
 
 }
 
@@ -350,4 +385,53 @@ void MyApp::PopupselectDay()
         ui->frametest->show();
         ui->PopupselectDay_Thu->setGeometry(QRect(600,400, 190, 71));
     }
+}
+
+void MyApp::SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, QString text_day, QString textmoney, QString textcontent)
+{
+    QString colorOfbackground;
+    if (ThuOrChi == "Thu")
+        colorOfbackground = "05BFDB";
+    if (ThuOrChi == "Chi")
+        colorOfbackground = "FF9209";
+
+    QString styleSheetForFrame = "background-color: #" + colorOfbackground + "; border-radius: 10; border: 1px solid white; color: white";
+    QString styleSheetForLabel = "background-color: white; border-radius: 7; border: 1px solid white; color: black" ;
+
+    // ----> Set frame in a Scroll Area
+//    QScrollArea *scrollarea =  new QScrollArea(this);
+//    scrollarea->setGeometry(QRect(x_geometry, y_geometry, 190, 130));
+//    scrollarea->setStyleSheet("background-color: black;");
+
+    QFrame *frame_Thu = new QFrame(this);
+    frame_Thu->setFixedSize(195,28);
+    frame_Thu->setStyleSheet(styleSheetForFrame);
+    frame_Thu->setGeometry(QRect(x_geometry,y_geometry,192,28));
+
+    QLabel *label_day = new QLabel(frame_Thu);
+    label_day->setGeometry(QRect(5,4,21,20));
+    label_day->setStyleSheet(styleSheetForLabel);
+    label_day->setText(text_day);
+    label_day->setAlignment(Qt::AlignCenter);
+    QFont font = label_day->font();
+    font.setFamily("Samsung Sharp Sans");
+    font.setPointSize(8);
+    label_day->setFont(font);
+
+    QLabel *label_money = new QLabel(frame_Thu);
+    label_money->setGeometry(QRect(32,4,61,20));
+    label_money->setStyleSheet(styleSheetForLabel);
+    label_money->setText(textmoney);
+    label_money->setAlignment(Qt::AlignCenter);
+    label_money->setFont(font);
+
+    QLabel *label_content = new QLabel(frame_Thu);
+    label_content->setGeometry(QRect(100,4,91,20));
+    label_content->setStyleSheet(styleSheetForLabel);
+    label_content->setText(textcontent);
+    label_content->setAlignment(Qt::AlignCenter);
+    label_content->setFont(font);
+
+//    scrollarea->show();
+    frame_Thu->show();
 }

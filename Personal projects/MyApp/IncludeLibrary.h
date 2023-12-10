@@ -14,4 +14,6 @@
 #include <QPropertyAnimation>
 #include <QDialog>
 #include <QCalendarWidget>
+#include <QScrollArea>
+
 #endif // INCLUDELIBRARY_H
