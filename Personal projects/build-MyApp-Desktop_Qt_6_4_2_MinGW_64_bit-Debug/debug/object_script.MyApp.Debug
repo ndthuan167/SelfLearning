@@ -1,0 +1,10 @@
+debug/main.o
+debug/myapp.o
+debug/myapp_horizontal.o
+debug/popup_thu.o
+debug/popupchi.o
+debug/qrc_ResourceFile.o
+debug/moc_myapp.o
+debug/moc_myapp_horizontal.o
+debug/moc_popup_thu.o
+debug/moc_popupchi.o

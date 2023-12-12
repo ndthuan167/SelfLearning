@@ -11,17 +11,23 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     myapp.cpp \
-    myapp_horizontal.cpp
+    myapp_horizontal.cpp \
+    popup_thu.cpp \
+    popupchi.cpp
 
 HEADERS += \
     IncludeLibrary.h \
     myapp.h \
-    myapp_horizontal.h
+    myapp_horizontal.h \
+    popup_thu.h \
+    popupchi.h
 
 FORMS += \
     horizontal.ui \
     myapp.ui \
-    myapp_horizontal.ui
+    myapp_horizontal.ui \
+    popup_thu.ui \
+    popupchi.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

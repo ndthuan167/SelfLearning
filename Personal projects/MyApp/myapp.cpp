@@ -1,5 +1,7 @@
 #include "myapp.h"
 #include "ui_myapp.h"
+#include "popupchi.h"
+#include "popup_thu.h"
 
 MyApp::MyApp(QWidget *parent)
     : QMainWindow(parent)
@@ -29,23 +31,9 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_back, SIGNAL(clicked(bool)), this, SLOT(BackImage()));
     connect(ui->pushButton_next, SIGNAL(clicked(bool)), this, SLOT(NextImage()));
     connect(ui->pushButton_Plus_thu, SIGNAL(clicked(bool)), this, SLOT(ShowFrameTest()));
-    connect(ui->pushButton_SetThu, SIGNAL(clicked(bool)), this, SLOT(EnterThuAndClose()));
 
     connect(ui->pushButton_Plus_chi, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpChi()));
-    connect(ui->pushButton_SetChi, SIGNAL(clicked(bool)), this, SLOT(EnterChiAndClose()));
     connect(ui->pushButton_login, SIGNAL(clicked(bool)), this, SLOT(ChangeToHorizontalLayout()));
-
-    connect(ui->pushButton_Selectday, SIGNAL(clicked(bool)), this, SLOT(ShowCalendarSelection()));
-    connect(ui->pushButton_Selectday_Thu, SIGNAL(clicked(bool)), this, SLOT(ShowCalendarSelection()));
-    connect(ui->pushButton_SelectedDay, SIGNAL(clicked(bool)), this, SLOT(PopupselectDay()));
-    connect(ui->pushButton_SelectedDay_Thu, SIGNAL(clicked(bool)), this, SLOT(PopupselectDay()));
-
-    connect(ui->pushButton_back_day, SIGNAL(clicked(bool)), this, SLOT(BackDayinCalendar()));
-    connect(ui->pushButton_back_day_Thu, SIGNAL(clicked(bool)), this, SLOT(BackDayinCalendar()));
-    connect(ui->pushButton_next_day, SIGNAL(clicked(bool)), this, SLOT(NextDayinCalendar()));
-    connect(ui->pushButton_next_day_Thu, SIGNAL(clicked(bool)), this, SLOT(NextDayinCalendar()));
-    connect(ui->pushButton_SelectedDay, SIGNAL(clicked(bool)), this, SLOT(SetDateCalendar()));
-    connect(ui->pushButton_SelectedDay_Thu, SIGNAL(clicked(bool)), this, SLOT(SetDateCalendar()));
 
 }
 
@@ -54,124 +42,86 @@ MyApp::~MyApp()
     delete ui;
 }
 
+void MyApp::OpenYoutubeWebsite()
+{
+    QString Youtube_url = "https://www.youtube.com/";
+    QDesktopServices::openUrl(QUrl(Youtube_url));
+}
+
+void MyApp::OpenGithubWebsite()
+{
+    QString myGithub_url = "https://github.com/ndthuan167";
+    QDesktopServices::openUrl(QUrl(myGithub_url));
+}
+
+void MyApp::OpenFacebookWebsite()
+{
+    QString Facebook_url = "https://www.facebook.com/";
+    QDesktopServices::openUrl(QUrl(Facebook_url));
+}
+
+void MyApp::OpenZaloApp()
+{
+    QProcess::startDetached("C:/Users/dinht/AppData/Local/Programs/Zalo/Zalo.exe");
+}
+
+void MyApp::OpenVSCode()
+{
+    QProcess::startDetached("D:/Phanmemhoctap/Visual Studio Code/Microsoft VS Code/Code.exe");
+}
+
+void MyApp::OpenGoogleSearch()
+{
+    QString Google_Search_url = "https://www.google.com/";
+    QDesktopServices::openUrl(QUrl(Google_Search_url));
+}
+
 void MyApp::ChangeToHorizontalLayout()
 {
     this->hide();
     myapp_horizon = new myApp_horizontal(this);
     myapp_horizon->show();
 }
-void MyApp::ShowFrameTest()
+
+void MyApp::onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_textcontent)
 {
-    if (showframetest == false) showframetest = true;
-    else    showframetest = false;
+    number_testtest++;
+        if (number_testtest == 1)
+            MyApp::SetThuFrameResult("Chi", 240, 395, data_textday, data_textmoney, data_textcontent);
+        if (number_testtest == 2)
+            MyApp::SetThuFrameResult("Chi", 240,395 + 28 +5, data_textday, data_textmoney, data_textcontent);
+        if (number_testtest == 3)
+            MyApp::SetThuFrameResult("Chi", 240,395 + 2*(28 +5), data_textday, data_textmoney, data_textcontent);
+        if (number_testtest == 4)
+            MyApp::SetThuFrameResult("Chi", 240,395 + 3*(28 +5), data_textday, data_textmoney, data_textcontent);
 
-    ui->plainTextEdit_3->setPlainText("");
-    ui->plainTextEdit_2->setPlainText("");
-    ui->label_date_selected_Thu->setText("");
-
-    if (showframetest == true)
-    {
-        ui->frametest->setGeometry(30, 340 ,201,181);
-
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->frametest, "geometry");
-        animation->setDuration(100);
-        animation->setStartValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y()+ui->frametest->geometry().height(), 0, 0));
-        animation->setEndValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y(), ui->frametest->geometry().width(), ui->frametest->geometry().height()));
-
-        animation->start();
-    }
-    else
-    {
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->frametest, "geometry");
-        animation->setDuration(100);
-        animation->setEndValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y()+ui->frametest->geometry().height(), 0, 0));
-        animation->setStartValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y(), ui->frametest->geometry().width(), ui->frametest->geometry().height()));
-
-        animation->start();
-    }
 }
 
-void MyApp::EnterThuAndClose()
+void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_textcontent_thu)
 {
-    number_of_setThu++;
-    QPropertyAnimation *animation = new QPropertyAnimation(ui->frametest, "geometry");
-    animation->setDuration(100);
-    animation->setEndValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y()+ui->frametest->geometry().height(), 0, 0));
-    animation->setStartValue(QRect(ui->frametest->geometry().x(), ui->frametest->geometry().y(), ui->frametest->geometry().width(), ui->frametest->geometry().height()));
+    number_testtest_Thu++;
+    if (number_testtest_Thu == 1)
+        MyApp::SetThuFrameResult("Thu", 27,395, data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    if (number_testtest_Thu == 2)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 28 +5, data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    if (number_testtest_Thu == 3)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 2*(28 +5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    if (number_testtest_Thu == 4)
+        MyApp::SetThuFrameResult("Thu", 27,395 + 3*(28 +5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+}
 
-    animation->start();
-    showframetest = false;
-
-    QString text_day = ui->label_date_selected_Thu->text().mid(0,2);
-    QString text_content = ui->comboBox->currentText();
-    QString text_money = ui->plainTextEdit_3->toPlainText();
-
-    if (number_of_setThu == 1)
-        MyApp::SetThuFrameResult("Thu", 27,395, text_day, text_money, text_content);
-    if (number_of_setThu == 2)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 28 +5, text_day, text_money, text_content);
-    if (number_of_setThu == 3)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 2*(28 +5), text_day, text_money, text_content);
-    if (number_of_setThu == 4)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 3*(28 +5), text_day, text_money, text_content);
+void MyApp::ShowFrameTest()
+{
+    popup_Thu *mypopup_thu = new popup_Thu(this, "Hello1");
+    mypopup_thu->show();
+    connect(mypopup_thu, &popup_Thu::dataAvaiable_Thu, this, &MyApp::onDataAvailable_Thu);
 }
 
 void MyApp::ShowPopUpChi()
 {
-    ui->plainTextEdit_5->setPlainText("");
-    ui->plainTextEdit_4->setPlainText("");
-    ui->label_date_selected->setText("");
-
-    if (showPopupChi == false) showPopupChi = true;
-    else    showPopupChi = false;
-
-    if (showPopupChi == true)
-    {
-        ui->PopupChi->setGeometry(240, 340,200,181);
-
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->PopupChi, "geometry");
-        animation->setDuration(100);
-        animation->setStartValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y()+ui->PopupChi->geometry().height(), 0, 0));
-        animation->setEndValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y(), ui->PopupChi->geometry().width(), ui->PopupChi->geometry().height()));
-
-        animation->start();
-    }
-    else
-    {
-
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->PopupChi, "geometry");
-        animation->setDuration(100);
-        animation->setEndValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y()+ui->PopupChi->geometry().height(), 0, 0));
-        animation->setStartValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y(), ui->PopupChi->geometry().width(), ui->PopupChi->geometry().height()));
-
-        animation->start();
-    }
-}
-
-void MyApp::EnterChiAndClose()
-{
-    number_of_setChi++;
-    QPropertyAnimation *animation = new QPropertyAnimation(ui->PopupChi, "geometry");
-    animation->setDuration(100);
-    animation->setEndValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y()+ui->PopupChi->geometry().height(), 0, 0));
-    animation->setStartValue(QRect(ui->PopupChi->geometry().x(), ui->PopupChi->geometry().y(), ui->PopupChi->geometry().width(), ui->PopupChi->geometry().height()));
-
-    animation->start();
-    showPopupChi = false;
-
-    QString text_day = ui->label_date_selected->text().mid(0,2);
-    QString text_content = ui->comboBox_2->currentText();
-    QString text_money = ui->plainTextEdit_5->toPlainText();
-
-    if (number_of_setChi == 1)
-        MyApp::SetThuFrameResult("Chi", 240, 395, text_day, text_money, text_content);
-    if (number_of_setChi == 2)
-        MyApp::SetThuFrameResult("Chi", 240,395 + 28 +5, text_day, text_money, text_content);
-    if (number_of_setChi == 3)
-        MyApp::SetThuFrameResult("Chi", 240,395 + 2*(28 +5), text_day, text_money, text_content);
-    if (number_of_setChi == 4)
-        MyApp::SetThuFrameResult("Chi", 240,395 + 3*(28 +5), text_day, text_money, text_content);
-
+    PopupChi *mypopup = new PopupChi(this, "Hello");
+    mypopup->show();
+    connect(mypopup, &PopupChi::dataAvaiable, this, &MyApp::onDataAvailable);
 }
 
 void MyApp::BackImage()
@@ -273,118 +223,6 @@ void MyApp::showTime()
         ui->label_day->setStyleSheet(StyleSheetDay);
     }
 
-}
-
-void MyApp::OpenYoutubeWebsite()
-{
-    QString Youtube_url = "https://www.youtube.com/";
-    QDesktopServices::openUrl(QUrl(Youtube_url));
-}
-
-void MyApp::OpenGithubWebsite()
-{
-    QString myGithub_url = "https://github.com/ndthuan167";
-    QDesktopServices::openUrl(QUrl(myGithub_url));
-}
-
-void MyApp::OpenFacebookWebsite()
-{
-    QString Facebook_url = "https://www.facebook.com/";
-    QDesktopServices::openUrl(QUrl(Facebook_url));
-}
-
-void MyApp::OpenZaloApp()
-{
-    QProcess::startDetached("C:/Users/dinht/AppData/Local/Programs/Zalo/Zalo.exe");
-}
-
-void MyApp::OpenVSCode()
-{
-    QProcess::startDetached("D:/Phanmemhoctap/Visual Studio Code/Microsoft VS Code/Code.exe");
-}
-
-void MyApp::OpenGoogleSearch()
-{
-    QString Google_Search_url = "https://www.google.com/";
-    QDesktopServices::openUrl(QUrl(Google_Search_url));
-}
-
-void MyApp::ShowCalendarSelection()
-{
-    if (showPopupChi == true)
-    {
-        ui->PopupselectDay->setGeometry(QRect(245,400, 190, 71));
-        ui->PopupChi->hide();
-        QDate date = QDate::currentDate();
-        QString current_date = date.toString("dd/MM/yyyy");
-        ui->label_date_select->setText(current_date);
-        today = date.toString("dd").toInt() ;
-    }
-    if (showframetest == true)
-    {
-        ui->PopupselectDay_Thu->setGeometry(QRect(30,400, 190, 71));
-        ui->frametest->hide();
-        QDate date = QDate::currentDate();
-        QString current_date = date.toString("dd/MM/yyyy");
-        ui->label_date_select->setText(current_date);
-        today = date.toString("dd").toInt() ;
-    }
-}
-
-void MyApp::BackDayinCalendar()
-{
-    today--;
-    QString today_string = QString::number(today);
-    QDate day = QDate::currentDate();
-    QString tomonth = day.toString("MM");
-    QString toyear = day.toString("yyyy");
-    if (today < 10)
-        total_date = "0" + today_string  + "/" + tomonth + "/" + toyear;
-    else
-        total_date = today_string  + "/" + tomonth + "/" + toyear;
-    if (showPopupChi == true)
-        ui->label_date_select->setText(total_date);
-    if (showframetest == true)
-        ui->label_date_select_Thu->setText(total_date);
-}
-
-void MyApp::NextDayinCalendar()
-{
-    today++;
-    QString today_string = QString::number(today);
-    QDate day = QDate::currentDate();
-    QString tomonth = day.toString("MM");
-    QString toyear = day.toString("yyyy");
-    if (today < 10)
-        total_date = "0" + today_string  + "/" + tomonth + "/" + toyear;
-    else
-        total_date = today_string  + "/" + tomonth + "/" + toyear;
-    if (showPopupChi == true)
-        ui->label_date_select->setText(total_date);
-    if (showframetest == true)
-        ui->label_date_select_Thu->setText(total_date);
-}
-
-void MyApp::SetDateCalendar()
-{
-    if (showPopupChi == true)
-        ui->label_date_selected->setText(total_date);
-    if (showframetest == true)
-        ui->label_date_selected_Thu->setText(total_date);
-}
-
-void MyApp::PopupselectDay()
-{
-    if (showPopupChi == true)
-    {
-        ui->PopupChi->show();
-        ui->PopupselectDay->setGeometry(QRect(600,400, 190, 71));
-    }
-    else if (showframetest == true)
-    {
-        ui->frametest->show();
-        ui->PopupselectDay_Thu->setGeometry(QRect(600,400, 190, 71));
-    }
 }
 
 void MyApp::SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, QString text_day, QString textmoney, QString textcontent)

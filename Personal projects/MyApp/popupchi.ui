@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PopupChi</class>
+ <widget class="QDialog" name="PopupChi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>452</width>
+    <height>185</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QFrame" name="PopupChi_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>201</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#PopupChi_2{
+	background-color: #EDE4E0;
+	border-radius: 15;
+	border: 2px solid white;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>45</y>
+      <width>140</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+    border: 1px solid gray;
+    border-radius: 10px;
+    min-width: 6em;
+	padding-left: 25;
+}
+
+QComboBox:on {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+QComboBox QAbstractItemView {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: transparent;
+    border: 1px solid gray;
+    padding: 4px 4px 4px 4px
+}
+
+QComboBox::drop-down {
+	image: url(&quot;:/Icon/Image/icons8-down-25.png&quot;);
+	width:20;
+	padding-left: 5
+}
+</string>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="maxVisibleItems">
+     <number>10</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>Tiền trọ</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sinh hoạt</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Đi chơi</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ăn uống</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Khác</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>115</y>
+      <width>141</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10;
+background-color: white;
+border: 1px solid gray;
+padding-left: 5</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>45</y>
+      <width>25</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-goal-40.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>25</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-money-40.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>115</y>
+      <width>25</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-note-40.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>85</y>
+      <width>35</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>VNĐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SetChi">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>150</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_SetChi
+{
+	border: 0px solid white;
+	background-color: white;
+	border-radius: 10px;
+}
+#pushButton_SetChi::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#pushButton_SetChi::hover
+{
+	background-color: #BBBBBB;
+	border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string>Enter</string>
+    </property>
+    <property name="icon">
+     <iconset resource="ResourceFile.qrc">
+      <normaloff>:/Icon/Image/icons8-next-50.png</normaloff>:/Icon/Image/icons8-next-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_5">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>80</y>
+      <width>91</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10;
+background-color: white;
+border: 1px solid gray;
+padding-left: 15</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>8</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-calendar-48.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_6">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>10</y>
+      <width>141</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10;
+background-color: white;
+border: 1px solid gray;
+padding-left: 5</string>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Selectday">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>12</y>
+      <width>21</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_Selectday
+{
+	border: 0px solid white;
+	background-color: white;
+	border-radius: 10px;
+}
+#pushButton_Selectday::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#pushButton_Selectday::hover
+{
+	background-color: #BBBBBB;
+	border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="ResourceFile.qrc">
+      <normaloff>:/Icon/Image/icons8-calendar-48.png</normaloff>:/Icon/Image/icons8-calendar-48.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date_selected">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>12</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label_date_selected{
+	background-color: white;
+	border-radius: 10;
+	border: 1px solid white;
+	color: black
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="PopupselectDay">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>40</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#PopupselectDay{
+	background-color: white;
+	border-radius: 15;
+	border: 2px solid white;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>37</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-calendar-48.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SelectedDay">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_SelectedDay
+{
+	border: 0px solid white;
+	background-color: white;
+	border-radius: 10px;
+}
+#pushButton_SelectedDay::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#pushButton_SelectedDay::hover
+{
+	background-color: #BBBBBB;
+	border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string>Enter</string>
+    </property>
+    <property name="icon">
+     <iconset resource="ResourceFile.qrc">
+      <normaloff>:/Icon/Image/icons8-next-50.png</normaloff>:/Icon/Image/icons8-next-50.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_back_day">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_back_day
+{
+	background-color: white ;
+	border-radius: 15;
+}
+#pushButton_back_day:pressed
+{
+	background-color: white;
+	border-style: inset;
+}
+#pushButton_back_day:hover
+{
+	background-color: #CCFFFF;
+	border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="ResourceFile.qrc">
+      <normaloff>:/Icon/Image/back.png</normaloff>:/Icon/Image/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_next_day">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_next_day
+{
+	background-color :white ;
+	border-radius: 15;
+}
+#pushButton_next_day:pressed
+{
+	background-color: white;
+	border-style: inset;
+}
+#pushButton_next_day:hover
+{
+	background-color: #CCFFFF;
+	border-style: inset;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="ResourceFile.qrc">
+      <normaloff>:/Icon/Image/next.png</normaloff>:/Icon/Image/next.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_date_select">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>131</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Samsung Sharp Sans</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label_date_select{
+	background-color: white;
+	border-radius: 10;
+	border: 1px solid gray;
+	color: black
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="ResourceFile.qrc"/>
+ </resources>
+ <connections/>
+</ui>

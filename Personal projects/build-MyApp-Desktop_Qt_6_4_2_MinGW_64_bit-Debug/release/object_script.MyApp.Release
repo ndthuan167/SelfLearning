@@ -1,0 +1,10 @@
+release/main.o
+release/myapp.o
+release/myapp_horizontal.o
+release/popup_thu.o
+release/popupchi.o
+release/qrc_ResourceFile.o
+release/moc_myapp.o
+release/moc_myapp_horizontal.o
+release/moc_popup_thu.o
+release/moc_popupchi.o

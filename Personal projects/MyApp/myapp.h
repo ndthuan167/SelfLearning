@@ -31,27 +31,20 @@ public slots:
     void showTime();
     void HidetheTotal();
 
+    void ShowFrameTest();
+    void ShowPopUpChi();
+
     void BackImage();
     void NextImage();
 
-    void ShowFrameTest();
-    void EnterThuAndClose();
-
-    void ShowPopUpChi();
-    void EnterChiAndClose();
-
     void ChangeToHorizontalLayout();
-
-    void ShowCalendarSelection();
-    void PopupselectDay();
-
-    void BackDayinCalendar();
-    void NextDayinCalendar();
-    void SetDateCalendar();
 
     int ReturnNumberOfImage();
 
     void SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, QString text_day, QString textmoney, QString textcontent);
+
+    void onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_textcontent);
+    void onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_textcontent_thu);
 
 private:
     Ui::MyApp *ui;
@@ -65,6 +58,9 @@ private:
 
     int number_of_setThu = 0;
     int number_of_setChi = 0;
+
+    int number_testtest = 0;
+    int number_testtest_Thu = 0;
 
     QString SunNight;
     bool showframetest = false;
