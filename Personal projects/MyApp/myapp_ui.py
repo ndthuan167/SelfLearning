@@ -198,7 +198,6 @@ class Ui_MyApp(object):
         font.setFamily("Segoe UI Variable Text Semibold")
         font.setPointSize(11)
         font.setBold(True)
-        font.setWeight(75)
         self.GoogleButton.setFont(font)
         self.GoogleButton.setText("")
         icon2 = QtGui.QIcon()
@@ -212,7 +211,6 @@ class Ui_MyApp(object):
         font.setFamily("Segoe UI Variable Text Semibold")
         font.setPointSize(11)
         font.setBold(True)
-        font.setWeight(75)
         self.FacebookButton.setFont(font)
         self.FacebookButton.setText("")
         icon3 = QtGui.QIcon()
@@ -249,7 +247,6 @@ class Ui_MyApp(object):
         font.setFamily("SamsungOne 400")
         font.setPointSize(25)
         font.setBold(False)
-        font.setWeight(50)
         self.label_time.setFont(font)
         self.label_time.setStyleSheet("color: #3085C3")
         self.label_time.setAlignment(QtCore.Qt.AlignCenter)
@@ -261,7 +258,6 @@ class Ui_MyApp(object):
         font.setPointSize(16)
         font.setBold(True)
         font.setUnderline(False)
-        font.setWeight(75)
         font.setStrikeOut(False)
         self.label_thu.setFont(font)
         self.label_thu.setStyleSheet("color: #3085C3")
@@ -285,7 +281,6 @@ class Ui_MyApp(object):
         font.setFamily("SamsungOne 700")
         font.setPointSize(32)
         font.setBold(True)
-        font.setWeight(75)
         self.label_day.setFont(font)
         self.label_day.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_day.setAutoFillBackground(False)
@@ -361,7 +356,6 @@ class Ui_MyApp(object):
         font.setFamily("SamsungOne 400")
         font.setPointSize(22)
         font.setBold(False)
-        font.setWeight(50)
         self.pushButton_Plus_thu.setFont(font)
         self.pushButton_Plus_thu.setStyleSheet("#pushButton_Plus_thu\n"
 "{\n"
@@ -388,7 +382,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_total_thu.setFont(font)
         self.label_total_thu.setStyleSheet("#label_total_thu{\n"
 "    background-color: #3085C3;\n"
@@ -404,7 +397,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.comboBox_MonthThu.setFont(font)
         self.comboBox_MonthThu.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox_MonthThu.setAutoFillBackground(False)
@@ -440,7 +432,7 @@ class Ui_MyApp(object):
 "#comboBox_MonthThu {\n"
 "    border: 0px solid;\n"
 "    border-radius: 10px;\n"
-"    background-color: #5CB8E4;\n"
+"    background-color: #3085C3;\n"
 "    padding: 1px 23px 1px 15px;\n"
 "    min-width: 6em;\n"
 "    color: #ffffff;\n"
@@ -531,7 +523,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_total_chi.setFont(font)
         self.label_total_chi.setStyleSheet("#label_total_chi{\n"
 "    background-color: #F5A962;\n"
@@ -547,7 +538,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.comboBox_MonthChi.setFont(font)
         self.comboBox_MonthChi.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox_MonthChi.setAutoFillBackground(False)
@@ -604,7 +594,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label_total.setFont(font)
         self.label_total.setStyleSheet("#label_total{\n"
 "    background-color: white;\n"
@@ -620,7 +609,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("color: #3085C3")
         self.label_3.setObjectName("label_3")
@@ -798,7 +786,6 @@ class Ui_MyApp(object):
         font.setFamily("SamsungOne 700")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_10.setFont(font)
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
@@ -818,7 +805,6 @@ class Ui_MyApp(object):
         font.setFamily("SamsungOne 400")
         font.setPointSize(22)
         font.setBold(False)
-        font.setWeight(50)
         self.pushButton_Plus_pass.setFont(font)
         self.pushButton_Plus_pass.setStyleSheet("#pushButton_Plus_pass\n"
 "{\n"
@@ -921,61 +907,8 @@ class Ui_MyApp(object):
         self.pushButton_login.setIcon(icon12)
         self.pushButton_login.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_login.setObjectName("pushButton_login")
-        self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setGeometry(QtCore.QRect(700, 390, 195, 28))
-        self.frame_3.setStyleSheet("#frame_3{\n"
-"    background-color: #164863;\n"
-"    border-radius: 10;\n"
-"    border: 1px solid white;\n"
-"    color: white\n"
-"}")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.label_19 = QtWidgets.QLabel(self.frame_3)
-        self.label_19.setGeometry(QtCore.QRect(5, 4, 21, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_19.setFont(font)
-        self.label_19.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_19.setObjectName("label_19")
-        self.label_22 = QtWidgets.QLabel(self.frame_3)
-        self.label_22.setGeometry(QtCore.QRect(32, 4, 61, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_22.setFont(font)
-        self.label_22.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_22.setObjectName("label_22")
-        self.label_23 = QtWidgets.QLabel(self.frame_3)
-        self.label_23.setGeometry(QtCore.QRect(100, 4, 91, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_23.setFont(font)
-        self.label_23.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_23.setObjectName("label_23")
         self.frametest = QtWidgets.QFrame(self.frame)
-        self.frametest.setGeometry(QtCore.QRect(480, 310, 201, 181))
+        self.frametest.setGeometry(QtCore.QRect(470, 330, 201, 181))
         self.frametest.setStyleSheet("#frametest{\n"
 "    background-color: #EDE4E0;\n"
 "    border-radius: 15;\n"
@@ -990,7 +923,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.comboBox.setFont(font)
         self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox.setAutoFillBackground(False)
@@ -1030,7 +962,6 @@ class Ui_MyApp(object):
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_2.setFont(font)
         self.plainTextEdit_2.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1062,7 +993,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.pushButton_SetThu = QtWidgets.QPushButton(self.frametest)
@@ -1071,7 +1001,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.pushButton_SetThu.setFont(font)
         self.pushButton_SetThu.setStyleSheet("#pushButton_SetThu\n"
 "{\n"
@@ -1100,13 +1029,11 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_3.setFont(font)
         self.plainTextEdit_3.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
 "border: 1px solid gray;\n"
 "padding-left: 8")
-        self.plainTextEdit_3.setPlainText("")
         self.plainTextEdit_3.setObjectName("plainTextEdit_3")
         self.label_date_selected_2 = QtWidgets.QLabel(self.frametest)
         self.label_date_selected_2.setGeometry(QtCore.QRect(60, 13, 91, 25))
@@ -1114,7 +1041,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_date_selected_2.setFont(font)
         self.label_date_selected_2.setStyleSheet("#label_date_selected{\n"
 "    background-color: white;\n"
@@ -1129,7 +1055,6 @@ class Ui_MyApp(object):
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_7.setFont(font)
         self.plainTextEdit_7.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1173,7 +1098,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_date_selected_Thu.setFont(font)
         self.label_date_selected_Thu.setStyleSheet("#label_date_selected_Thu{\n"
 "    background-color: white;\n"
@@ -1183,14 +1107,56 @@ class Ui_MyApp(object):
 "}")
         self.label_date_selected_Thu.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_selected_Thu.setObjectName("label_date_selected_Thu")
-        self.scrollArea = QtWidgets.QScrollArea(self.frame)
-        self.scrollArea.setGeometry(QtCore.QRect(500, 520, 191, 131))
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 189, 129))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setGeometry(QtCore.QRect(720, 360, 181, 28))
+        self.frame_3.setStyleSheet("#frame_3{\n"
+"    background-color: #164863;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.label_19 = QtWidgets.QLabel(self.frame_3)
+        self.label_19.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_19.setFont(font)
+        self.label_19.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_19.setObjectName("label_19")
+        self.label_22 = QtWidgets.QLabel(self.frame_3)
+        self.label_22.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_22.setFont(font)
+        self.label_22.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_22.setObjectName("label_22")
+        self.label_23 = QtWidgets.QLabel(self.frame_3)
+        self.label_23.setGeometry(QtCore.QRect(100, 4, 91, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_23.setFont(font)
+        self.label_23.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_23.setObjectName("label_23")
         self.frame_Image.raise_()
         self.frame_day_time.raise_()
         self.frame_usual_app.raise_()
@@ -1201,9 +1167,8 @@ class Ui_MyApp(object):
         self.frame_info.raise_()
         self.frame_password.raise_()
         self.frame_password_2.raise_()
-        self.frame_3.raise_()
         self.frametest.raise_()
-        self.scrollArea.raise_()
+        self.frame_3.raise_()
         self.PopupChi = QtWidgets.QFrame(self.centralwidget)
         self.PopupChi.setGeometry(QtCore.QRect(490, 110, 201, 181))
         self.PopupChi.setStyleSheet("#PopupChi{\n"
@@ -1220,7 +1185,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.comboBox_2.setFont(font)
         self.comboBox_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox_2.setAutoFillBackground(False)
@@ -1263,7 +1227,6 @@ class Ui_MyApp(object):
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_4.setFont(font)
         self.plainTextEdit_4.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1295,7 +1258,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.pushButton_SetChi = QtWidgets.QPushButton(self.PopupChi)
@@ -1304,7 +1266,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.pushButton_SetChi.setFont(font)
         self.pushButton_SetChi.setStyleSheet("#pushButton_SetChi\n"
 "{\n"
@@ -1331,13 +1292,11 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_5.setFont(font)
         self.plainTextEdit_5.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
 "border: 1px solid gray;\n"
 "padding-left: 15")
-        self.plainTextEdit_5.setPlainText("")
         self.plainTextEdit_5.setObjectName("plainTextEdit_5")
         self.label_17 = QtWidgets.QLabel(self.PopupChi)
         self.label_17.setGeometry(QtCore.QRect(8, 8, 31, 31))
@@ -1350,7 +1309,6 @@ class Ui_MyApp(object):
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
-        font.setWeight(75)
         self.plainTextEdit_6.setFont(font)
         self.plainTextEdit_6.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1386,7 +1344,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_date_selected.setFont(font)
         self.label_date_selected.setStyleSheet("#label_date_selected{\n"
 "    background-color: white;\n"
@@ -1418,7 +1375,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.pushButton_SelectedDay.setFont(font)
         self.pushButton_SelectedDay.setStyleSheet("#pushButton_SelectedDay\n"
 "{\n"
@@ -1487,7 +1443,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_date_select.setFont(font)
         self.label_date_select.setStyleSheet("#label_date_select{\n"
 "    background-color: white;\n"
@@ -1519,7 +1474,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.pushButton_SelectedDay_Thu.setFont(font)
         self.pushButton_SelectedDay_Thu.setStyleSheet("#pushButton_SelectedDay_Thu\n"
 "{\n"
@@ -1588,7 +1542,6 @@ class Ui_MyApp(object):
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_date_select_Thu.setFont(font)
         self.label_date_select_Thu.setStyleSheet("#label_date_select_Thu{\n"
 "    background-color: white;\n"
@@ -1614,7 +1567,7 @@ class Ui_MyApp(object):
         self.label_thu.setText(_translate("MyApp", "Friday"))
         self.label_day.setText(_translate("MyApp", "30"))
         self.pushButton_Plus_thu.setText(_translate("MyApp", "+"))
-        self.label_total_thu.setText(_translate("MyApp", "Tổng: 10 000 000 VNĐ"))
+        self.label_total_thu.setText(_translate("MyApp", "Tổng: 0 VNĐ"))
         self.comboBox_MonthThu.setItemText(0, _translate("MyApp", "Tháng 1"))
         self.comboBox_MonthThu.setItemText(1, _translate("MyApp", "Tháng 2"))
         self.comboBox_MonthThu.setItemText(2, _translate("MyApp", "Tháng 3"))
@@ -1628,7 +1581,7 @@ class Ui_MyApp(object):
         self.comboBox_MonthThu.setItemText(10, _translate("MyApp", "Tháng 11"))
         self.comboBox_MonthThu.setItemText(11, _translate("MyApp", "Tháng 12"))
         self.pushButton_Plus_chi.setText(_translate("MyApp", "-"))
-        self.label_total_chi.setText(_translate("MyApp", "Tổng: 10 000 000 VNĐ"))
+        self.label_total_chi.setText(_translate("MyApp", "Tổng: 0 VNĐ"))
         self.comboBox_MonthChi.setItemText(0, _translate("MyApp", "Tháng 1"))
         self.comboBox_MonthChi.setItemText(1, _translate("MyApp", "Tháng 2"))
         self.comboBox_MonthChi.setItemText(2, _translate("MyApp", "Tháng 3"))
@@ -1647,15 +1600,16 @@ class Ui_MyApp(object):
         self.label_10.setText(_translate("MyApp", "Đình\n"
 " Thuận"))
         self.pushButton_Plus_pass.setText(_translate("MyApp", "+"))
-        self.label_19.setText(_translate("MyApp", "10"))
-        self.label_22.setText(_translate("MyApp", "15000000"))
-        self.label_23.setText(_translate("MyApp", "Salary"))
         self.comboBox.setItemText(0, _translate("MyApp", "Lương tháng"))
         self.comboBox.setItemText(1, _translate("MyApp", "Khác"))
         self.label.setText(_translate("MyApp", "VNĐ"))
         self.pushButton_SetThu.setText(_translate("MyApp", "Enter"))
+        self.plainTextEdit_3.setPlainText(_translate("MyApp", "0"))
         self.label_date_selected_2.setText(_translate("MyApp", "09/12/2023"))
         self.label_date_selected_Thu.setText(_translate("MyApp", "09/12/2023"))
+        self.label_19.setText(_translate("MyApp", "10"))
+        self.label_22.setText(_translate("MyApp", "15000000"))
+        self.label_23.setText(_translate("MyApp", "Salary"))
         self.comboBox_2.setItemText(0, _translate("MyApp", "Tiền trọ"))
         self.comboBox_2.setItemText(1, _translate("MyApp", "Sinh hoạt"))
         self.comboBox_2.setItemText(2, _translate("MyApp", "Đi chơi"))
@@ -1663,6 +1617,7 @@ class Ui_MyApp(object):
         self.comboBox_2.setItemText(4, _translate("MyApp", "Khác"))
         self.label_2.setText(_translate("MyApp", "VNĐ"))
         self.pushButton_SetChi.setText(_translate("MyApp", "Enter"))
+        self.plainTextEdit_5.setPlainText(_translate("MyApp", "0"))
         self.label_date_selected.setText(_translate("MyApp", "09/12/2023"))
         self.pushButton_SelectedDay.setText(_translate("MyApp", "Enter"))
         self.label_date_select.setText(_translate("MyApp", "09/12/2023"))

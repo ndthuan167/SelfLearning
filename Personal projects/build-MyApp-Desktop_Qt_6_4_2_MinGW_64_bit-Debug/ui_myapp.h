@@ -19,7 +19,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -82,10 +81,6 @@ public:
     QFrame *frame_password_2;
     QPushButton *pushButton_menu;
     QPushButton *pushButton_login;
-    QFrame *frame_3;
-    QLabel *label_19;
-    QLabel *label_22;
-    QLabel *label_23;
     QFrame *frametest;
     QComboBox *comboBox;
     QPlainTextEdit *plainTextEdit_2;
@@ -100,8 +95,10 @@ public:
     QLabel *label_18;
     QPushButton *pushButton_Selectday_Thu;
     QLabel *label_date_selected_Thu;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
+    QFrame *frame_3;
+    QLabel *label_19;
+    QLabel *label_22;
+    QLabel *label_23;
     QFrame *PopupChi;
     QComboBox *comboBox_2;
     QPlainTextEdit *plainTextEdit_4;
@@ -559,7 +556,7 @@ public:
 "#comboBox_MonthThu {\n"
 "	border: 0px solid;\n"
 "	border-radius: 10px;\n"
-"	background-color: #5CB8E4;\n"
+"	background-color: #3085C3;\n"
 "	padding: 1px 23px 1px 15px;\n"
 "	min-width: 6em;\n"
 "	color: #ffffff;\n"
@@ -993,56 +990,9 @@ public:
         icon12.addFile(QString::fromUtf8(":/Icon/Image/icons8-login-48.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_login->setIcon(icon12);
         pushButton_login->setIconSize(QSize(35, 35));
-        frame_3 = new QFrame(frame);
-        frame_3->setObjectName("frame_3");
-        frame_3->setGeometry(QRect(700, 390, 195, 28));
-        frame_3->setStyleSheet(QString::fromUtf8("#frame_3{\n"
-"	background-color: #164863;\n"
-"	border-radius: 10;\n"
-"	border: 1px solid white;\n"
-"	color: white\n"
-"}"));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        label_19 = new QLabel(frame_3);
-        label_19->setObjectName("label_19");
-        label_19->setGeometry(QRect(5, 4, 21, 20));
-        QFont font9;
-        font9.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
-        font9.setBold(true);
-        label_19->setFont(font9);
-        label_19->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
-        label_22 = new QLabel(frame_3);
-        label_22->setObjectName("label_22");
-        label_22->setGeometry(QRect(32, 4, 61, 20));
-        label_22->setFont(font9);
-        label_22->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
-        label_23 = new QLabel(frame_3);
-        label_23->setObjectName("label_23");
-        label_23->setGeometry(QRect(100, 4, 91, 20));
-        QFont font10;
-        font10.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
-        font10.setBold(false);
-        label_23->setFont(font10);
-        label_23->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
         frametest = new QFrame(frame);
         frametest->setObjectName("frametest");
-        frametest->setGeometry(QRect(480, 310, 201, 181));
+        frametest->setGeometry(QRect(470, 330, 201, 181));
         frametest->setStyleSheet(QString::fromUtf8("#frametest{\n"
 "	background-color: #EDE4E0;\n"
 "	border-radius: 15;\n"
@@ -1089,6 +1039,9 @@ public:
         plainTextEdit_2 = new QPlainTextEdit(frametest);
         plainTextEdit_2->setObjectName("plainTextEdit_2");
         plainTextEdit_2->setGeometry(QRect(45, 118, 141, 28));
+        QFont font9;
+        font9.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
+        font9.setBold(true);
         plainTextEdit_2->setFont(font9);
         plainTextEdit_2->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1203,14 +1156,50 @@ public:
 "	color: black\n"
 "}"));
         label_date_selected_Thu->setAlignment(Qt::AlignCenter);
-        scrollArea = new QScrollArea(frame);
-        scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(500, 520, 191, 131));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 189, 129));
-        scrollArea->setWidget(scrollAreaWidgetContents);
+        frame_3 = new QFrame(frame);
+        frame_3->setObjectName("frame_3");
+        frame_3->setGeometry(QRect(720, 360, 181, 28));
+        frame_3->setStyleSheet(QString::fromUtf8("#frame_3{\n"
+"	background-color: #164863;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        label_19 = new QLabel(frame_3);
+        label_19->setObjectName("label_19");
+        label_19->setGeometry(QRect(5, 4, 21, 20));
+        label_19->setFont(font9);
+        label_19->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_22 = new QLabel(frame_3);
+        label_22->setObjectName("label_22");
+        label_22->setGeometry(QRect(32, 4, 61, 20));
+        label_22->setFont(font9);
+        label_22->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_23 = new QLabel(frame_3);
+        label_23->setObjectName("label_23");
+        label_23->setGeometry(QRect(100, 4, 91, 20));
+        QFont font10;
+        font10.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
+        font10.setBold(false);
+        label_23->setFont(font10);
+        label_23->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
         frame_Image->raise();
         frame_day_time->raise();
         frame_usual_app->raise();
@@ -1221,9 +1210,8 @@ public:
         frame_info->raise();
         frame_password->raise();
         frame_password_2->raise();
-        frame_3->raise();
         frametest->raise();
-        scrollArea->raise();
+        frame_3->raise();
         PopupChi = new QFrame(centralwidget);
         PopupChi->setObjectName("PopupChi");
         PopupChi->setGeometry(QRect(490, 110, 201, 181));
@@ -1581,7 +1569,7 @@ public:
         label_image->setText(QString());
         label_image_2->setText(QString());
         pushButton_Plus_thu->setText(QCoreApplication::translate("MyApp", "+", nullptr));
-        label_total_thu->setText(QCoreApplication::translate("MyApp", "T\341\273\225ng: 10 000 000 VN\304\220", nullptr));
+        label_total_thu->setText(QCoreApplication::translate("MyApp", "T\341\273\225ng: 0 VN\304\220", nullptr));
         comboBox_MonthThu->setItemText(0, QCoreApplication::translate("MyApp", "Th\303\241ng 1", nullptr));
         comboBox_MonthThu->setItemText(1, QCoreApplication::translate("MyApp", "Th\303\241ng 2", nullptr));
         comboBox_MonthThu->setItemText(2, QCoreApplication::translate("MyApp", "Th\303\241ng 3", nullptr));
@@ -1597,7 +1585,7 @@ public:
 
         pushButton_Plus_chi->setText(QCoreApplication::translate("MyApp", "-", nullptr));
         label_6->setText(QString());
-        label_total_chi->setText(QCoreApplication::translate("MyApp", "T\341\273\225ng: 10 000 000 VN\304\220", nullptr));
+        label_total_chi->setText(QCoreApplication::translate("MyApp", "T\341\273\225ng: 0 VN\304\220", nullptr));
         comboBox_MonthChi->setItemText(0, QCoreApplication::translate("MyApp", "Th\303\241ng 1", nullptr));
         comboBox_MonthChi->setItemText(1, QCoreApplication::translate("MyApp", "Th\303\241ng 2", nullptr));
         comboBox_MonthChi->setItemText(2, QCoreApplication::translate("MyApp", "Th\303\241ng 3", nullptr));
@@ -1629,9 +1617,6 @@ public:
         pushButton_password->setText(QString());
         pushButton_menu->setText(QString());
         pushButton_login->setText(QString());
-        label_19->setText(QCoreApplication::translate("MyApp", "10", nullptr));
-        label_22->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
-        label_23->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("MyApp", "L\306\260\306\241ng th\303\241ng", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
 
@@ -1641,12 +1626,15 @@ public:
         label_13->setText(QString());
         label->setText(QCoreApplication::translate("MyApp", "VN\304\220", nullptr));
         pushButton_SetThu->setText(QCoreApplication::translate("MyApp", "Enter", nullptr));
-        plainTextEdit_3->setPlainText(QString());
+        plainTextEdit_3->setPlainText(QCoreApplication::translate("MyApp", "0", nullptr));
         label_date_selected_2->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
         plainTextEdit_7->setPlainText(QString());
         label_18->setText(QString());
         pushButton_Selectday_Thu->setText(QString());
         label_date_selected_Thu->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
+        label_19->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_22->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_23->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
         comboBox_2->setItemText(0, QCoreApplication::translate("MyApp", "Ti\341\273\201n tr\341\273\215", nullptr));
         comboBox_2->setItemText(1, QCoreApplication::translate("MyApp", "Sinh ho\341\272\241t", nullptr));
         comboBox_2->setItemText(2, QCoreApplication::translate("MyApp", "\304\220i ch\306\241i", nullptr));
@@ -1659,7 +1647,7 @@ public:
         label_16->setText(QString());
         label_2->setText(QCoreApplication::translate("MyApp", "VN\304\220", nullptr));
         pushButton_SetChi->setText(QCoreApplication::translate("MyApp", "Enter", nullptr));
-        plainTextEdit_5->setPlainText(QString());
+        plainTextEdit_5->setPlainText(QCoreApplication::translate("MyApp", "0", nullptr));
         label_17->setText(QString());
         plainTextEdit_6->setPlainText(QString());
         pushButton_Selectday->setText(QString());

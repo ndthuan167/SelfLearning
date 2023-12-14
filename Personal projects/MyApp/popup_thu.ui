@@ -271,14 +271,35 @@ padding-left: 5</string>
       <bold>true</bold>
      </font>
     </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10;
 background-color: white;
 border: 1px solid gray;
 padding-left: 8</string>
     </property>
+    <property name="tabChangesFocus">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
     <property name="plainText">
      <string/>
+    </property>
+    <property name="overwriteMode">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_date_selected_2">

@@ -162,10 +162,16 @@ public:
         plainTextEdit_3->setObjectName("plainTextEdit_3");
         plainTextEdit_3->setGeometry(QRect(45, 83, 101, 28));
         plainTextEdit_3->setFont(font);
+        plainTextEdit_3->setTabletTracking(false);
+        plainTextEdit_3->setAcceptDrops(true);
+        plainTextEdit_3->setAutoFillBackground(false);
         plainTextEdit_3->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
 "background-color: white;\n"
 "border: 1px solid gray;\n"
 "padding-left: 8"));
+        plainTextEdit_3->setTabChangesFocus(false);
+        plainTextEdit_3->setReadOnly(false);
+        plainTextEdit_3->setOverwriteMode(false);
         label_date_selected_2 = new QLabel(frametest);
         label_date_selected_2->setObjectName("label_date_selected_2");
         label_date_selected_2->setGeometry(QRect(60, 13, 91, 25));
@@ -337,6 +343,9 @@ public:
         label_13->setText(QString());
         label->setText(QCoreApplication::translate("popup_Thu", "VN\304\220", nullptr));
         pushButton_SetThu->setText(QCoreApplication::translate("popup_Thu", "Enter", nullptr));
+#if QT_CONFIG(whatsthis)
+        plainTextEdit_3->setWhatsThis(QString());
+#endif // QT_CONFIG(whatsthis)
         plainTextEdit_3->setPlainText(QString());
         label_date_selected_2->setText(QCoreApplication::translate("popup_Thu", "09/12/2023", nullptr));
         plainTextEdit_7->setPlainText(QString());

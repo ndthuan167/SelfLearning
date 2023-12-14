@@ -85,29 +85,49 @@ void MyApp::ChangeToHorizontalLayout()
 
 void MyApp::onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_textcontent)
 {
-    number_testtest++;
-        if (number_testtest == 1)
-            MyApp::SetThuFrameResult("Chi", 240, 395, data_textday, data_textmoney, data_textcontent);
-        if (number_testtest == 2)
-            MyApp::SetThuFrameResult("Chi", 240,395 + 28 +5, data_textday, data_textmoney, data_textcontent);
-        if (number_testtest == 3)
-            MyApp::SetThuFrameResult("Chi", 240,395 + 2*(28 +5), data_textday, data_textmoney, data_textcontent);
-        if (number_testtest == 4)
-            MyApp::SetThuFrameResult("Chi", 240,395 + 3*(28 +5), data_textday, data_textmoney, data_textcontent);
+    number_add_Chi++;
+    if (number_add_Chi > 8)
+    {
+        number_add_Chi = 1 ;
+        number_add_Chi_1 = 0;
+        number_add_Chi_2 = 0;
+    }
 
+    if (number_add_Chi %2 != 0)
+    {
+        number_add_Chi_1++;
+        MyApp::SetThuFrameResult("Chi", 240, 395 + (number_add_Chi_1 - 1)*(28+5), data_textday, data_textmoney, data_textcontent);
+
+    }
+    else
+    {
+        number_add_Chi_2++;
+        MyApp::SetThuFrameResult("Chi", 240 + 98 + 2, 395 + (number_add_Chi_2 - 1)*(28+5), data_textday, data_textmoney, data_textcontent);
+    }
 }
 
 void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_textcontent_thu)
 {
-    number_testtest_Thu++;
-    if (number_testtest_Thu == 1)
-        MyApp::SetThuFrameResult("Thu", 27,395, data_textday_thu, data_textmoney_thu, data_textcontent_thu);
-    if (number_testtest_Thu == 2)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 28 +5, data_textday_thu, data_textmoney_thu, data_textcontent_thu);
-    if (number_testtest_Thu == 3)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 2*(28 +5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
-    if (number_testtest_Thu == 4)
-        MyApp::SetThuFrameResult("Thu", 27,395 + 3*(28 +5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    number_add_Thu++;
+    if (number_add_Thu > 8)
+    {
+        number_add_Thu = 1 ;
+        number_add_Thu_1 = 0;
+        number_add_Thu_2 = 0;
+    }
+
+    if (number_add_Thu %2 != 0)
+    {
+        number_add_Thu_1++;
+        MyApp::SetThuFrameResult("Thu", 27,395 + (number_add_Thu_1 - 1)*(28+5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+
+    }
+    else
+    {
+        number_add_Thu_2++;
+        MyApp::SetThuFrameResult("Thu", 27 + 98 + 2, 395 + (number_add_Thu_2 - 1)*(28+5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    }
+
 }
 
 void MyApp::ShowFrameTest()
@@ -178,20 +198,20 @@ void MyApp::NextImage()
                                    "border: 1pxsolid white;");
 }
 
-int MyApp::ReturnNumberOfImage()
-{
-    return numberofimage;
-}
-
 void MyApp::HidetheTotal()
 {
     if (Hide == false)  Hide = true;
     else    Hide = false;
 
     if (Hide == true)
-        ui->label_total->setText("Tổng tích lũy: 100 000 000 VNĐ");
+        ui->label_total->setText("Tổng tích lũy: " + money_tichluy +" VNĐ");
     else
         ui->label_total->setText("Tổng tích lũy: *** *** *** VNĐ");
+
+//    if (Hide == true)
+//        ui->label_total->setText("Tổng tích lũy: 100 000 000 VNĐ");
+//    else
+//        ui->label_total->setText("Tổng tích lũy: *** *** *** VNĐ");
 }
 
 void MyApp::showTime()
@@ -236,13 +256,8 @@ void MyApp::SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, 
     QString styleSheetForFrame = "background-color: #" + colorOfbackground + "; border-radius: 10; border: 1px solid white; color: white";
     QString styleSheetForLabel = "background-color: white; border-radius: 7; border: 1px solid white; color: black" ;
 
-    // ----> Set frame in a Scroll Area
-//    QScrollArea *scrollarea =  new QScrollArea(this);
-//    scrollarea->setGeometry(QRect(x_geometry, y_geometry, 190, 130));
-//    scrollarea->setStyleSheet("background-color: black;");
-
     QFrame *frame_Thu = new QFrame(this);
-    frame_Thu->setFixedSize(195,28);
+    frame_Thu->setFixedSize(96,28);
     frame_Thu->setStyleSheet(styleSheetForFrame);
     frame_Thu->setGeometry(QRect(x_geometry,y_geometry,192,28));
 
@@ -257,19 +272,32 @@ void MyApp::SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, 
     label_day->setFont(font);
 
     QLabel *label_money = new QLabel(frame_Thu);
-    label_money->setGeometry(QRect(32,4,61,20));
+    label_money->setGeometry(QRect(31,4,60,20));
     label_money->setStyleSheet(styleSheetForLabel);
     label_money->setText(textmoney);
     label_money->setAlignment(Qt::AlignCenter);
     label_money->setFont(font);
 
-    QLabel *label_content = new QLabel(frame_Thu);
-    label_content->setGeometry(QRect(100,4,91,20));
-    label_content->setStyleSheet(styleSheetForLabel);
-    label_content->setText(textcontent);
-    label_content->setAlignment(Qt::AlignCenter);
-    label_content->setFont(font);
-
-//    scrollarea->show();
     frame_Thu->show();
+
+    if (ThuOrChi == "Thu")
+    {
+        int_money_thu += (label_money->text()).toInt();
+        money_thu = "Tổng: " + QString::number(int_money_thu) + " VNĐ";
+        ui->label_total_thu->setText(money_thu);
+    }
+    else
+    {
+        int_money_chi += (label_money->text()).toInt();
+        money_chi = "Tổng: " + QString::number(int_money_chi) + " VNĐ";
+        ui->label_total_chi->setText(money_chi);
+    }
+    money_tichluy =  QString::number(int_money_thu - int_money_chi);
+
+    if(Hide == true)
+    {
+        Hide = false;
+        this->HidetheTotal();
+    }
+
 }
