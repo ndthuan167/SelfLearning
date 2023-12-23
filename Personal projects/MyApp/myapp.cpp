@@ -2,22 +2,33 @@
 #include "ui_myapp.h"
 #include "popupchi.h"
 #include "popup_thu.h"
+#include "xlsxdocument.h"
+#include "xlsxchartsheet.h"
+#include "xlsxcellrange.h"
+#include "xlsxchart.h"
+#include "xlsxrichstring.h"
+#include "xlsxworkbook.h"
+#include "xlsxworksheet.h"
+
+using namespace QXlsx;
 
 MyApp::MyApp(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MyApp)
+    : QMainWindow(parent), ui(new Ui::MyApp)
 {
     ui->setupUi(this);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
     timer->start(1000);
 
+    // Show data chi
+    ShowDataFromDataSource();
+
     // Animation for Image
     QTimer *timer_image = new QTimer(this);
     connect(timer_image, SIGNAL(timeout()), this, SLOT(NextImage()));
     timer_image->start(5000);
 
-    this->setFixedSize(460,690);
+    this->setFixedSize(460, 690);
     this->setWindowTitle("Thuan's App");
     this->setWindowIcon(QIcon(":/Icon/Image/Icon.jpg"));
 
@@ -34,7 +45,6 @@ MyApp::MyApp(QWidget *parent)
 
     connect(ui->pushButton_Plus_chi, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpChi()));
     connect(ui->pushButton_login, SIGNAL(clicked(bool)), this, SLOT(ChangeToHorizontalLayout()));
-
 }
 
 MyApp::~MyApp()
@@ -78,56 +88,384 @@ void MyApp::OpenGoogleSearch()
 
 void MyApp::ChangeToHorizontalLayout()
 {
-    this->hide();
-    myapp_horizon = new myApp_horizontal(this);
-    myapp_horizon->show();
-}
+    if (set_horizontal_layout == false)
+        set_horizontal_layout = true;
+    else
+        set_horizontal_layout = false;
 
-void MyApp::onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_textcontent)
-{
-    number_add_Chi++;
-    if (number_add_Chi > 8)
+    if (set_horizontal_layout == true)
     {
-        number_add_Chi = 1 ;
-        number_add_Chi_1 = 0;
-        number_add_Chi_2 = 0;
-    }
+        // setClearframeChi virtial
 
-    if (number_add_Chi %2 != 0)
-    {
-        number_add_Chi_1++;
-        MyApp::SetThuFrameResult("Chi", 240, 395 + (number_add_Chi_1 - 1)*(28+5), data_textday, data_textmoney, data_textcontent);
+        ui->frame_Thu_1->setGeometry(QRect(740, 110, 265, 28));
 
+        ui->frame_Chi_1->setGeometry(QRect(740, 430, 265, 28));
+        ui->frame_Chi_2->setGeometry(QRect(740 + 265 + 5, 430, 265, 28));
+        ui->frame_Chi_3->setGeometry(QRect(740, 430 + 28 + 5, 265, 28));
+        ui->frame_Chi_4->setGeometry(QRect(740 + 265 + 5, 430 + 28 + 5, 265, 28));
+        ui->frame_Chi_5->setGeometry(QRect(740, 430 + 2 * (28 + 5), 265, 28));
+        ui->frame_Chi_6->setGeometry(QRect(740 + 265 + 5, 430 + 2 * (28 + 5), 265, 28));
+        ui->frame_Chi_7->setGeometry(QRect(740, 430 + 3 * (28 + 5), 265, 28));
+        ui->frame_Chi_8->setGeometry(QRect(740 + 265 + 5, 430 + 3 * (28 + 5), 265, 28));
+
+        // Change Geometry to horizontal layout
+        this->setFixedSize(1310, 760);
+        ui->frame->setGeometry(QRect(5, 5, 1300, 750));
+        ui->frame_usual_app->setGeometry(QRect(10, 10, 131, 730));
+        ui->frame_usual_app->setStyleSheet("background-color: #4FC1E9");
+        ui->frame_password_2->setGeometry(QRect(20, 690, 111, 41));
+        ui->frame_password_2->setStyleSheet("#frame_password_2{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->pushButton_menu->setGeometry(QRect(15, 5, 30, 30));
+        ui->pushButton_login->setGeometry(QRect(70, 5, 30, 30));
+
+        ui->frame_info->setGeometry(QRect(20, 640, 111, 45));
+        ui->frame_info->setStyleSheet("#frame_info{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}}");
+        ui->label_9->setGeometry(QRect(15, 7, 31, 31));
+        ui->label_10->setGeometry(QRect(50, 3, 51, 41));
+
+        ui->frame_password->setGeometry(QRect(20, 590, 111, 45));
+        ui->frame_password->setStyleSheet("#frame_password{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->pushButton_password->setGeometry(QRect(15, 7, 30, 30));
+        ui->pushButton_Plus_pass->setGeometry(QRect(70, 8, 30, 30));
+
+        ui->frame_plan_note->setGeometry(QRect(150, 370, 551, 371));
+        ui->frame_plan->setGeometry(QRect(10, 10, 263, 351));
+        ui->frame_note->setGeometry(QRect(279, 10, 262, 351));
+
+        ui->frame_Image->setGeometry(QRect(150, 10, 551, 351));
+        ui->frame_2->setGeometry(QRect(10, 5, 531, 341));
+        ui->label_image_2->setGeometry(QRect(5, 5, 521, 331));
+        ui->label_image->setGeometry(QRect(530 + 5, 5, 521, 331));
+
+        ui->pushButton_next->setGeometry(QRect(670, 170, 30, 30));
+        ui->pushButton_back->setGeometry(QRect(150, 170, 30, 30));
+
+        ui->frame_thuchi->setGeometry(QRect(710, 10, 581, 731));
+        ui->frame_thu->setGeometry(QRect(10, 50, 561, 311));
+        ui->comboBox_MonthThu->setGeometry(QRect(20, 10, 151, 25));
+        ui->label_5->setGeometry(QRect(530, 55, 28, 28));
+        ui->pushButton_Plus_thu->setGeometry(QRect(5, 275, 31, 31));
+        ui->label_total_thu->setGeometry(QRect(40, 278, 151, 25));
+
+        ui->frame_chi->setGeometry(QRect(10, 370, 561, 351));
+        ui->comboBox_MonthChi->setGeometry(QRect(20, 10, 151, 25));
+        ui->label_6->setGeometry(QRect(520, 10, 28, 28));
+        ui->pushButton_Plus_chi->setGeometry(QRect(5, 310, 31, 31));
+        ui->label_total_chi->setGeometry(QRect(40, 315, 151, 25));
+
+        ui->pushButton_Excel->setGeometry(QRect(530, 10, 31, 31));
+        ui->pushButton_hide->setGeometry(QRect(490, 27, 21, 20));
+        ui->label_total->setGeometry(QRect(130, 10, 371, 31));
+
+        ui->frame_day_time->setGeometry(QRect(20, 20, 111, 141));
+        ui->frame_day_time->raise();
+        ui->label_thu->setGeometry(QRect(15, 5, 85, 28));
+        ui->label_day->setGeometry(QRect(25, 37, 60, 55));
+        ui->label_time->setGeometry(QRect(15, 95, 87, 35));
+        ui->label_night->setGeometry(QRect(75, 75, 21, 21));
+        ui->label_sun->setGeometry(QRect(75, 35, 21, 21));
+
+        ui->frame_Enter_app->setGeometry(QRect(10, 160, 111, 261));
+        ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->ZaloButton->setGeometry(QRect(9, 15, 93, 50));
+        ui->ZaloButton->setStyleSheet(" #ZaloButton"
+                                      "{"
+                                      "border: 0px solid white;"
+                                      "background-color: white;"
+                                      "border-radius: 20px;"
+                                      "}"
+                                      "#ZaloButton::pressed"
+                                      "{"
+                                      "background-color: #99FFFF;"
+                                      "border-style: inset;"
+                                      "}"
+                                      "#ZaloButton::hover"
+                                      "{"
+                                      "background-color: #BBBBBB;"
+                                      "border-style: inset;"
+                                      "}");
+        ui->YoutubeButton->setGeometry(QRect(9, 77, 93, 50));
+        ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
+                                         "{"
+                                         "border: 0px solid white;"
+                                         "background-color: white;"
+                                         "border-radius: 20px;"
+                                         "}"
+                                         "#YoutubeButton::pressed"
+                                         "{"
+                                         "background-color: #99FFFF;"
+                                         "border-style: inset;"
+                                         "}"
+                                         "#YoutubeButton::hover"
+                                         "{"
+                                         "background-color: #BBBBBB;"
+                                         "border-style: inset;"
+                                         "}");
+        ui->FacebookButton->setGeometry(QRect(9, 136, 93, 50));
+        ui->FacebookButton->setStyleSheet(" #FacebookButton"
+                                          "{"
+                                          "border: 0px solid white;"
+                                          "background-color: white;"
+                                          "border-radius: 20px;"
+                                          "}"
+                                          "#FacebookButton::pressed"
+                                          "{"
+                                          "background-color: #99FFFF;"
+                                          "border-style: inset;"
+                                          "}"
+                                          "#FacebookButton::hover"
+                                          "{"
+                                          "background-color: #BBBBBB;"
+                                          "border-style: inset;"
+                                          "}");
+        ui->GoogleButton->setGeometry(QRect(9, 196, 93, 50));
+        ui->GoogleButton->setStyleSheet(" #GoogleButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#GoogleButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#GoogleButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
+        ui->frame_coding_app->setGeometry(QRect(10, 430, 111, 141));
+        ui->frame_coding_app->setStyleSheet("#frame_coding_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->VSCodeButton->setGeometry(QRect(9, 14, 93, 50));
+        ui->VSCodeButton->setStyleSheet(" #VSCodeButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#VSCodeButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#VSCodeButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
+        ui->GithubButton->setGeometry(QRect(9, 75, 93, 50));
+        ui->GithubButton->setStyleSheet(" #GithubButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#GithubButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#GithubButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
     }
     else
     {
-        number_add_Chi_2++;
-        MyApp::SetThuFrameResult("Chi", 240 + 98 + 2, 395 + (number_add_Chi_2 - 1)*(28+5), data_textday, data_textmoney, data_textcontent);
+        ShowDataFromDataSource();
+        // Change Geometry to vertical layout
+        this->setFixedSize(460, 690);
+        ui->frame->setGeometry(QRect(5, 5, 451, 680));
+        ui->frame_usual_app->setGeometry(QRect(10, 580, 431, 91));
+        ui->frame_usual_app->setStyleSheet("background-color: #EEF2F5");
+        ui->frame_password_2->setGeometry(QRect(10, 100, 91, 41));
+        ui->frame_password_2->setStyleSheet("#frame_password_2{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->pushButton_menu->setGeometry(QRect(10, 5, 30, 30));
+        ui->pushButton_login->setGeometry(QRect(50, 5, 30, 30));
+
+        ui->frame_info->setGeometry(QRect(10, 10, 90, 40));
+        ui->frame_info->setStyleSheet("#frame_info{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}}");
+        ui->label_9->setGeometry(QRect(10, 5, 31, 31));
+        ui->label_10->setGeometry(QRect(35, 0, 51, 41));
+
+        ui->frame_password->setGeometry(QRect(10, 55, 91, 41));
+        ui->frame_password->setStyleSheet("#frame_password{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->pushButton_password->setGeometry(QRect(10, 5, 30, 30));
+        ui->pushButton_Plus_pass->setGeometry(QRect(50, 8, 28, 28));
+
+        ui->frame_plan_note->setGeometry(QRect(10, 150, 431, 141));
+        ui->frame_plan->setGeometry(QRect(7, 12, 205, 117));
+        ui->frame_note->setGeometry(QRect(220, 12, 205, 117));
+
+        ui->frame_Image->setGeometry(QRect(115, 10, 215, 135));
+        ui->frame_2->setGeometry(QRect(10, 5, 195, 125));
+        ui->label_image_2->setGeometry(QRect(5, 5, 185, 115));
+        ui->label_image->setGeometry(QRect(5 + 190, 5, 185, 115));
+        ui->pushButton_next->setGeometry(QRect(310, 60, 30, 30));
+        ui->pushButton_back->setGeometry(QRect(105, 60, 30, 30));
+
+        ui->frame_thuchi->setGeometry(QRect(10, 300, 431, 271));
+        ui->frame_thu->setGeometry(QRect(7, 50, 205, 211));
+        ui->comboBox_MonthThu->setGeometry(QRect(10, 5, 134, 25));
+        ui->label_5->setGeometry(QRect(175, 55, 28, 28));
+        ui->pushButton_Plus_thu->setGeometry(QRect(5, 175, 31, 31));
+        ui->label_total_thu->setGeometry(QRect(40, 180, 151, 25));
+
+        ui->frame_chi->setGeometry(QRect(220, 50, 205, 211));
+        ui->comboBox_MonthChi->setGeometry(QRect(10, 5, 134, 25));
+        ui->label_6->setGeometry(QRect(170, 5, 28, 28));
+        ui->pushButton_Plus_chi->setGeometry(QRect(5, 175, 31, 31));
+        ui->label_total_chi->setGeometry(QRect(40, 180, 151, 25));
+
+        ui->pushButton_Excel->setGeometry(QRect(387, 10, 31, 31));
+        ui->pushButton_hide->setGeometry(QRect(350, 27, 21, 20));
+        ui->label_total->setGeometry(QRect(110, 10, 251, 31));
+
+        ui->frame_day_time->setGeometry(QRect(340, 10, 101, 135));
+        ui->frame_day_time->raise();
+        ui->label_thu->setGeometry(QRect(8, 5, 85, 28));
+        ui->label_day->setGeometry(QRect(20, 37, 60, 55));
+        ui->label_time->setGeometry(QRect(8, 95, 87, 35));
+        ui->label_night->setGeometry(QRect(70, 75, 21, 21));
+        ui->label_sun->setGeometry(QRect(70, 35, 21, 21));
+
+        ui->frame_Enter_app->setGeometry(QRect(11, 11, 251, 69));
+        ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->ZaloButton->setGeometry(QRect(188, 9, 54, 50));
+        ui->ZaloButton->setStyleSheet(" #ZaloButton"
+                                      "{"
+                                      "border: 0px solid white;"
+                                      "background-color: white;"
+                                      "border-radius: 20px;"
+                                      "}"
+                                      "#ZaloButton::pressed"
+                                      "{"
+                                      "background-color: #99FFFF;"
+                                      "border-style: inset;"
+                                      "}"
+                                      "#ZaloButton::hover"
+                                      "{"
+                                      "background-color: #BBBBBB;"
+                                      "border-style: inset;"
+                                      "}");
+        ui->YoutubeButton->setGeometry(QRect(128, 11, 54, 47));
+        ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
+                                         "{"
+                                         "border: 0px solid white;"
+                                         "background-color: white;"
+                                         "border-radius: 20px;"
+                                         "}"
+                                         "#YoutubeButton::pressed"
+                                         "{"
+                                         "background-color: #99FFFF;"
+                                         "border-style: inset;"
+                                         "}"
+                                         "#YoutubeButton::hover"
+                                         "{"
+                                         "background-color: #BBBBBB;"
+                                         "border-style: inset;"
+                                         "}");
+        ui->FacebookButton->setGeometry(QRect(69, 10, 52, 48));
+        ui->FacebookButton->setStyleSheet(" #FacebookButton"
+                                          "{"
+                                          "border: 0px solid white;"
+                                          "background-color: white;"
+                                          "border-radius: 20px;"
+                                          "}"
+                                          "#FacebookButton::pressed"
+                                          "{"
+                                          "background-color: #99FFFF;"
+                                          "border-style: inset;"
+                                          "}"
+                                          "#FacebookButton::hover"
+                                          "{"
+                                          "background-color: #BBBBBB;"
+                                          "border-style: inset;"
+                                          "}");
+        ui->GoogleButton->setGeometry(QRect(9, 10, 52, 48));
+        ui->GoogleButton->setStyleSheet(" #GoogleButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#GoogleButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#GoogleButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
+        ui->frame_coding_app->setGeometry(QRect(269, 11, 151, 69));
+        ui->frame_coding_app->setStyleSheet("#frame_coding_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
+        ui->VSCodeButton->setGeometry(QRect(79, 9, 54, 50));
+        ui->VSCodeButton->setStyleSheet(" #VSCodeButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#VSCodeButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#VSCodeButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
+        ui->GithubButton->setGeometry(QRect(9, 9, 54, 50));
+        ui->GithubButton->setStyleSheet(" #GithubButton"
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#GithubButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#GithubButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
     }
 }
 
-void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_textcontent_thu)
+void MyApp::onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent)
 {
-    number_add_Thu++;
-    if (number_add_Thu > 8)
-    {
-        number_add_Thu = 1 ;
-        number_add_Thu_1 = 0;
-        number_add_Thu_2 = 0;
-    }
+    Document xlsx("Data_source.xlsx");
 
-    if (number_add_Thu %2 != 0)
-    {
-        number_add_Thu_1++;
-        MyApp::SetThuFrameResult("Thu", 27,395 + (number_add_Thu_1 - 1)*(28+5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
+    xlsx.selectSheet(11);
 
-    }
-    else
-    {
-        number_add_Thu_2++;
-        MyApp::SetThuFrameResult("Thu", 27 + 98 + 2, 395 + (number_add_Thu_2 - 1)*(28+5), data_textday_thu, data_textmoney_thu, data_textcontent_thu);
-    }
+    xlsx.write("G13", data_textday);
+    xlsx.write("H13", data_textmoney);
+    xlsx.write("I13", data_texttype);
+    xlsx.write("J13", data_textcontent);
 
+    xlsx.saveAs("Data_source.xlsx");
+}
+
+void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu, const QString &data_textcontent_thu)
+{
+    Document xlsx("Data_source.xlsx");
+
+    xlsx.selectSheet(11);
+
+    xlsx.write("A7", data_textday_thu);
+    xlsx.write("B7", data_textmoney_thu);
+    xlsx.write("C7", data_texttype_thu);
+    xlsx.write("D7", data_textcontent_thu);
+
+    xlsx.saveAs("Data_source.xlsx");
 }
 
 void MyApp::ShowFrameTest()
@@ -153,7 +491,7 @@ void MyApp::BackImage()
     QString string2 = QString::number(numberofimage);
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
-    ui->label_image->setStyleSheet( stringplus +
+    ui->label_image->setStyleSheet(stringplus +
                                    "border-radius: 15px;"
                                    "border: 1pxsolid white;");
 }
@@ -167,24 +505,42 @@ void MyApp::NextImage()
     QString string2 = QString::number(numberofimage);
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
-    ui->label_image->setStyleSheet( stringplus +
+    ui->label_image->setStyleSheet(stringplus +
                                    "border-radius: 15px;"
                                    "border: 1pxsolid white;");
 
     QPropertyAnimation *animation_image = new QPropertyAnimation(ui->label_image, "geometry");
-    ui->label_image->setGeometry(5,5,185,115);
     animation_image->setDuration(500);
-    animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 185, 115));
-    animation_image->setStartValue(QRect(ui->label_image->geometry().x()-185, ui->label_image->geometry().y(), 185, 115));
 
+    if (set_horizontal_layout == true)
+    {
+        ui->label_image->setGeometry(5, 5, 521, 331);
+        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 521, 331));
+        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 521, ui->label_image->geometry().y(), 521, 331));
+    }
+    else
+    {
+        ui->label_image->setGeometry(5, 5, 185, 115);
+        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 185, 115));
+        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 185, ui->label_image->geometry().y(), 185, 115));
+    }
     animation_image->start();
 
     QPropertyAnimation *animation_image_2 = new QPropertyAnimation(ui->label_image_2, "geometry");
-    ui->label_image_2->setGeometry(10,5,185,115);
     animation_image_2->setDuration(500);
-    animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 185, ui->label_image_2->geometry().y(), 185, 115));
-    animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 185, 115));
 
+    if (set_horizontal_layout == true)
+    {
+        ui->label_image_2->setGeometry(5, 5, 521, 331);
+        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 530, ui->label_image_2->geometry().y(), 521, 331));
+        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 521, 331));
+    }
+    else
+    {
+        ui->label_image_2->setGeometry(10, 5, 185, 115);
+        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 185, ui->label_image_2->geometry().y(), 185, 115));
+        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 185, 115));
+    }
     animation_image_2->start();
     QString string1_2 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
     numberofimage_2 = numberofimage - 1;
@@ -193,25 +549,22 @@ void MyApp::NextImage()
     QString string2_2 = QString::number(numberofimage_2);
     QString string3_2 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus_2 = string1_2 + string2_2 + string3_2;
-    ui->label_image_2->setStyleSheet( stringplus_2 +
-                                   "border-radius: 15px;"
-                                   "border: 1pxsolid white;");
+    ui->label_image_2->setStyleSheet(stringplus_2 +
+                                     "border-radius: 15px;"
+                                     "border: 1pxsolid white;");
 }
 
 void MyApp::HidetheTotal()
 {
-    if (Hide == false)  Hide = true;
-    else    Hide = false;
+    if (Hide == false)
+        Hide = true;
+    else
+        Hide = false;
 
     if (Hide == true)
-        ui->label_total->setText("Tổng tích lũy: " + money_tichluy +" VNĐ");
+        ui->label_total->setText("Tổng tích lũy: " + money_tichluy + " VNĐ");
     else
         ui->label_total->setText("Tổng tích lũy: *** *** *** VNĐ");
-
-//    if (Hide == true)
-//        ui->label_total->setText("Tổng tích lũy: 100 000 000 VNĐ");
-//    else
-//        ui->label_total->setText("Tổng tích lũy: *** *** *** VNĐ");
 }
 
 void MyApp::showTime()
@@ -227,7 +580,7 @@ void MyApp::showTime()
 
     QString text_hour = time.toString("hh");
     int hour = text_hour.toInt();
-    QString StyleSheetDay = "background-color:  "+ SunNight + "; color: #3085C3; border-radius: 25px";
+    QString StyleSheetDay = "background-color:  " + SunNight + "; color: #3085C3; border-radius: 25px";
     if (hour >= 18 || (hour >= 0 && hour <= 5))
     {
         SunNight = "#CBBCF6";
@@ -242,62 +595,78 @@ void MyApp::showTime()
         ui->label_sun->setPixmap(pixmap);
         ui->label_day->setStyleSheet(StyleSheetDay);
     }
-
 }
 
-void MyApp::SetThuFrameResult(QString ThuOrChi, int x_geometry, int y_geometry, QString text_day, QString textmoney, QString textcontent)
+void MyApp::ShowDataFromDataSource()
 {
-    QString colorOfbackground;
-    if (ThuOrChi == "Thu")
-        colorOfbackground = "05BFDB";
-    if (ThuOrChi == "Chi")
-        colorOfbackground = "FF9209";
+    Document xlsx("Data_source.xlsx");
 
-    QString styleSheetForFrame = "background-color: #" + colorOfbackground + "; border-radius: 10; border: 1px solid white; color: white";
-    QString styleSheetForLabel = "background-color: white; border-radius: 7; border: 1px solid white; color: black" ;
+    xlsx.selectSheet(11);
 
-    QFrame *frame_Thu = new QFrame(this);
-    frame_Thu->setFixedSize(96,28);
-    frame_Thu->setStyleSheet(styleSheetForFrame);
-    frame_Thu->setGeometry(QRect(x_geometry,y_geometry,192,28));
+    ui->frame_Thu_1->setGeometry(QRect(27, 395, 97, 28));
+    ui->label_day_thu1->setText(xlsx.read(5, 1).toString());
+    ui->label_money_thu1->setText(xlsx.read(5, 3).toString());
+    ui->label_typethu1->setText(xlsx.read(5, 2).toString());
+    ui->label_content_thu1->setText(xlsx.read(5, 4).toString());
 
-    QLabel *label_day = new QLabel(frame_Thu);
-    label_day->setGeometry(QRect(5,4,21,20));
-    label_day->setStyleSheet(styleSheetForLabel);
-    label_day->setText(text_day);
-    label_day->setAlignment(Qt::AlignCenter);
-    QFont font = label_day->font();
-    font.setFamily("Samsung Sharp Sans");
-    font.setPointSize(8);
-    label_day->setFont(font);
+    ui->frame_Chi_1->setGeometry(QRect(240, 395, 97, 28));
+    ui->label_day_chi1->setText(xlsx.read(5, 7).toString());
+    ui->label_money_chi1->setText(xlsx.read(5, 8).toString());
+    ui->label_typechi1->setText(xlsx.read(5, 9).toString());
+    ui->label_content_chi1->setText(xlsx.read(5, 10).toString());
 
-    QLabel *label_money = new QLabel(frame_Thu);
-    label_money->setGeometry(QRect(31,4,60,20));
-    label_money->setStyleSheet(styleSheetForLabel);
-    label_money->setText(textmoney);
-    label_money->setAlignment(Qt::AlignCenter);
-    label_money->setFont(font);
+    ui->frame_Chi_2->setGeometry(QRect(240 + 98 + 2, 395, 97, 28));
+    ui->label_day_chi2->setText(xlsx.read(6, 7).toString());
+    ui->label_money_chi2->setText(xlsx.read(6, 8).toString());
+    ui->label_typechi2->setText(xlsx.read(6, 9).toString());
+    ui->label_content_chi2->setText(xlsx.read(6, 10).toString());
 
-    frame_Thu->show();
+    ui->frame_Chi_3->setGeometry(QRect(240, 395 + 28 + 5, 97, 28));
+    ui->label_day_chi3->setText(xlsx.read(7, 7).toString());
+    ui->label_money_chi3->setText(xlsx.read(7, 8).toString());
+    ui->label_typechi3->setText(xlsx.read(7, 9).toString());
+    ui->label_content_chi3->setText(xlsx.read(7, 10).toString());
 
-    if (ThuOrChi == "Thu")
+    ui->frame_Chi_4->setGeometry(QRect(240 + 98 + 2, 395 + 28 + 5, 97, 28));
+    ui->label_day_chi4->setText(xlsx.read(8, 7).toString());
+    ui->label_money_chi4->setText(xlsx.read(8, 8).toString());
+    ui->label_typechi4->setText(xlsx.read(8, 9).toString());
+    ui->label_content_chi4->setText(xlsx.read(8, 10).toString());
+
+    ui->frame_Chi_5->setGeometry(QRect(240, 395 + 2 * (28 + 5), 97, 28));
+    ui->label_day_chi5->setText(xlsx.read(9, 7).toString());
+    ui->label_money_chi5->setText(xlsx.read(9, 8).toString());
+    ui->label_typechi5->setText(xlsx.read(9, 9).toString());
+    ui->label_content_chi5->setText(xlsx.read(9, 10).toString());
+
+    ui->frame_Chi_6->setGeometry(QRect(240 + 98 + 2, 395 + 2 * (28 + 5), 97, 28));
+    ui->label_day_chi6->setText(xlsx.read(10, 7).toString());
+    ui->label_money_chi6->setText(xlsx.read(10, 8).toString());
+    ui->label_typechi6->setText(xlsx.read(10, 9).toString());
+    ui->label_content_chi6->setText(xlsx.read(10, 10).toString());
+
+    ui->frame_Chi_7->setGeometry(QRect(240, 395 + 3 * (28 + 5), 97, 28));
+    ui->label_day_chi7->setText(xlsx.read(11, 7).toString());
+    ui->label_money_chi7->setText(xlsx.read(11, 8).toString());
+    ui->label_typechi7->setText(xlsx.read(11, 9).toString());
+    ui->label_content_chi7->setText(xlsx.read(11, 10).toString());
+
+    ui->frame_Chi_8->setGeometry(QRect(240 + 98 + 2, 395 + 3 * (28 + 5), 97, 28));
+    ui->label_day_chi8->setText(xlsx.read(12, 7).toString());
+    ui->label_money_chi8->setText(xlsx.read(12, 8).toString());
+    ui->label_typechi8->setText(xlsx.read(12, 9).toString());
+    ui->label_content_chi8->setText(xlsx.read(12, 10).toString());
+
+    // Tinh tong tien thu chi va tich luy
+    for (int i = 5; i <= 12; i++)
     {
-        int_money_thu += (label_money->text()).toInt();
-        money_thu = "Tổng: " + QString::number(int_money_thu) + " VNĐ";
-        ui->label_total_thu->setText(money_thu);
+        int_money_chi += xlsx.read(i, 8).toInt();
     }
-    else
-    {
-        int_money_chi += (label_money->text()).toInt();
-        money_chi = "Tổng: " + QString::number(int_money_chi) + " VNĐ";
-        ui->label_total_chi->setText(money_chi);
-    }
-    money_tichluy =  QString::number(int_money_thu - int_money_chi);
+    int_money_thu = xlsx.read(5, 3).toInt();
+    money_thu = "Tổng: " + QString::number(int_money_thu) + " VNĐ";
+    ui->label_total_thu->setText(money_thu);
+    money_chi = "Tổng: " + QString::number(int_money_chi) + " VNĐ";
+    ui->label_total_chi->setText(money_chi);
 
-    if(Hide == true)
-    {
-        Hide = false;
-        this->HidetheTotal();
-    }
-
+    money_tichluy = QString::number(int_money_thu - int_money_chi);
 }

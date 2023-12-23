@@ -16,7 +16,7 @@ public:
     PopupChi(QWidget *parent = nullptr, QString message = "default");
     ~PopupChi();
 signals:
-    void dataAvaiable(const QString &data_textday, const QString &data_textmoney, const QString &data_textcontent);
+    void dataAvaiable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent);
 private slots:
     void on_pushButton_SetChi_clicked();
 

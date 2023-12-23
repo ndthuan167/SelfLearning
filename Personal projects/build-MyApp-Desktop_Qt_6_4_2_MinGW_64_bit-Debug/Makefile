@@ -320,6 +320,7 @@ Makefile: ../MyApp/MyApp.pro D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf \
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf \
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf \
+		../MyApp/QXlsx.pri \
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf \
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf \
 		D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf \
@@ -598,6 +599,7 @@ D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds.prf
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/toolchain.prf:
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_pre.prf:
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/win32/default_pre.prf:
+../MyApp/QXlsx.pri:
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/resolve_config.prf:
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/exclusive_builds_post.prf:
 D:/Phanmemhoctap/Qt_Creator/6.4.2/mingw_64/mkspecs/features/default_post.prf:

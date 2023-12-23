@@ -83,6 +83,12 @@ public:
     QLabel *label_7;
     QPushButton *pushButton_back;
     QPushButton *pushButton_next;
+    QFrame *PopupselectDay_Thu;
+    QLabel *label_21;
+    QPushButton *pushButton_SelectedDay_Thu;
+    QPushButton *pushButton_back_day_Thu;
+    QPushButton *pushButton_next_day_Thu;
+    QLabel *label_date_select_Thu;
     QFrame *PopupselectDay;
     QLabel *label_20;
     QPushButton *pushButton_SelectedDay;
@@ -116,12 +122,11 @@ public:
     QLabel *label_28;
     QPushButton *pushButton_Selectday_Thu;
     QLabel *label_date_selected_Thu;
-    QFrame *PopupselectDay_Thu;
-    QLabel *label_21;
-    QPushButton *pushButton_SelectedDay_Thu;
-    QPushButton *pushButton_back_day_Thu;
-    QPushButton *pushButton_next_day_Thu;
-    QLabel *label_date_select_Thu;
+    QFrame *frame_3;
+    QLabel *label_29;
+    QLabel *label_30;
+    QLabel *label_31;
+    QLabel *label_35;
 
     void setupUi(QMainWindow *myApp_horizontal)
     {
@@ -268,7 +273,7 @@ public:
 ""));
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(10, 10, 1301, 750));
+        frame->setGeometry(QRect(10, 10, 1511, 750));
         frame->setStyleSheet(QString::fromUtf8(""));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
@@ -993,12 +998,103 @@ public:
         icon12.addFile(QString::fromUtf8(":/Icon/Image/next.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_next->setIcon(icon12);
         pushButton_next->setIconSize(QSize(30, 30));
+        PopupselectDay_Thu = new QFrame(frame);
+        PopupselectDay_Thu->setObjectName("PopupselectDay_Thu");
+        PopupselectDay_Thu->setGeometry(QRect(730, 100, 191, 71));
+        PopupselectDay_Thu->setStyleSheet(QString::fromUtf8("#PopupselectDay_Thu{\n"
+"	background-color: white;\n"
+"	border-radius: 15;\n"
+"	border: 2px solid white;\n"
+"}"));
+        PopupselectDay_Thu->setFrameShape(QFrame::StyledPanel);
+        PopupselectDay_Thu->setFrameShadow(QFrame::Raised);
+        label_21 = new QLabel(PopupselectDay_Thu);
+        label_21->setObjectName("label_21");
+        label_21->setGeometry(QRect(40, 37, 31, 31));
+        label_21->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png")));
+        label_21->setScaledContents(true);
+        pushButton_SelectedDay_Thu = new QPushButton(PopupselectDay_Thu);
+        pushButton_SelectedDay_Thu->setObjectName("pushButton_SelectedDay_Thu");
+        pushButton_SelectedDay_Thu->setGeometry(QRect(70, 40, 71, 25));
+        pushButton_SelectedDay_Thu->setFont(font6);
+        pushButton_SelectedDay_Thu->setStyleSheet(QString::fromUtf8("#pushButton_SelectedDay_Thu\n"
+"{\n"
+"	border: 0px solid white;\n"
+"	background-color: white;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"#pushButton_SelectedDay_Thu::pressed\n"
+"{\n"
+"	background-color: #99FFFF;\n"
+"	border-style: inset;\n"
+"}\n"
+"#pushButton_SelectedDay_Thu::hover\n"
+"{\n"
+"	background-color: #BBBBBB;\n"
+"	border-style: inset;\n"
+"}"));
+        QIcon icon13;
+        icon13.addFile(QString::fromUtf8(":/Icon/Image/icons8-next-50.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_SelectedDay_Thu->setIcon(icon13);
+        pushButton_SelectedDay_Thu->setIconSize(QSize(20, 20));
+        pushButton_back_day_Thu = new QPushButton(PopupselectDay_Thu);
+        pushButton_back_day_Thu->setObjectName("pushButton_back_day_Thu");
+        pushButton_back_day_Thu->setGeometry(QRect(0, 10, 30, 30));
+        pushButton_back_day_Thu->setStyleSheet(QString::fromUtf8("#pushButton_back_day_Thu\n"
+"{\n"
+"	background-color: white ;\n"
+"	border-radius: 15;\n"
+"}\n"
+"#pushButton_back_day_Thu:pressed\n"
+"{\n"
+"	background-color: white;\n"
+"	border-style: inset;\n"
+"}\n"
+"#pushButton_back_day_Thu:hover\n"
+"{\n"
+"	background-color: #CCFFFF;\n"
+"	border-style: inset;\n"
+"}"));
+        pushButton_back_day_Thu->setIcon(icon11);
+        pushButton_back_day_Thu->setIconSize(QSize(30, 30));
+        pushButton_next_day_Thu = new QPushButton(PopupselectDay_Thu);
+        pushButton_next_day_Thu->setObjectName("pushButton_next_day_Thu");
+        pushButton_next_day_Thu->setGeometry(QRect(160, 10, 30, 30));
+        pushButton_next_day_Thu->setStyleSheet(QString::fromUtf8("#pushButton_next_day_Thu\n"
+"{\n"
+"	background-color :white ;\n"
+"	border-radius: 15;\n"
+"}\n"
+"#pushButton_next_day_Thu:pressed\n"
+"{\n"
+"	background-color: white;\n"
+"	border-style: inset;\n"
+"}\n"
+"#pushButton_next_day_Thu:hover\n"
+"{\n"
+"	background-color: #CCFFFF;\n"
+"	border-style: inset;\n"
+"}"));
+        pushButton_next_day_Thu->setIcon(icon12);
+        pushButton_next_day_Thu->setIconSize(QSize(30, 30));
+        label_date_select_Thu = new QLabel(PopupselectDay_Thu);
+        label_date_select_Thu->setObjectName("label_date_select_Thu");
+        label_date_select_Thu->setGeometry(QRect(30, 10, 131, 25));
+        label_date_select_Thu->setFont(font6);
+        label_date_select_Thu->setStyleSheet(QString::fromUtf8("#label_date_select_Thu{\n"
+"	background-color: white;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid gray;\n"
+"	color: black\n"
+"}"));
+        label_date_select_Thu->setAlignment(Qt::AlignCenter);
         frame_Image->raise();
         frame_usual_app->raise();
         frame_thuchi->raise();
         frame_plan_note->raise();
         pushButton_back->raise();
         pushButton_next->raise();
+        PopupselectDay_Thu->raise();
         PopupselectDay = new QFrame(centralwidget);
         PopupselectDay->setObjectName("PopupselectDay");
         PopupselectDay->setGeometry(QRect(1330, 180, 191, 71));
@@ -1034,8 +1130,6 @@ public:
 "	background-color: #BBBBBB;\n"
 "	border-style: inset;\n"
 "}"));
-        QIcon icon13;
-        icon13.addFile(QString::fromUtf8(":/Icon/Image/icons8-next-50.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_SelectedDay->setIcon(icon13);
         pushButton_SelectedDay->setIconSize(QSize(20, 20));
         pushButton_back_day = new QPushButton(PopupselectDay);
@@ -1247,7 +1341,7 @@ public:
         label_date_selected->setAlignment(Qt::AlignCenter);
         frametest = new QFrame(centralwidget);
         frametest->setObjectName("frametest");
-        frametest->setGeometry(QRect(1320, 470, 201, 181));
+        frametest->setGeometry(QRect(1330, 480, 201, 181));
         frametest->setStyleSheet(QString::fromUtf8("#frametest{\n"
 "	background-color: #EDE4E0;\n"
 "	border-radius: 15;\n"
@@ -1404,94 +1498,60 @@ public:
 "	color: black\n"
 "}"));
         label_date_selected_Thu->setAlignment(Qt::AlignCenter);
-        PopupselectDay_Thu = new QFrame(centralwidget);
-        PopupselectDay_Thu->setObjectName("PopupselectDay_Thu");
-        PopupselectDay_Thu->setGeometry(QRect(1320, 80, 191, 71));
-        PopupselectDay_Thu->setStyleSheet(QString::fromUtf8("#PopupselectDay_Thu{\n"
-"	background-color: white;\n"
-"	border-radius: 15;\n"
-"	border: 2px solid white;\n"
-"}"));
-        PopupselectDay_Thu->setFrameShape(QFrame::StyledPanel);
-        PopupselectDay_Thu->setFrameShadow(QFrame::Raised);
-        label_21 = new QLabel(PopupselectDay_Thu);
-        label_21->setObjectName("label_21");
-        label_21->setGeometry(QRect(40, 37, 31, 31));
-        label_21->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png")));
-        label_21->setScaledContents(true);
-        pushButton_SelectedDay_Thu = new QPushButton(PopupselectDay_Thu);
-        pushButton_SelectedDay_Thu->setObjectName("pushButton_SelectedDay_Thu");
-        pushButton_SelectedDay_Thu->setGeometry(QRect(70, 40, 71, 25));
-        pushButton_SelectedDay_Thu->setFont(font6);
-        pushButton_SelectedDay_Thu->setStyleSheet(QString::fromUtf8("#pushButton_SelectedDay_Thu\n"
-"{\n"
-"	border: 0px solid white;\n"
-"	background-color: white;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"#pushButton_SelectedDay_Thu::pressed\n"
-"{\n"
-"	background-color: #99FFFF;\n"
-"	border-style: inset;\n"
-"}\n"
-"#pushButton_SelectedDay_Thu::hover\n"
-"{\n"
-"	background-color: #BBBBBB;\n"
-"	border-style: inset;\n"
-"}"));
-        pushButton_SelectedDay_Thu->setIcon(icon13);
-        pushButton_SelectedDay_Thu->setIconSize(QSize(20, 20));
-        pushButton_back_day_Thu = new QPushButton(PopupselectDay_Thu);
-        pushButton_back_day_Thu->setObjectName("pushButton_back_day_Thu");
-        pushButton_back_day_Thu->setGeometry(QRect(0, 10, 30, 30));
-        pushButton_back_day_Thu->setStyleSheet(QString::fromUtf8("#pushButton_back_day_Thu\n"
-"{\n"
-"	background-color: white ;\n"
-"	border-radius: 15;\n"
-"}\n"
-"#pushButton_back_day_Thu:pressed\n"
-"{\n"
-"	background-color: white;\n"
-"	border-style: inset;\n"
-"}\n"
-"#pushButton_back_day_Thu:hover\n"
-"{\n"
-"	background-color: #CCFFFF;\n"
-"	border-style: inset;\n"
-"}"));
-        pushButton_back_day_Thu->setIcon(icon11);
-        pushButton_back_day_Thu->setIconSize(QSize(30, 30));
-        pushButton_next_day_Thu = new QPushButton(PopupselectDay_Thu);
-        pushButton_next_day_Thu->setObjectName("pushButton_next_day_Thu");
-        pushButton_next_day_Thu->setGeometry(QRect(160, 10, 30, 30));
-        pushButton_next_day_Thu->setStyleSheet(QString::fromUtf8("#pushButton_next_day_Thu\n"
-"{\n"
-"	background-color :white ;\n"
-"	border-radius: 15;\n"
-"}\n"
-"#pushButton_next_day_Thu:pressed\n"
-"{\n"
-"	background-color: white;\n"
-"	border-style: inset;\n"
-"}\n"
-"#pushButton_next_day_Thu:hover\n"
-"{\n"
-"	background-color: #CCFFFF;\n"
-"	border-style: inset;\n"
-"}"));
-        pushButton_next_day_Thu->setIcon(icon12);
-        pushButton_next_day_Thu->setIconSize(QSize(30, 30));
-        label_date_select_Thu = new QLabel(PopupselectDay_Thu);
-        label_date_select_Thu->setObjectName("label_date_select_Thu");
-        label_date_select_Thu->setGeometry(QRect(30, 10, 131, 25));
-        label_date_select_Thu->setFont(font6);
-        label_date_select_Thu->setStyleSheet(QString::fromUtf8("#label_date_select_Thu{\n"
-"	background-color: white;\n"
+        frame_3 = new QFrame(centralwidget);
+        frame_3->setObjectName("frame_3");
+        frame_3->setGeometry(QRect(740, 110, 265, 28));
+        frame_3->setStyleSheet(QString::fromUtf8("#frame_3{\n"
+"	background-color: #164863;\n"
 "	border-radius: 10;\n"
-"	border: 1px solid gray;\n"
-"	color: black\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
 "}"));
-        label_date_select_Thu->setAlignment(Qt::AlignCenter);
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        label_29 = new QLabel(frame_3);
+        label_29->setObjectName("label_29");
+        label_29->setGeometry(QRect(5, 4, 21, 20));
+        label_29->setFont(font9);
+        label_29->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_30 = new QLabel(frame_3);
+        label_30->setObjectName("label_30");
+        label_30->setGeometry(QRect(32, 4, 61, 20));
+        label_30->setFont(font9);
+        label_30->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_31 = new QLabel(frame_3);
+        label_31->setObjectName("label_31");
+        label_31->setGeometry(QRect(165, 4, 95, 20));
+        QFont font10;
+        font10.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
+        font10.setBold(false);
+        label_31->setFont(font10);
+        label_31->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_35 = new QLabel(frame_3);
+        label_35->setObjectName("label_35");
+        label_35->setGeometry(QRect(95, 4, 65, 20));
+        label_35->setFont(font10);
+        label_35->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
         myApp_horizontal->setCentralWidget(centralwidget);
 
         retranslateUi(myApp_horizontal);
@@ -1570,6 +1630,11 @@ public:
         label_7->setText(QString());
         pushButton_back->setText(QString());
         pushButton_next->setText(QString());
+        label_21->setText(QString());
+        pushButton_SelectedDay_Thu->setText(QCoreApplication::translate("myApp_horizontal", "Enter", nullptr));
+        pushButton_back_day_Thu->setText(QString());
+        pushButton_next_day_Thu->setText(QString());
+        label_date_select_Thu->setText(QCoreApplication::translate("myApp_horizontal", "09/12/2023", nullptr));
         label_20->setText(QString());
         pushButton_SelectedDay->setText(QCoreApplication::translate("myApp_horizontal", "Enter", nullptr));
         pushButton_back_day->setText(QString());
@@ -1607,11 +1672,10 @@ public:
         label_28->setText(QString());
         pushButton_Selectday_Thu->setText(QString());
         label_date_selected_Thu->setText(QCoreApplication::translate("myApp_horizontal", "09/12/2023", nullptr));
-        label_21->setText(QString());
-        pushButton_SelectedDay_Thu->setText(QCoreApplication::translate("myApp_horizontal", "Enter", nullptr));
-        pushButton_back_day_Thu->setText(QString());
-        pushButton_next_day_Thu->setText(QString());
-        label_date_select_Thu->setText(QCoreApplication::translate("myApp_horizontal", "09/12/2023", nullptr));
+        label_29->setText(QCoreApplication::translate("myApp_horizontal", "10", nullptr));
+        label_30->setText(QCoreApplication::translate("myApp_horizontal", "15000000", nullptr));
+        label_31->setText(QCoreApplication::translate("myApp_horizontal", "Salary", nullptr));
+        label_35->setText(QCoreApplication::translate("myApp_horizontal", "Kh\303\241c", nullptr));
     } // retranslateUi
 
 };

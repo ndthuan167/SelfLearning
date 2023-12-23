@@ -155,7 +155,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>1301</width>
+      <width>1511</width>
       <height>750</height>
      </rect>
     </property>
@@ -1726,12 +1726,214 @@ thu chi</string>
       </size>
      </property>
     </widget>
+    <widget class="QFrame" name="PopupselectDay_Thu">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>100</y>
+       <width>191</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#PopupselectDay_Thu{
+	background-color: white;
+	border-radius: 15;
+	border: 2px solid white;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>37</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-calendar-48.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_SelectedDay_Thu">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>40</y>
+        <width>71</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Samsung Sharp Sans</family>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#pushButton_SelectedDay_Thu
+{
+	border: 0px solid white;
+	background-color: white;
+	border-radius: 10px;
+}
+#pushButton_SelectedDay_Thu::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#pushButton_SelectedDay_Thu::hover
+{
+	background-color: #BBBBBB;
+	border-style: inset;
+}</string>
+      </property>
+      <property name="text">
+       <string>Enter</string>
+      </property>
+      <property name="icon">
+       <iconset resource="ResourceFile.qrc">
+        <normaloff>:/Icon/Image/icons8-next-50.png</normaloff>:/Icon/Image/icons8-next-50.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_back_day_Thu">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#pushButton_back_day_Thu
+{
+	background-color: white ;
+	border-radius: 15;
+}
+#pushButton_back_day_Thu:pressed
+{
+	background-color: white;
+	border-style: inset;
+}
+#pushButton_back_day_Thu:hover
+{
+	background-color: #CCFFFF;
+	border-style: inset;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ResourceFile.qrc">
+        <normaloff>:/Icon/Image/back.png</normaloff>:/Icon/Image/back.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_next_day_Thu">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#pushButton_next_day_Thu
+{
+	background-color :white ;
+	border-radius: 15;
+}
+#pushButton_next_day_Thu:pressed
+{
+	background-color: white;
+	border-style: inset;
+}
+#pushButton_next_day_Thu:hover
+{
+	background-color: #CCFFFF;
+	border-style: inset;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ResourceFile.qrc">
+        <normaloff>:/Icon/Image/next.png</normaloff>:/Icon/Image/next.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_date_select_Thu">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>131</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Samsung Sharp Sans</family>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#label_date_select_Thu{
+	background-color: white;
+	border-radius: 10;
+	border: 1px solid gray;
+	color: black
+}</string>
+      </property>
+      <property name="text">
+       <string>09/12/2023</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
     <zorder>frame_Image</zorder>
     <zorder>frame_usual_app</zorder>
     <zorder>frame_thuchi</zorder>
     <zorder>frame_plan_note</zorder>
     <zorder>pushButton_back</zorder>
     <zorder>pushButton_next</zorder>
+    <zorder>PopupselectDay_Thu</zorder>
    </widget>
    <widget class="QFrame" name="PopupselectDay">
     <property name="geometry">
@@ -2337,8 +2539,8 @@ padding-left: 5</string>
    <widget class="QFrame" name="frametest">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>470</y>
+      <x>1330</x>
+      <y>480</y>
       <width>201</width>
       <height>181</height>
      </rect>
@@ -2750,20 +2952,21 @@ padding-left: 5</string>
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="PopupselectDay_Thu">
+   <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>80</y>
-      <width>191</width>
-      <height>71</height>
+      <x>740</x>
+      <y>110</y>
+      <width>265</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#PopupselectDay_Thu{
-	background-color: white;
-	border-radius: 15;
-	border: 2px solid white;
+     <string notr="true">#frame_3{
+	background-color: #164863;
+	border-radius: 10;
+	border: 1px solid white;
+	color: white
 }</string>
     </property>
     <property name="frameShape">
@@ -2772,182 +2975,112 @@ padding-left: 5</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_21">
+    <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>37</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-calendar-48.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_SelectedDay_Thu">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>40</y>
-       <width>71</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Samsung Sharp Sans</family>
-       <pointsize>10</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_SelectedDay_Thu
-{
-	border: 0px solid white;
-	background-color: white;
-	border-radius: 10px;
-}
-#pushButton_SelectedDay_Thu::pressed
-{
-	background-color: #99FFFF;
-	border-style: inset;
-}
-#pushButton_SelectedDay_Thu::hover
-{
-	background-color: #BBBBBB;
-	border-style: inset;
-}</string>
-     </property>
-     <property name="text">
-      <string>Enter</string>
-     </property>
-     <property name="icon">
-      <iconset resource="ResourceFile.qrc">
-       <normaloff>:/Icon/Image/icons8-next-50.png</normaloff>:/Icon/Image/icons8-next-50.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
+       <x>5</x>
+       <y>4</y>
+       <width>21</width>
        <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_back_day_Thu">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>10</y>
-       <width>30</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_back_day_Thu
-{
-	background-color: white ;
-	border-radius: 15;
-}
-#pushButton_back_day_Thu:pressed
-{
-	background-color: white;
-	border-style: inset;
-}
-#pushButton_back_day_Thu:hover
-{
-	background-color: #CCFFFF;
-	border-style: inset;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="ResourceFile.qrc">
-       <normaloff>:/Icon/Image/back.png</normaloff>:/Icon/Image/back.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>30</width>
-       <height>30</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_next_day_Thu">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>10</y>
-       <width>30</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_next_day_Thu
-{
-	background-color :white ;
-	border-radius: 15;
-}
-#pushButton_next_day_Thu:pressed
-{
-	background-color: white;
-	border-style: inset;
-}
-#pushButton_next_day_Thu:hover
-{
-	background-color: #CCFFFF;
-	border-style: inset;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="ResourceFile.qrc">
-       <normaloff>:/Icon/Image/next.png</normaloff>:/Icon/Image/next.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>30</width>
-       <height>30</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_date_select_Thu">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>10</y>
-       <width>131</width>
-       <height>25</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
-       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">#label_date_select_Thu{
+      <string notr="true">
 	background-color: white;
-	border-radius: 10;
-	border: 1px solid gray;
+	border-radius: 7;
+	border: 1px solid white;
 	color: black
-}</string>
+</string>
      </property>
      <property name="text">
-      <string>09/12/2023</string>
+      <string>10</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+    </widget>
+    <widget class="QLabel" name="label_30">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>4</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Samsung Sharp Sans</family>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+     </property>
+     <property name="text">
+      <string>15000000</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_31">
+     <property name="geometry">
+      <rect>
+       <x>165</x>
+       <y>4</y>
+       <width>95</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Samsung Sharp Sans</family>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+     </property>
+     <property name="text">
+      <string>Salary</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_35">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>4</y>
+       <width>65</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Samsung Sharp Sans</family>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+     </property>
+     <property name="text">
+      <string>Khác</string>
      </property>
     </widget>
    </widget>

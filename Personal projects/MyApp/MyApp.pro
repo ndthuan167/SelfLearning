@@ -36,3 +36,21 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ResourceFile.qrc
+
+DISTFILES += \
+    Data_source.xlsx
+
+win32: LIBS += -L$$PWD/libxl-4.2.0/lib64/ -llibxl
+
+INCLUDEPATH += $$PWD/libxl-4.2.0/lib64
+DEPENDPATH += $$PWD/libxl-4.2.0/lib64
+
+INCLUDEPATH += $$PWD/libxl-4.2.0/include_cpp
+
+
+# QXlsx code for Application Qt project
+QXLSX_PARENTPATH=./         # current QXlsx path is . (. means curret directory)
+QXLSX_HEADERPATH=./header/  # current QXlsx header path is ./header/
+QXLSX_SOURCEPATH=./source/  # current QXlsx source path is ./source/
+include(./QXlsx.pri)
+

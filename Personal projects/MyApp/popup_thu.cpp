@@ -15,7 +15,7 @@ popup_Thu::popup_Thu(QWidget *parent, QString message):
 {
     ui->setupUi(this);
     connect(this, &popup_Thu::finished, this, [this](){
-        emit dataAvaiable_Thu(QString(ui->label_date_selected_Thu->text()).mid(0,2), QString(ui->plainTextEdit_3->toPlainText()), QString(ui->plainTextEdit_2->toPlainText()));
+        emit dataAvaiable_Thu(QString(ui->label_date_selected_Thu->text()).mid(0,2), QString(ui->plainTextEdit_3->toPlainText()), QString(ui->comboBox->currentText()) , QString(ui->plainTextEdit_2->toPlainText()));
     });
 
     connect(ui->pushButton_Selectday_Thu, SIGNAL(clicked(bool)), this, SLOT(ShowCalendarSelection()));

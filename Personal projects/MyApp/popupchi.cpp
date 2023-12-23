@@ -20,7 +20,7 @@ PopupChi::PopupChi(QWidget *parent, QString message):
     connect(ui->pushButton_SelectedDay, SIGNAL(clicked(bool)), this, SLOT(SetDateCalendar()));
 
     connect(this, &PopupChi::finished, this, [this](){
-        emit dataAvaiable(QString(ui->label_date_selected->text()).mid(0,2), QString(ui->plainTextEdit_5->toPlainText()), QString(ui->plainTextEdit_4->toPlainText()));
+        emit dataAvaiable(QString(ui->label_date_selected->text()).mid(0,2), QString(ui->plainTextEdit_5->toPlainText()), QString(ui->comboBox_2->currentText()), QString(ui->plainTextEdit_4->toPlainText()));
     });
 
     this->setFixedSize(QSize(200,180));

@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPlainTextEdit>
@@ -30,11 +29,9 @@ public:
     QFrame *frame;
     QFrame *frame_usual_app;
     QFrame *frame_coding_app;
-    QHBoxLayout *horizontalLayout_4;
     QPushButton *GithubButton;
     QPushButton *VSCodeButton;
     QFrame *frame_Enter_app;
-    QHBoxLayout *horizontalLayout_2;
     QPushButton *GoogleButton;
     QPushButton *FacebookButton;
     QPushButton *YoutubeButton;
@@ -81,24 +78,6 @@ public:
     QFrame *frame_password_2;
     QPushButton *pushButton_menu;
     QPushButton *pushButton_login;
-    QFrame *frametest;
-    QComboBox *comboBox;
-    QPlainTextEdit *plainTextEdit_2;
-    QLabel *label_11;
-    QLabel *label_12;
-    QLabel *label_13;
-    QLabel *label;
-    QPushButton *pushButton_SetThu;
-    QPlainTextEdit *plainTextEdit_3;
-    QLabel *label_date_selected_2;
-    QPlainTextEdit *plainTextEdit_7;
-    QLabel *label_18;
-    QPushButton *pushButton_Selectday_Thu;
-    QLabel *label_date_selected_Thu;
-    QFrame *frame_3;
-    QLabel *label_19;
-    QLabel *label_22;
-    QLabel *label_23;
     QFrame *PopupChi;
     QComboBox *comboBox_2;
     QPlainTextEdit *plainTextEdit_4;
@@ -124,12 +103,92 @@ public:
     QPushButton *pushButton_back_day_Thu;
     QPushButton *pushButton_next_day_Thu;
     QLabel *label_date_select_Thu;
+    QFrame *frametest;
+    QComboBox *comboBox;
+    QPlainTextEdit *plainTextEdit_2;
+    QLabel *label_11;
+    QLabel *label_12;
+    QLabel *label_13;
+    QLabel *label;
+    QPushButton *pushButton_SetThu;
+    QPlainTextEdit *plainTextEdit_3;
+    QLabel *label_date_selected_2;
+    QPlainTextEdit *plainTextEdit_7;
+    QLabel *label_18;
+    QPushButton *pushButton_Selectday_Thu;
+    QLabel *label_date_selected_Thu;
+    QFrame *frame_Thu_2;
+    QLabel *label_day_thu2;
+    QLabel *label_money_thu2;
+    QFrame *frame_Thu_3;
+    QLabel *label_day_thu3;
+    QLabel *label_money_thu3;
+    QFrame *frame_Thu_4;
+    QLabel *label_day_thu4;
+    QLabel *label_money_thu4;
+    QFrame *frame_Thu_5;
+    QLabel *label_day_thu5;
+    QLabel *label_money_thu5;
+    QFrame *frame_Thu_6;
+    QLabel *label_day_thu6;
+    QLabel *label_money_thu6;
+    QFrame *frame_Thu_7;
+    QLabel *label_day_thu7;
+    QLabel *label_money_thu7;
+    QFrame *frame_Thu_8;
+    QLabel *label_day_thu8;
+    QLabel *label_money_thu8;
+    QFrame *frame_Chi_1;
+    QLabel *label_day_chi1;
+    QLabel *label_money_chi1;
+    QLabel *label_content_chi1;
+    QLabel *label_typechi1;
+    QFrame *frame_Chi_2;
+    QLabel *label_day_chi2;
+    QLabel *label_money_chi2;
+    QLabel *label_content_chi2;
+    QLabel *label_typechi2;
+    QFrame *frame_Chi_3;
+    QLabel *label_day_chi3;
+    QLabel *label_money_chi3;
+    QLabel *label_content_chi3;
+    QLabel *label_typechi3;
+    QFrame *frame_Chi_4;
+    QLabel *label_day_chi4;
+    QLabel *label_money_chi4;
+    QLabel *label_content_chi4;
+    QLabel *label_typechi4;
+    QFrame *frame_Chi_5;
+    QLabel *label_day_chi5;
+    QLabel *label_money_chi5;
+    QLabel *label_content_chi5;
+    QLabel *label_typechi5;
+    QFrame *frame_Chi_6;
+    QLabel *label_day_chi6;
+    QLabel *label_money_chi6;
+    QLabel *label_content_chi6;
+    QLabel *label_typechi6;
+    QFrame *frame_Chi_7;
+    QLabel *label_day_chi7;
+    QLabel *label_money_chi7;
+    QLabel *label_content_chi7;
+    QLabel *label_typechi7;
+    QFrame *frame_Chi_8;
+    QLabel *label_day_chi8;
+    QLabel *label_money_chi8;
+    QLabel *label_content_chi8;
+    QLabel *label_typechi8;
+    QFrame *frame_Thu_1;
+    QLabel *label_day_thu1;
+    QLabel *label_money_thu1;
+    QLabel *label_content_thu1;
+    QLabel *label_typethu1;
 
     void setupUi(QMainWindow *MyApp)
     {
         if (MyApp->objectName().isEmpty())
             MyApp->setObjectName("MyApp");
-        MyApp->resize(988, 690);
+        MyApp->resize(1569, 920);
         centralwidget = new QWidget(MyApp);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8("#frame\n"
@@ -270,7 +329,7 @@ public:
 ""));
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(5, 5, 911, 680));
+        frame->setGeometry(QRect(5, 5, 451, 680));
         frame->setStyleSheet(QString::fromUtf8(""));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
@@ -285,35 +344,28 @@ public:
         frame_coding_app->setGeometry(QRect(269, 11, 151, 69));
         frame_coding_app->setFrameShape(QFrame::StyledPanel);
         frame_coding_app->setFrameShadow(QFrame::Raised);
-        horizontalLayout_4 = new QHBoxLayout(frame_coding_app);
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
         GithubButton = new QPushButton(frame_coding_app);
         GithubButton->setObjectName("GithubButton");
+        GithubButton->setGeometry(QRect(9, 9, 54, 50));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/IconApplication/Image/github.png"), QSize(), QIcon::Normal, QIcon::Off);
         GithubButton->setIcon(icon);
         GithubButton->setIconSize(QSize(50, 50));
-
-        horizontalLayout_4->addWidget(GithubButton);
-
         VSCodeButton = new QPushButton(frame_coding_app);
         VSCodeButton->setObjectName("VSCodeButton");
+        VSCodeButton->setGeometry(QRect(79, 9, 54, 50));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/IconApplication/Image/vscode.png"), QSize(), QIcon::Normal, QIcon::Off);
         VSCodeButton->setIcon(icon1);
         VSCodeButton->setIconSize(QSize(50, 50));
-
-        horizontalLayout_4->addWidget(VSCodeButton);
-
         frame_Enter_app = new QFrame(frame_usual_app);
         frame_Enter_app->setObjectName("frame_Enter_app");
         frame_Enter_app->setGeometry(QRect(11, 11, 251, 69));
         frame_Enter_app->setFrameShape(QFrame::StyledPanel);
         frame_Enter_app->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame_Enter_app);
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
         GoogleButton = new QPushButton(frame_Enter_app);
         GoogleButton->setObjectName("GoogleButton");
+        GoogleButton->setGeometry(QRect(9, 10, 52, 48));
         QFont font;
         font.setFamilies({QString::fromUtf8("Segoe UI Variable Text Semibold")});
         font.setPointSize(11);
@@ -323,38 +375,29 @@ public:
         icon2.addFile(QString::fromUtf8(":/IconApplication/Image/icons8-google-96.png"), QSize(), QIcon::Normal, QIcon::Off);
         GoogleButton->setIcon(icon2);
         GoogleButton->setIconSize(QSize(48, 48));
-
-        horizontalLayout_2->addWidget(GoogleButton);
-
         FacebookButton = new QPushButton(frame_Enter_app);
         FacebookButton->setObjectName("FacebookButton");
+        FacebookButton->setGeometry(QRect(69, 10, 52, 48));
         FacebookButton->setFont(font);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/IconApplication/Image/facebook.png"), QSize(), QIcon::Normal, QIcon::Off);
         FacebookButton->setIcon(icon3);
         FacebookButton->setIconSize(QSize(48, 48));
-
-        horizontalLayout_2->addWidget(FacebookButton);
-
         YoutubeButton = new QPushButton(frame_Enter_app);
         YoutubeButton->setObjectName("YoutubeButton");
         YoutubeButton->setEnabled(true);
+        YoutubeButton->setGeometry(QRect(128, 11, 54, 47));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/IconApplication/Image/youtube.png"), QSize(), QIcon::Normal, QIcon::Off);
         YoutubeButton->setIcon(icon4);
         YoutubeButton->setIconSize(QSize(50, 47));
-
-        horizontalLayout_2->addWidget(YoutubeButton);
-
         ZaloButton = new QPushButton(frame_Enter_app);
         ZaloButton->setObjectName("ZaloButton");
+        ZaloButton->setGeometry(QRect(188, 9, 54, 50));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/IconApplication/Image/zalo.png"), QSize(), QIcon::Normal, QIcon::Off);
         ZaloButton->setIcon(icon5);
         ZaloButton->setIconSize(QSize(50, 50));
-
-        horizontalLayout_2->addWidget(ZaloButton);
-
         frame_day_time = new QFrame(frame);
         frame_day_time->setObjectName("frame_day_time");
         frame_day_time->setGeometry(QRect(340, 10, 101, 135));
@@ -990,216 +1033,6 @@ public:
         icon12.addFile(QString::fromUtf8(":/Icon/Image/icons8-login-48.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_login->setIcon(icon12);
         pushButton_login->setIconSize(QSize(35, 35));
-        frametest = new QFrame(frame);
-        frametest->setObjectName("frametest");
-        frametest->setGeometry(QRect(470, 330, 201, 181));
-        frametest->setStyleSheet(QString::fromUtf8("#frametest{\n"
-"	background-color: #EDE4E0;\n"
-"	border-radius: 15;\n"
-"	border: 2px solid white;\n"
-"}"));
-        frametest->setFrameShape(QFrame::StyledPanel);
-        frametest->setFrameShadow(QFrame::Raised);
-        comboBox = new QComboBox(frametest);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName("comboBox");
-        comboBox->setGeometry(QRect(45, 48, 141, 28));
-        comboBox->setFont(font5);
-        comboBox->setLayoutDirection(Qt::LeftToRight);
-        comboBox->setAutoFillBackground(false);
-        comboBox->setStyleSheet(QString::fromUtf8("QComboBox {\n"
-"    border: 1px solid gray;\n"
-"    border-radius: 10px;\n"
-"    min-width: 6em;\n"
-"	padding-left: 10;\n"
-"}\n"
-"\n"
-"QComboBox:on {\n"
-"    border-bottom-left-radius: 0px;\n"
-"    border-bottom-right-radius: 0px;\n"
-"}\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"    border-bottom-right-radius: 10px;\n"
-"    border-bottom-left-radius: 10px;\n"
-"    background: transparent;\n"
-"    border: 1px solid gray;\n"
-"    padding: 4px 4px 4px 4px\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"	image: url(\":/Icon/Image/icons8-down-25.png\");\n"
-"	width:20;\n"
-"	padding-left: 5\n"
-"}\n"
-""));
-        comboBox->setEditable(false);
-        comboBox->setMaxVisibleItems(10);
-        plainTextEdit_2 = new QPlainTextEdit(frametest);
-        plainTextEdit_2->setObjectName("plainTextEdit_2");
-        plainTextEdit_2->setGeometry(QRect(45, 118, 141, 28));
-        QFont font9;
-        font9.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
-        font9.setBold(true);
-        plainTextEdit_2->setFont(font9);
-        plainTextEdit_2->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5"));
-        label_11 = new QLabel(frametest);
-        label_11->setObjectName("label_11");
-        label_11->setGeometry(QRect(10, 48, 25, 25));
-        label_11->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-goal-40.png")));
-        label_11->setScaledContents(true);
-        label_12 = new QLabel(frametest);
-        label_12->setObjectName("label_12");
-        label_12->setGeometry(QRect(10, 83, 25, 25));
-        label_12->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-money-40.png")));
-        label_12->setScaledContents(true);
-        label_13 = new QLabel(frametest);
-        label_13->setObjectName("label_13");
-        label_13->setGeometry(QRect(10, 118, 25, 25));
-        label_13->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-note-40.png")));
-        label_13->setScaledContents(true);
-        label = new QLabel(frametest);
-        label->setObjectName("label");
-        label->setGeometry(QRect(150, 83, 35, 20));
-        label->setFont(font7);
-        pushButton_SetThu = new QPushButton(frametest);
-        pushButton_SetThu->setObjectName("pushButton_SetThu");
-        pushButton_SetThu->setGeometry(QRect(60, 151, 71, 25));
-        pushButton_SetThu->setFont(font5);
-        pushButton_SetThu->setStyleSheet(QString::fromUtf8("#pushButton_SetThu\n"
-"{\n"
-"	border: 0px solid white;\n"
-"	background-color: white;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"#pushButton_SetThu::pressed\n"
-"{\n"
-"	background-color: #99FFFF;\n"
-"	border-style: inset;\n"
-"}\n"
-"#pushButton_SetThu::hover\n"
-"{\n"
-"	background-color: #BBBBBB;\n"
-"	border-style: inset;\n"
-"}"));
-        QIcon icon13;
-        icon13.addFile(QString::fromUtf8(":/Icon/Image/icons8-next-50.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_SetThu->setIcon(icon13);
-        pushButton_SetThu->setIconSize(QSize(20, 20));
-        plainTextEdit_3 = new QPlainTextEdit(frametest);
-        plainTextEdit_3->setObjectName("plainTextEdit_3");
-        plainTextEdit_3->setGeometry(QRect(45, 83, 101, 28));
-        plainTextEdit_3->setFont(font5);
-        plainTextEdit_3->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 8"));
-        label_date_selected_2 = new QLabel(frametest);
-        label_date_selected_2->setObjectName("label_date_selected_2");
-        label_date_selected_2->setGeometry(QRect(60, 13, 91, 25));
-        label_date_selected_2->setFont(font5);
-        label_date_selected_2->setStyleSheet(QString::fromUtf8("#label_date_selected{\n"
-"	background-color: white;\n"
-"	border-radius: 10;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-"}"));
-        label_date_selected_2->setAlignment(Qt::AlignCenter);
-        plainTextEdit_7 = new QPlainTextEdit(frametest);
-        plainTextEdit_7->setObjectName("plainTextEdit_7");
-        plainTextEdit_7->setGeometry(QRect(45, 13, 141, 28));
-        plainTextEdit_7->setFont(font9);
-        plainTextEdit_7->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5"));
-        label_18 = new QLabel(frametest);
-        label_18->setObjectName("label_18");
-        label_18->setGeometry(QRect(8, 13, 31, 31));
-        label_18->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png")));
-        label_18->setScaledContents(true);
-        pushButton_Selectday_Thu = new QPushButton(frametest);
-        pushButton_Selectday_Thu->setObjectName("pushButton_Selectday_Thu");
-        pushButton_Selectday_Thu->setGeometry(QRect(160, 15, 21, 24));
-        pushButton_Selectday_Thu->setStyleSheet(QString::fromUtf8("#pushButton_Selectday_Thu\n"
-"{\n"
-"	border: 0px solid white;\n"
-"	background-color: white;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"#pushButton_Selectday_Thu::pressed\n"
-"{\n"
-"	background-color: #99FFFF;\n"
-"	border-style: inset;\n"
-"}\n"
-"#pushButton_Selectday_Thu::hover\n"
-"{\n"
-"	background-color: #BBBBBB;\n"
-"	border-style: inset;\n"
-"}"));
-        QIcon icon14;
-        icon14.addFile(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_Selectday_Thu->setIcon(icon14);
-        pushButton_Selectday_Thu->setIconSize(QSize(20, 20));
-        label_date_selected_Thu = new QLabel(frametest);
-        label_date_selected_Thu->setObjectName("label_date_selected_Thu");
-        label_date_selected_Thu->setGeometry(QRect(60, 15, 91, 25));
-        label_date_selected_Thu->setFont(font5);
-        label_date_selected_Thu->setStyleSheet(QString::fromUtf8("#label_date_selected_Thu{\n"
-"	background-color: white;\n"
-"	border-radius: 10;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-"}"));
-        label_date_selected_Thu->setAlignment(Qt::AlignCenter);
-        frame_3 = new QFrame(frame);
-        frame_3->setObjectName("frame_3");
-        frame_3->setGeometry(QRect(720, 360, 181, 28));
-        frame_3->setStyleSheet(QString::fromUtf8("#frame_3{\n"
-"	background-color: #164863;\n"
-"	border-radius: 10;\n"
-"	border: 1px solid white;\n"
-"	color: white\n"
-"}"));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        label_19 = new QLabel(frame_3);
-        label_19->setObjectName("label_19");
-        label_19->setGeometry(QRect(5, 4, 21, 20));
-        label_19->setFont(font9);
-        label_19->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
-        label_22 = new QLabel(frame_3);
-        label_22->setObjectName("label_22");
-        label_22->setGeometry(QRect(32, 4, 61, 20));
-        label_22->setFont(font9);
-        label_22->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
-        label_23 = new QLabel(frame_3);
-        label_23->setObjectName("label_23");
-        label_23->setGeometry(QRect(100, 4, 91, 20));
-        QFont font10;
-        font10.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
-        font10.setBold(false);
-        label_23->setFont(font10);
-        label_23->setStyleSheet(QString::fromUtf8("\n"
-"	background-color: white;\n"
-"	border-radius: 7;\n"
-"	border: 1px solid white;\n"
-"	color: black\n"
-""));
         frame_Image->raise();
         frame_day_time->raise();
         frame_usual_app->raise();
@@ -1210,11 +1043,9 @@ public:
         frame_info->raise();
         frame_password->raise();
         frame_password_2->raise();
-        frametest->raise();
-        frame_3->raise();
         PopupChi = new QFrame(centralwidget);
         PopupChi->setObjectName("PopupChi");
-        PopupChi->setGeometry(QRect(490, 110, 201, 181));
+        PopupChi->setGeometry(QRect(1370, 180, 201, 181));
         PopupChi->setStyleSheet(QString::fromUtf8("#PopupChi{\n"
 "	background-color: #EDE4E0;\n"
 "	border-radius: 15;\n"
@@ -1264,6 +1095,9 @@ public:
         plainTextEdit_4 = new QPlainTextEdit(PopupChi);
         plainTextEdit_4->setObjectName("plainTextEdit_4");
         plainTextEdit_4->setGeometry(QRect(45, 115, 141, 28));
+        QFont font9;
+        font9.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
+        font9.setBold(true);
         plainTextEdit_4->setFont(font9);
         plainTextEdit_4->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
 "background-color: white;\n"
@@ -1308,6 +1142,8 @@ public:
 "	background-color: #BBBBBB;\n"
 "	border-style: inset;\n"
 "}"));
+        QIcon icon13;
+        icon13.addFile(QString::fromUtf8(":/Icon/Image/icons8-next-50.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_SetChi->setIcon(icon13);
         pushButton_SetChi->setIconSize(QSize(20, 20));
         plainTextEdit_5 = new QPlainTextEdit(PopupChi);
@@ -1350,6 +1186,8 @@ public:
 "	background-color: #BBBBBB;\n"
 "	border-style: inset;\n"
 "}"));
+        QIcon icon14;
+        icon14.addFile(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_Selectday->setIcon(icon14);
         pushButton_Selectday->setIconSize(QSize(20, 20));
         label_date_selected = new QLabel(PopupChi);
@@ -1365,7 +1203,7 @@ public:
         label_date_selected->setAlignment(Qt::AlignCenter);
         PopupselectDay = new QFrame(centralwidget);
         PopupselectDay->setObjectName("PopupselectDay");
-        PopupselectDay->setGeometry(QRect(490, 20, 191, 71));
+        PopupselectDay->setGeometry(QRect(1370, 100, 191, 71));
         PopupselectDay->setStyleSheet(QString::fromUtf8("#PopupselectDay{\n"
 "	background-color: white;\n"
 "	border-radius: 15;\n"
@@ -1453,7 +1291,7 @@ public:
         label_date_select->setAlignment(Qt::AlignCenter);
         PopupselectDay_Thu = new QFrame(centralwidget);
         PopupselectDay_Thu->setObjectName("PopupselectDay_Thu");
-        PopupselectDay_Thu->setGeometry(QRect(700, 20, 191, 71));
+        PopupselectDay_Thu->setGeometry(QRect(1375, 30, 191, 71));
         PopupselectDay_Thu->setStyleSheet(QString::fromUtf8("#PopupselectDay_Thu{\n"
 "	background-color: white;\n"
 "	border-radius: 15;\n"
@@ -1539,14 +1377,852 @@ public:
 "	color: black\n"
 "}"));
         label_date_select_Thu->setAlignment(Qt::AlignCenter);
+        frametest = new QFrame(centralwidget);
+        frametest->setObjectName("frametest");
+        frametest->setGeometry(QRect(1370, 360, 201, 181));
+        frametest->setStyleSheet(QString::fromUtf8("#frametest{\n"
+"	background-color: #EDE4E0;\n"
+"	border-radius: 15;\n"
+"	border: 2px solid white;\n"
+"}"));
+        frametest->setFrameShape(QFrame::StyledPanel);
+        frametest->setFrameShadow(QFrame::Raised);
+        comboBox = new QComboBox(frametest);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName("comboBox");
+        comboBox->setGeometry(QRect(45, 48, 141, 28));
+        comboBox->setFont(font5);
+        comboBox->setLayoutDirection(Qt::LeftToRight);
+        comboBox->setAutoFillBackground(false);
+        comboBox->setStyleSheet(QString::fromUtf8("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"	padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"	image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"	width:20;\n"
+"	padding-left: 5\n"
+"}\n"
+""));
+        comboBox->setEditable(false);
+        comboBox->setMaxVisibleItems(10);
+        plainTextEdit_2 = new QPlainTextEdit(frametest);
+        plainTextEdit_2->setObjectName("plainTextEdit_2");
+        plainTextEdit_2->setGeometry(QRect(45, 118, 141, 28));
+        plainTextEdit_2->setFont(font9);
+        plainTextEdit_2->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5"));
+        label_11 = new QLabel(frametest);
+        label_11->setObjectName("label_11");
+        label_11->setGeometry(QRect(10, 48, 25, 25));
+        label_11->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-goal-40.png")));
+        label_11->setScaledContents(true);
+        label_12 = new QLabel(frametest);
+        label_12->setObjectName("label_12");
+        label_12->setGeometry(QRect(10, 83, 25, 25));
+        label_12->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-money-40.png")));
+        label_12->setScaledContents(true);
+        label_13 = new QLabel(frametest);
+        label_13->setObjectName("label_13");
+        label_13->setGeometry(QRect(10, 118, 25, 25));
+        label_13->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-note-40.png")));
+        label_13->setScaledContents(true);
+        label = new QLabel(frametest);
+        label->setObjectName("label");
+        label->setGeometry(QRect(150, 83, 35, 20));
+        label->setFont(font7);
+        pushButton_SetThu = new QPushButton(frametest);
+        pushButton_SetThu->setObjectName("pushButton_SetThu");
+        pushButton_SetThu->setGeometry(QRect(60, 151, 71, 25));
+        pushButton_SetThu->setFont(font5);
+        pushButton_SetThu->setStyleSheet(QString::fromUtf8("#pushButton_SetThu\n"
+"{\n"
+"	border: 0px solid white;\n"
+"	background-color: white;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"#pushButton_SetThu::pressed\n"
+"{\n"
+"	background-color: #99FFFF;\n"
+"	border-style: inset;\n"
+"}\n"
+"#pushButton_SetThu::hover\n"
+"{\n"
+"	background-color: #BBBBBB;\n"
+"	border-style: inset;\n"
+"}"));
+        pushButton_SetThu->setIcon(icon13);
+        pushButton_SetThu->setIconSize(QSize(20, 20));
+        plainTextEdit_3 = new QPlainTextEdit(frametest);
+        plainTextEdit_3->setObjectName("plainTextEdit_3");
+        plainTextEdit_3->setGeometry(QRect(45, 83, 101, 28));
+        plainTextEdit_3->setFont(font5);
+        plainTextEdit_3->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 8"));
+        label_date_selected_2 = new QLabel(frametest);
+        label_date_selected_2->setObjectName("label_date_selected_2");
+        label_date_selected_2->setGeometry(QRect(60, 13, 91, 25));
+        label_date_selected_2->setFont(font5);
+        label_date_selected_2->setStyleSheet(QString::fromUtf8("#label_date_selected{\n"
+"	background-color: white;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+"}"));
+        label_date_selected_2->setAlignment(Qt::AlignCenter);
+        plainTextEdit_7 = new QPlainTextEdit(frametest);
+        plainTextEdit_7->setObjectName("plainTextEdit_7");
+        plainTextEdit_7->setGeometry(QRect(45, 13, 141, 28));
+        plainTextEdit_7->setFont(font9);
+        plainTextEdit_7->setStyleSheet(QString::fromUtf8("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5"));
+        label_18 = new QLabel(frametest);
+        label_18->setObjectName("label_18");
+        label_18->setGeometry(QRect(8, 13, 31, 31));
+        label_18->setPixmap(QPixmap(QString::fromUtf8(":/Icon/Image/icons8-calendar-48.png")));
+        label_18->setScaledContents(true);
+        pushButton_Selectday_Thu = new QPushButton(frametest);
+        pushButton_Selectday_Thu->setObjectName("pushButton_Selectday_Thu");
+        pushButton_Selectday_Thu->setGeometry(QRect(160, 15, 21, 24));
+        pushButton_Selectday_Thu->setStyleSheet(QString::fromUtf8("#pushButton_Selectday_Thu\n"
+"{\n"
+"	border: 0px solid white;\n"
+"	background-color: white;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"#pushButton_Selectday_Thu::pressed\n"
+"{\n"
+"	background-color: #99FFFF;\n"
+"	border-style: inset;\n"
+"}\n"
+"#pushButton_Selectday_Thu::hover\n"
+"{\n"
+"	background-color: #BBBBBB;\n"
+"	border-style: inset;\n"
+"}"));
+        pushButton_Selectday_Thu->setIcon(icon14);
+        pushButton_Selectday_Thu->setIconSize(QSize(20, 20));
+        label_date_selected_Thu = new QLabel(frametest);
+        label_date_selected_Thu->setObjectName("label_date_selected_Thu");
+        label_date_selected_Thu->setGeometry(QRect(60, 15, 91, 25));
+        label_date_selected_Thu->setFont(font5);
+        label_date_selected_Thu->setStyleSheet(QString::fromUtf8("#label_date_selected_Thu{\n"
+"	background-color: white;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+"}"));
+        label_date_selected_Thu->setAlignment(Qt::AlignCenter);
+        frame_Thu_2 = new QFrame(centralwidget);
+        frame_Thu_2->setObjectName("frame_Thu_2");
+        frame_Thu_2->setGeometry(QRect(1462, 548, 97, 28));
+        frame_Thu_2->setStyleSheet(QString::fromUtf8("#frame_Thu_2{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_2->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_2->setFrameShadow(QFrame::Raised);
+        label_day_thu2 = new QLabel(frame_Thu_2);
+        label_day_thu2->setObjectName("label_day_thu2");
+        label_day_thu2->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu2->setFont(font9);
+        label_day_thu2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu2 = new QLabel(frame_Thu_2);
+        label_money_thu2->setObjectName("label_money_thu2");
+        label_money_thu2->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu2->setFont(font9);
+        label_money_thu2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_3 = new QFrame(centralwidget);
+        frame_Thu_3->setObjectName("frame_Thu_3");
+        frame_Thu_3->setGeometry(QRect(1366, 580, 97, 28));
+        frame_Thu_3->setStyleSheet(QString::fromUtf8("#frame_Thu_3{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_3->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_3->setFrameShadow(QFrame::Raised);
+        label_day_thu3 = new QLabel(frame_Thu_3);
+        label_day_thu3->setObjectName("label_day_thu3");
+        label_day_thu3->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu3->setFont(font9);
+        label_day_thu3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu3 = new QLabel(frame_Thu_3);
+        label_money_thu3->setObjectName("label_money_thu3");
+        label_money_thu3->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu3->setFont(font9);
+        label_money_thu3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_4 = new QFrame(centralwidget);
+        frame_Thu_4->setObjectName("frame_Thu_4");
+        frame_Thu_4->setGeometry(QRect(1464, 580, 97, 28));
+        frame_Thu_4->setStyleSheet(QString::fromUtf8("#frame_Thu_4{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_4->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_4->setFrameShadow(QFrame::Raised);
+        label_day_thu4 = new QLabel(frame_Thu_4);
+        label_day_thu4->setObjectName("label_day_thu4");
+        label_day_thu4->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu4->setFont(font9);
+        label_day_thu4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu4 = new QLabel(frame_Thu_4);
+        label_money_thu4->setObjectName("label_money_thu4");
+        label_money_thu4->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu4->setFont(font9);
+        label_money_thu4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_5 = new QFrame(centralwidget);
+        frame_Thu_5->setObjectName("frame_Thu_5");
+        frame_Thu_5->setGeometry(QRect(1366, 610, 97, 28));
+        frame_Thu_5->setStyleSheet(QString::fromUtf8("#frame_Thu_5{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_5->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_5->setFrameShadow(QFrame::Raised);
+        label_day_thu5 = new QLabel(frame_Thu_5);
+        label_day_thu5->setObjectName("label_day_thu5");
+        label_day_thu5->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu5->setFont(font9);
+        label_day_thu5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu5 = new QLabel(frame_Thu_5);
+        label_money_thu5->setObjectName("label_money_thu5");
+        label_money_thu5->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu5->setFont(font9);
+        label_money_thu5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_6 = new QFrame(centralwidget);
+        frame_Thu_6->setObjectName("frame_Thu_6");
+        frame_Thu_6->setGeometry(QRect(1466, 644, 97, 28));
+        frame_Thu_6->setStyleSheet(QString::fromUtf8("#frame_Thu_6{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_6->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_6->setFrameShadow(QFrame::Raised);
+        label_day_thu6 = new QLabel(frame_Thu_6);
+        label_day_thu6->setObjectName("label_day_thu6");
+        label_day_thu6->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu6->setFont(font9);
+        label_day_thu6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu6 = new QLabel(frame_Thu_6);
+        label_money_thu6->setObjectName("label_money_thu6");
+        label_money_thu6->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu6->setFont(font9);
+        label_money_thu6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_7 = new QFrame(centralwidget);
+        frame_Thu_7->setObjectName("frame_Thu_7");
+        frame_Thu_7->setGeometry(QRect(1368, 644, 97, 28));
+        frame_Thu_7->setStyleSheet(QString::fromUtf8("#frame_Thu_7{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_7->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_7->setFrameShadow(QFrame::Raised);
+        label_day_thu7 = new QLabel(frame_Thu_7);
+        label_day_thu7->setObjectName("label_day_thu7");
+        label_day_thu7->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu7->setFont(font9);
+        label_day_thu7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu7 = new QLabel(frame_Thu_7);
+        label_money_thu7->setObjectName("label_money_thu7");
+        label_money_thu7->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu7->setFont(font9);
+        label_money_thu7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_8 = new QFrame(centralwidget);
+        frame_Thu_8->setObjectName("frame_Thu_8");
+        frame_Thu_8->setGeometry(QRect(1464, 610, 97, 28));
+        frame_Thu_8->setStyleSheet(QString::fromUtf8("#frame_Thu_8{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_8->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_8->setFrameShadow(QFrame::Raised);
+        label_day_thu8 = new QLabel(frame_Thu_8);
+        label_day_thu8->setObjectName("label_day_thu8");
+        label_day_thu8->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu8->setFont(font9);
+        label_day_thu8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu8 = new QLabel(frame_Thu_8);
+        label_money_thu8->setObjectName("label_money_thu8");
+        label_money_thu8->setGeometry(QRect(30, 4, 61, 20));
+        label_money_thu8->setFont(font9);
+        label_money_thu8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_1 = new QFrame(centralwidget);
+        frame_Chi_1->setObjectName("frame_Chi_1");
+        frame_Chi_1->setGeometry(QRect(1300, 640, 265, 28));
+        frame_Chi_1->setStyleSheet(QString::fromUtf8("#frame_Chi_1{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_1->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_1->setFrameShadow(QFrame::Raised);
+        label_day_chi1 = new QLabel(frame_Chi_1);
+        label_day_chi1->setObjectName("label_day_chi1");
+        label_day_chi1->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi1->setFont(font9);
+        label_day_chi1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi1 = new QLabel(frame_Chi_1);
+        label_money_chi1->setObjectName("label_money_chi1");
+        label_money_chi1->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi1->setFont(font9);
+        label_money_chi1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi1 = new QLabel(frame_Chi_1);
+        label_content_chi1->setObjectName("label_content_chi1");
+        label_content_chi1->setGeometry(QRect(165, 4, 95, 20));
+        QFont font10;
+        font10.setFamilies({QString::fromUtf8("Samsung Sharp Sans")});
+        font10.setBold(false);
+        label_content_chi1->setFont(font10);
+        label_content_chi1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi1 = new QLabel(frame_Chi_1);
+        label_typechi1->setObjectName("label_typechi1");
+        label_typechi1->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi1->setFont(font10);
+        label_typechi1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_2 = new QFrame(centralwidget);
+        frame_Chi_2->setObjectName("frame_Chi_2");
+        frame_Chi_2->setGeometry(QRect(1300, 670, 265, 28));
+        frame_Chi_2->setStyleSheet(QString::fromUtf8("#frame_Chi_2{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_2->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_2->setFrameShadow(QFrame::Raised);
+        label_day_chi2 = new QLabel(frame_Chi_2);
+        label_day_chi2->setObjectName("label_day_chi2");
+        label_day_chi2->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi2->setFont(font9);
+        label_day_chi2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi2 = new QLabel(frame_Chi_2);
+        label_money_chi2->setObjectName("label_money_chi2");
+        label_money_chi2->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi2->setFont(font9);
+        label_money_chi2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi2 = new QLabel(frame_Chi_2);
+        label_content_chi2->setObjectName("label_content_chi2");
+        label_content_chi2->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi2->setFont(font10);
+        label_content_chi2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi2 = new QLabel(frame_Chi_2);
+        label_typechi2->setObjectName("label_typechi2");
+        label_typechi2->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi2->setFont(font10);
+        label_typechi2->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_3 = new QFrame(centralwidget);
+        frame_Chi_3->setObjectName("frame_Chi_3");
+        frame_Chi_3->setGeometry(QRect(1300, 700, 265, 28));
+        frame_Chi_3->setStyleSheet(QString::fromUtf8("#frame_Chi_3{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_3->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_3->setFrameShadow(QFrame::Raised);
+        label_day_chi3 = new QLabel(frame_Chi_3);
+        label_day_chi3->setObjectName("label_day_chi3");
+        label_day_chi3->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi3->setFont(font9);
+        label_day_chi3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi3 = new QLabel(frame_Chi_3);
+        label_money_chi3->setObjectName("label_money_chi3");
+        label_money_chi3->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi3->setFont(font9);
+        label_money_chi3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi3 = new QLabel(frame_Chi_3);
+        label_content_chi3->setObjectName("label_content_chi3");
+        label_content_chi3->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi3->setFont(font10);
+        label_content_chi3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi3 = new QLabel(frame_Chi_3);
+        label_typechi3->setObjectName("label_typechi3");
+        label_typechi3->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi3->setFont(font10);
+        label_typechi3->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_4 = new QFrame(centralwidget);
+        frame_Chi_4->setObjectName("frame_Chi_4");
+        frame_Chi_4->setGeometry(QRect(1300, 730, 265, 28));
+        frame_Chi_4->setStyleSheet(QString::fromUtf8("#frame_Chi_4{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_4->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_4->setFrameShadow(QFrame::Raised);
+        label_day_chi4 = new QLabel(frame_Chi_4);
+        label_day_chi4->setObjectName("label_day_chi4");
+        label_day_chi4->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi4->setFont(font9);
+        label_day_chi4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi4 = new QLabel(frame_Chi_4);
+        label_money_chi4->setObjectName("label_money_chi4");
+        label_money_chi4->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi4->setFont(font9);
+        label_money_chi4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi4 = new QLabel(frame_Chi_4);
+        label_content_chi4->setObjectName("label_content_chi4");
+        label_content_chi4->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi4->setFont(font10);
+        label_content_chi4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi4 = new QLabel(frame_Chi_4);
+        label_typechi4->setObjectName("label_typechi4");
+        label_typechi4->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi4->setFont(font10);
+        label_typechi4->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_5 = new QFrame(centralwidget);
+        frame_Chi_5->setObjectName("frame_Chi_5");
+        frame_Chi_5->setGeometry(QRect(1300, 760, 265, 28));
+        frame_Chi_5->setStyleSheet(QString::fromUtf8("#frame_Chi_5{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_5->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_5->setFrameShadow(QFrame::Raised);
+        label_day_chi5 = new QLabel(frame_Chi_5);
+        label_day_chi5->setObjectName("label_day_chi5");
+        label_day_chi5->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi5->setFont(font9);
+        label_day_chi5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi5 = new QLabel(frame_Chi_5);
+        label_money_chi5->setObjectName("label_money_chi5");
+        label_money_chi5->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi5->setFont(font9);
+        label_money_chi5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi5 = new QLabel(frame_Chi_5);
+        label_content_chi5->setObjectName("label_content_chi5");
+        label_content_chi5->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi5->setFont(font10);
+        label_content_chi5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi5 = new QLabel(frame_Chi_5);
+        label_typechi5->setObjectName("label_typechi5");
+        label_typechi5->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi5->setFont(font10);
+        label_typechi5->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_6 = new QFrame(centralwidget);
+        frame_Chi_6->setObjectName("frame_Chi_6");
+        frame_Chi_6->setGeometry(QRect(1300, 820, 265, 28));
+        frame_Chi_6->setStyleSheet(QString::fromUtf8("#frame_Chi_6{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_6->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_6->setFrameShadow(QFrame::Raised);
+        label_day_chi6 = new QLabel(frame_Chi_6);
+        label_day_chi6->setObjectName("label_day_chi6");
+        label_day_chi6->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi6->setFont(font9);
+        label_day_chi6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi6 = new QLabel(frame_Chi_6);
+        label_money_chi6->setObjectName("label_money_chi6");
+        label_money_chi6->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi6->setFont(font9);
+        label_money_chi6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi6 = new QLabel(frame_Chi_6);
+        label_content_chi6->setObjectName("label_content_chi6");
+        label_content_chi6->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi6->setFont(font10);
+        label_content_chi6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi6 = new QLabel(frame_Chi_6);
+        label_typechi6->setObjectName("label_typechi6");
+        label_typechi6->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi6->setFont(font10);
+        label_typechi6->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_7 = new QFrame(centralwidget);
+        frame_Chi_7->setObjectName("frame_Chi_7");
+        frame_Chi_7->setGeometry(QRect(1300, 850, 265, 28));
+        frame_Chi_7->setStyleSheet(QString::fromUtf8("#frame_Chi_7{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_7->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_7->setFrameShadow(QFrame::Raised);
+        label_day_chi7 = new QLabel(frame_Chi_7);
+        label_day_chi7->setObjectName("label_day_chi7");
+        label_day_chi7->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi7->setFont(font9);
+        label_day_chi7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi7 = new QLabel(frame_Chi_7);
+        label_money_chi7->setObjectName("label_money_chi7");
+        label_money_chi7->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi7->setFont(font9);
+        label_money_chi7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi7 = new QLabel(frame_Chi_7);
+        label_content_chi7->setObjectName("label_content_chi7");
+        label_content_chi7->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi7->setFont(font10);
+        label_content_chi7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi7 = new QLabel(frame_Chi_7);
+        label_typechi7->setObjectName("label_typechi7");
+        label_typechi7->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi7->setFont(font10);
+        label_typechi7->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Chi_8 = new QFrame(centralwidget);
+        frame_Chi_8->setObjectName("frame_Chi_8");
+        frame_Chi_8->setGeometry(QRect(1300, 790, 265, 28));
+        frame_Chi_8->setStyleSheet(QString::fromUtf8("#frame_Chi_8{\n"
+"	background-color: #FF9209;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Chi_8->setFrameShape(QFrame::StyledPanel);
+        frame_Chi_8->setFrameShadow(QFrame::Raised);
+        label_day_chi8 = new QLabel(frame_Chi_8);
+        label_day_chi8->setObjectName("label_day_chi8");
+        label_day_chi8->setGeometry(QRect(5, 4, 21, 20));
+        label_day_chi8->setFont(font9);
+        label_day_chi8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_chi8 = new QLabel(frame_Chi_8);
+        label_money_chi8->setObjectName("label_money_chi8");
+        label_money_chi8->setGeometry(QRect(32, 4, 61, 20));
+        label_money_chi8->setFont(font9);
+        label_money_chi8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_chi8 = new QLabel(frame_Chi_8);
+        label_content_chi8->setObjectName("label_content_chi8");
+        label_content_chi8->setGeometry(QRect(165, 4, 95, 20));
+        label_content_chi8->setFont(font10);
+        label_content_chi8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typechi8 = new QLabel(frame_Chi_8);
+        label_typechi8->setObjectName("label_typechi8");
+        label_typechi8->setGeometry(QRect(98, 4, 65, 20));
+        label_typechi8->setFont(font10);
+        label_typechi8->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        frame_Thu_1 = new QFrame(centralwidget);
+        frame_Thu_1->setObjectName("frame_Thu_1");
+        frame_Thu_1->setGeometry(QRect(960, 500, 265, 28));
+        frame_Thu_1->setStyleSheet(QString::fromUtf8("#frame_Thu_1{\n"
+"	background-color: #05BFDB;\n"
+"	border-radius: 10;\n"
+"	border: 1px solid white;\n"
+"	color: white\n"
+"}"));
+        frame_Thu_1->setFrameShape(QFrame::StyledPanel);
+        frame_Thu_1->setFrameShadow(QFrame::Raised);
+        label_day_thu1 = new QLabel(frame_Thu_1);
+        label_day_thu1->setObjectName("label_day_thu1");
+        label_day_thu1->setGeometry(QRect(5, 4, 21, 20));
+        label_day_thu1->setFont(font9);
+        label_day_thu1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_money_thu1 = new QLabel(frame_Thu_1);
+        label_money_thu1->setObjectName("label_money_thu1");
+        label_money_thu1->setGeometry(QRect(32, 4, 61, 20));
+        label_money_thu1->setFont(font9);
+        label_money_thu1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_content_thu1 = new QLabel(frame_Thu_1);
+        label_content_thu1->setObjectName("label_content_thu1");
+        label_content_thu1->setGeometry(QRect(165, 4, 95, 20));
+        label_content_thu1->setFont(font10);
+        label_content_thu1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
+        label_typethu1 = new QLabel(frame_Thu_1);
+        label_typethu1->setObjectName("label_typethu1");
+        label_typethu1->setGeometry(QRect(98, 4, 65, 20));
+        label_typethu1->setFont(font10);
+        label_typethu1->setStyleSheet(QString::fromUtf8("\n"
+"	background-color: white;\n"
+"	border-radius: 7;\n"
+"	border: 1px solid white;\n"
+"	color: black\n"
+""));
         MyApp->setCentralWidget(centralwidget);
 
         retranslateUi(MyApp);
 
         comboBox_MonthThu->setCurrentIndex(0);
         comboBox_MonthChi->setCurrentIndex(0);
-        comboBox->setCurrentIndex(0);
         comboBox_2->setCurrentIndex(0);
+        comboBox->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MyApp);
@@ -1617,24 +2293,6 @@ public:
         pushButton_password->setText(QString());
         pushButton_menu->setText(QString());
         pushButton_login->setText(QString());
-        comboBox->setItemText(0, QCoreApplication::translate("MyApp", "L\306\260\306\241ng th\303\241ng", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
-
-        plainTextEdit_2->setPlainText(QString());
-        label_11->setText(QString());
-        label_12->setText(QString());
-        label_13->setText(QString());
-        label->setText(QCoreApplication::translate("MyApp", "VN\304\220", nullptr));
-        pushButton_SetThu->setText(QCoreApplication::translate("MyApp", "Enter", nullptr));
-        plainTextEdit_3->setPlainText(QCoreApplication::translate("MyApp", "0", nullptr));
-        label_date_selected_2->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
-        plainTextEdit_7->setPlainText(QString());
-        label_18->setText(QString());
-        pushButton_Selectday_Thu->setText(QString());
-        label_date_selected_Thu->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
-        label_19->setText(QCoreApplication::translate("MyApp", "10", nullptr));
-        label_22->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
-        label_23->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
         comboBox_2->setItemText(0, QCoreApplication::translate("MyApp", "Ti\341\273\201n tr\341\273\215", nullptr));
         comboBox_2->setItemText(1, QCoreApplication::translate("MyApp", "Sinh ho\341\272\241t", nullptr));
         comboBox_2->setItemText(2, QCoreApplication::translate("MyApp", "\304\220i ch\306\241i", nullptr));
@@ -1662,6 +2320,71 @@ public:
         pushButton_back_day_Thu->setText(QString());
         pushButton_next_day_Thu->setText(QString());
         label_date_select_Thu->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MyApp", "L\306\260\306\241ng th\303\241ng", nullptr));
+        comboBox->setItemText(1, QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+
+        plainTextEdit_2->setPlainText(QString());
+        label_11->setText(QString());
+        label_12->setText(QString());
+        label_13->setText(QString());
+        label->setText(QCoreApplication::translate("MyApp", "VN\304\220", nullptr));
+        pushButton_SetThu->setText(QCoreApplication::translate("MyApp", "Enter", nullptr));
+        plainTextEdit_3->setPlainText(QCoreApplication::translate("MyApp", "0", nullptr));
+        label_date_selected_2->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
+        plainTextEdit_7->setPlainText(QString());
+        label_18->setText(QString());
+        pushButton_Selectday_Thu->setText(QString());
+        label_date_selected_Thu->setText(QCoreApplication::translate("MyApp", "09/12/2023", nullptr));
+        label_day_thu2->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu2->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu3->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu3->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu4->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu4->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu5->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu5->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu6->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu6->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu7->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu7->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_thu8->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu8->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_day_chi1->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi1->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi1->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi1->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi2->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi2->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi2->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi2->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi3->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi3->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi3->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi3->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi4->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi4->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi4->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi4->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi5->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi5->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi5->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi5->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi6->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi6->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi6->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi6->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi7->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi7->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi7->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi7->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_chi8->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_chi8->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_chi8->setText(QCoreApplication::translate("MyApp", "Salary", nullptr));
+        label_typechi8->setText(QCoreApplication::translate("MyApp", "Kh\303\241c", nullptr));
+        label_day_thu1->setText(QCoreApplication::translate("MyApp", "10", nullptr));
+        label_money_thu1->setText(QCoreApplication::translate("MyApp", "15000000", nullptr));
+        label_content_thu1->setText(QCoreApplication::translate("MyApp", "L\306\260\306\241ng th\303\241ng 12", nullptr));
+        label_typethu1->setText(QCoreApplication::translate("MyApp", "L\306\260\306\241ng", nullptr));
     } // retranslateUi
 
 };

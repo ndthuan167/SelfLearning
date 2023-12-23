@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MyApp(object):
     def setupUi(self, MyApp):
         MyApp.setObjectName("MyApp")
-        MyApp.resize(988, 690)
+        MyApp.resize(1569, 920)
         self.centralwidget = QtWidgets.QWidget(MyApp)
         self.centralwidget.setStyleSheet("#frame\n"
 "{\n"
@@ -152,7 +152,7 @@ class Ui_MyApp(object):
 "")
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(5, 5, 911, 680))
+        self.frame.setGeometry(QtCore.QRect(5, 5, 451, 680))
         self.frame.setStyleSheet("")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -168,32 +168,29 @@ class Ui_MyApp(object):
         self.frame_coding_app.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_coding_app.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_coding_app.setObjectName("frame_coding_app")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_coding_app)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.GithubButton = QtWidgets.QPushButton(self.frame_coding_app)
+        self.GithubButton.setGeometry(QtCore.QRect(9, 9, 54, 50))
         self.GithubButton.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/IconApplication/Image/github.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.GithubButton.setIcon(icon)
         self.GithubButton.setIconSize(QtCore.QSize(50, 50))
         self.GithubButton.setObjectName("GithubButton")
-        self.horizontalLayout_4.addWidget(self.GithubButton)
         self.VSCodeButton = QtWidgets.QPushButton(self.frame_coding_app)
+        self.VSCodeButton.setGeometry(QtCore.QRect(79, 9, 54, 50))
         self.VSCodeButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/IconApplication/Image/vscode.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.VSCodeButton.setIcon(icon1)
         self.VSCodeButton.setIconSize(QtCore.QSize(50, 50))
         self.VSCodeButton.setObjectName("VSCodeButton")
-        self.horizontalLayout_4.addWidget(self.VSCodeButton)
         self.frame_Enter_app = QtWidgets.QFrame(self.frame_usual_app)
         self.frame_Enter_app.setGeometry(QtCore.QRect(11, 11, 251, 69))
         self.frame_Enter_app.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_Enter_app.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_Enter_app.setObjectName("frame_Enter_app")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_Enter_app)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.GoogleButton = QtWidgets.QPushButton(self.frame_Enter_app)
+        self.GoogleButton.setGeometry(QtCore.QRect(9, 10, 52, 48))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Variable Text Semibold")
         font.setPointSize(11)
@@ -205,8 +202,8 @@ class Ui_MyApp(object):
         self.GoogleButton.setIcon(icon2)
         self.GoogleButton.setIconSize(QtCore.QSize(48, 48))
         self.GoogleButton.setObjectName("GoogleButton")
-        self.horizontalLayout_2.addWidget(self.GoogleButton)
         self.FacebookButton = QtWidgets.QPushButton(self.frame_Enter_app)
+        self.FacebookButton.setGeometry(QtCore.QRect(69, 10, 52, 48))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Variable Text Semibold")
         font.setPointSize(11)
@@ -218,24 +215,23 @@ class Ui_MyApp(object):
         self.FacebookButton.setIcon(icon3)
         self.FacebookButton.setIconSize(QtCore.QSize(48, 48))
         self.FacebookButton.setObjectName("FacebookButton")
-        self.horizontalLayout_2.addWidget(self.FacebookButton)
         self.YoutubeButton = QtWidgets.QPushButton(self.frame_Enter_app)
         self.YoutubeButton.setEnabled(True)
+        self.YoutubeButton.setGeometry(QtCore.QRect(128, 11, 54, 47))
         self.YoutubeButton.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/IconApplication/Image/youtube.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.YoutubeButton.setIcon(icon4)
         self.YoutubeButton.setIconSize(QtCore.QSize(50, 47))
         self.YoutubeButton.setObjectName("YoutubeButton")
-        self.horizontalLayout_2.addWidget(self.YoutubeButton)
         self.ZaloButton = QtWidgets.QPushButton(self.frame_Enter_app)
+        self.ZaloButton.setGeometry(QtCore.QRect(188, 9, 54, 50))
         self.ZaloButton.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/IconApplication/Image/zalo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ZaloButton.setIcon(icon5)
         self.ZaloButton.setIconSize(QtCore.QSize(50, 50))
         self.ZaloButton.setObjectName("ZaloButton")
-        self.horizontalLayout_2.addWidget(self.ZaloButton)
         self.frame_day_time = QtWidgets.QFrame(self.frame)
         self.frame_day_time.setGeometry(QtCore.QRect(340, 10, 101, 135))
         self.frame_day_time.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -907,256 +903,6 @@ class Ui_MyApp(object):
         self.pushButton_login.setIcon(icon12)
         self.pushButton_login.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_login.setObjectName("pushButton_login")
-        self.frametest = QtWidgets.QFrame(self.frame)
-        self.frametest.setGeometry(QtCore.QRect(470, 330, 201, 181))
-        self.frametest.setStyleSheet("#frametest{\n"
-"    background-color: #EDE4E0;\n"
-"    border-radius: 15;\n"
-"    border: 2px solid white;\n"
-"}")
-        self.frametest.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frametest.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frametest.setObjectName("frametest")
-        self.comboBox = QtWidgets.QComboBox(self.frametest)
-        self.comboBox.setGeometry(QtCore.QRect(45, 48, 141, 28))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.comboBox.setFont(font)
-        self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.comboBox.setAutoFillBackground(False)
-        self.comboBox.setStyleSheet("QComboBox {\n"
-"    border: 1px solid gray;\n"
-"    border-radius: 10px;\n"
-"    min-width: 6em;\n"
-"    padding-left: 10;\n"
-"}\n"
-"\n"
-"QComboBox:on {\n"
-"    border-bottom-left-radius: 0px;\n"
-"    border-bottom-right-radius: 0px;\n"
-"}\n"
-"\n"
-"QComboBox QAbstractItemView {\n"
-"    border-bottom-right-radius: 10px;\n"
-"    border-bottom-left-radius: 10px;\n"
-"    background: transparent;\n"
-"    border: 1px solid gray;\n"
-"    padding: 4px 4px 4px 4px\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
-"    width:20;\n"
-"    padding-left: 5\n"
-"}\n"
-"")
-        self.comboBox.setEditable(False)
-        self.comboBox.setMaxVisibleItems(10)
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(45, 118, 141, 28))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        self.plainTextEdit_2.setFont(font)
-        self.plainTextEdit_2.setStyleSheet("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5")
-        self.plainTextEdit_2.setPlainText("")
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.label_11 = QtWidgets.QLabel(self.frametest)
-        self.label_11.setGeometry(QtCore.QRect(10, 48, 25, 25))
-        self.label_11.setText("")
-        self.label_11.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-goal-40.png"))
-        self.label_11.setScaledContents(True)
-        self.label_11.setObjectName("label_11")
-        self.label_12 = QtWidgets.QLabel(self.frametest)
-        self.label_12.setGeometry(QtCore.QRect(10, 83, 25, 25))
-        self.label_12.setText("")
-        self.label_12.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-money-40.png"))
-        self.label_12.setScaledContents(True)
-        self.label_12.setObjectName("label_12")
-        self.label_13 = QtWidgets.QLabel(self.frametest)
-        self.label_13.setGeometry(QtCore.QRect(10, 118, 25, 25))
-        self.label_13.setText("")
-        self.label_13.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
-        self.label_13.setScaledContents(True)
-        self.label_13.setObjectName("label_13")
-        self.label = QtWidgets.QLabel(self.frametest)
-        self.label.setGeometry(QtCore.QRect(150, 83, 35, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(12)
-        font.setBold(True)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.pushButton_SetThu = QtWidgets.QPushButton(self.frametest)
-        self.pushButton_SetThu.setGeometry(QtCore.QRect(60, 151, 71, 25))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.pushButton_SetThu.setFont(font)
-        self.pushButton_SetThu.setStyleSheet("#pushButton_SetThu\n"
-"{\n"
-"    border: 0px solid white;\n"
-"    background-color: white;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"#pushButton_SetThu::pressed\n"
-"{\n"
-"    background-color: #99FFFF;\n"
-"    border-style: inset;\n"
-"}\n"
-"#pushButton_SetThu::hover\n"
-"{\n"
-"    background-color: #BBBBBB;\n"
-"    border-style: inset;\n"
-"}")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-next-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_SetThu.setIcon(icon13)
-        self.pushButton_SetThu.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_SetThu.setObjectName("pushButton_SetThu")
-        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_3.setGeometry(QtCore.QRect(45, 83, 101, 28))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.plainTextEdit_3.setFont(font)
-        self.plainTextEdit_3.setStyleSheet("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 8")
-        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
-        self.label_date_selected_2 = QtWidgets.QLabel(self.frametest)
-        self.label_date_selected_2.setGeometry(QtCore.QRect(60, 13, 91, 25))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.label_date_selected_2.setFont(font)
-        self.label_date_selected_2.setStyleSheet("#label_date_selected{\n"
-"    background-color: white;\n"
-"    border-radius: 10;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"}")
-        self.label_date_selected_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_date_selected_2.setObjectName("label_date_selected_2")
-        self.plainTextEdit_7 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_7.setGeometry(QtCore.QRect(45, 13, 141, 28))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        self.plainTextEdit_7.setFont(font)
-        self.plainTextEdit_7.setStyleSheet("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5")
-        self.plainTextEdit_7.setPlainText("")
-        self.plainTextEdit_7.setObjectName("plainTextEdit_7")
-        self.label_18 = QtWidgets.QLabel(self.frametest)
-        self.label_18.setGeometry(QtCore.QRect(8, 13, 31, 31))
-        self.label_18.setText("")
-        self.label_18.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"))
-        self.label_18.setScaledContents(True)
-        self.label_18.setObjectName("label_18")
-        self.pushButton_Selectday_Thu = QtWidgets.QPushButton(self.frametest)
-        self.pushButton_Selectday_Thu.setGeometry(QtCore.QRect(160, 15, 21, 24))
-        self.pushButton_Selectday_Thu.setStyleSheet("#pushButton_Selectday_Thu\n"
-"{\n"
-"    border: 0px solid white;\n"
-"    background-color: white;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"#pushButton_Selectday_Thu::pressed\n"
-"{\n"
-"    background-color: #99FFFF;\n"
-"    border-style: inset;\n"
-"}\n"
-"#pushButton_Selectday_Thu::hover\n"
-"{\n"
-"    background-color: #BBBBBB;\n"
-"    border-style: inset;\n"
-"}")
-        self.pushButton_Selectday_Thu.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_Selectday_Thu.setIcon(icon14)
-        self.pushButton_Selectday_Thu.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_Selectday_Thu.setObjectName("pushButton_Selectday_Thu")
-        self.label_date_selected_Thu = QtWidgets.QLabel(self.frametest)
-        self.label_date_selected_Thu.setGeometry(QtCore.QRect(60, 15, 91, 25))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.label_date_selected_Thu.setFont(font)
-        self.label_date_selected_Thu.setStyleSheet("#label_date_selected_Thu{\n"
-"    background-color: white;\n"
-"    border-radius: 10;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"}")
-        self.label_date_selected_Thu.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_date_selected_Thu.setObjectName("label_date_selected_Thu")
-        self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setGeometry(QtCore.QRect(720, 360, 181, 28))
-        self.frame_3.setStyleSheet("#frame_3{\n"
-"    background-color: #164863;\n"
-"    border-radius: 10;\n"
-"    border: 1px solid white;\n"
-"    color: white\n"
-"}")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.label_19 = QtWidgets.QLabel(self.frame_3)
-        self.label_19.setGeometry(QtCore.QRect(5, 4, 21, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        self.label_19.setFont(font)
-        self.label_19.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_19.setObjectName("label_19")
-        self.label_22 = QtWidgets.QLabel(self.frame_3)
-        self.label_22.setGeometry(QtCore.QRect(32, 4, 61, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
-        self.label_22.setFont(font)
-        self.label_22.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_22.setObjectName("label_22")
-        self.label_23 = QtWidgets.QLabel(self.frame_3)
-        self.label_23.setGeometry(QtCore.QRect(100, 4, 91, 20))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(False)
-        self.label_23.setFont(font)
-        self.label_23.setStyleSheet("\n"
-"    background-color: white;\n"
-"    border-radius: 7;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
-"")
-        self.label_23.setObjectName("label_23")
         self.frame_Image.raise_()
         self.frame_day_time.raise_()
         self.frame_usual_app.raise_()
@@ -1167,10 +913,8 @@ class Ui_MyApp(object):
         self.frame_info.raise_()
         self.frame_password.raise_()
         self.frame_password_2.raise_()
-        self.frametest.raise_()
-        self.frame_3.raise_()
         self.PopupChi = QtWidgets.QFrame(self.centralwidget)
-        self.PopupChi.setGeometry(QtCore.QRect(490, 110, 201, 181))
+        self.PopupChi.setGeometry(QtCore.QRect(1370, 180, 201, 181))
         self.PopupChi.setStyleSheet("#PopupChi{\n"
 "    background-color: #EDE4E0;\n"
 "    border-radius: 15;\n"
@@ -1283,6 +1027,8 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-next-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_SetChi.setIcon(icon13)
         self.pushButton_SetChi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SetChi.setObjectName("pushButton_SetChi")
@@ -1335,6 +1081,8 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_Selectday.setText("")
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_Selectday.setIcon(icon14)
         self.pushButton_Selectday.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_Selectday.setObjectName("pushButton_Selectday")
@@ -1354,7 +1102,7 @@ class Ui_MyApp(object):
         self.label_date_selected.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_selected.setObjectName("label_date_selected")
         self.PopupselectDay = QtWidgets.QFrame(self.centralwidget)
-        self.PopupselectDay.setGeometry(QtCore.QRect(490, 20, 191, 71))
+        self.PopupselectDay.setGeometry(QtCore.QRect(1370, 100, 191, 71))
         self.PopupselectDay.setStyleSheet("#PopupselectDay{\n"
 "    background-color: white;\n"
 "    border-radius: 15;\n"
@@ -1453,7 +1201,7 @@ class Ui_MyApp(object):
         self.label_date_select.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_select.setObjectName("label_date_select")
         self.PopupselectDay_Thu = QtWidgets.QFrame(self.centralwidget)
-        self.PopupselectDay_Thu.setGeometry(QtCore.QRect(700, 20, 191, 71))
+        self.PopupselectDay_Thu.setGeometry(QtCore.QRect(1375, 30, 191, 71))
         self.PopupselectDay_Thu.setStyleSheet("#PopupselectDay_Thu{\n"
 "    background-color: white;\n"
 "    border-radius: 15;\n"
@@ -1551,13 +1299,1035 @@ class Ui_MyApp(object):
 "}")
         self.label_date_select_Thu.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_select_Thu.setObjectName("label_date_select_Thu")
+        self.frametest = QtWidgets.QFrame(self.centralwidget)
+        self.frametest.setGeometry(QtCore.QRect(1370, 360, 201, 181))
+        self.frametest.setStyleSheet("#frametest{\n"
+"    background-color: #EDE4E0;\n"
+"    border-radius: 15;\n"
+"    border: 2px solid white;\n"
+"}")
+        self.frametest.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frametest.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frametest.setObjectName("frametest")
+        self.comboBox = QtWidgets.QComboBox(self.frametest)
+        self.comboBox.setGeometry(QtCore.QRect(45, 48, 141, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.comboBox.setFont(font)
+        self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox.setAutoFillBackground(False)
+        self.comboBox.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox.setEditable(False)
+        self.comboBox.setMaxVisibleItems(10)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.frametest)
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(45, 118, 141, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.plainTextEdit_2.setFont(font)
+        self.plainTextEdit_2.setStyleSheet("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5")
+        self.plainTextEdit_2.setPlainText("")
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.label_11 = QtWidgets.QLabel(self.frametest)
+        self.label_11.setGeometry(QtCore.QRect(10, 48, 25, 25))
+        self.label_11.setText("")
+        self.label_11.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-goal-40.png"))
+        self.label_11.setScaledContents(True)
+        self.label_11.setObjectName("label_11")
+        self.label_12 = QtWidgets.QLabel(self.frametest)
+        self.label_12.setGeometry(QtCore.QRect(10, 83, 25, 25))
+        self.label_12.setText("")
+        self.label_12.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-money-40.png"))
+        self.label_12.setScaledContents(True)
+        self.label_12.setObjectName("label_12")
+        self.label_13 = QtWidgets.QLabel(self.frametest)
+        self.label_13.setGeometry(QtCore.QRect(10, 118, 25, 25))
+        self.label_13.setText("")
+        self.label_13.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
+        self.label_13.setScaledContents(True)
+        self.label_13.setObjectName("label_13")
+        self.label = QtWidgets.QLabel(self.frametest)
+        self.label.setGeometry(QtCore.QRect(150, 83, 35, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.pushButton_SetThu = QtWidgets.QPushButton(self.frametest)
+        self.pushButton_SetThu.setGeometry(QtCore.QRect(60, 151, 71, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_SetThu.setFont(font)
+        self.pushButton_SetThu.setStyleSheet("#pushButton_SetThu\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_SetThu::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_SetThu::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_SetThu.setIcon(icon13)
+        self.pushButton_SetThu.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_SetThu.setObjectName("pushButton_SetThu")
+        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.frametest)
+        self.plainTextEdit_3.setGeometry(QtCore.QRect(45, 83, 101, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.plainTextEdit_3.setFont(font)
+        self.plainTextEdit_3.setStyleSheet("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 8")
+        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
+        self.label_date_selected_2 = QtWidgets.QLabel(self.frametest)
+        self.label_date_selected_2.setGeometry(QtCore.QRect(60, 13, 91, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_date_selected_2.setFont(font)
+        self.label_date_selected_2.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_2.setObjectName("label_date_selected_2")
+        self.plainTextEdit_7 = QtWidgets.QPlainTextEdit(self.frametest)
+        self.plainTextEdit_7.setGeometry(QtCore.QRect(45, 13, 141, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.plainTextEdit_7.setFont(font)
+        self.plainTextEdit_7.setStyleSheet("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5")
+        self.plainTextEdit_7.setPlainText("")
+        self.plainTextEdit_7.setObjectName("plainTextEdit_7")
+        self.label_18 = QtWidgets.QLabel(self.frametest)
+        self.label_18.setGeometry(QtCore.QRect(8, 13, 31, 31))
+        self.label_18.setText("")
+        self.label_18.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"))
+        self.label_18.setScaledContents(True)
+        self.label_18.setObjectName("label_18")
+        self.pushButton_Selectday_Thu = QtWidgets.QPushButton(self.frametest)
+        self.pushButton_Selectday_Thu.setGeometry(QtCore.QRect(160, 15, 21, 24))
+        self.pushButton_Selectday_Thu.setStyleSheet("#pushButton_Selectday_Thu\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_Selectday_Thu::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_Selectday_Thu::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_Selectday_Thu.setText("")
+        self.pushButton_Selectday_Thu.setIcon(icon14)
+        self.pushButton_Selectday_Thu.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_Selectday_Thu.setObjectName("pushButton_Selectday_Thu")
+        self.label_date_selected_Thu = QtWidgets.QLabel(self.frametest)
+        self.label_date_selected_Thu.setGeometry(QtCore.QRect(60, 15, 91, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_date_selected_Thu.setFont(font)
+        self.label_date_selected_Thu.setStyleSheet("#label_date_selected_Thu{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_Thu.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_Thu.setObjectName("label_date_selected_Thu")
+        self.frame_Thu_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_2.setGeometry(QtCore.QRect(1462, 548, 97, 28))
+        self.frame_Thu_2.setStyleSheet("#frame_Thu_2{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_2.setObjectName("frame_Thu_2")
+        self.label_day_thu2 = QtWidgets.QLabel(self.frame_Thu_2)
+        self.label_day_thu2.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu2.setFont(font)
+        self.label_day_thu2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu2.setObjectName("label_day_thu2")
+        self.label_money_thu2 = QtWidgets.QLabel(self.frame_Thu_2)
+        self.label_money_thu2.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu2.setFont(font)
+        self.label_money_thu2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu2.setObjectName("label_money_thu2")
+        self.frame_Thu_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_3.setGeometry(QtCore.QRect(1366, 580, 97, 28))
+        self.frame_Thu_3.setStyleSheet("#frame_Thu_3{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_3.setObjectName("frame_Thu_3")
+        self.label_day_thu3 = QtWidgets.QLabel(self.frame_Thu_3)
+        self.label_day_thu3.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu3.setFont(font)
+        self.label_day_thu3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu3.setObjectName("label_day_thu3")
+        self.label_money_thu3 = QtWidgets.QLabel(self.frame_Thu_3)
+        self.label_money_thu3.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu3.setFont(font)
+        self.label_money_thu3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu3.setObjectName("label_money_thu3")
+        self.frame_Thu_4 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_4.setGeometry(QtCore.QRect(1464, 580, 97, 28))
+        self.frame_Thu_4.setStyleSheet("#frame_Thu_4{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_4.setObjectName("frame_Thu_4")
+        self.label_day_thu4 = QtWidgets.QLabel(self.frame_Thu_4)
+        self.label_day_thu4.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu4.setFont(font)
+        self.label_day_thu4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu4.setObjectName("label_day_thu4")
+        self.label_money_thu4 = QtWidgets.QLabel(self.frame_Thu_4)
+        self.label_money_thu4.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu4.setFont(font)
+        self.label_money_thu4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu4.setObjectName("label_money_thu4")
+        self.frame_Thu_5 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_5.setGeometry(QtCore.QRect(1366, 610, 97, 28))
+        self.frame_Thu_5.setStyleSheet("#frame_Thu_5{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_5.setObjectName("frame_Thu_5")
+        self.label_day_thu5 = QtWidgets.QLabel(self.frame_Thu_5)
+        self.label_day_thu5.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu5.setFont(font)
+        self.label_day_thu5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu5.setObjectName("label_day_thu5")
+        self.label_money_thu5 = QtWidgets.QLabel(self.frame_Thu_5)
+        self.label_money_thu5.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu5.setFont(font)
+        self.label_money_thu5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu5.setObjectName("label_money_thu5")
+        self.frame_Thu_6 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_6.setGeometry(QtCore.QRect(1466, 644, 97, 28))
+        self.frame_Thu_6.setStyleSheet("#frame_Thu_6{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_6.setObjectName("frame_Thu_6")
+        self.label_day_thu6 = QtWidgets.QLabel(self.frame_Thu_6)
+        self.label_day_thu6.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu6.setFont(font)
+        self.label_day_thu6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu6.setObjectName("label_day_thu6")
+        self.label_money_thu6 = QtWidgets.QLabel(self.frame_Thu_6)
+        self.label_money_thu6.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu6.setFont(font)
+        self.label_money_thu6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu6.setObjectName("label_money_thu6")
+        self.frame_Thu_7 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_7.setGeometry(QtCore.QRect(1368, 644, 97, 28))
+        self.frame_Thu_7.setStyleSheet("#frame_Thu_7{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_7.setObjectName("frame_Thu_7")
+        self.label_day_thu7 = QtWidgets.QLabel(self.frame_Thu_7)
+        self.label_day_thu7.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu7.setFont(font)
+        self.label_day_thu7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu7.setObjectName("label_day_thu7")
+        self.label_money_thu7 = QtWidgets.QLabel(self.frame_Thu_7)
+        self.label_money_thu7.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu7.setFont(font)
+        self.label_money_thu7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu7.setObjectName("label_money_thu7")
+        self.frame_Thu_8 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_8.setGeometry(QtCore.QRect(1464, 610, 97, 28))
+        self.frame_Thu_8.setStyleSheet("#frame_Thu_8{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_8.setObjectName("frame_Thu_8")
+        self.label_day_thu8 = QtWidgets.QLabel(self.frame_Thu_8)
+        self.label_day_thu8.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu8.setFont(font)
+        self.label_day_thu8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu8.setObjectName("label_day_thu8")
+        self.label_money_thu8 = QtWidgets.QLabel(self.frame_Thu_8)
+        self.label_money_thu8.setGeometry(QtCore.QRect(30, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu8.setFont(font)
+        self.label_money_thu8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu8.setObjectName("label_money_thu8")
+        self.frame_Chi_1 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_1.setGeometry(QtCore.QRect(1300, 640, 265, 28))
+        self.frame_Chi_1.setStyleSheet("#frame_Chi_1{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_1.setObjectName("frame_Chi_1")
+        self.label_day_chi1 = QtWidgets.QLabel(self.frame_Chi_1)
+        self.label_day_chi1.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi1.setFont(font)
+        self.label_day_chi1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi1.setObjectName("label_day_chi1")
+        self.label_money_chi1 = QtWidgets.QLabel(self.frame_Chi_1)
+        self.label_money_chi1.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi1.setFont(font)
+        self.label_money_chi1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi1.setObjectName("label_money_chi1")
+        self.label_content_chi1 = QtWidgets.QLabel(self.frame_Chi_1)
+        self.label_content_chi1.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi1.setFont(font)
+        self.label_content_chi1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi1.setObjectName("label_content_chi1")
+        self.label_typechi1 = QtWidgets.QLabel(self.frame_Chi_1)
+        self.label_typechi1.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi1.setFont(font)
+        self.label_typechi1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi1.setObjectName("label_typechi1")
+        self.frame_Chi_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_2.setGeometry(QtCore.QRect(1300, 670, 265, 28))
+        self.frame_Chi_2.setStyleSheet("#frame_Chi_2{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_2.setObjectName("frame_Chi_2")
+        self.label_day_chi2 = QtWidgets.QLabel(self.frame_Chi_2)
+        self.label_day_chi2.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi2.setFont(font)
+        self.label_day_chi2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi2.setObjectName("label_day_chi2")
+        self.label_money_chi2 = QtWidgets.QLabel(self.frame_Chi_2)
+        self.label_money_chi2.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi2.setFont(font)
+        self.label_money_chi2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi2.setObjectName("label_money_chi2")
+        self.label_content_chi2 = QtWidgets.QLabel(self.frame_Chi_2)
+        self.label_content_chi2.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi2.setFont(font)
+        self.label_content_chi2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi2.setObjectName("label_content_chi2")
+        self.label_typechi2 = QtWidgets.QLabel(self.frame_Chi_2)
+        self.label_typechi2.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi2.setFont(font)
+        self.label_typechi2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi2.setObjectName("label_typechi2")
+        self.frame_Chi_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_3.setGeometry(QtCore.QRect(1300, 700, 265, 28))
+        self.frame_Chi_3.setStyleSheet("#frame_Chi_3{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_3.setObjectName("frame_Chi_3")
+        self.label_day_chi3 = QtWidgets.QLabel(self.frame_Chi_3)
+        self.label_day_chi3.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi3.setFont(font)
+        self.label_day_chi3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi3.setObjectName("label_day_chi3")
+        self.label_money_chi3 = QtWidgets.QLabel(self.frame_Chi_3)
+        self.label_money_chi3.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi3.setFont(font)
+        self.label_money_chi3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi3.setObjectName("label_money_chi3")
+        self.label_content_chi3 = QtWidgets.QLabel(self.frame_Chi_3)
+        self.label_content_chi3.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi3.setFont(font)
+        self.label_content_chi3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi3.setObjectName("label_content_chi3")
+        self.label_typechi3 = QtWidgets.QLabel(self.frame_Chi_3)
+        self.label_typechi3.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi3.setFont(font)
+        self.label_typechi3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi3.setObjectName("label_typechi3")
+        self.frame_Chi_4 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_4.setGeometry(QtCore.QRect(1300, 730, 265, 28))
+        self.frame_Chi_4.setStyleSheet("#frame_Chi_4{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_4.setObjectName("frame_Chi_4")
+        self.label_day_chi4 = QtWidgets.QLabel(self.frame_Chi_4)
+        self.label_day_chi4.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi4.setFont(font)
+        self.label_day_chi4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi4.setObjectName("label_day_chi4")
+        self.label_money_chi4 = QtWidgets.QLabel(self.frame_Chi_4)
+        self.label_money_chi4.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi4.setFont(font)
+        self.label_money_chi4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi4.setObjectName("label_money_chi4")
+        self.label_content_chi4 = QtWidgets.QLabel(self.frame_Chi_4)
+        self.label_content_chi4.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi4.setFont(font)
+        self.label_content_chi4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi4.setObjectName("label_content_chi4")
+        self.label_typechi4 = QtWidgets.QLabel(self.frame_Chi_4)
+        self.label_typechi4.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi4.setFont(font)
+        self.label_typechi4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi4.setObjectName("label_typechi4")
+        self.frame_Chi_5 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_5.setGeometry(QtCore.QRect(1300, 760, 265, 28))
+        self.frame_Chi_5.setStyleSheet("#frame_Chi_5{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_5.setObjectName("frame_Chi_5")
+        self.label_day_chi5 = QtWidgets.QLabel(self.frame_Chi_5)
+        self.label_day_chi5.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi5.setFont(font)
+        self.label_day_chi5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi5.setObjectName("label_day_chi5")
+        self.label_money_chi5 = QtWidgets.QLabel(self.frame_Chi_5)
+        self.label_money_chi5.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi5.setFont(font)
+        self.label_money_chi5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi5.setObjectName("label_money_chi5")
+        self.label_content_chi5 = QtWidgets.QLabel(self.frame_Chi_5)
+        self.label_content_chi5.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi5.setFont(font)
+        self.label_content_chi5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi5.setObjectName("label_content_chi5")
+        self.label_typechi5 = QtWidgets.QLabel(self.frame_Chi_5)
+        self.label_typechi5.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi5.setFont(font)
+        self.label_typechi5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi5.setObjectName("label_typechi5")
+        self.frame_Chi_6 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_6.setGeometry(QtCore.QRect(1300, 820, 265, 28))
+        self.frame_Chi_6.setStyleSheet("#frame_Chi_6{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_6.setObjectName("frame_Chi_6")
+        self.label_day_chi6 = QtWidgets.QLabel(self.frame_Chi_6)
+        self.label_day_chi6.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi6.setFont(font)
+        self.label_day_chi6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi6.setObjectName("label_day_chi6")
+        self.label_money_chi6 = QtWidgets.QLabel(self.frame_Chi_6)
+        self.label_money_chi6.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi6.setFont(font)
+        self.label_money_chi6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi6.setObjectName("label_money_chi6")
+        self.label_content_chi6 = QtWidgets.QLabel(self.frame_Chi_6)
+        self.label_content_chi6.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi6.setFont(font)
+        self.label_content_chi6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi6.setObjectName("label_content_chi6")
+        self.label_typechi6 = QtWidgets.QLabel(self.frame_Chi_6)
+        self.label_typechi6.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi6.setFont(font)
+        self.label_typechi6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi6.setObjectName("label_typechi6")
+        self.frame_Chi_7 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_7.setGeometry(QtCore.QRect(1300, 850, 265, 28))
+        self.frame_Chi_7.setStyleSheet("#frame_Chi_7{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_7.setObjectName("frame_Chi_7")
+        self.label_day_chi7 = QtWidgets.QLabel(self.frame_Chi_7)
+        self.label_day_chi7.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi7.setFont(font)
+        self.label_day_chi7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi7.setObjectName("label_day_chi7")
+        self.label_money_chi7 = QtWidgets.QLabel(self.frame_Chi_7)
+        self.label_money_chi7.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi7.setFont(font)
+        self.label_money_chi7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi7.setObjectName("label_money_chi7")
+        self.label_content_chi7 = QtWidgets.QLabel(self.frame_Chi_7)
+        self.label_content_chi7.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi7.setFont(font)
+        self.label_content_chi7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi7.setObjectName("label_content_chi7")
+        self.label_typechi7 = QtWidgets.QLabel(self.frame_Chi_7)
+        self.label_typechi7.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi7.setFont(font)
+        self.label_typechi7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi7.setObjectName("label_typechi7")
+        self.frame_Chi_8 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Chi_8.setGeometry(QtCore.QRect(1300, 790, 265, 28))
+        self.frame_Chi_8.setStyleSheet("#frame_Chi_8{\n"
+"    background-color: #FF9209;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Chi_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Chi_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Chi_8.setObjectName("frame_Chi_8")
+        self.label_day_chi8 = QtWidgets.QLabel(self.frame_Chi_8)
+        self.label_day_chi8.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_chi8.setFont(font)
+        self.label_day_chi8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_chi8.setObjectName("label_day_chi8")
+        self.label_money_chi8 = QtWidgets.QLabel(self.frame_Chi_8)
+        self.label_money_chi8.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_chi8.setFont(font)
+        self.label_money_chi8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_chi8.setObjectName("label_money_chi8")
+        self.label_content_chi8 = QtWidgets.QLabel(self.frame_Chi_8)
+        self.label_content_chi8.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_chi8.setFont(font)
+        self.label_content_chi8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_chi8.setObjectName("label_content_chi8")
+        self.label_typechi8 = QtWidgets.QLabel(self.frame_Chi_8)
+        self.label_typechi8.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typechi8.setFont(font)
+        self.label_typechi8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typechi8.setObjectName("label_typechi8")
+        self.frame_Thu_1 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Thu_1.setGeometry(QtCore.QRect(960, 500, 265, 28))
+        self.frame_Thu_1.setStyleSheet("#frame_Thu_1{\n"
+"    background-color: #05BFDB;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Thu_1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Thu_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Thu_1.setObjectName("frame_Thu_1")
+        self.label_day_thu1 = QtWidgets.QLabel(self.frame_Thu_1)
+        self.label_day_thu1.setGeometry(QtCore.QRect(5, 4, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_day_thu1.setFont(font)
+        self.label_day_thu1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_thu1.setObjectName("label_day_thu1")
+        self.label_money_thu1 = QtWidgets.QLabel(self.frame_Thu_1)
+        self.label_money_thu1.setGeometry(QtCore.QRect(32, 4, 61, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.label_money_thu1.setFont(font)
+        self.label_money_thu1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_money_thu1.setObjectName("label_money_thu1")
+        self.label_content_thu1 = QtWidgets.QLabel(self.frame_Thu_1)
+        self.label_content_thu1.setGeometry(QtCore.QRect(165, 4, 95, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_content_thu1.setFont(font)
+        self.label_content_thu1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_thu1.setObjectName("label_content_thu1")
+        self.label_typethu1 = QtWidgets.QLabel(self.frame_Thu_1)
+        self.label_typethu1.setGeometry(QtCore.QRect(98, 4, 65, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(False)
+        self.label_typethu1.setFont(font)
+        self.label_typethu1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_typethu1.setObjectName("label_typethu1")
         MyApp.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MyApp)
         self.comboBox_MonthThu.setCurrentIndex(0)
         self.comboBox_MonthChi.setCurrentIndex(0)
-        self.comboBox.setCurrentIndex(0)
         self.comboBox_2.setCurrentIndex(0)
+        self.comboBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MyApp)
 
     def retranslateUi(self, MyApp):
@@ -1600,16 +2370,6 @@ class Ui_MyApp(object):
         self.label_10.setText(_translate("MyApp", "Đình\n"
 " Thuận"))
         self.pushButton_Plus_pass.setText(_translate("MyApp", "+"))
-        self.comboBox.setItemText(0, _translate("MyApp", "Lương tháng"))
-        self.comboBox.setItemText(1, _translate("MyApp", "Khác"))
-        self.label.setText(_translate("MyApp", "VNĐ"))
-        self.pushButton_SetThu.setText(_translate("MyApp", "Enter"))
-        self.plainTextEdit_3.setPlainText(_translate("MyApp", "0"))
-        self.label_date_selected_2.setText(_translate("MyApp", "09/12/2023"))
-        self.label_date_selected_Thu.setText(_translate("MyApp", "09/12/2023"))
-        self.label_19.setText(_translate("MyApp", "10"))
-        self.label_22.setText(_translate("MyApp", "15000000"))
-        self.label_23.setText(_translate("MyApp", "Salary"))
         self.comboBox_2.setItemText(0, _translate("MyApp", "Tiền trọ"))
         self.comboBox_2.setItemText(1, _translate("MyApp", "Sinh hoạt"))
         self.comboBox_2.setItemText(2, _translate("MyApp", "Đi chơi"))
@@ -1623,4 +2383,61 @@ class Ui_MyApp(object):
         self.label_date_select.setText(_translate("MyApp", "09/12/2023"))
         self.pushButton_SelectedDay_Thu.setText(_translate("MyApp", "Enter"))
         self.label_date_select_Thu.setText(_translate("MyApp", "09/12/2023"))
+        self.comboBox.setItemText(0, _translate("MyApp", "Lương tháng"))
+        self.comboBox.setItemText(1, _translate("MyApp", "Khác"))
+        self.label.setText(_translate("MyApp", "VNĐ"))
+        self.pushButton_SetThu.setText(_translate("MyApp", "Enter"))
+        self.plainTextEdit_3.setPlainText(_translate("MyApp", "0"))
+        self.label_date_selected_2.setText(_translate("MyApp", "09/12/2023"))
+        self.label_date_selected_Thu.setText(_translate("MyApp", "09/12/2023"))
+        self.label_day_thu2.setText(_translate("MyApp", "10"))
+        self.label_money_thu2.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu3.setText(_translate("MyApp", "10"))
+        self.label_money_thu3.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu4.setText(_translate("MyApp", "10"))
+        self.label_money_thu4.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu5.setText(_translate("MyApp", "10"))
+        self.label_money_thu5.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu6.setText(_translate("MyApp", "10"))
+        self.label_money_thu6.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu7.setText(_translate("MyApp", "10"))
+        self.label_money_thu7.setText(_translate("MyApp", "15000000"))
+        self.label_day_thu8.setText(_translate("MyApp", "10"))
+        self.label_money_thu8.setText(_translate("MyApp", "15000000"))
+        self.label_day_chi1.setText(_translate("MyApp", "10"))
+        self.label_money_chi1.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi1.setText(_translate("MyApp", "Salary"))
+        self.label_typechi1.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi2.setText(_translate("MyApp", "10"))
+        self.label_money_chi2.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi2.setText(_translate("MyApp", "Salary"))
+        self.label_typechi2.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi3.setText(_translate("MyApp", "10"))
+        self.label_money_chi3.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi3.setText(_translate("MyApp", "Salary"))
+        self.label_typechi3.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi4.setText(_translate("MyApp", "10"))
+        self.label_money_chi4.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi4.setText(_translate("MyApp", "Salary"))
+        self.label_typechi4.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi5.setText(_translate("MyApp", "10"))
+        self.label_money_chi5.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi5.setText(_translate("MyApp", "Salary"))
+        self.label_typechi5.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi6.setText(_translate("MyApp", "10"))
+        self.label_money_chi6.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi6.setText(_translate("MyApp", "Salary"))
+        self.label_typechi6.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi7.setText(_translate("MyApp", "10"))
+        self.label_money_chi7.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi7.setText(_translate("MyApp", "Salary"))
+        self.label_typechi7.setText(_translate("MyApp", "Khác"))
+        self.label_day_chi8.setText(_translate("MyApp", "10"))
+        self.label_money_chi8.setText(_translate("MyApp", "15000000"))
+        self.label_content_chi8.setText(_translate("MyApp", "Salary"))
+        self.label_typechi8.setText(_translate("MyApp", "Khác"))
+        self.label_day_thu1.setText(_translate("MyApp", "10"))
+        self.label_money_thu1.setText(_translate("MyApp", "15000000"))
+        self.label_content_thu1.setText(_translate("MyApp", "Lương tháng 12"))
+        self.label_typethu1.setText(_translate("MyApp", "Lương"))
 import ResourceFile_rc

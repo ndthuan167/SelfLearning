@@ -18,7 +18,7 @@ public:
     ~popup_Thu();
 
 signals:
-    void dataAvaiable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_textcontent_thu);
+    void dataAvaiable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu , const QString &data_textcontent_thu);
 
 private slots:
     void on_pushButton_SetThu_clicked();
