@@ -15,9 +15,6 @@
 #include <QDialog>
 #include <QCalendarWidget>
 #include <QScrollArea>
-#include "libxl.h"
 #include <iostream>
-
-using namespace libxl;
 
 #endif // INCLUDELIBRARY_H
