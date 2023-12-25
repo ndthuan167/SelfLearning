@@ -28,6 +28,8 @@ public slots:
     void OpenZaloApp();
     void OpenVSCode();
     void OpenGoogleSearch();
+    void OpenExcelDataSource();
+
     void showTime();
     void HidetheTotal();
 
@@ -53,6 +55,8 @@ private:
     int today = 0;
     QString total_date;
 
+    QVector <int> data_money_thu;
+    QVector <int> data_money_chi;
     QString money_thu;
     int int_money_thu = 0;
     QString money_chi;
@@ -63,5 +67,15 @@ private:
     bool showframetest = false;
     bool showPopupChi = false;
     bool set_horizontal_layout = false;
+
+    int number_data_chi_index = 5;
+    int number_data_chi = 0;
+
+    int number_data_thu_index = 5;
+    int number_data_thu = 0;
+
+    int number_data_write_chi_index = 5;
+
+    int number_data_write_thu_index = 5;
 };
 #endif // MYAPP_H
