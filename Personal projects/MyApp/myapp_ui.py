@@ -885,7 +885,7 @@ class Ui_MyApp(object):
         self.pushButton_menu.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_menu.setObjectName("pushButton_menu")
         self.pushButton_login = QtWidgets.QPushButton(self.frame_password_2)
-        self.pushButton_login.setGeometry(QtCore.QRect(50, 5, 30, 30))
+        self.pushButton_login.setGeometry(QtCore.QRect(50, 5, 31, 30))
         self.pushButton_login.setStyleSheet("#pushButton_login\n"
 "{\n"
 "    border: 0px solid white;\n"
@@ -1899,6 +1899,8 @@ class Ui_MyApp(object):
         self.frame_Chi_7 = QtWidgets.QFrame(self.centralwidget)
         self.frame_Chi_7.setGeometry(QtCore.QRect(950, 0, 265, 28))
         font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(9)
         font.setBold(False)
         self.frame_Chi_7.setFont(font)
         self.frame_Chi_7.setStyleSheet("#frame_Chi_7{\n"
@@ -3500,7 +3502,7 @@ class Ui_MyApp(object):
         self.label_thu.setText(_translate("MyApp", "Friday"))
         self.label_day.setText(_translate("MyApp", "30"))
         self.pushButton_Plus_thu.setText(_translate("MyApp", "+"))
-        self.label_total_thu.setText(_translate("MyApp", "Tổng: 0 VNĐ"))
+        self.label_total_thu.setText(_translate("MyApp", "Tổng: *** *** *** VNĐ"))
         self.comboBox_MonthThu.setItemText(0, _translate("MyApp", "Tháng 1"))
         self.comboBox_MonthThu.setItemText(1, _translate("MyApp", "Tháng 2"))
         self.comboBox_MonthThu.setItemText(2, _translate("MyApp", "Tháng 3"))
@@ -3514,7 +3516,7 @@ class Ui_MyApp(object):
         self.comboBox_MonthThu.setItemText(10, _translate("MyApp", "Tháng 11"))
         self.comboBox_MonthThu.setItemText(11, _translate("MyApp", "Tháng 12"))
         self.pushButton_Plus_chi.setText(_translate("MyApp", "-"))
-        self.label_total_chi.setText(_translate("MyApp", "Tổng: 0 VNĐ"))
+        self.label_total_chi.setText(_translate("MyApp", "Tổng: *** *** *** VNĐ"))
         self.comboBox_MonthChi.setItemText(0, _translate("MyApp", "Tháng 1"))
         self.comboBox_MonthChi.setItemText(1, _translate("MyApp", "Tháng 2"))
         self.comboBox_MonthChi.setItemText(2, _translate("MyApp", "Tháng 3"))

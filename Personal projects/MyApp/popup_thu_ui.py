@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_popup_Thu(object):
     def setupUi(self, popup_Thu):
         popup_Thu.setObjectName("popup_Thu")
-        popup_Thu.resize(425, 203)
+        popup_Thu.resize(530, 272)
         self.frametest = QtWidgets.QFrame(popup_Thu)
-        self.frametest.setGeometry(QtCore.QRect(0, 0, 201, 181))
+        self.frametest.setGeometry(QtCore.QRect(0, 0, 240, 227))
         self.frametest.setStyleSheet("#frametest{\n"
 "    background-color: #EDE4E0;\n"
 "    border-radius: 15;\n"
@@ -26,11 +26,11 @@ class Ui_popup_Thu(object):
         self.frametest.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frametest.setObjectName("frametest")
         self.comboBox = QtWidgets.QComboBox(self.frametest)
-        self.comboBox.setGeometry(QtCore.QRect(45, 48, 141, 28))
+        self.comboBox.setGeometry(QtCore.QRect(45, 48, 181, 28))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.comboBox.setFont(font)
         self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox.setAutoFillBackground(False)
@@ -66,10 +66,11 @@ class Ui_popup_Thu(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(45, 118, 141, 28))
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(45, 123, 181, 67))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.plainTextEdit_2.setFont(font)
         self.plainTextEdit_2.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -90,13 +91,13 @@ class Ui_popup_Thu(object):
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName("label_12")
         self.label_13 = QtWidgets.QLabel(self.frametest)
-        self.label_13.setGeometry(QtCore.QRect(10, 118, 25, 25))
+        self.label_13.setGeometry(QtCore.QRect(10, 140, 25, 25))
         self.label_13.setText("")
         self.label_13.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
         self.label_13.setScaledContents(True)
         self.label_13.setObjectName("label_13")
         self.label = QtWidgets.QLabel(self.frametest)
-        self.label.setGeometry(QtCore.QRect(150, 83, 35, 20))
+        self.label.setGeometry(QtCore.QRect(190, 90, 35, 20))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(12)
@@ -104,7 +105,7 @@ class Ui_popup_Thu(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.pushButton_SetThu = QtWidgets.QPushButton(self.frametest)
-        self.pushButton_SetThu.setGeometry(QtCore.QRect(60, 151, 71, 25))
+        self.pushButton_SetThu.setGeometry(QtCore.QRect(90, 195, 71, 25))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
@@ -132,11 +133,11 @@ class Ui_popup_Thu(object):
         self.pushButton_SetThu.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SetThu.setObjectName("pushButton_SetThu")
         self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_3.setGeometry(QtCore.QRect(45, 83, 101, 28))
+        self.plainTextEdit_3.setGeometry(QtCore.QRect(45, 83, 141, 33))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.plainTextEdit_3.setFont(font)
         self.plainTextEdit_3.setTabletTracking(False)
         self.plainTextEdit_3.setAcceptDrops(True)
@@ -167,7 +168,7 @@ class Ui_popup_Thu(object):
         self.label_date_selected_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_selected_2.setObjectName("label_date_selected_2")
         self.plainTextEdit_7 = QtWidgets.QPlainTextEdit(self.frametest)
-        self.plainTextEdit_7.setGeometry(QtCore.QRect(45, 13, 141, 28))
+        self.plainTextEdit_7.setGeometry(QtCore.QRect(45, 13, 181, 28))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
@@ -185,7 +186,7 @@ class Ui_popup_Thu(object):
         self.label_18.setScaledContents(True)
         self.label_18.setObjectName("label_18")
         self.pushButton_Selectday_Thu = QtWidgets.QPushButton(self.frametest)
-        self.pushButton_Selectday_Thu.setGeometry(QtCore.QRect(160, 15, 21, 24))
+        self.pushButton_Selectday_Thu.setGeometry(QtCore.QRect(200, 15, 21, 24))
         self.pushButton_Selectday_Thu.setStyleSheet("#pushButton_Selectday_Thu\n"
 "{\n"
 "    border: 0px solid white;\n"
@@ -209,11 +210,11 @@ class Ui_popup_Thu(object):
         self.pushButton_Selectday_Thu.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_Selectday_Thu.setObjectName("pushButton_Selectday_Thu")
         self.label_date_selected_Thu = QtWidgets.QLabel(self.frametest)
-        self.label_date_selected_Thu.setGeometry(QtCore.QRect(60, 15, 91, 25))
+        self.label_date_selected_Thu.setGeometry(QtCore.QRect(50, 15, 91, 25))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.label_date_selected_Thu.setFont(font)
         self.label_date_selected_Thu.setStyleSheet("#label_date_selected_Thu{\n"
 "    background-color: white;\n"
@@ -224,7 +225,7 @@ class Ui_popup_Thu(object):
         self.label_date_selected_Thu.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_selected_Thu.setObjectName("label_date_selected_Thu")
         self.PopupselectDay_Thu = QtWidgets.QFrame(popup_Thu)
-        self.PopupselectDay_Thu.setGeometry(QtCore.QRect(210, 30, 191, 71))
+        self.PopupselectDay_Thu.setGeometry(QtCore.QRect(290, 10, 191, 71))
         self.PopupselectDay_Thu.setStyleSheet("#PopupselectDay_Thu{\n"
 "    background-color: white;\n"
 "    border-radius: 15;\n"

@@ -24,7 +24,7 @@ popup_Thu::popup_Thu(QWidget *parent, QString message):
     connect(ui->pushButton_SelectedDay_Thu, SIGNAL(clicked(bool)), this, SLOT(SetDateCalendar()));
 
 
-    this->setFixedSize(QSize(200,180));
+    this->setFixedSize(QSize(240,227));
     this->setWindowTitle("Dữ liệu Thu");
     QDate date = QDate::currentDate();
     QString current_date = date.toString("dd/MM/yyyy");
@@ -43,7 +43,7 @@ void popup_Thu::on_pushButton_SetThu_clicked()
 
 void popup_Thu::ShowCalendarSelection()
 {
-    ui->PopupselectDay_Thu->setGeometry(QRect(5,10, 190, 71));
+    ui->PopupselectDay_Thu->setGeometry(QRect(30,10, 190, 71));
     QDate date = QDate::currentDate();
     QString current_date = date.toString("dd/MM/yyyy");
     ui->label_date_select_Thu->setText(current_date);

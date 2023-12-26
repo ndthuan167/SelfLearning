@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PopupChi(object):
     def setupUi(self, PopupChi):
         PopupChi.setObjectName("PopupChi")
-        PopupChi.resize(452, 185)
+        PopupChi.resize(492, 302)
         self.PopupChi_2 = QtWidgets.QFrame(PopupChi)
-        self.PopupChi_2.setGeometry(QtCore.QRect(0, 0, 201, 181))
+        self.PopupChi_2.setGeometry(QtCore.QRect(0, 0, 240, 227))
         self.PopupChi_2.setStyleSheet("#PopupChi_2{\n"
 "    background-color: #EDE4E0;\n"
 "    border-radius: 15;\n"
@@ -26,11 +26,11 @@ class Ui_PopupChi(object):
         self.PopupChi_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.PopupChi_2.setObjectName("PopupChi_2")
         self.comboBox_2 = QtWidgets.QComboBox(self.PopupChi_2)
-        self.comboBox_2.setGeometry(QtCore.QRect(45, 45, 140, 28))
+        self.comboBox_2.setGeometry(QtCore.QRect(45, 45, 181, 28))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.comboBox_2.setFont(font)
         self.comboBox_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.comboBox_2.setAutoFillBackground(False)
@@ -69,10 +69,11 @@ class Ui_PopupChi(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.plainTextEdit_4 = QtWidgets.QPlainTextEdit(self.PopupChi_2)
-        self.plainTextEdit_4.setGeometry(QtCore.QRect(45, 115, 141, 28))
+        self.plainTextEdit_4.setGeometry(QtCore.QRect(45, 123, 181, 67))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.plainTextEdit_4.setFont(font)
         self.plainTextEdit_4.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -87,19 +88,19 @@ class Ui_PopupChi(object):
         self.label_14.setScaledContents(True)
         self.label_14.setObjectName("label_14")
         self.label_15 = QtWidgets.QLabel(self.PopupChi_2)
-        self.label_15.setGeometry(QtCore.QRect(10, 80, 25, 25))
+        self.label_15.setGeometry(QtCore.QRect(10, 85, 25, 25))
         self.label_15.setText("")
         self.label_15.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-money-40.png"))
         self.label_15.setScaledContents(True)
         self.label_15.setObjectName("label_15")
         self.label_16 = QtWidgets.QLabel(self.PopupChi_2)
-        self.label_16.setGeometry(QtCore.QRect(10, 115, 25, 25))
+        self.label_16.setGeometry(QtCore.QRect(10, 140, 25, 25))
         self.label_16.setText("")
         self.label_16.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
         self.label_16.setScaledContents(True)
         self.label_16.setObjectName("label_16")
         self.label_2 = QtWidgets.QLabel(self.PopupChi_2)
-        self.label_2.setGeometry(QtCore.QRect(140, 85, 35, 20))
+        self.label_2.setGeometry(QtCore.QRect(190, 90, 35, 20))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(12)
@@ -107,7 +108,7 @@ class Ui_PopupChi(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.pushButton_SetChi = QtWidgets.QPushButton(self.PopupChi_2)
-        self.pushButton_SetChi.setGeometry(QtCore.QRect(70, 150, 71, 25))
+        self.pushButton_SetChi.setGeometry(QtCore.QRect(80, 195, 71, 25))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
@@ -135,11 +136,11 @@ class Ui_PopupChi(object):
         self.pushButton_SetChi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SetChi.setObjectName("pushButton_SetChi")
         self.plainTextEdit_5 = QtWidgets.QPlainTextEdit(self.PopupChi_2)
-        self.plainTextEdit_5.setGeometry(QtCore.QRect(45, 80, 91, 28))
+        self.plainTextEdit_5.setGeometry(QtCore.QRect(45, 83, 141, 33))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(12)
+        font.setBold(False)
         self.plainTextEdit_5.setFont(font)
         self.plainTextEdit_5.setStyleSheet("border-radius: 10;\n"
 "background-color: white;\n"
@@ -154,7 +155,7 @@ class Ui_PopupChi(object):
         self.label_17.setScaledContents(True)
         self.label_17.setObjectName("label_17")
         self.plainTextEdit_6 = QtWidgets.QPlainTextEdit(self.PopupChi_2)
-        self.plainTextEdit_6.setGeometry(QtCore.QRect(45, 10, 141, 28))
+        self.plainTextEdit_6.setGeometry(QtCore.QRect(45, 10, 181, 28))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setBold(True)
@@ -166,7 +167,7 @@ class Ui_PopupChi(object):
         self.plainTextEdit_6.setPlainText("")
         self.plainTextEdit_6.setObjectName("plainTextEdit_6")
         self.pushButton_Selectday = QtWidgets.QPushButton(self.PopupChi_2)
-        self.pushButton_Selectday.setGeometry(QtCore.QRect(160, 12, 21, 24))
+        self.pushButton_Selectday.setGeometry(QtCore.QRect(200, 12, 21, 24))
         self.pushButton_Selectday.setStyleSheet("#pushButton_Selectday\n"
 "{\n"
 "    border: 0px solid white;\n"
@@ -192,9 +193,9 @@ class Ui_PopupChi(object):
         self.label_date_selected = QtWidgets.QLabel(self.PopupChi_2)
         self.label_date_selected.setGeometry(QtCore.QRect(60, 12, 91, 25))
         font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
+        font.setFamily("SamsungOne")
+        font.setPointSize(11)
+        font.setBold(False)
         self.label_date_selected.setFont(font)
         self.label_date_selected.setStyleSheet("#label_date_selected{\n"
 "    background-color: white;\n"
@@ -206,7 +207,7 @@ class Ui_PopupChi(object):
         self.label_date_selected.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_selected.setObjectName("label_date_selected")
         self.PopupselectDay = QtWidgets.QFrame(PopupChi)
-        self.PopupselectDay.setGeometry(QtCore.QRect(250, 40, 191, 71))
+        self.PopupselectDay.setGeometry(QtCore.QRect(280, 10, 191, 71))
         self.PopupselectDay.setStyleSheet("#PopupselectDay{\n"
 "    background-color: white;\n"
 "    border-radius: 15;\n"

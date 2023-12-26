@@ -23,7 +23,7 @@ PopupChi::PopupChi(QWidget *parent, QString message):
         emit dataAvaiable(QString(ui->label_date_selected->text()).mid(0,2), QString(ui->plainTextEdit_5->toPlainText()), QString(ui->comboBox_2->currentText()), QString(ui->plainTextEdit_4->toPlainText()));
     });
 
-    this->setFixedSize(QSize(200,180));
+    this->setFixedSize(QSize(240,227));
     this->setWindowTitle("Dữ liệu chi");
     QDate date = QDate::currentDate();
     QString current_date = date.toString("dd/MM/yyyy");
@@ -42,7 +42,7 @@ void PopupChi::on_pushButton_SetChi_clicked()
 
 void PopupChi::ShowCalendarSelection()
 {
-    ui->PopupselectDay->setGeometry(QRect(5,10, 190, 71));
+    ui->PopupselectDay->setGeometry(QRect(30,10, 190, 71));
     QDate date = QDate::currentDate();
     QString current_date = date.toString("dd/MM/yyyy");
     ui->label_date_select->setText(current_date);

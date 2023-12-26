@@ -20,8 +20,9 @@ MyApp::MyApp(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
     timer->start(1000);
 
-    // Show data chi
-    //    ShowDataFromDataSource();
+    QDate day = QDate::currentDate();
+    int current_month_show = day.toString("MM").toInt();
+    ui->comboBox_MonthThu->setCurrentIndex(current_month_show - 1);
 
     // Animation for Image
     QTimer *timer_image = new QTimer(this);
@@ -107,6 +108,9 @@ void MyApp::ChangeToHorizontalLayout()
 
     if (set_horizontal_layout == true)
     {
+        QPixmap pixmap(":/Icon/Image/icons8-login-rounded-up-35.png");
+        ui->pushButton_login->setIcon(QIcon(pixmap));
+        ui->pushButton_login->setIconSize(QSize(35,35));
         // Change Geometry to horizontal layout
         this->setFixedSize(1310, 760);
         ui->frame->setGeometry(QRect(5, 5, 1300, 750));
@@ -115,7 +119,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->frame_password_2->setGeometry(QRect(20, 690, 111, 41));
         ui->frame_password_2->setStyleSheet("#frame_password_2{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
         ui->pushButton_menu->setGeometry(QRect(15, 5, 30, 30));
-        ui->pushButton_login->setGeometry(QRect(70, 5, 30, 30));
+        ui->pushButton_login->setGeometry(QRect(65, 5, 31, 31));
 
         ui->frame_info->setGeometry(QRect(20, 640, 111, 45));
         ui->frame_info->setStyleSheet("#frame_info{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}}");
@@ -273,6 +277,10 @@ void MyApp::ChangeToHorizontalLayout()
     }
     else
     {
+        QPixmap pixmap(":/Icon/Image/icons8-login-48.png");
+        ui->pushButton_login->setIcon(QIcon(pixmap));
+        ui->pushButton_login->setIconSize(QSize(35,35));
+
         ShowDataFromDataSource();
         // Change Geometry to vertical layout
         this->setFixedSize(460, 690);
@@ -446,18 +454,21 @@ void MyApp::onDataAvailable(const QString &data_textday, const QString &data_tex
     int index_month_thu = ui->comboBox_MonthThu->currentIndex();
     xlsx.selectSheet(index_month_thu);
 
-    while (xlsx.read(number_data_write_chi_index, 7).toInt() != 0)
+    if (data_textmoney != "" && data_textcontent != "")
     {
-        number_data_write_chi_index++;
+        while (xlsx.read(number_data_write_chi_index, 7).toInt() != 0)
+        {
+            number_data_write_chi_index++;
+        }
+
+        xlsx.write(number_data_write_chi_index, 7, data_textday);
+        xlsx.write(number_data_write_chi_index, 8, data_textmoney);
+        xlsx.write(number_data_write_chi_index, 9, data_texttype);
+        xlsx.write(number_data_write_chi_index, 10, data_textcontent);
+
+        xlsx.saveAs("Data_source.xlsx");
+        number_data_write_chi_index = 5;
     }
-
-    xlsx.write(number_data_write_chi_index, 7, data_textday);
-    xlsx.write(number_data_write_chi_index, 8, data_textmoney);
-    xlsx.write(number_data_write_chi_index, 9, data_texttype);
-    xlsx.write(number_data_write_chi_index, 10, data_textcontent);
-
-    xlsx.saveAs("Data_source.xlsx");
-    number_data_write_chi_index = 5;
 }
 
 void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu, const QString &data_textcontent_thu)
@@ -467,18 +478,21 @@ void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &
     int index_month_thu = ui->comboBox_MonthThu->currentIndex();
     xlsx.selectSheet(index_month_thu);
 
-    while (xlsx.read(number_data_write_thu_index, 1).toInt() != 0)
+    if(data_textmoney_thu != "" && data_textcontent_thu != "")
     {
-        number_data_write_thu_index++;
+        while (xlsx.read(number_data_write_thu_index, 1).toInt() != 0)
+        {
+            number_data_write_thu_index++;
+        }
+
+        xlsx.write(number_data_write_thu_index, 1, data_textday_thu);
+        xlsx.write(number_data_write_thu_index, 3, data_textmoney_thu);
+        xlsx.write(number_data_write_thu_index, 2, data_texttype_thu);
+        xlsx.write(number_data_write_thu_index, 4, data_textcontent_thu);
+
+        xlsx.saveAs("Data_source.xlsx");
+        number_data_write_thu_index = 5;
     }
-
-    xlsx.write(number_data_write_thu_index, 1, data_textday_thu);
-    xlsx.write(number_data_write_thu_index, 3, data_textmoney_thu);
-    xlsx.write(number_data_write_thu_index, 2, data_texttype_thu);
-    xlsx.write(number_data_write_thu_index, 4, data_textcontent_thu);
-
-    xlsx.saveAs("Data_source.xlsx");
-    number_data_write_thu_index = 5;
 }
 
 void MyApp::ShowFrameTest()
@@ -570,9 +584,15 @@ void MyApp::NextImage()
 void MyApp::HidetheTotal()
 {
     if (Hide == false)
+    {
         Hide = true;
+        ui->pushButton_hide->setIcon(QIcon(":/Icon/Image/icons8-hide-15.png"));
+    }
     else
+    {
         Hide = false;
+        ui->pushButton_hide->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    }
 }
 
 void MyApp::showTime()
@@ -1118,16 +1138,28 @@ void MyApp::ShowDataFromDataSource()
     if (set_horizontal_layout == true)
     {
         if (Hide == true)
+        {
             ui->label_total->setText("Tổng tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ");
+        }
         else
+        {
+            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
+            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
             ui->label_total->setText("Tổng tích lũy tháng " + QString::number(index_month_thu + 1) + " : *** *** *** VNĐ");
+        }
     }
     else
     {
         if (Hide == true)
+        {
             ui->label_total->setText("Tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ");
+        }
         else
+        {
             ui->label_total->setText("Tích lũy tháng " + QString::number(index_month_thu + 1) + " : *** *** *** VNĐ");
+            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
+            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
+        }
     }
 
     QString total_tichluy_string = "Tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ";

@@ -728,7 +728,7 @@ border-radius: 20px</string>
 }</string>
        </property>
        <property name="text">
-        <string>Tổng: 0 VNĐ</string>
+        <string>Tổng: *** *** *** VNĐ</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1000,7 +1000,7 @@ border-radius: 20px</string>
 }</string>
        </property>
        <property name="text">
-        <string>Tổng: 0 VNĐ</string>
+        <string>Tổng: *** *** *** VNĐ</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1741,7 +1741,7 @@ thu chi</string>
        <rect>
         <x>50</x>
         <y>5</y>
-        <width>30</width>
+        <width>31</width>
         <height>30</height>
        </rect>
       </property>
@@ -3828,6 +3828,8 @@ padding-left: 5</string>
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
+      <pointsize>9</pointsize>
       <bold>false</bold>
      </font>
     </property>

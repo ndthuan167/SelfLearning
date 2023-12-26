@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>185</height>
+    <width>492</width>
+    <height>302</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>201</width>
-     <height>181</height>
+     <width>240</width>
+     <height>227</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -40,15 +40,15 @@
      <rect>
       <x>45</x>
       <y>45</y>
-      <width>140</width>
+      <width>181</width>
       <height>28</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Samsung Sharp Sans</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
+      <family>SamsungOne</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="layoutDirection">
@@ -124,15 +124,16 @@ QComboBox::drop-down {
     <property name="geometry">
      <rect>
       <x>45</x>
-      <y>115</y>
-      <width>141</width>
-      <height>28</height>
+      <y>123</y>
+      <width>181</width>
+      <height>67</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Samsung Sharp Sans</family>
-      <bold>true</bold>
+      <family>SamsungOne</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -168,7 +169,7 @@ padding-left: 5</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>85</y>
       <width>25</width>
       <height>25</height>
      </rect>
@@ -187,7 +188,7 @@ padding-left: 5</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>115</y>
+      <y>140</y>
       <width>25</width>
       <height>25</height>
      </rect>
@@ -205,8 +206,8 @@ padding-left: 5</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>85</y>
+      <x>190</x>
+      <y>90</y>
       <width>35</width>
       <height>20</height>
      </rect>
@@ -225,8 +226,8 @@ padding-left: 5</string>
    <widget class="QPushButton" name="pushButton_SetChi">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>150</y>
+      <x>80</x>
+      <y>195</y>
       <width>71</width>
       <height>25</height>
      </rect>
@@ -274,16 +275,16 @@ padding-left: 5</string>
     <property name="geometry">
      <rect>
       <x>45</x>
-      <y>80</y>
-      <width>91</width>
-      <height>28</height>
+      <y>83</y>
+      <width>141</width>
+      <height>33</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Samsung Sharp Sans</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
+      <family>SamsungOne</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -320,7 +321,7 @@ padding-left: 15</string>
      <rect>
       <x>45</x>
       <y>10</y>
-      <width>141</width>
+      <width>181</width>
       <height>28</height>
      </rect>
     </property>
@@ -343,7 +344,7 @@ padding-left: 5</string>
    <widget class="QPushButton" name="pushButton_Selectday">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>200</x>
       <y>12</y>
       <width>21</width>
       <height>24</height>
@@ -392,9 +393,9 @@ padding-left: 5</string>
     </property>
     <property name="font">
      <font>
-      <family>Samsung Sharp Sans</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
+      <family>SamsungOne</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -416,8 +417,8 @@ padding-left: 5</string>
   <widget class="QFrame" name="PopupselectDay">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>40</y>
+     <x>280</x>
+     <y>10</y>
      <width>191</width>
      <height>71</height>
     </rect>
