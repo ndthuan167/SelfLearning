@@ -17,7 +17,7 @@ class Ui_MyApp(object):
         MyApp.resize(1569, 920)
         font = QtGui.QFont()
         font.setFamily("SamsungOne")
-        font.setPointSize(9)
+        font.setPointSize(12)
         font.setBold(False)
         MyApp.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MyApp)
@@ -699,6 +699,32 @@ class Ui_MyApp(object):
         self.label_7.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-30.png"))
         self.label_7.setScaledContents(True)
         self.label_7.setObjectName("label_7")
+        self.pushButton_Plus_Note = QtWidgets.QPushButton(self.frame_note)
+        self.pushButton_Plus_Note.setGeometry(QtCore.QRect(5, 83, 31, 31))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(22)
+        font.setBold(False)
+        self.pushButton_Plus_Note.setFont(font)
+        self.pushButton_Plus_Note.setStyleSheet("#pushButton_Plus_Note\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #EBE3D5;\n"
+"    border-radius: 15px;\n"
+"    color: white\n"
+"}\n"
+"#pushButton_Plus_Note::pressed\n"
+"{\n"
+"    background-color: #BBAB8C;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_Plus_Note::hover\n"
+"{\n"
+"    background-color: #BBAB8C;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_Plus_Note.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_Plus_Note.setObjectName("pushButton_Plus_Note")
         self.frame_plan = QtWidgets.QFrame(self.frame_plan_note)
         self.frame_plan.setGeometry(QtCore.QRect(7, 12, 205, 117))
         self.frame_plan.setStyleSheet("#frame_plan{\n"
@@ -715,6 +741,32 @@ class Ui_MyApp(object):
         self.label_8.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-plan-30.png"))
         self.label_8.setScaledContents(True)
         self.label_8.setObjectName("label_8")
+        self.pushButton_Plus_plan = QtWidgets.QPushButton(self.frame_plan)
+        self.pushButton_Plus_plan.setGeometry(QtCore.QRect(5, 80, 31, 31))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(22)
+        font.setBold(False)
+        self.pushButton_Plus_plan.setFont(font)
+        self.pushButton_Plus_plan.setStyleSheet("#pushButton_Plus_plan\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #739072;\n"
+"    border-radius: 15px;\n"
+"    color: white\n"
+"}\n"
+"#pushButton_Plus_plan::pressed\n"
+"{\n"
+"    background-color: #5F6F52;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_Plus_plan::hover\n"
+"{\n"
+"    background-color: #5F6F52;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_Plus_plan.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_Plus_plan.setObjectName("pushButton_Plus_plan")
         self.pushButton_back = QtWidgets.QPushButton(self.frame)
         self.pushButton_back.setGeometry(QtCore.QRect(105, 60, 30, 30))
         self.pushButton_back.setStyleSheet("#pushButton_back\n"
@@ -3486,6 +3538,130 @@ class Ui_MyApp(object):
 "    color: black\n"
 "")
         self.label_typechi22.setObjectName("label_typechi22")
+        self.popup_add_plan = QtWidgets.QFrame(self.centralwidget)
+        self.popup_add_plan.setGeometry(QtCore.QRect(760, 10, 181, 141))
+        self.popup_add_plan.setStyleSheet("#popup_add_plan{\n"
+"    background-color: #D2E3C8;\n"
+"    border-radius: 15;\n"
+"    border:1px solid white;\n"
+"}")
+        self.popup_add_plan.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.popup_add_plan.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.popup_add_plan.setObjectName("popup_add_plan")
+        self.plainTextEdit_8 = QtWidgets.QPlainTextEdit(self.popup_add_plan)
+        self.plainTextEdit_8.setGeometry(QtCore.QRect(35, 45, 135, 61))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.plainTextEdit_8.setFont(font)
+        self.plainTextEdit_8.setStyleSheet("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5")
+        self.plainTextEdit_8.setPlainText("")
+        self.plainTextEdit_8.setObjectName("plainTextEdit_8")
+        self.label_23 = QtWidgets.QLabel(self.popup_add_plan)
+        self.label_23.setGeometry(QtCore.QRect(10, 60, 21, 21))
+        self.label_23.setText("")
+        self.label_23.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
+        self.label_23.setScaledContents(True)
+        self.label_23.setObjectName("label_23")
+        self.pushButton_SetPlan = QtWidgets.QPushButton(self.popup_add_plan)
+        self.pushButton_SetPlan.setGeometry(QtCore.QRect(60, 110, 71, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_SetPlan.setFont(font)
+        self.pushButton_SetPlan.setStyleSheet("#pushButton_SetPlan\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_SetPlan::pressed\n"
+"{\n"
+"    background-color: #B5CB99;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_SetPlan::hover\n"
+"{\n"
+"    background-color: #B5CB99;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_SetPlan.setIcon(icon13)
+        self.pushButton_SetPlan.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_SetPlan.setObjectName("pushButton_SetPlan")
+        self.label_date_selected_3 = QtWidgets.QLabel(self.popup_add_plan)
+        self.label_date_selected_3.setGeometry(QtCore.QRect(60, 13, 91, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_date_selected_3.setFont(font)
+        self.label_date_selected_3.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_3.setObjectName("label_date_selected_3")
+        self.plainTextEdit_10 = QtWidgets.QPlainTextEdit(self.popup_add_plan)
+        self.plainTextEdit_10.setGeometry(QtCore.QRect(35, 13, 135, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setBold(True)
+        self.plainTextEdit_10.setFont(font)
+        self.plainTextEdit_10.setStyleSheet("border-radius: 10;\n"
+"background-color: white;\n"
+"border: 1px solid gray;\n"
+"padding-left: 5")
+        self.plainTextEdit_10.setPlainText("")
+        self.plainTextEdit_10.setObjectName("plainTextEdit_10")
+        self.label_25 = QtWidgets.QLabel(self.popup_add_plan)
+        self.label_25.setGeometry(QtCore.QRect(8, 13, 28, 28))
+        self.label_25.setText("")
+        self.label_25.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"))
+        self.label_25.setScaledContents(True)
+        self.label_25.setObjectName("label_25")
+        self.pushButton_Selectday_Plan = QtWidgets.QPushButton(self.popup_add_plan)
+        self.pushButton_Selectday_Plan.setGeometry(QtCore.QRect(146, 15, 21, 24))
+        self.pushButton_Selectday_Plan.setStyleSheet("#pushButton_Selectday_Plan\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_Selectday_Plan::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_Selectday_Plan::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_Selectday_Plan.setText("")
+        self.pushButton_Selectday_Plan.setIcon(icon14)
+        self.pushButton_Selectday_Plan.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_Selectday_Plan.setObjectName("pushButton_Selectday_Plan")
+        self.label_date_selected_Plan = QtWidgets.QLabel(self.popup_add_plan)
+        self.label_date_selected_Plan.setGeometry(QtCore.QRect(45, 15, 91, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_date_selected_Plan.setFont(font)
+        self.label_date_selected_Plan.setStyleSheet("#label_date_selected_Plan{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_Plan.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_Plan.setObjectName("label_date_selected_Plan")
         MyApp.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MyApp)
@@ -3532,6 +3708,8 @@ class Ui_MyApp(object):
         self.label_total.setText(_translate("MyApp", "Tổng tích lũy: *** *** *** VNĐ"))
         self.label_3.setText(_translate("MyApp", "Quản lý \n"
 "thu chi"))
+        self.pushButton_Plus_Note.setText(_translate("MyApp", "+"))
+        self.pushButton_Plus_plan.setText(_translate("MyApp", "+"))
         self.label_10.setText(_translate("MyApp", "Đình\n"
 " Thuận"))
         self.pushButton_Plus_pass.setText(_translate("MyApp", "+"))
@@ -3675,4 +3853,7 @@ class Ui_MyApp(object):
         self.label_money_chi22.setText(_translate("MyApp", "15000000"))
         self.label_content_chi22.setText(_translate("MyApp", "Salary"))
         self.label_typechi22.setText(_translate("MyApp", "Khác"))
+        self.pushButton_SetPlan.setText(_translate("MyApp", "Enter"))
+        self.label_date_selected_3.setText(_translate("MyApp", "09/12/2023"))
+        self.label_date_selected_Plan.setText(_translate("MyApp", "09/12/2023"))
 import ResourceFile_rc

@@ -30,6 +30,7 @@
         <file>Image/icons8-login-rounded-up-48.png</file>
         <file>Image/icons8-login-rounded-up-35.png</file>
         <file>Image/icons8-hide-15.png</file>
+        <file>Image/icons8-clock-30.png</file>
     </qresource>
     <qresource prefix="/IconApplication">
         <file>Image/facebook.png</file>

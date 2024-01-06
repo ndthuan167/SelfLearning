@@ -2,6 +2,7 @@
 #include "ui_myapp.h"
 #include "popupchi.h"
 #include "popup_thu.h"
+#include "popup_plan.h"
 #include "xlsxdocument.h"
 #include "xlsxchartsheet.h"
 #include "xlsxcellrange.h"
@@ -31,6 +32,8 @@ MyApp::MyApp(QWidget *parent)
 
     QTimer *timer_updatedata = new QTimer(this);
     connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataFromDataSource()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataPlan()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(HandleCheckBoxPlan()));
     timer_updatedata->start(100);
 
     this->setFixedSize(460, 690);
@@ -49,8 +52,9 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_back, SIGNAL(clicked(bool)), this, SLOT(BackImage()));
     connect(ui->pushButton_next, SIGNAL(clicked(bool)), this, SLOT(NextImage()));
     connect(ui->pushButton_Plus_thu, SIGNAL(clicked(bool)), this, SLOT(ShowFrameTest()));
-
     connect(ui->pushButton_Plus_chi, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpChi()));
+    connect(ui->pushButton_Plus_plan, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpPlan()));
+
     connect(ui->pushButton_login, SIGNAL(clicked(bool)), this, SLOT(ChangeToHorizontalLayout()));
 }
 
@@ -132,8 +136,9 @@ void MyApp::ChangeToHorizontalLayout()
         ui->pushButton_Plus_pass->setGeometry(QRect(70, 8, 30, 30));
 
         ui->frame_plan_note->setGeometry(QRect(150, 370, 551, 371));
-        ui->frame_plan->setGeometry(QRect(10, 10, 263, 351));
-        ui->frame_note->setGeometry(QRect(279, 10, 262, 351));
+        ui->frame_plan->setGeometry(QRect(230, 10, 311, 351));
+        ui->frame_note->setGeometry(QRect(10, 10, 211, 351));
+        ui->pushButton_Plus_plan->setGeometry(QRect(280,320,25,25));
 
         ui->frame_Image->setGeometry(QRect(150, 10, 551, 351));
         ui->frame_2->setGeometry(QRect(10, 5, 531, 341));
@@ -282,6 +287,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->pushButton_login->setIconSize(QSize(35,35));
 
         ShowDataFromDataSource();
+        ShowDataPlan();
         // Change Geometry to vertical layout
         this->setFixedSize(460, 690);
         ui->frame->setGeometry(QRect(5, 5, 451, 680));
@@ -303,8 +309,10 @@ void MyApp::ChangeToHorizontalLayout()
         ui->pushButton_Plus_pass->setGeometry(QRect(50, 8, 28, 28));
 
         ui->frame_plan_note->setGeometry(QRect(10, 150, 431, 141));
-        ui->frame_plan->setGeometry(QRect(7, 12, 205, 117));
-        ui->frame_note->setGeometry(QRect(220, 12, 205, 117));
+        ui->frame_plan->setGeometry(QRect(115, 5, 313, 131));
+        ui->label_8->setGeometry(QRect(275,3,31,31));
+        ui->frame_note->setGeometry(QRect(5, 5, 105, 131));
+        ui->pushButton_Plus_plan->setGeometry(QRect(280,95,25,25));
 
         ui->frame_Image->setGeometry(QRect(115, 10, 215, 135));
         ui->frame_2->setGeometry(QRect(10, 5, 195, 125));
@@ -495,6 +503,81 @@ void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &
     }
 }
 
+void MyApp::onDataAvailable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetailPlan)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(12);
+
+    if(data_textdetailPlan != "" && data_texttime_plan != "")
+    {
+        while (xlsx.read(number_data_write_plan_index, 2).toInt() != 0)
+        {
+            number_data_write_plan_index++;
+        }
+
+        xlsx.write(number_data_write_plan_index, 1, "-");
+        xlsx.write(number_data_write_plan_index, 2, data_textday_plan);
+        xlsx.write(number_data_write_plan_index, 3, data_texttime_plan);
+        xlsx.write(number_data_write_plan_index, 4, data_textdetailPlan);
+
+        xlsx.saveAs("Data_source.xlsx");
+        number_data_write_plan_index = 4;
+    }
+}
+
+void MyApp::HandleCheckBoxPlan()
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(12);
+
+    while (xlsx.read(number_data_plan_index_checkbox,2).toInt() != 0)
+    {
+        number_data_plan_checkbox++;
+        number_data_plan_index_checkbox++;
+    }
+
+    qDebug() << number_data_plan_checkbox << number_data_plan_index_checkbox;
+
+    if (number_data_plan_checkbox >= 4)
+    {
+        if (set_horizontal_layout == false)
+        {
+            (ui->checkBox_1->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - 4    ,1, "1") : xlsx.write(number_data_plan_index_checkbox - 4,1,"0");
+            (ui->checkBox_2->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - 4 + 1,1, "1") : xlsx.write(number_data_plan_index_checkbox - 4 + 1,1,"0");
+            (ui->checkBox_3->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - 4 + 2,1, "1") : xlsx.write(number_data_plan_index_checkbox - 4 + 2,1,"0");
+            (ui->checkBox_4->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - 4 + 3,1, "1") : xlsx.write(number_data_plan_index_checkbox - 4 + 3,1,"0");
+        }
+        else
+        {
+            (ui->checkBox_1->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 1  ,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox + 1,1,"0");
+            (ui->checkBox_2->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 2,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 2,1,"0");
+            (ui->checkBox_3->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 3,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 3,1,"0");
+            (ui->checkBox_4->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 4,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 4,1,"0");
+            (ui->checkBox_5->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 5,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 5,1,"0");
+            (ui->checkBox_6->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 6,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 6,1,"0");
+            (ui->checkBox_7->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 7,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 7,1,"0");
+            (ui->checkBox_8->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 8,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 8,1,"0");
+            (ui->checkBox_9->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 9,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 9,1,"0");
+            (ui->checkBox_10->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 10,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 10,1,"0");
+            (ui->checkBox_11->isChecked() == true ) ? xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 11,1, "1") : xlsx.write(number_data_plan_index_checkbox - number_data_plan_checkbox  + 11,1,"0");
+        }
+    }
+    else
+    {
+        (ui->checkBox_1->isChecked() == true ) ? xlsx.write(4 ,1, "1") : xlsx.write(4,1,"0");
+        (ui->checkBox_2->isChecked() == true ) ? xlsx.write(5 ,1, "1") : xlsx.write(5,1,"0");
+        (ui->checkBox_3->isChecked() == true ) ? xlsx.write(6 ,1, "1") : xlsx.write(6,1,"0");
+        (ui->checkBox_4->isChecked() == true ) ? xlsx.write(7 ,1, "1") : xlsx.write(7,1,"0");
+    }
+
+    xlsx.saveAs("Data_source.xlsx");
+
+    number_data_plan_checkbox = 0;
+    number_data_plan_index_checkbox = 4;
+
+    // Còn chưa đọc lại checked ở file excel
+}
+
 void MyApp::ShowFrameTest()
 {
     popup_Thu *mypopup_thu = new popup_Thu(this, "Hello1");
@@ -507,6 +590,13 @@ void MyApp::ShowPopUpChi()
     PopupChi *mypopup = new PopupChi(this, "Hello");
     mypopup->show();
     connect(mypopup, &PopupChi::dataAvaiable, this, &MyApp::onDataAvailable);
+}
+
+void MyApp::ShowPopUpPlan()
+{
+    Popup_Plan *MyPopupPlan = new Popup_Plan(this, "helloPlan");
+    MyPopupPlan->show();
+    connect(MyPopupPlan, &Popup_Plan::dataAvaiable_Plan, this, &MyApp::onDataAvailable_Plan);
 }
 
 void MyApp::BackImage()
@@ -623,6 +713,231 @@ void MyApp::showTime()
         ui->label_sun->setPixmap(pixmap);
         ui->label_day->setStyleSheet(StyleSheetDay);
     }
+}
+
+void MyApp::ShowDataPlan()
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(12);
+
+    while (xlsx.read(number_data_plan_index,2).toInt() != 0)
+    {
+        number_data_plan++;
+        number_data_plan_index++;
+    }
+
+    if (number_data_plan >= 11)
+        number_data_plan -= (number_data_plan - 11);
+
+    if (number_data_plan >= 1)
+    {
+        ui->label_day_plan1->setText(xlsx.read(number_data_plan_index - number_data_plan, 2).toString());
+        ui->checkBox_1->setText(xlsx.read(number_data_plan_index - number_data_plan, 1).toString());
+        ui->label_time_plan1->setText(xlsx.read(number_data_plan_index - number_data_plan, 3).toString());
+        ui->label_content_plan_1->setText(xlsx.read(number_data_plan_index - number_data_plan, 4).toString());
+
+        if (set_horizontal_layout == true)
+        {
+            ui->frame_Plan_1->setGeometry(QRect(393, 392, 265, 26));
+        }
+        else
+        {
+            ui->frame_Plan_1->setGeometry(QRect(138, 165, 265, 26));
+            if (number_data_plan >= 4)
+            {
+                ui->label_day_plan1->setText(xlsx.read(number_data_plan_index - 4, 2).toString());
+                ui->checkBox_1->setText(xlsx.read(number_data_plan_index - 4, 1).toString());
+                ui->label_time_plan1->setText(xlsx.read(number_data_plan_index - 4, 3).toString());
+                ui->label_content_plan_1->setText(xlsx.read(number_data_plan_index - 4, 4).toString());
+           }
+        }
+    }
+    else
+        ui->frame_Plan_1->setGeometry(QRect(1138, 165, 265, 26));
+
+    if (number_data_plan >= 2)
+    {
+        ui->label_day_plan1_2->setText(xlsx.read(number_data_plan_index - number_data_plan + 1, 2).toString());
+        ui->checkBox_2->setText(xlsx.read(number_data_plan_index - number_data_plan + 1, 1).toString());
+        ui->label_time_plan1_2->setText(xlsx.read(number_data_plan_index - number_data_plan + 1, 3).toString());
+        ui->label_content_plan_2->setText(xlsx.read(number_data_plan_index - number_data_plan + 1, 4).toString());
+
+        if (set_horizontal_layout == true)
+        {
+            ui->frame_Plan_2->setGeometry(QRect(393, 397 + 26, 265, 26));
+        }
+        else
+        {
+            ui->frame_Plan_2->setGeometry(QRect(138, 170 + 26, 265, 26));
+            if (number_data_plan >= 4)
+            {
+                ui->label_day_plan1_2->setText(xlsx.read(number_data_plan_index - 4 + 1, 2).toString());
+                ui->checkBox_2->setText(xlsx.read(number_data_plan_index  - 4 + 1, 1).toString());
+                ui->label_time_plan1_2->setText(xlsx.read(number_data_plan_index - 4 + 1, 3).toString());
+                ui->label_content_plan_2->setText(xlsx.read(number_data_plan_index - 4 + 1, 4).toString());
+           }
+        }
+    }
+    else
+        ui->frame_Plan_2->setGeometry(QRect(1355, 165 + 26 + 5, 265, 26));
+
+    if (number_data_plan >= 3)
+    {
+        ui->label_day_plan1_3->setText(xlsx.read(number_data_plan_index - number_data_plan + 2, 2).toString());
+        ui->checkBox_3->setText(xlsx.read(number_data_plan_index - number_data_plan + 2, 1).toString());
+        ui->label_time_plan1_3->setText(xlsx.read(number_data_plan_index - number_data_plan + 2, 3).toString());
+        ui->label_content_plan_3->setText(xlsx.read(number_data_plan_index - number_data_plan + 2, 4).toString());
+
+        if (set_horizontal_layout == true)
+        {
+            ui->frame_Plan_3->setGeometry(QRect(393, 392 + 2*(26 +5), 265, 26));
+        }
+        else
+        {
+            ui->frame_Plan_3->setGeometry(QRect(138, 165 + 2*(26 + 5), 265, 26));
+            if (number_data_plan >= 4)
+            {
+                ui->label_day_plan1_3->setText(xlsx.read(number_data_plan_index - 4 + 2, 2).toString());
+                ui->checkBox_3->setText(xlsx.read(number_data_plan_index - 4 + 2, 1).toString());
+                ui->label_time_plan1_3->setText(xlsx.read(number_data_plan_index - 4 + 2, 3).toString());
+                ui->label_content_plan_3->setText(xlsx.read(number_data_plan_index- 4 + 2, 4).toString());
+           }
+        }
+    }
+    else
+        ui->frame_Plan_3->setGeometry(QRect(1355, 165 + 26 + 5, 265, 26));
+
+    if (number_data_plan >= 4)
+    {
+        ui->label_day_plan1_4->setText(xlsx.read(number_data_plan_index - number_data_plan + 3, 2).toString());
+        ui->checkBox_4->setText(xlsx.read(number_data_plan_index - number_data_plan + 3, 1).toString());
+        ui->label_time_plan1_4->setText(xlsx.read(number_data_plan_index - number_data_plan + 3, 3).toString());
+        ui->label_content_plan_4->setText(xlsx.read(number_data_plan_index - number_data_plan + 3, 4).toString());
+
+        if (set_horizontal_layout == true)
+        {
+            ui->frame_Plan_4->setGeometry(QRect(393, 392 + 3*(26 +5), 265, 26));
+        }
+        else
+        {
+            ui->frame_Plan_4->setGeometry(QRect(138, 165 + 3*(26 + 5), 265, 26));
+            if (number_data_plan >= 4)
+            {
+                ui->label_day_plan1_4->setText(xlsx.read(number_data_plan_index - 4 + 3, 2).toString());
+                ui->checkBox_4->setText(xlsx.read(number_data_plan_index - 4 + 3, 1).toString());
+                ui->label_time_plan1_4->setText(xlsx.read(number_data_plan_index - 4 + 3, 3).toString());
+                ui->label_content_plan_4->setText(xlsx.read(number_data_plan_index - 4 + 3, 4).toString());
+           }
+        }
+    }
+    else
+        ui->frame_Plan_4->setGeometry(QRect(1355, 165 + 26 + 5, 265, 26));
+
+    if (set_horizontal_layout == true)
+    {
+        if (number_data_plan >= 5)
+        {
+            ui->frame_Plan_5->setGeometry(QRect(388, 387 + 4 * (26 + 5), 265, 26));
+            ui->label_day_plan1_5->setText(xlsx.read(number_data_plan_index - number_data_plan + 4, 2).toString());
+            ui->checkBox_5->setText(xlsx.read(number_data_plan_index - number_data_plan + 4, 1).toString());
+            ui->label_time_plan1_5->setText(xlsx.read(number_data_plan_index - number_data_plan + 4, 3).toString());
+            ui->label_content_plan_5->setText(xlsx.read(number_data_plan_index - number_data_plan + 4, 4).toString());
+        }
+        else
+            ui->frame_Plan_5->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 6)
+        {
+            ui->frame_Plan_6->setGeometry(QRect(388, 387 + 5 * (26 + 5), 265, 26));
+            ui->label_day_plan1_6->setText(xlsx.read(number_data_plan_index - number_data_plan + 5, 2).toString());
+            ui->checkBox_6->setText(xlsx.read(number_data_plan_index - number_data_plan + 5, 1).toString());
+            ui->label_time_plan1_6->setText(xlsx.read(number_data_plan_index - number_data_plan + 5, 3).toString());
+            ui->label_content_plan_6->setText(xlsx.read(number_data_plan_index - number_data_plan + 5, 4).toString());
+        }
+        else
+            ui->frame_Plan_6->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 7)
+        {
+            ui->frame_Plan_7->setGeometry(QRect(388, 387 + 6 * (26 + 5), 265, 26));
+            ui->label_day_plan1_7->setText(xlsx.read(number_data_plan_index - number_data_plan + 6, 2).toString());
+            ui->checkBox_7->setText(xlsx.read(number_data_plan_index - number_data_plan + 6, 1).toString());
+            ui->label_time_plan1_7->setText(xlsx.read(number_data_plan_index - number_data_plan + 6, 3).toString());
+            ui->label_content_plan_7->setText(xlsx.read(number_data_plan_index - number_data_plan + 6, 4).toString());
+        }
+        else
+            ui->frame_Plan_7->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 8)
+        {
+            ui->frame_Plan_8->setGeometry(QRect(388, 387 + 7 * (26 + 5), 265, 26));
+            ui->label_day_plan1_8->setText(xlsx.read(number_data_plan_index - number_data_plan + 7, 2).toString());
+            ui->checkBox_8->setText(xlsx.read(number_data_plan_index - number_data_plan + 7, 1).toString());
+            ui->label_time_plan1_8->setText(xlsx.read(number_data_plan_index - number_data_plan + 7, 3).toString());
+            ui->label_content_plan_8->setText(xlsx.read(number_data_plan_index - number_data_plan + 7, 4).toString());
+        }
+        else
+            ui->frame_Plan_8->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 9)
+        {
+            ui->frame_Plan_9->setGeometry(QRect(388, 387 + 8 * (26 + 5), 265, 26));
+            ui->label_day_plan1_9->setText(xlsx.read(number_data_plan_index - number_data_plan + 8, 2).toString());
+            ui->checkBox_9->setText(xlsx.read(number_data_plan_index - number_data_plan + 8, 1).toString());
+            ui->label_time_plan1_9->setText(xlsx.read(number_data_plan_index - number_data_plan + 8, 3).toString());
+            ui->label_content_plan_9->setText(xlsx.read(number_data_plan_index - number_data_plan + 8, 4).toString());
+        }
+        else
+            ui->frame_Plan_9->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 10)
+        {
+            ui->frame_Plan_10->setGeometry(QRect(388, 387 + 9 * (26 + 5), 265, 26));
+            ui->label_day_plan1_10->setText(xlsx.read(number_data_plan_index - number_data_plan + 9, 2).toString());
+            ui->checkBox_10->setText(xlsx.read(number_data_plan_index - number_data_plan + 9, 1).toString());
+            ui->label_time_plan1_10->setText(xlsx.read(number_data_plan_index - number_data_plan + 9, 3).toString());
+            ui->label_content_plan_10->setText(xlsx.read(number_data_plan_index - number_data_plan + 9, 4).toString());
+        }
+        else
+            ui->frame_Plan_10->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 11)
+        {
+            ui->frame_Plan_11->setGeometry(QRect(388, 387 + 10 * (26 + 5), 265, 26));
+            ui->label_day_plan1_11->setText(xlsx.read(number_data_plan_index - number_data_plan + 10, 2).toString());
+            ui->checkBox_11->setText(xlsx.read(number_data_plan_index - number_data_plan + 10, 1).toString());
+            ui->label_time_plan1_11->setText(xlsx.read(number_data_plan_index - number_data_plan + 10, 3).toString());
+            ui->label_content_plan_11->setText(xlsx.read(number_data_plan_index - number_data_plan + 10, 4).toString());
+        }
+        else
+            ui->frame_Plan_11->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+        if (number_data_plan >= 12)
+        {
+            ui->frame_Plan_12->setGeometry(QRect(388, 387 + 9 * (26 + 5), 265, 26));
+            ui->label_day_plan1_12->setText(xlsx.read(number_data_plan_index - number_data_plan + 11, 2).toString());
+            ui->checkBox_12->setText(xlsx.read(number_data_plan_index - number_data_plan + 11, 1).toString());
+            ui->label_time_plan1_12->setText(xlsx.read(number_data_plan_index - number_data_plan + 11, 3).toString());
+            ui->label_content_plan_12->setText(xlsx.read(number_data_plan_index - number_data_plan + 11, 4).toString());
+        }
+        else
+            ui->frame_Plan_12->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+    }
+    else
+    {
+        ui->frame_Plan_12->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_11->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_10->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_9->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_8->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_7->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_6->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+        ui->frame_Plan_5->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
+
+    }
+
+    number_data_plan_index = 4;
+    number_data_plan = 0;
 }
 
 void MyApp::ShowDataFromDataSource()
@@ -758,7 +1073,6 @@ void MyApp::ShowDataFromDataSource()
         number_data_chi_index++;
         number_data_chi++;
     }
-
     if (number_data_chi >= 22)
         number_data_chi -= (number_data_chi - 22);
 

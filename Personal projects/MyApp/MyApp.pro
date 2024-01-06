@@ -12,6 +12,7 @@ SOURCES += \
     main.cpp \
     myapp.cpp \
     myapp_horizontal.cpp \
+    popup_plan.cpp \
     popup_thu.cpp \
     popupchi.cpp
 
@@ -19,6 +20,7 @@ HEADERS += \
     IncludeLibrary.h \
     myapp.h \
     myapp_horizontal.h \
+    popup_plan.h \
     popup_thu.h \
     popupchi.h
 
@@ -26,6 +28,7 @@ FORMS += \
     horizontal.ui \
     myapp.ui \
     myapp_horizontal.ui \
+    popup_plan.ui \
     popup_thu.ui \
     popupchi.ui
 

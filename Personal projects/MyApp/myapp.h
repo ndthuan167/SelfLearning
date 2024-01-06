@@ -35,15 +35,20 @@ public slots:
 
     void ShowFrameTest();
     void ShowPopUpChi();
+    void ShowPopUpPlan();
 
     void BackImage();
     void NextImage();
 
     void ChangeToHorizontalLayout();
     void ShowDataFromDataSource();
+    void ShowDataPlan();
 
     void onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent);
     void onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu, const QString &data_textcontent_thu);
+    void onDataAvailable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetailPlan);
+
+    void HandleCheckBoxPlan();
 
 private:
     Ui::MyApp *ui;
@@ -75,7 +80,13 @@ private:
     int number_data_thu = 0;
 
     int number_data_write_chi_index = 5;
-
     int number_data_write_thu_index = 5;
+    int number_data_write_plan_index = 4;
+
+    int number_data_plan_index = 4;
+    int number_data_plan = 0;
+
+    int number_data_plan_index_checkbox = 4;
+    int number_data_plan_checkbox = 0;
 };
 #endif // MYAPP_H

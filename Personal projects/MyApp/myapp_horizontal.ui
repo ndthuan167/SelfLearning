@@ -294,7 +294,6 @@
           <font>
            <family>Segoe UI Variable Text Semibold</family>
            <pointsize>11</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -319,7 +318,6 @@
           <font>
            <family>Segoe UI Variable Text Semibold</family>
            <pointsize>11</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -396,7 +394,6 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -549,7 +546,6 @@
         <font>
          <family>SamsungOne 400</family>
          <pointsize>22</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -652,7 +648,6 @@
         <font>
          <family>SamsungOne 400</family>
          <pointsize>25</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -679,7 +674,6 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>16</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
          <underline>false</underline>
          <strikeout>false</strikeout>
@@ -746,7 +740,6 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>32</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -918,7 +911,6 @@ border-radius: 20px</string>
         <font>
          <family>SamsungOne 400</family>
          <pointsize>22</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -964,7 +956,6 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -996,7 +987,6 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1238,7 +1228,6 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1270,7 +1259,6 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1398,7 +1386,6 @@ border-radius: 20px</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>12</pointsize>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1430,7 +1417,6 @@ border-radius: 20px</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1585,80 +1571,216 @@ thu chi</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QFrame" name="frame_plan">
-        <property name="styleSheet">
-         <string notr="true">#frame_plan{
+     <widget class="QFrame" name="frame_plan">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>10</y>
+        <width>311</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame_plan{
 	background-color: #B5CB99;
 	border-radius: 15;
 	border: 1px solid white;
 }</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>0</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-plan-30.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_Plan_2">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>5</y>
+         <width>265</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#frame_Plan_2{
+	background-color: #9ECCA4;
+	border-radius: 10;
+	border: 1px solid white;
+	color: white
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_day_plan1_2">
+        <property name="geometry">
+         <rect>
+          <x>23</x>
+          <y>5</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+        <property name="font">
+         <font>
+          <family>SamsungOne</family>
+          <pointsize>9</pointsize>
+          <bold>false</bold>
+         </font>
         </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_8">
-         <property name="geometry">
-          <rect>
-           <x>5</x>
-           <y>0</y>
-           <width>31</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-plan-30.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="frame_note">
         <property name="styleSheet">
-         <string notr="true">#frame_note{
+         <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_time_plan1_2">
+        <property name="geometry">
+         <rect>
+          <x>49</x>
+          <y>4</y>
+          <width>61</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>SamsungOne</family>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_content_plan_2">
+        <property name="geometry">
+         <rect>
+          <x>115</x>
+          <y>4</y>
+          <width>145</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>SamsungOne</family>
+          <pointsize>9</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+	background-color: white;
+	border-radius: 7;
+	border: 1px solid white;
+	color: black
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>3</y>
+          <width>15</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_note">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>211</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame_note{
 	background-color: #F8F6F4;
 	border-radius: 15;
 	border: 1px solid white;
 }</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLabel" name="label_7">
-         <property name="geometry">
-          <rect>
-           <x>5</x>
-           <y>5</y>
-           <width>25</width>
-           <height>25</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-note-30.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </widget>
-      </item>
-     </layout>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>5</y>
+         <width>25</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-note-30.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_back">
      <property name="geometry">
@@ -1794,7 +1916,6 @@ thu chi</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1923,7 +2044,6 @@ thu chi</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1978,7 +2098,6 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2006,7 +2125,6 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
-        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2034,7 +2152,6 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2062,7 +2179,6 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2142,7 +2258,6 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2271,7 +2386,6 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2326,7 +2440,6 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2411,7 +2524,6 @@ QComboBox::drop-down {
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2495,7 +2607,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>12</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2516,7 +2627,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2565,7 +2675,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2610,7 +2719,6 @@ padding-left: 15</string>
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2678,7 +2786,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2733,7 +2840,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2803,7 +2909,6 @@ QComboBox::drop-down {
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2887,7 +2992,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>12</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2908,7 +3012,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2957,7 +3060,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2984,7 +3086,6 @@ padding-left: 8</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3015,7 +3116,6 @@ padding-left: 8</string>
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3102,7 +3202,6 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
