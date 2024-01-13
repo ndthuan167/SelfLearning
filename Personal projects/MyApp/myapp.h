@@ -83,10 +83,11 @@ private:
     int number_data_write_thu_index = 5;
     int number_data_write_plan_index = 4;
 
-    int number_data_plan_index = 4;
-    int number_data_plan = 0;
+    QVector <int> index_plan_unchecked;
+    QVector <int> index_plan_check;
+    int index_plan_unchecked_show[4];
+    int index_plan_check_show[4];
+    int numberofplan = 4 ;
 
-    int number_data_plan_index_checkbox = 4;
-    int number_data_plan_checkbox = 0;
 };
 #endif // MYAPP_H

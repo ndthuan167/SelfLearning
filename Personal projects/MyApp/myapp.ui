@@ -739,7 +739,7 @@ border-radius: 20px</string>
         <rect>
          <x>10</x>
          <y>5</y>
-         <width>134</width>
+         <width>158</width>
          <height>25</height>
         </rect>
        </property>
@@ -1011,7 +1011,7 @@ border-radius: 20px</string>
         <rect>
          <x>10</x>
          <y>5</y>
-         <width>134</width>
+         <width>158</width>
          <height>25</height>
         </rect>
        </property>
@@ -1441,6 +1441,37 @@ thu chi</string>
        </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_no_data">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>40</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>12</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#label_no_data{
+	background-color: white;
+	border-radius: 10;
+	border: 1px solid white;
+	color: #739072;
+}</string>
+       </property>
+       <property name="text">
+        <string>No plan</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
@@ -2903,7 +2934,7 @@ thu chi</string>
       <rect>
        <x>45</x>
        <y>45</y>
-       <width>140</width>
+       <width>147</width>
        <height>28</height>
       </rect>
      </property>
