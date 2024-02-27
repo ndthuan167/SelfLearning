@@ -34,6 +34,10 @@ MyApp::MyApp(QWidget *parent)
     connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataFromDataSource()));
     connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataPlan()));
     connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(HandleCheckBoxPlan()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecter()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecterOfNameChange()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(EnterKeyToSeePasswordAndClose()));
+
     timer_updatedata->start(100);
 
     this->setFixedSize(460, 690);
@@ -56,6 +60,20 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_Plus_plan, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpPlan()));
 
     connect(ui->pushButton_login, SIGNAL(clicked(bool)), this, SLOT(ChangeToHorizontalLayout()));
+
+    connect(ui->pushButton_password, SIGNAL(clicked(bool)), this, SLOT(ShowPasswordManager()));
+    connect(ui->pushButton_exitpassword, SIGNAL(clicked(bool)), this, SLOT(ExitPasswordWindow()));
+    connect(ui->pushButton_search, SIGNAL(clicked(bool)), this, SLOT(ShowPasswordFollowCharecter()));
+    connect(ui->pushButton_hide_2, SIGNAL(clicked(bool)), this, SLOT(NoHidePassword()));
+    connect(ui->pushButton_exitpassword_2, SIGNAL(clicked(bool)), this, SLOT(ExitKeyEnter()));
+    connect(ui->pushButton_reload, SIGNAL(clicked(bool)), this, SLOT(ReloadCheckPassword()));
+    connect(ui->pushButton_Plus_pass, SIGNAL(clicked(bool)), this, SLOT(AddPassword()));
+    connect(ui->pushButton_exitpassword_3, SIGNAL(clicked(bool)), this, SLOT(CloseAddPassword()));
+    connect(ui->pushButton_Setpassword, SIGNAL(clicked(bool)), this, SLOT(SetNewPasswordAndClose()));
+    connect(ui->pushButton_AdjustPass, SIGNAL(clicked(bool)), this, SLOT(ShowPasswordAdjustment()));
+    connect(ui->pushButton_exitpassword_4, SIGNAL(clicked(bool)), this, SLOT(ExitPasswordAdjustmentAndReshowManager()));
+    connect(ui->pushButton_changed, SIGNAL(clicked(bool)), this, SLOT(EnterPasswordAdjustmentAndReshowManager()));
+
 }
 
 MyApp::~MyApp()
@@ -115,6 +133,7 @@ void MyApp::ChangeToHorizontalLayout()
         QPixmap pixmap(":/Icon/Image/icons8-login-rounded-up-35.png");
         ui->pushButton_login->setIcon(QIcon(pixmap));
         ui->pushButton_login->setIconSize(QSize(35, 35));
+
         // Change Geometry to horizontal layout
         this->setFixedSize(1310, 760);
         ui->frame->setGeometry(QRect(5, 5, 1300, 750));
@@ -177,55 +196,55 @@ void MyApp::ChangeToHorizontalLayout()
         ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
         ui->ZaloButton->setGeometry(QRect(9, 15, 93, 50));
         ui->ZaloButton->setStyleSheet(" #ZaloButton"
-                                      "{"
-                                      "border: 0px solid white;"
-                                      "background-color: white;"
-                                      "border-radius: 20px;"
-                                      "}"
-                                      "#ZaloButton::pressed"
-                                      "{"
-                                      "background-color: #99FFFF;"
-                                      "border-style: inset;"
-                                      "}"
-                                      "#ZaloButton::hover"
-                                      "{"
-                                      "background-color: #BBBBBB;"
-                                      "border-style: inset;"
-                                      "}");
+                                    "{"
+                                    "border: 0px solid white;"
+                                    "background-color: white;"
+                                    "border-radius: 20px;"
+                                    "}"
+                                    "#ZaloButton::pressed"
+                                    "{"
+                                    "background-color: #99FFFF;"
+                                    "border-style: inset;"
+                                    "}"
+                                    "#ZaloButton::hover"
+                                    "{"
+                                    "background-color: #BBBBBB;"
+                                    "border-style: inset;"
+                                    "}");
         ui->YoutubeButton->setGeometry(QRect(9, 77, 93, 50));
         ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
-                                         "{"
-                                         "border: 0px solid white;"
-                                         "background-color: white;"
-                                         "border-radius: 20px;"
-                                         "}"
-                                         "#YoutubeButton::pressed"
-                                         "{"
-                                         "background-color: #99FFFF;"
-                                         "border-style: inset;"
-                                         "}"
-                                         "#YoutubeButton::hover"
-                                         "{"
-                                         "background-color: #BBBBBB;"
-                                         "border-style: inset;"
-                                         "}");
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#YoutubeButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#YoutubeButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
         ui->FacebookButton->setGeometry(QRect(9, 136, 93, 50));
         ui->FacebookButton->setStyleSheet(" #FacebookButton"
-                                          "{"
-                                          "border: 0px solid white;"
-                                          "background-color: white;"
-                                          "border-radius: 20px;"
-                                          "}"
-                                          "#FacebookButton::pressed"
-                                          "{"
-                                          "background-color: #99FFFF;"
-                                          "border-style: inset;"
-                                          "}"
-                                          "#FacebookButton::hover"
-                                          "{"
-                                          "background-color: #BBBBBB;"
-                                          "border-style: inset;"
-                                          "}");
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#FacebookButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#FacebookButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
         ui->GoogleButton->setGeometry(QRect(9, 196, 93, 50));
         ui->GoogleButton->setStyleSheet(" #GoogleButton"
                                         "{"
@@ -279,6 +298,12 @@ void MyApp::ChangeToHorizontalLayout()
                                         "background-color: #BBBBBB;"
                                         "border-style: inset;"
                                         "}");
+        if (is_password_window_on == true && is_passchange_show == false)
+            ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
+        if (is_AddPassword_window_on == true)
+            ui->frame_password_manage_4->setGeometry(QRect(180, 450, 190, 180));
+        if (is_passchange_show == true)
+            ui->frame_password_manage_5->setGeometry(QRect(630, 190, 220, 140));
     }
     else
     {
@@ -350,55 +375,55 @@ void MyApp::ChangeToHorizontalLayout()
         ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
         ui->ZaloButton->setGeometry(QRect(188, 9, 54, 50));
         ui->ZaloButton->setStyleSheet(" #ZaloButton"
-                                      "{"
-                                      "border: 0px solid white;"
-                                      "background-color: white;"
-                                      "border-radius: 20px;"
-                                      "}"
-                                      "#ZaloButton::pressed"
-                                      "{"
-                                      "background-color: #99FFFF;"
-                                      "border-style: inset;"
-                                      "}"
-                                      "#ZaloButton::hover"
-                                      "{"
-                                      "background-color: #BBBBBB;"
-                                      "border-style: inset;"
-                                      "}");
+                                    "{"
+                                    "border: 0px solid white;"
+                                    "background-color: white;"
+                                    "border-radius: 20px;"
+                                    "}"
+                                    "#ZaloButton::pressed"
+                                    "{"
+                                    "background-color: #99FFFF;"
+                                    "border-style: inset;"
+                                    "}"
+                                    "#ZaloButton::hover"
+                                    "{"
+                                    "background-color: #BBBBBB;"
+                                    "border-style: inset;"
+                                    "}");
         ui->YoutubeButton->setGeometry(QRect(128, 11, 54, 47));
         ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
-                                         "{"
-                                         "border: 0px solid white;"
-                                         "background-color: white;"
-                                         "border-radius: 20px;"
-                                         "}"
-                                         "#YoutubeButton::pressed"
-                                         "{"
-                                         "background-color: #99FFFF;"
-                                         "border-style: inset;"
-                                         "}"
-                                         "#YoutubeButton::hover"
-                                         "{"
-                                         "background-color: #BBBBBB;"
-                                         "border-style: inset;"
-                                         "}");
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#YoutubeButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#YoutubeButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
         ui->FacebookButton->setGeometry(QRect(69, 10, 52, 48));
         ui->FacebookButton->setStyleSheet(" #FacebookButton"
-                                          "{"
-                                          "border: 0px solid white;"
-                                          "background-color: white;"
-                                          "border-radius: 20px;"
-                                          "}"
-                                          "#FacebookButton::pressed"
-                                          "{"
-                                          "background-color: #99FFFF;"
-                                          "border-style: inset;"
-                                          "}"
-                                          "#FacebookButton::hover"
-                                          "{"
-                                          "background-color: #BBBBBB;"
-                                          "border-style: inset;"
-                                          "}");
+                                        "{"
+                                        "border: 0px solid white;"
+                                        "background-color: white;"
+                                        "border-radius: 20px;"
+                                        "}"
+                                        "#FacebookButton::pressed"
+                                        "{"
+                                        "background-color: #99FFFF;"
+                                        "border-style: inset;"
+                                        "}"
+                                        "#FacebookButton::hover"
+                                        "{"
+                                        "background-color: #BBBBBB;"
+                                        "border-style: inset;"
+                                        "}");
         ui->GoogleButton->setGeometry(QRect(9, 10, 52, 48));
         ui->GoogleButton->setStyleSheet(" #GoogleButton"
                                         "{"
@@ -452,6 +477,12 @@ void MyApp::ChangeToHorizontalLayout()
                                         "background-color: #BBBBBB;"
                                         "border-style: inset;"
                                         "}");
+        if (is_password_window_on == true && is_passchange_show == false)
+            ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
+        if (is_AddPassword_window_on == true)
+            ui->frame_password_manage_4->setGeometry(QRect(100, 70, 190, 180));
+        if (is_passchange_show == true)
+            ui->frame_password_manage_5->setGeometry(QRect(110, 190, 220, 140));
     }
 }
 
@@ -682,8 +713,8 @@ void MyApp::BackImage()
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
     ui->label_image->setStyleSheet(stringplus +
-                                   "border-radius: 15px;"
-                                   "border: 1pxsolid white;");
+                                    "border-radius: 15px;"
+                                    "border: 1pxsolid white;");
 }
 
 void MyApp::NextImage()
@@ -696,8 +727,8 @@ void MyApp::NextImage()
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
     ui->label_image->setStyleSheet(stringplus +
-                                   "border-radius: 15px;"
-                                   "border: 1pxsolid white;");
+                                    "border-radius: 15px;"
+                                    "border: 1pxsolid white;");
 
     QPropertyAnimation *animation_image = new QPropertyAnimation(ui->label_image, "geometry");
     animation_image->setDuration(500);
@@ -740,8 +771,8 @@ void MyApp::NextImage()
     QString string3_2 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus_2 = string1_2 + string2_2 + string3_2;
     ui->label_image_2->setStyleSheet(stringplus_2 +
-                                     "border-radius: 15px;"
-                                     "border: 1pxsolid white;");
+                                    "border-radius: 15px;"
+                                    "border: 1pxsolid white;");
 }
 
 void MyApp::HidetheTotal()
@@ -1661,3 +1692,273 @@ void MyApp::ShowDataFromDataSource()
     number_data_thu_index = 5;
     number_data_thu = 0;
 }
+
+void MyApp::ShowPasswordManager(void)
+{
+    if (is_password_window_on == false)
+    {
+        is_password_window_on = true;
+        if (set_horizontal_layout == false)
+            ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
+        else
+            ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
+    }
+    else
+        is_password_window_on = false;
+}
+
+void MyApp::ExitPasswordWindow(void)
+{
+    ui->frame_password_manage->setGeometry(QRect(100, 2500, 270, 150));
+    QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
+    ui->label_check_charecter->setPixmap(pix_wrong);
+    ui->textEdit_search->setPlainText("");
+    ui->label_ID->setText("---------");
+    ui->label_password->setText("**********");
+    ui->textEdit_key_pass->setText("");
+    ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    hide_pass = false;
+    is_password_window_on = false;
+}
+
+bool MyApp::CheckCharecterEnterInVector(QString charecter_enter)
+{
+    bool bReturn = false;
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(13);
+
+    while (xlsx.read(index_data_pass_added, 1).toString() != "")
+    {
+        passwordAdded.push_back(xlsx.read(index_data_pass_added, 1).toString());
+        index_data_pass_added++;
+    }
+
+    for (int i = 0 ; i < passwordAdded.size(); i++)
+    {
+        if(charecter_enter == passwordAdded.at(i))
+        {
+            index_of_name_change = i + 3;
+            bReturn = true;
+        }
+    }
+    return bReturn;
+}
+void MyApp::CheckEnterCharecter(void)
+{
+    QString charecter_enter = ui->textEdit_search->toPlainText();
+
+    if (CheckCharecterEnterInVector(charecter_enter) == true)
+    {
+        QPixmap pix_tick(":/Icon/Image/icons8-tick-25.png");
+        ui->label_check_charecter->setPixmap(pix_tick);
+    }
+    else
+    {
+        QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
+        ui->label_check_charecter->setPixmap(pix_wrong);
+    }
+}
+
+void MyApp::ShowPasswordFollowCharecter(void)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(13);
+
+    ui->label_password->setText("**********");
+    hide_pass = false;
+    ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    
+    while (xlsx.read(index_data_pass, 1).toString() != "")
+    {
+        passwordSaved.push_back(xlsx.read(index_data_pass, 1).toString());
+        index_data_pass++;
+    }
+
+    QString charecter_enter = ui->textEdit_search->toPlainText();
+
+    for (int index = 0; index < passwordSaved.size(); index++)
+    {
+        if (charecter_enter == passwordSaved.at(index))
+        {
+            index_of_password = index;
+            ui->label_ID->setText(xlsx.read(index + 3, 2).toString());
+        }
+    }
+}
+
+void MyApp::NoHidePassword(void)
+{
+    if (hide_pass == false)
+    {
+        hide_pass = true;
+        if (set_horizontal_layout == false)
+            ui->frame_password_manage_3->setGeometry(QRect(130, 260, 200, 100));
+        else
+            ui->frame_password_manage_3->setGeometry(QRect(630, 260, 200, 100));
+        ui->textEdit_key_pass->setText("");
+    }
+    else
+    {
+        ui->label_password->setText("**********");
+        hide_pass = false;
+        ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    }
+}
+
+void MyApp::EnterKeyToSeePasswordAndClose(void)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(13);
+
+    QString key = "1810565";
+    if (ui->textEdit_key_pass->text() == key)
+    {
+        ui->frame_password_manage_3->setGeometry(QRect(130, 2600, 200, 100));
+        ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-hide-15.png"));
+        ui->label_password->setText(xlsx.read(index_of_password + 3, 3).toString());
+        ui->textEdit_key_pass->setText("");
+    }
+}
+
+void MyApp::ReloadCheckPassword(void)
+{
+    QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
+    ui->label_check_charecter->setPixmap(pix_wrong);
+    ui->textEdit_search->setPlainText("");
+    ui->label_ID->setText("---------");
+    ui->label_password->setText("**********");
+    ui->textEdit_key_pass->setText("");
+    ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    hide_pass = false;
+}
+
+void MyApp::ExitKeyEnter(void)
+{
+    ui->frame_password_manage_3->setGeometry(QRect(130, 2600, 200, 100));
+    ui->textEdit_key_pass->setText("");
+    hide_pass = false;
+}
+
+void MyApp::AddPassword(void)
+{
+    if (is_AddPassword_window_on == false)
+    {
+        is_AddPassword_window_on = true;
+        if (set_horizontal_layout == false)
+            ui->frame_password_manage_4->setGeometry(QRect(100, 70, 190, 180));
+        else
+            ui->frame_password_manage_4->setGeometry(QRect(180, 450, 190, 180));
+    }
+    else
+        is_AddPassword_window_on = false;
+}
+
+void MyApp::CloseAddPassword(void)
+{
+    ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
+    is_AddPassword_window_on = false;
+    ui->textEdit_name_add->setText("");
+    ui->textEdit_ID_add->setText("");
+    ui->textEdit_key_pass_add->setText("");
+}
+
+void MyApp::SetNewPasswordAndClose(void)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(13);
+
+    while (xlsx.read(index_data_pass_add_pass, 1).toString() != "")
+    {
+        index_data_pass_add_pass++;
+    }
+
+    xlsx.write(index_data_pass_add_pass , 1, ui->textEdit_name_add->text());
+    xlsx.write(index_data_pass_add_pass , 2, ui->textEdit_ID_add->text());
+    xlsx.write(index_data_pass_add_pass , 3, ui->textEdit_key_pass_add->text());
+
+    xlsx.saveAs("Data_source.xlsx");
+
+
+    ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
+    is_AddPassword_window_on = false;
+    ui->textEdit_name_add->setText("");
+    ui->textEdit_ID_add->setText("");
+    ui->textEdit_key_pass_add->setText("");
+}
+
+void MyApp::ShowPasswordAdjustment(void)
+{
+    if (is_passchange_show == false)
+    {
+        is_passchange_show = true;
+        if (set_horizontal_layout == false)
+            ui->frame_password_manage_5->setGeometry(QRect(110, 190, 220, 140));
+        else
+            ui->frame_password_manage_5->setGeometry(QRect(630, 190, 220, 140));
+        ui->frame_password_manage->setGeometry(QRect(110, 1890, 220, 140));
+    }
+    else
+    {
+        is_passchange_show = false;
+    }
+
+}
+
+void MyApp::ExitPasswordAdjustmentAndReshowManager(void)
+{
+    ui->frame_password_manage_5->setGeometry(QRect(110, 1590, 220, 140));
+    if (set_horizontal_layout == false)
+        ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
+    else
+        ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
+    ui->textEdit_name_change_2->setText("");
+    ui->textEdit_pass_change->setText("");
+    is_passchange_show = false;
+}
+
+void MyApp::CheckEnterCharecterOfNameChange(void)
+{
+    QString charecter_enter = ui->textEdit_name_change_2->toPlainText();
+
+    if (CheckCharecterEnterInVector(charecter_enter) == true)
+    {
+        QPixmap pix_tick(":/Icon/Image/icons8-tick-25.png");
+        ui->label_check_charecter_2->setPixmap(pix_tick);
+    }
+    else
+    {
+        QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
+        ui->label_check_charecter_2->setPixmap(pix_wrong);
+    }
+}
+
+void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(13);
+
+    qDebug() << index_of_name_change;
+    if (ui->textEdit_pass_change->toPlainText() != "")
+    {
+        xlsx.write(index_of_name_change ,3 , ui->textEdit_pass_change->toPlainText());
+        xlsx.saveAs("Data_source.xlsx");
+    }
+
+    ui->frame_password_manage_5->setGeometry(QRect(110, 1590, 220, 140));
+    ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
+    ui->textEdit_name_change_2->setText("");
+    ui->textEdit_pass_change->setText("");
+    is_passchange_show = false;
+
+    QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
+    ui->label_check_charecter->setPixmap(pix_wrong);
+    ui->textEdit_search->setPlainText("");
+    ui->label_ID->setText("---------");
+    ui->label_password->setText("**********");
+    ui->textEdit_key_pass->setText("");
+    ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
+    hide_pass = false;
+    is_password_window_on = false;
+
+}
+

@@ -17,7 +17,7 @@ class Ui_MyApp(object):
         MyApp.resize(1569, 920)
         font = QtGui.QFont()
         font.setFamily("SamsungOne")
-        font.setPointSize(12)
+        font.setPointSize(11)
         font.setBold(False)
         MyApp.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MyApp)
@@ -393,7 +393,7 @@ class Ui_MyApp(object):
         self.label_total_thu.setAlignment(QtCore.Qt.AlignCenter)
         self.label_total_thu.setObjectName("label_total_thu")
         self.comboBox_MonthThu = QtWidgets.QComboBox(self.frame_thu)
-        self.comboBox_MonthThu.setGeometry(QtCore.QRect(10, 5, 134, 25))
+        self.comboBox_MonthThu.setGeometry(QtCore.QRect(10, 5, 158, 25))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
@@ -534,7 +534,7 @@ class Ui_MyApp(object):
         self.label_total_chi.setAlignment(QtCore.Qt.AlignCenter)
         self.label_total_chi.setObjectName("label_total_chi")
         self.comboBox_MonthChi = QtWidgets.QComboBox(self.frame_chi)
-        self.comboBox_MonthChi.setGeometry(QtCore.QRect(10, 5, 134, 25))
+        self.comboBox_MonthChi.setGeometry(QtCore.QRect(10, 5, 158, 25))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
@@ -683,50 +683,8 @@ class Ui_MyApp(object):
         self.frame_plan_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_plan_note.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_plan_note.setObjectName("frame_plan_note")
-        self.frame_note = QtWidgets.QFrame(self.frame_plan_note)
-        self.frame_note.setGeometry(QtCore.QRect(220, 12, 205, 117))
-        self.frame_note.setStyleSheet("#frame_note{\n"
-"    background-color: #F8F6F4;\n"
-"    border-radius: 15;\n"
-"    border: 1px solid white;\n"
-"}")
-        self.frame_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_note.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_note.setObjectName("frame_note")
-        self.label_7 = QtWidgets.QLabel(self.frame_note)
-        self.label_7.setGeometry(QtCore.QRect(5, 5, 25, 25))
-        self.label_7.setText("")
-        self.label_7.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-30.png"))
-        self.label_7.setScaledContents(True)
-        self.label_7.setObjectName("label_7")
-        self.pushButton_Plus_Note = QtWidgets.QPushButton(self.frame_note)
-        self.pushButton_Plus_Note.setGeometry(QtCore.QRect(5, 83, 31, 31))
-        font = QtGui.QFont()
-        font.setFamily("SamsungOne 400")
-        font.setPointSize(22)
-        font.setBold(False)
-        self.pushButton_Plus_Note.setFont(font)
-        self.pushButton_Plus_Note.setStyleSheet("#pushButton_Plus_Note\n"
-"{\n"
-"    border: 0px solid white;\n"
-"    background-color: #EBE3D5;\n"
-"    border-radius: 15px;\n"
-"    color: white\n"
-"}\n"
-"#pushButton_Plus_Note::pressed\n"
-"{\n"
-"    background-color: #BBAB8C;\n"
-"    border-style: inset;\n"
-"}\n"
-"#pushButton_Plus_Note::hover\n"
-"{\n"
-"    background-color: #BBAB8C;\n"
-"    border-style: inset;\n"
-"}")
-        self.pushButton_Plus_Note.setIconSize(QtCore.QSize(40, 40))
-        self.pushButton_Plus_Note.setObjectName("pushButton_Plus_Note")
         self.frame_plan = QtWidgets.QFrame(self.frame_plan_note)
-        self.frame_plan.setGeometry(QtCore.QRect(7, 12, 205, 117))
+        self.frame_plan.setGeometry(QtCore.QRect(115, 5, 313, 131))
         self.frame_plan.setStyleSheet("#frame_plan{\n"
 "    background-color: #B5CB99;\n"
 "    border-radius: 15;\n"
@@ -736,13 +694,13 @@ class Ui_MyApp(object):
         self.frame_plan.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_plan.setObjectName("frame_plan")
         self.label_8 = QtWidgets.QLabel(self.frame_plan)
-        self.label_8.setGeometry(QtCore.QRect(5, 0, 31, 31))
+        self.label_8.setGeometry(QtCore.QRect(275, 3, 31, 31))
         self.label_8.setText("")
         self.label_8.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-plan-30.png"))
         self.label_8.setScaledContents(True)
         self.label_8.setObjectName("label_8")
         self.pushButton_Plus_plan = QtWidgets.QPushButton(self.frame_plan)
-        self.pushButton_Plus_plan.setGeometry(QtCore.QRect(5, 80, 31, 31))
+        self.pushButton_Plus_plan.setGeometry(QtCore.QRect(280, 98, 25, 25))
         font = QtGui.QFont()
         font.setFamily("SamsungOne 400")
         font.setPointSize(22)
@@ -752,7 +710,7 @@ class Ui_MyApp(object):
 "{\n"
 "    border: 0px solid white;\n"
 "    background-color: #739072;\n"
-"    border-radius: 15px;\n"
+"    border-radius: 12px;\n"
 "    color: white\n"
 "}\n"
 "#pushButton_Plus_plan::pressed\n"
@@ -767,6 +725,47 @@ class Ui_MyApp(object):
 "}")
         self.pushButton_Plus_plan.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_Plus_plan.setObjectName("pushButton_Plus_plan")
+        self.line = QtWidgets.QFrame(self.frame_plan)
+        self.line.setGeometry(QtCore.QRect(280, 35, 16, 55))
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.line_2 = QtWidgets.QFrame(self.frame_plan)
+        self.line_2.setGeometry(QtCore.QRect(285, 45, 16, 51))
+        self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.label_no_data = QtWidgets.QLabel(self.frame_plan)
+        self.label_no_data.setGeometry(QtCore.QRect(80, 40, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.label_no_data.setFont(font)
+        self.label_no_data.setStyleSheet("#label_no_data{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: #739072;\n"
+"}")
+        self.label_no_data.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_no_data.setObjectName("label_no_data")
+        self.frame_note = QtWidgets.QFrame(self.frame_plan_note)
+        self.frame_note.setGeometry(QtCore.QRect(5, 5, 105, 131))
+        self.frame_note.setStyleSheet("#frame_note{\n"
+"    background-color: #F8F6F4;\n"
+"    border-radius: 15;\n"
+"    border: 1px solid white;\n"
+"}")
+        self.frame_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_note.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_note.setObjectName("frame_note")
+        self.label_7 = QtWidgets.QLabel(self.frame_note)
+        self.label_7.setGeometry(QtCore.QRect(5, 5, 25, 25))
+        self.label_7.setText("")
+        self.label_7.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-30.png"))
+        self.label_7.setScaledContents(True)
+        self.label_7.setObjectName("label_7")
         self.pushButton_back = QtWidgets.QPushButton(self.frame)
         self.pushButton_back.setGeometry(QtCore.QRect(105, 60, 30, 30))
         self.pushButton_back.setStyleSheet("#pushButton_back\n"
@@ -981,7 +980,7 @@ class Ui_MyApp(object):
         self.PopupChi.setFrameShadow(QtWidgets.QFrame.Raised)
         self.PopupChi.setObjectName("PopupChi")
         self.comboBox_2 = QtWidgets.QComboBox(self.PopupChi)
-        self.comboBox_2.setGeometry(QtCore.QRect(45, 45, 140, 28))
+        self.comboBox_2.setGeometry(QtCore.QRect(45, 45, 147, 28))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
@@ -3538,130 +3537,1259 @@ class Ui_MyApp(object):
 "    color: black\n"
 "")
         self.label_typechi22.setObjectName("label_typechi22")
-        self.popup_add_plan = QtWidgets.QFrame(self.centralwidget)
-        self.popup_add_plan.setGeometry(QtCore.QRect(760, 10, 181, 141))
-        self.popup_add_plan.setStyleSheet("#popup_add_plan{\n"
-"    background-color: #D2E3C8;\n"
-"    border-radius: 15;\n"
-"    border:1px solid white;\n"
+        self.frame_Plan_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_3.setGeometry(QtCore.QRect(940, 320, 265, 26))
+        self.frame_Plan_3.setStyleSheet("#frame_Plan_3{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
 "}")
-        self.popup_add_plan.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.popup_add_plan.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.popup_add_plan.setObjectName("popup_add_plan")
-        self.plainTextEdit_8 = QtWidgets.QPlainTextEdit(self.popup_add_plan)
-        self.plainTextEdit_8.setGeometry(QtCore.QRect(35, 45, 135, 61))
+        self.frame_Plan_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_3.setObjectName("frame_Plan_3")
+        self.label_day_plan1_3 = QtWidgets.QLabel(self.frame_Plan_3)
+        self.label_day_plan1_3.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_3.setFont(font)
+        self.label_day_plan1_3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_3.setObjectName("label_day_plan1_3")
+        self.label_time_plan1_3 = QtWidgets.QLabel(self.frame_Plan_3)
+        self.label_time_plan1_3.setGeometry(QtCore.QRect(49, 4, 61, 17))
         font = QtGui.QFont()
         font.setFamily("SamsungOne")
         font.setBold(False)
-        self.plainTextEdit_8.setFont(font)
-        self.plainTextEdit_8.setStyleSheet("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5")
-        self.plainTextEdit_8.setPlainText("")
-        self.plainTextEdit_8.setObjectName("plainTextEdit_8")
-        self.label_23 = QtWidgets.QLabel(self.popup_add_plan)
-        self.label_23.setGeometry(QtCore.QRect(10, 60, 21, 21))
-        self.label_23.setText("")
-        self.label_23.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-40.png"))
-        self.label_23.setScaledContents(True)
-        self.label_23.setObjectName("label_23")
-        self.pushButton_SetPlan = QtWidgets.QPushButton(self.popup_add_plan)
-        self.pushButton_SetPlan.setGeometry(QtCore.QRect(60, 110, 71, 25))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.pushButton_SetPlan.setFont(font)
-        self.pushButton_SetPlan.setStyleSheet("#pushButton_SetPlan\n"
-"{\n"
-"    border: 0px solid white;\n"
+        self.label_time_plan1_3.setFont(font)
+        self.label_time_plan1_3.setStyleSheet("\n"
 "    background-color: white;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"#pushButton_SetPlan::pressed\n"
-"{\n"
-"    background-color: #B5CB99;\n"
-"    border-style: inset;\n"
-"}\n"
-"#pushButton_SetPlan::hover\n"
-"{\n"
-"    background-color: #B5CB99;\n"
-"    border-style: inset;\n"
-"}")
-        self.pushButton_SetPlan.setIcon(icon13)
-        self.pushButton_SetPlan.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_SetPlan.setObjectName("pushButton_SetPlan")
-        self.label_date_selected_3 = QtWidgets.QLabel(self.popup_add_plan)
-        self.label_date_selected_3.setGeometry(QtCore.QRect(60, 13, 91, 25))
-        font = QtGui.QFont()
-        font.setFamily("Samsung Sharp Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        self.label_date_selected_3.setFont(font)
-        self.label_date_selected_3.setStyleSheet("#label_date_selected{\n"
-"    background-color: white;\n"
-"    border-radius: 10;\n"
+"    border-radius: 7;\n"
 "    border: 1px solid white;\n"
 "    color: black\n"
+"")
+        self.label_time_plan1_3.setText("")
+        self.label_time_plan1_3.setObjectName("label_time_plan1_3")
+        self.label_content_plan_3 = QtWidgets.QLabel(self.frame_Plan_3)
+        self.label_content_plan_3.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_3.setFont(font)
+        self.label_content_plan_3.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_3.setText("")
+        self.label_content_plan_3.setObjectName("label_content_plan_3")
+        self.checkBox_3 = QtWidgets.QCheckBox(self.frame_Plan_3)
+        self.checkBox_3.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_3.setText("")
+        self.checkBox_3.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_3.setObjectName("checkBox_3")
+        self.frame_Plan_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_2.setGeometry(QtCore.QRect(940, 230, 265, 26))
+        self.frame_Plan_2.setStyleSheet("#frame_Plan_2{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
 "}")
-        self.label_date_selected_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_date_selected_3.setObjectName("label_date_selected_3")
-        self.plainTextEdit_10 = QtWidgets.QPlainTextEdit(self.popup_add_plan)
-        self.plainTextEdit_10.setGeometry(QtCore.QRect(35, 13, 135, 28))
+        self.frame_Plan_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_2.setObjectName("frame_Plan_2")
+        self.label_day_plan1_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_day_plan1_2.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_2.setFont(font)
+        self.label_day_plan1_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_2.setObjectName("label_day_plan1_2")
+        self.label_time_plan1_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_time_plan1_2.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_2.setFont(font)
+        self.label_time_plan1_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_2.setText("")
+        self.label_time_plan1_2.setObjectName("label_time_plan1_2")
+        self.label_content_plan_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_content_plan_2.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_2.setFont(font)
+        self.label_content_plan_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_2.setText("")
+        self.label_content_plan_2.setObjectName("label_content_plan_2")
+        self.checkBox_2 = QtWidgets.QCheckBox(self.frame_Plan_2)
+        self.checkBox_2.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_2.setText("")
+        self.checkBox_2.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_2.setObjectName("checkBox_2")
+        self.frame_Plan_4 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_4.setGeometry(QtCore.QRect(940, 260, 265, 25))
+        self.frame_Plan_4.setStyleSheet("#frame_Plan_4{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_4.setObjectName("frame_Plan_4")
+        self.label_day_plan1_4 = QtWidgets.QLabel(self.frame_Plan_4)
+        self.label_day_plan1_4.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_4.setFont(font)
+        self.label_day_plan1_4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_4.setObjectName("label_day_plan1_4")
+        self.label_time_plan1_4 = QtWidgets.QLabel(self.frame_Plan_4)
+        self.label_time_plan1_4.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_4.setFont(font)
+        self.label_time_plan1_4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_4.setText("")
+        self.label_time_plan1_4.setObjectName("label_time_plan1_4")
+        self.label_content_plan_4 = QtWidgets.QLabel(self.frame_Plan_4)
+        self.label_content_plan_4.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_4.setFont(font)
+        self.label_content_plan_4.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_4.setText("")
+        self.label_content_plan_4.setObjectName("label_content_plan_4")
+        self.checkBox_4 = QtWidgets.QCheckBox(self.frame_Plan_4)
+        self.checkBox_4.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_4.setText("")
+        self.checkBox_4.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_4.setObjectName("checkBox_4")
+        self.frame_Plan_1 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_1.setGeometry(QtCore.QRect(940, 290, 265, 26))
+        self.frame_Plan_1.setStyleSheet("#frame_Plan_1{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_1.setObjectName("frame_Plan_1")
+        self.label_day_plan1 = QtWidgets.QLabel(self.frame_Plan_1)
+        self.label_day_plan1.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1.setFont(font)
+        self.label_day_plan1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1.setObjectName("label_day_plan1")
+        self.label_time_plan1 = QtWidgets.QLabel(self.frame_Plan_1)
+        self.label_time_plan1.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1.setFont(font)
+        self.label_time_plan1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1.setText("")
+        self.label_time_plan1.setObjectName("label_time_plan1")
+        self.label_content_plan_1 = QtWidgets.QLabel(self.frame_Plan_1)
+        self.label_content_plan_1.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_1.setFont(font)
+        self.label_content_plan_1.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_1.setText("")
+        self.label_content_plan_1.setObjectName("label_content_plan_1")
+        self.checkBox_1 = QtWidgets.QCheckBox(self.frame_Plan_1)
+        self.checkBox_1.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_1.setText("")
+        self.checkBox_1.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_1.setObjectName("checkBox_1")
+        self.frame_Plan_5 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_5.setGeometry(QtCore.QRect(940, 350, 265, 26))
+        self.frame_Plan_5.setStyleSheet("#frame_Plan_5{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_5.setObjectName("frame_Plan_5")
+        self.label_day_plan1_5 = QtWidgets.QLabel(self.frame_Plan_5)
+        self.label_day_plan1_5.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_5.setFont(font)
+        self.label_day_plan1_5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_5.setObjectName("label_day_plan1_5")
+        self.label_time_plan1_5 = QtWidgets.QLabel(self.frame_Plan_5)
+        self.label_time_plan1_5.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_5.setFont(font)
+        self.label_time_plan1_5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_5.setText("")
+        self.label_time_plan1_5.setObjectName("label_time_plan1_5")
+        self.label_content_plan_5 = QtWidgets.QLabel(self.frame_Plan_5)
+        self.label_content_plan_5.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_5.setFont(font)
+        self.label_content_plan_5.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_5.setText("")
+        self.label_content_plan_5.setObjectName("label_content_plan_5")
+        self.checkBox_5 = QtWidgets.QCheckBox(self.frame_Plan_5)
+        self.checkBox_5.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_5.setText("")
+        self.checkBox_5.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_5.setObjectName("checkBox_5")
+        self.frame_Plan_8 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_8.setGeometry(QtCore.QRect(940, 440, 265, 26))
+        self.frame_Plan_8.setStyleSheet("#frame_Plan_8{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_8.setObjectName("frame_Plan_8")
+        self.label_day_plan1_8 = QtWidgets.QLabel(self.frame_Plan_8)
+        self.label_day_plan1_8.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_8.setFont(font)
+        self.label_day_plan1_8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_8.setObjectName("label_day_plan1_8")
+        self.label_time_plan1_8 = QtWidgets.QLabel(self.frame_Plan_8)
+        self.label_time_plan1_8.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_8.setFont(font)
+        self.label_time_plan1_8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_8.setText("")
+        self.label_time_plan1_8.setObjectName("label_time_plan1_8")
+        self.label_content_plan_8 = QtWidgets.QLabel(self.frame_Plan_8)
+        self.label_content_plan_8.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_8.setFont(font)
+        self.label_content_plan_8.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_8.setText("")
+        self.label_content_plan_8.setObjectName("label_content_plan_8")
+        self.checkBox_8 = QtWidgets.QCheckBox(self.frame_Plan_8)
+        self.checkBox_8.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_8.setText("")
+        self.checkBox_8.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_8.setObjectName("checkBox_8")
+        self.frame_Plan_7 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_7.setGeometry(QtCore.QRect(940, 410, 265, 26))
+        self.frame_Plan_7.setStyleSheet("#frame_Plan_7{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_7.setObjectName("frame_Plan_7")
+        self.label_day_plan1_7 = QtWidgets.QLabel(self.frame_Plan_7)
+        self.label_day_plan1_7.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_7.setFont(font)
+        self.label_day_plan1_7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_7.setObjectName("label_day_plan1_7")
+        self.label_time_plan1_7 = QtWidgets.QLabel(self.frame_Plan_7)
+        self.label_time_plan1_7.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_7.setFont(font)
+        self.label_time_plan1_7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_7.setText("")
+        self.label_time_plan1_7.setObjectName("label_time_plan1_7")
+        self.label_content_plan_7 = QtWidgets.QLabel(self.frame_Plan_7)
+        self.label_content_plan_7.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_7.setFont(font)
+        self.label_content_plan_7.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_7.setText("")
+        self.label_content_plan_7.setObjectName("label_content_plan_7")
+        self.checkBox_7 = QtWidgets.QCheckBox(self.frame_Plan_7)
+        self.checkBox_7.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_7.setText("")
+        self.checkBox_7.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_7.setObjectName("checkBox_7")
+        self.frame_Plan_9 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_9.setGeometry(QtCore.QRect(940, 470, 265, 26))
+        self.frame_Plan_9.setStyleSheet("#frame_Plan_9{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_9.setObjectName("frame_Plan_9")
+        self.label_day_plan1_9 = QtWidgets.QLabel(self.frame_Plan_9)
+        self.label_day_plan1_9.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_9.setFont(font)
+        self.label_day_plan1_9.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_9.setObjectName("label_day_plan1_9")
+        self.label_time_plan1_9 = QtWidgets.QLabel(self.frame_Plan_9)
+        self.label_time_plan1_9.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_9.setFont(font)
+        self.label_time_plan1_9.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_9.setText("")
+        self.label_time_plan1_9.setObjectName("label_time_plan1_9")
+        self.label_content_plan_9 = QtWidgets.QLabel(self.frame_Plan_9)
+        self.label_content_plan_9.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_9.setFont(font)
+        self.label_content_plan_9.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_9.setText("")
+        self.label_content_plan_9.setObjectName("label_content_plan_9")
+        self.checkBox_9 = QtWidgets.QCheckBox(self.frame_Plan_9)
+        self.checkBox_9.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_9.setText("")
+        self.checkBox_9.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_9.setObjectName("checkBox_9")
+        self.frame_Plan_6 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_6.setGeometry(QtCore.QRect(940, 380, 265, 25))
+        self.frame_Plan_6.setStyleSheet("#frame_Plan_6{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_6.setObjectName("frame_Plan_6")
+        self.label_day_plan1_6 = QtWidgets.QLabel(self.frame_Plan_6)
+        self.label_day_plan1_6.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_6.setFont(font)
+        self.label_day_plan1_6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_6.setObjectName("label_day_plan1_6")
+        self.label_time_plan1_6 = QtWidgets.QLabel(self.frame_Plan_6)
+        self.label_time_plan1_6.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_6.setFont(font)
+        self.label_time_plan1_6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_6.setText("")
+        self.label_time_plan1_6.setObjectName("label_time_plan1_6")
+        self.label_content_plan_6 = QtWidgets.QLabel(self.frame_Plan_6)
+        self.label_content_plan_6.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_6.setFont(font)
+        self.label_content_plan_6.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_6.setText("")
+        self.label_content_plan_6.setObjectName("label_content_plan_6")
+        self.checkBox_6 = QtWidgets.QCheckBox(self.frame_Plan_6)
+        self.checkBox_6.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_6.setText("")
+        self.checkBox_6.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_6.setObjectName("checkBox_6")
+        self.frame_Plan_10 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_10.setGeometry(QtCore.QRect(940, 500, 265, 26))
+        self.frame_Plan_10.setStyleSheet("#frame_Plan_10{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_10.setObjectName("frame_Plan_10")
+        self.label_day_plan1_10 = QtWidgets.QLabel(self.frame_Plan_10)
+        self.label_day_plan1_10.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_10.setFont(font)
+        self.label_day_plan1_10.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_10.setObjectName("label_day_plan1_10")
+        self.label_time_plan1_10 = QtWidgets.QLabel(self.frame_Plan_10)
+        self.label_time_plan1_10.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_10.setFont(font)
+        self.label_time_plan1_10.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_10.setText("")
+        self.label_time_plan1_10.setObjectName("label_time_plan1_10")
+        self.label_content_plan_10 = QtWidgets.QLabel(self.frame_Plan_10)
+        self.label_content_plan_10.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_10.setFont(font)
+        self.label_content_plan_10.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_10.setText("")
+        self.label_content_plan_10.setObjectName("label_content_plan_10")
+        self.checkBox_10 = QtWidgets.QCheckBox(self.frame_Plan_10)
+        self.checkBox_10.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_10.setText("")
+        self.checkBox_10.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_10.setObjectName("checkBox_10")
+        self.frame_Plan_11 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_Plan_11.setGeometry(QtCore.QRect(940, 530, 265, 26))
+        self.frame_Plan_11.setStyleSheet("#frame_Plan_11{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_11.setObjectName("frame_Plan_11")
+        self.label_day_plan1_11 = QtWidgets.QLabel(self.frame_Plan_11)
+        self.label_day_plan1_11.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_day_plan1_11.setFont(font)
+        self.label_day_plan1_11.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_11.setObjectName("label_day_plan1_11")
+        self.label_time_plan1_11 = QtWidgets.QLabel(self.frame_Plan_11)
+        self.label_time_plan1_11.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        self.label_time_plan1_11.setFont(font)
+        self.label_time_plan1_11.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_11.setText("")
+        self.label_time_plan1_11.setObjectName("label_time_plan1_11")
+        self.label_content_plan_11 = QtWidgets.QLabel(self.frame_Plan_11)
+        self.label_content_plan_11.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        self.label_content_plan_11.setFont(font)
+        self.label_content_plan_11.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_11.setText("")
+        self.label_content_plan_11.setObjectName("label_content_plan_11")
+        self.checkBox_11 = QtWidgets.QCheckBox(self.frame_Plan_11)
+        self.checkBox_11.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_11.setText("")
+        self.checkBox_11.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_11.setObjectName("checkBox_11")
+        self.frame_password_manage = QtWidgets.QFrame(self.centralwidget)
+        self.frame_password_manage.setGeometry(QtCore.QRect(1240, 440, 271, 151))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.frame_password_manage.setFont(font)
+        self.frame_password_manage.setStyleSheet("#frame_password_manage{\n"
+"    background-color: #40A2D8;\n"
+"    border-radius: 20;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_password_manage.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_password_manage.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_password_manage.setObjectName("frame_password_manage")
+        self.frame_password_manage_2 = QtWidgets.QFrame(self.frame_password_manage)
+        self.frame_password_manage_2.setGeometry(QtCore.QRect(10, 77, 251, 61))
+        self.frame_password_manage_2.setStyleSheet("#frame_password_manage_2{\n"
+"    background-color: white;\n"
+"    border-radius: 15;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_password_manage_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_password_manage_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_password_manage_2.setObjectName("frame_password_manage_2")
+        self.label_22 = QtWidgets.QLabel(self.frame_password_manage_2)
+        self.label_22.setGeometry(QtCore.QRect(20, 5, 71, 21))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
         font.setBold(True)
-        self.plainTextEdit_10.setFont(font)
-        self.plainTextEdit_10.setStyleSheet("border-radius: 10;\n"
-"background-color: white;\n"
-"border: 1px solid gray;\n"
-"padding-left: 5")
-        self.plainTextEdit_10.setPlainText("")
-        self.plainTextEdit_10.setObjectName("plainTextEdit_10")
-        self.label_25 = QtWidgets.QLabel(self.popup_add_plan)
-        self.label_25.setGeometry(QtCore.QRect(8, 13, 28, 28))
-        self.label_25.setText("")
-        self.label_25.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"))
-        self.label_25.setScaledContents(True)
-        self.label_25.setObjectName("label_25")
-        self.pushButton_Selectday_Plan = QtWidgets.QPushButton(self.popup_add_plan)
-        self.pushButton_Selectday_Plan.setGeometry(QtCore.QRect(146, 15, 21, 24))
-        self.pushButton_Selectday_Plan.setStyleSheet("#pushButton_Selectday_Plan\n"
+        self.label_22.setFont(font)
+        self.label_22.setStyleSheet("color: black;\n"
+"background-color: #5CB8E4;\n"
+"border-radius: 10")
+        self.label_22.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_22.setObjectName("label_22")
+        self.label_23 = QtWidgets.QLabel(self.frame_password_manage_2)
+        self.label_23.setGeometry(QtCore.QRect(130, 5, 111, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_23.setFont(font)
+        self.label_23.setStyleSheet("color: black;\n"
+"background-color: #5CB8E4;\n"
+"border-radius: 10")
+        self.label_23.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_23.setObjectName("label_23")
+        self.line_3 = QtWidgets.QFrame(self.frame_password_manage_2)
+        self.line_3.setGeometry(QtCore.QRect(102, 5, 20, 51))
+        self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.label_ID = QtWidgets.QLabel(self.frame_password_manage_2)
+        self.label_ID.setGeometry(QtCore.QRect(10, 27, 91, 31))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(8)
+        font.setBold(True)
+        self.label_ID.setFont(font)
+        self.label_ID.setStyleSheet("color: black")
+        self.label_ID.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_ID.setObjectName("label_ID")
+        self.label_password = QtWidgets.QLabel(self.frame_password_manage_2)
+        self.label_password.setGeometry(QtCore.QRect(115, 32, 103, 20))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(8)
+        font.setBold(True)
+        self.label_password.setFont(font)
+        self.label_password.setStyleSheet("color: black")
+        self.label_password.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_password.setObjectName("label_password")
+        self.pushButton_hide_2 = QtWidgets.QPushButton(self.frame_password_manage_2)
+        self.pushButton_hide_2.setGeometry(QtCore.QRect(223, 33, 21, 20))
+        self.pushButton_hide_2.setStyleSheet("#pushButton_hide_2\n"
 "{\n"
 "    border: 0px solid white;\n"
 "    background-color: white;\n"
 "    border-radius: 10px;\n"
 "}\n"
-"#pushButton_Selectday_Plan::pressed\n"
+"#pushButton_hide_2::pressed\n"
 "{\n"
 "    background-color: #99FFFF;\n"
 "    border-style: inset;\n"
 "}\n"
-"#pushButton_Selectday_Plan::hover\n"
+"#pushButton_hide_2::hover\n"
 "{\n"
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_Selectday_Plan.setText("")
-        self.pushButton_Selectday_Plan.setIcon(icon14)
-        self.pushButton_Selectday_Plan.setIconSize(QtCore.QSize(20, 20))
-        self.pushButton_Selectday_Plan.setObjectName("pushButton_Selectday_Plan")
-        self.label_date_selected_Plan = QtWidgets.QLabel(self.popup_add_plan)
-        self.label_date_selected_Plan.setGeometry(QtCore.QRect(45, 15, 91, 25))
+        self.pushButton_hide_2.setText("")
+        self.pushButton_hide_2.setIcon(icon7)
+        self.pushButton_hide_2.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_hide_2.setObjectName("pushButton_hide_2")
+        self.label_19 = QtWidgets.QLabel(self.frame_password_manage)
+        self.label_19.setGeometry(QtCore.QRect(25, 0, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(13)
+        font.setBold(True)
+        self.label_19.setFont(font)
+        self.label_19.setStyleSheet("color: black")
+        self.label_19.setObjectName("label_19")
+        self.pushButton_search = QtWidgets.QPushButton(self.frame_password_manage)
+        self.pushButton_search.setGeometry(QtCore.QRect(180, 34, 30, 30))
+        self.pushButton_search.setStyleSheet("#pushButton_search\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #EEEDEB;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_search::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_search::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_search.setText("")
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-search-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_search.setIcon(icon15)
+        self.pushButton_search.setObjectName("pushButton_search")
+        self.textEdit_search = QtWidgets.QTextEdit(self.frame_password_manage)
+        self.textEdit_search.setGeometry(QtCore.QRect(56, 34, 101, 30))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        self.textEdit_search.setFont(font)
+        self.textEdit_search.setStyleSheet("border: 0px")
+        self.textEdit_search.setObjectName("textEdit_search")
+        self.pushButton_exitpassword = QtWidgets.QPushButton(self.frame_password_manage)
+        self.pushButton_exitpassword.setGeometry(QtCore.QRect(240, 5, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        self.pushButton_exitpassword.setFont(font)
+        self.pushButton_exitpassword.setStyleSheet("#pushButton_exitpassword\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: red;\n"
+"    border-radius: 10px;\n"
+"    color: yellow\n"
+"}\n"
+"#pushButton_exitpassword::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_exitpassword::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_exitpassword.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_exitpassword.setObjectName("pushButton_exitpassword")
+        self.label_check_charecter = QtWidgets.QLabel(self.frame_password_manage)
+        self.label_check_charecter.setGeometry(QtCore.QRect(158, 40, 18, 18))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(13)
+        font.setBold(True)
+        self.label_check_charecter.setFont(font)
+        self.label_check_charecter.setStyleSheet("color: black")
+        self.label_check_charecter.setText("")
+        self.label_check_charecter.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-x-20.png"))
+        self.label_check_charecter.setScaledContents(True)
+        self.label_check_charecter.setObjectName("label_check_charecter")
+        self.pushButton_reload = QtWidgets.QPushButton(self.frame_password_manage)
+        self.pushButton_reload.setGeometry(QtCore.QRect(225, 35, 30, 30))
+        self.pushButton_reload.setStyleSheet("#pushButton_reload\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #EEEDEB;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_reload::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_reload::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_reload.setText("")
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-reload-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_reload.setIcon(icon16)
+        self.pushButton_reload.setObjectName("pushButton_reload")
+        self.label_24 = QtWidgets.QLabel(self.frame_password_manage)
+        self.label_24.setGeometry(QtCore.QRect(50, 30, 171, 38))
+        self.label_24.setStyleSheet("background-color: white;\n"
+"border-radius : 15")
+        self.label_24.setText("")
+        self.label_24.setObjectName("label_24")
+        self.pushButton_AdjustPass = QtWidgets.QPushButton(self.frame_password_manage)
+        self.pushButton_AdjustPass.setGeometry(QtCore.QRect(15, 35, 30, 30))
+        self.pushButton_AdjustPass.setStyleSheet("#pushButton_AdjustPass\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #EEEDEB;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_AdjustPass::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_AdjustPass::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_AdjustPass.setText("")
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(":/IconApplication/Image/icons8-gear-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_AdjustPass.setIcon(icon17)
+        self.pushButton_AdjustPass.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_AdjustPass.setObjectName("pushButton_AdjustPass")
+        self.label_24.raise_()
+        self.frame_password_manage_2.raise_()
+        self.label_19.raise_()
+        self.pushButton_search.raise_()
+        self.textEdit_search.raise_()
+        self.pushButton_exitpassword.raise_()
+        self.label_check_charecter.raise_()
+        self.pushButton_reload.raise_()
+        self.pushButton_AdjustPass.raise_()
+        self.frame_password_manage_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_password_manage_3.setGeometry(QtCore.QRect(1370, 600, 201, 101))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.frame_password_manage_3.setFont(font)
+        self.frame_password_manage_3.setStyleSheet("#frame_password_manage_3{\n"
+"    background-color: #8ECDDD;\n"
+"    border-radius: 20;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_password_manage_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_password_manage_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_password_manage_3.setObjectName("frame_password_manage_3")
+        self.label_26 = QtWidgets.QLabel(self.frame_password_manage_3)
+        self.label_26.setGeometry(QtCore.QRect(45, 5, 111, 41))
         font = QtGui.QFont()
         font.setFamily("Samsung Sharp Sans")
         font.setPointSize(10)
         font.setBold(True)
-        self.label_date_selected_Plan.setFont(font)
-        self.label_date_selected_Plan.setStyleSheet("#label_date_selected_Plan{\n"
-"    background-color: white;\n"
-"    border-radius: 10;\n"
-"    border: 1px solid white;\n"
-"    color: black\n"
+        self.label_26.setFont(font)
+        self.label_26.setStyleSheet("color: black")
+        self.label_26.setObjectName("label_26")
+        self.plainTextEdit_8 = QtWidgets.QPlainTextEdit(self.frame_password_manage_3)
+        self.plainTextEdit_8.setGeometry(QtCore.QRect(20, 50, 171, 38))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(10)
+        self.plainTextEdit_8.setFont(font)
+        self.plainTextEdit_8.setStyleSheet("background-color: white;\n"
+"border-radius: 13")
+        self.plainTextEdit_8.setObjectName("plainTextEdit_8")
+        self.textEdit_key_pass = QtWidgets.QLineEdit(self.frame_password_manage_3)
+        self.textEdit_key_pass.setGeometry(QtCore.QRect(58, 52, 101, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(3)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_key_pass.sizePolicy().hasHeightForWidth())
+        self.textEdit_key_pass.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        self.textEdit_key_pass.setFont(font)
+        self.textEdit_key_pass.setStyleSheet("border: 0px")
+        self.textEdit_key_pass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.textEdit_key_pass.setObjectName("textEdit_key_pass")
+        self.pushButton_exitpassword_2 = QtWidgets.QPushButton(self.frame_password_manage_3)
+        self.pushButton_exitpassword_2.setGeometry(QtCore.QRect(170, 10, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        self.pushButton_exitpassword_2.setFont(font)
+        self.pushButton_exitpassword_2.setStyleSheet("#pushButton_exitpassword_2\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: red;\n"
+"    border-radius: 10px;\n"
+"    color: yellow\n"
+"}\n"
+"#pushButton_exitpassword_2::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_exitpassword_2::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
 "}")
-        self.label_date_selected_Plan.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_date_selected_Plan.setObjectName("label_date_selected_Plan")
+        self.pushButton_exitpassword_2.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_exitpassword_2.setObjectName("pushButton_exitpassword_2")
+        self.frame_password_manage_4 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_password_manage_4.setGeometry(QtCore.QRect(1380, 710, 191, 181))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.frame_password_manage_4.setFont(font)
+        self.frame_password_manage_4.setStyleSheet("#frame_password_manage_4{\n"
+"    background-color: #8ECDDD;\n"
+"    border-radius: 20;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_password_manage_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_password_manage_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_password_manage_4.setObjectName("frame_password_manage_4")
+        self.label_27 = QtWidgets.QLabel(self.frame_password_manage_4)
+        self.label_27.setGeometry(QtCore.QRect(13, 5, 141, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_27.setFont(font)
+        self.label_27.setStyleSheet("color: black")
+        self.label_27.setObjectName("label_27")
+        self.textEdit_name_add = QtWidgets.QLineEdit(self.frame_password_manage_4)
+        self.textEdit_name_add.setGeometry(QtCore.QRect(60, 30, 121, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(3)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_name_add.sizePolicy().hasHeightForWidth())
+        self.textEdit_name_add.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(11)
+        self.textEdit_name_add.setFont(font)
+        self.textEdit_name_add.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_name_add.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.textEdit_name_add.setObjectName("textEdit_name_add")
+        self.pushButton_exitpassword_3 = QtWidgets.QPushButton(self.frame_password_manage_4)
+        self.pushButton_exitpassword_3.setGeometry(QtCore.QRect(160, 7, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        self.pushButton_exitpassword_3.setFont(font)
+        self.pushButton_exitpassword_3.setStyleSheet("#pushButton_exitpassword_3\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: red;\n"
+"    border-radius: 10px;\n"
+"    color: yellow\n"
+"}\n"
+"#pushButton_exitpassword_3::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_exitpassword_3::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_exitpassword_3.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_exitpassword_3.setObjectName("pushButton_exitpassword_3")
+        self.textEdit_ID_add = QtWidgets.QLineEdit(self.frame_password_manage_4)
+        self.textEdit_ID_add.setGeometry(QtCore.QRect(60, 70, 121, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(3)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_ID_add.sizePolicy().hasHeightForWidth())
+        self.textEdit_ID_add.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(11)
+        self.textEdit_ID_add.setFont(font)
+        self.textEdit_ID_add.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_ID_add.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.textEdit_ID_add.setObjectName("textEdit_ID_add")
+        self.label_28 = QtWidgets.QLabel(self.frame_password_manage_4)
+        self.label_28.setGeometry(QtCore.QRect(10, 37, 51, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_28.setFont(font)
+        self.label_28.setStyleSheet("color: black")
+        self.label_28.setObjectName("label_28")
+        self.label_29 = QtWidgets.QLabel(self.frame_password_manage_4)
+        self.label_29.setGeometry(QtCore.QRect(10, 75, 41, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_29.setFont(font)
+        self.label_29.setStyleSheet("color: black")
+        self.label_29.setObjectName("label_29")
+        self.label_30 = QtWidgets.QLabel(self.frame_password_manage_4)
+        self.label_30.setGeometry(QtCore.QRect(10, 110, 41, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_30.setFont(font)
+        self.label_30.setStyleSheet("color: black")
+        self.label_30.setObjectName("label_30")
+        self.textEdit_key_pass_add = QtWidgets.QLineEdit(self.frame_password_manage_4)
+        self.textEdit_key_pass_add.setGeometry(QtCore.QRect(60, 110, 121, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(3)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_key_pass_add.sizePolicy().hasHeightForWidth())
+        self.textEdit_key_pass_add.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(11)
+        self.textEdit_key_pass_add.setFont(font)
+        self.textEdit_key_pass_add.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_key_pass_add.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.textEdit_key_pass_add.setObjectName("textEdit_key_pass_add")
+        self.pushButton_Setpassword = QtWidgets.QPushButton(self.frame_password_manage_4)
+        self.pushButton_Setpassword.setGeometry(QtCore.QRect(85, 150, 71, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_Setpassword.setFont(font)
+        self.pushButton_Setpassword.setStyleSheet("#pushButton_Setpassword\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_Setpassword::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_Setpassword::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_Setpassword.setIcon(icon13)
+        self.pushButton_Setpassword.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_Setpassword.setObjectName("pushButton_Setpassword")
+        self.frame_password_manage_5 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_password_manage_5.setGeometry(QtCore.QRect(1300, 280, 221, 141))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(False)
+        self.frame_password_manage_5.setFont(font)
+        self.frame_password_manage_5.setStyleSheet("#frame_password_manage_5{\n"
+"    background-color: #40A2D8;\n"
+"    border-radius: 20;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_password_manage_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_password_manage_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_password_manage_5.setObjectName("frame_password_manage_5")
+        self.label_31 = QtWidgets.QLabel(self.frame_password_manage_5)
+        self.label_31.setGeometry(QtCore.QRect(13, 5, 171, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_31.setFont(font)
+        self.label_31.setStyleSheet("color: black")
+        self.label_31.setObjectName("label_31")
+        self.pushButton_exitpassword_4 = QtWidgets.QPushButton(self.frame_password_manage_5)
+        self.pushButton_exitpassword_4.setGeometry(QtCore.QRect(190, 7, 21, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        self.pushButton_exitpassword_4.setFont(font)
+        self.pushButton_exitpassword_4.setStyleSheet("#pushButton_exitpassword_4\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: red;\n"
+"    border-radius: 10px;\n"
+"    color: yellow\n"
+"}\n"
+"#pushButton_exitpassword_4::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_exitpassword_4::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_exitpassword_4.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_exitpassword_4.setObjectName("pushButton_exitpassword_4")
+        self.textEdit_passchange = QtWidgets.QLineEdit(self.frame_password_manage_5)
+        self.textEdit_passchange.setGeometry(QtCore.QRect(80, 70, 131, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(3)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit_passchange.sizePolicy().hasHeightForWidth())
+        self.textEdit_passchange.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne 400")
+        font.setPointSize(11)
+        self.textEdit_passchange.setFont(font)
+        self.textEdit_passchange.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_passchange.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.textEdit_passchange.setObjectName("textEdit_passchange")
+        self.label_32 = QtWidgets.QLabel(self.frame_password_manage_5)
+        self.label_32.setGeometry(QtCore.QRect(10, 37, 51, 21))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_32.setFont(font)
+        self.label_32.setStyleSheet("color: black")
+        self.label_32.setObjectName("label_32")
+        self.label_33 = QtWidgets.QLabel(self.frame_password_manage_5)
+        self.label_33.setGeometry(QtCore.QRect(10, 70, 71, 31))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_33.setFont(font)
+        self.label_33.setStyleSheet("color: black")
+        self.label_33.setObjectName("label_33")
+        self.pushButton_changed = QtWidgets.QPushButton(self.frame_password_manage_5)
+        self.pushButton_changed.setGeometry(QtCore.QRect(85, 110, 71, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_changed.setFont(font)
+        self.pushButton_changed.setStyleSheet("#pushButton_changed\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_changed::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_changed::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_changed.setIcon(icon13)
+        self.pushButton_changed.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_changed.setObjectName("pushButton_changed")
+        self.label_25 = QtWidgets.QLabel(self.frame_password_manage_5)
+        self.label_25.setGeometry(QtCore.QRect(70, 31, 141, 30))
+        self.label_25.setStyleSheet("border: 0px;\n"
+"border-radius: 10px;\n"
+"background-color:white")
+        self.label_25.setText("")
+        self.label_25.setObjectName("label_25")
+        self.textEdit_name_change_2 = QtWidgets.QTextEdit(self.frame_password_manage_5)
+        self.textEdit_name_change_2.setGeometry(QtCore.QRect(80, 33, 101, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        self.textEdit_name_change_2.setFont(font)
+        self.textEdit_name_change_2.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_name_change_2.setObjectName("textEdit_name_change_2")
+        self.label_check_charecter_2 = QtWidgets.QLabel(self.frame_password_manage_5)
+        self.label_check_charecter_2.setGeometry(QtCore.QRect(185, 36, 18, 18))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(13)
+        font.setBold(True)
+        self.label_check_charecter_2.setFont(font)
+        self.label_check_charecter_2.setStyleSheet("color: black")
+        self.label_check_charecter_2.setText("")
+        self.label_check_charecter_2.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-x-20.png"))
+        self.label_check_charecter_2.setScaledContents(True)
+        self.label_check_charecter_2.setObjectName("label_check_charecter_2")
+        self.textEdit_pass_change = QtWidgets.QTextEdit(self.frame_password_manage_5)
+        self.textEdit_pass_change.setGeometry(QtCore.QRect(90, 70, 101, 28))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        self.textEdit_pass_change.setFont(font)
+        self.textEdit_pass_change.setStyleSheet("border: 0px;\n"
+"border-radius: 10px")
+        self.textEdit_pass_change.setObjectName("textEdit_pass_change")
         MyApp.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MyApp)
@@ -3708,8 +4836,8 @@ class Ui_MyApp(object):
         self.label_total.setText(_translate("MyApp", "Tổng tích lũy: *** *** *** VNĐ"))
         self.label_3.setText(_translate("MyApp", "Quản lý \n"
 "thu chi"))
-        self.pushButton_Plus_Note.setText(_translate("MyApp", "+"))
         self.pushButton_Plus_plan.setText(_translate("MyApp", "+"))
+        self.label_no_data.setText(_translate("MyApp", "No plan"))
         self.label_10.setText(_translate("MyApp", "Đình\n"
 " Thuận"))
         self.pushButton_Plus_pass.setText(_translate("MyApp", "+"))
@@ -3853,7 +4981,36 @@ class Ui_MyApp(object):
         self.label_money_chi22.setText(_translate("MyApp", "15000000"))
         self.label_content_chi22.setText(_translate("MyApp", "Salary"))
         self.label_typechi22.setText(_translate("MyApp", "Khác"))
-        self.pushButton_SetPlan.setText(_translate("MyApp", "Enter"))
-        self.label_date_selected_3.setText(_translate("MyApp", "09/12/2023"))
-        self.label_date_selected_Plan.setText(_translate("MyApp", "09/12/2023"))
+        self.label_day_plan1_3.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_2.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_4.setText(_translate("MyApp", "10"))
+        self.label_day_plan1.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_5.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_8.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_7.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_9.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_6.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_10.setText(_translate("MyApp", "10"))
+        self.label_day_plan1_11.setText(_translate("MyApp", "10"))
+        self.label_22.setText(_translate("MyApp", "ID"))
+        self.label_23.setText(_translate("MyApp", "Password"))
+        self.label_ID.setText(_translate("MyApp", "---------"))
+        self.label_password.setText(_translate("MyApp", "***********"))
+        self.label_19.setText(_translate("MyApp", "Password management"))
+        self.pushButton_exitpassword.setText(_translate("MyApp", "X"))
+        self.label_26.setText(_translate("MyApp", "Please enter key\n"
+"to see password"))
+        self.pushButton_exitpassword_2.setText(_translate("MyApp", "X"))
+        self.label_27.setText(_translate("MyApp", "Password Addition"))
+        self.pushButton_exitpassword_3.setText(_translate("MyApp", "X"))
+        self.label_28.setText(_translate("MyApp", "Name"))
+        self.label_29.setText(_translate("MyApp", "ID"))
+        self.label_30.setText(_translate("MyApp", "Pass"))
+        self.pushButton_Setpassword.setText(_translate("MyApp", "Enter"))
+        self.label_31.setText(_translate("MyApp", "Password Adjustment"))
+        self.pushButton_exitpassword_4.setText(_translate("MyApp", "X"))
+        self.label_32.setText(_translate("MyApp", "Name"))
+        self.label_33.setText(_translate("MyApp", "New\n"
+"password"))
+        self.pushButton_changed.setText(_translate("MyApp", "Enter"))
 import ResourceFile_rc

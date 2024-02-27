@@ -31,6 +31,10 @@
         <file>Image/icons8-login-rounded-up-35.png</file>
         <file>Image/icons8-hide-15.png</file>
         <file>Image/icons8-clock-30.png</file>
+        <file>Image/icons8-search-30.png</file>
+        <file>Image/icons8-tick-25.png</file>
+        <file>Image/icons8-x-20.png</file>
+        <file>Image/icons8-reload-30.png</file>
     </qresource>
     <qresource prefix="/IconApplication">
         <file>Image/facebook.png</file>
@@ -39,6 +43,7 @@
         <file>Image/vscode.png</file>
         <file>Image/zalo.png</file>
         <file>Image/icons8-google-96.png</file>
+        <file>Image/icons8-gear-30.png</file>
     </qresource>
     <qresource prefix="/ImagePersonal">
         <file>Image/ImagePersonal/1.jpg</file>

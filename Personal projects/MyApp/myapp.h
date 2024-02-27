@@ -49,7 +49,24 @@ public slots:
     void onDataAvailable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetailPlan);
 
     void HandleCheckBoxPlan();
+    void ShowPasswordManager(void);
+    void ExitPasswordWindow(void);
+    void CheckEnterCharecter(void);
+    void ShowPasswordFollowCharecter(void);
+    void NoHidePassword(void);
+    void EnterKeyToSeePasswordAndClose(void);
+    void ReloadCheckPassword(void);
+    void ExitKeyEnter(void);
 
+    void AddPassword(void);
+    void CloseAddPassword(void);
+    void SetNewPasswordAndClose(void);
+    void ShowPasswordAdjustment(void);
+    void ExitPasswordAdjustmentAndReshowManager(void);
+    void EnterPasswordAdjustmentAndReshowManager(void);
+    void CheckEnterCharecterOfNameChange(void);
+
+    bool CheckCharecterEnterInVector(QString charecter_enter);
 private:
     Ui::MyApp *ui;
     myApp_horizontal *myapp_horizon;
@@ -89,5 +106,17 @@ private:
     int index_plan_check_show[4];
     int numberofplan = 4 ;
 
+    bool is_password_window_on = false;
+    int index_data_pass = 3;
+    int index_data_pass_add_pass = 3;
+    int index_data_pass_added = 3;
+    QVector <QString> passwordSaved;
+    QVector <QString> passwordAdded;
+    int index_of_password;
+    bool key_is_true = false;
+    bool hide_pass = false;
+    bool is_AddPassword_window_on = false;
+    int index_of_name_change;
+    bool is_passchange_show = false;
 };
 #endif // MYAPP_H
