@@ -67,6 +67,11 @@ public slots:
     void CheckEnterCharecterOfNameChange(void);
 
     bool CheckCharecterEnterInVector(QString charecter_enter);
+
+// Electrical Device Control
+    void FanControl(void);
+    void LightControl(void);
+
 private:
     Ui::MyApp *ui;
     myApp_horizontal *myapp_horizon;
@@ -118,5 +123,9 @@ private:
     bool is_AddPassword_window_on = false;
     int index_of_name_change;
     bool is_passchange_show = false;
+
+// Electrical Device Control
+    bool is_Fan_ON = false;
+    bool is_Light_ON = false;
 };
 #endif // MYAPP_H

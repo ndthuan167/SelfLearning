@@ -74,6 +74,10 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_exitpassword_4, SIGNAL(clicked(bool)), this, SLOT(ExitPasswordAdjustmentAndReshowManager()));
     connect(ui->pushButton_changed, SIGNAL(clicked(bool)), this, SLOT(EnterPasswordAdjustmentAndReshowManager()));
 
+// Electrical Device Control
+    connect(ui->Fanbutton, SIGNAL(clicked(bool)), this, SLOT(FanControl()));
+    connect(ui->Lightbutton, SIGNAL(clicked(bool)), this, SLOT(LightControl()));
+
 }
 
 MyApp::~MyApp()
@@ -1962,3 +1966,71 @@ void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
 
 }
 
+// Electrical Device Control
+void MyApp::FanControl(void)
+{
+    if (is_Fan_ON == false)
+        is_Fan_ON = true;
+    else
+        is_Fan_ON = false;
+
+    QPropertyAnimation *animation_button_fan = new QPropertyAnimation(ui->Fanbutton, "geometry");
+    animation_button_fan->setDuration(50);
+
+    if(is_Fan_ON == true)
+    {
+        animation_button_fan->setStartValue(QRect(ui->Fanbutton->geometry().x(), ui->Fanbutton->geometry().y(), 20, 20));
+        animation_button_fan->setEndValue(QRect(ui->Fanbutton->geometry().x() + 25, ui->Fanbutton->geometry().y(), 20, 20));
+        ui->label_34->setStyleSheet("background-color: #8E7AB5;"
+                                    "border: 1px solid #8E7AB5;"
+                                    "border-radius: 8px");
+        QMovie *movie = new QMovie(":/IconApplication/Image/fan.gif"); // Example path
+        ui->label_36->setMovie(movie);
+        movie->start();
+    }
+    else
+    {
+        animation_button_fan->setStartValue(QRect(ui->Fanbutton->geometry().x(), ui->Fanbutton->geometry().y(), 20, 20));
+        animation_button_fan->setEndValue(QRect(ui->Fanbutton->geometry().x() - 25, ui->Fanbutton->geometry().y(), 20, 20));
+        ui->label_34->setStyleSheet("background-color: white;"
+                                    "border: 1px solid #8E7AB5;"
+                                    "border-radius: 8px");
+        QPixmap pixmap_fan(":/Icon/Image/icons8-fan-40.png");
+        ui->label_36->setPixmap(pixmap_fan);
+    }
+    animation_button_fan->start();
+}
+
+void MyApp::LightControl(void)
+{
+    if (is_Light_ON == false)
+        is_Light_ON = true;
+    else
+        is_Light_ON = false;
+
+    QPropertyAnimation *animation_button_light = new QPropertyAnimation(ui->Lightbutton, "geometry");
+    animation_button_light->setDuration(50);
+
+    if(is_Light_ON == true)
+    {
+        animation_button_light->setStartValue(QRect(ui->Lightbutton->geometry().x(), ui->Lightbutton->geometry().y(), 20, 20));
+        animation_button_light->setEndValue(QRect(ui->Lightbutton->geometry().x() + 25, ui->Lightbutton->geometry().y(), 20, 20));
+        ui->label_37->setStyleSheet("background-color: #8E7AB5;"
+                                    "border: 1px solid #8E7AB5;"
+                                    "border-radius: 8px");
+        QPixmap pixmap_fan(":/Icon/Image/icons8-light-60.png");
+        ui->label_38->setPixmap(pixmap_fan);
+    }
+    else
+    {
+        animation_button_light->setStartValue(QRect(ui->Lightbutton->geometry().x(), ui->Lightbutton->geometry().y(), 20, 20));
+        animation_button_light->setEndValue(QRect(ui->Lightbutton->geometry().x() - 25, ui->Lightbutton->geometry().y(), 20, 20));
+        ui->label_37->setStyleSheet("background-color: white;"
+                                    "border: 1px solid #8E7AB5;"
+                                    "border-radius: 8px");
+        QPixmap pixmap_fan(":/Icon/Image/icons8-light-40.png");
+        ui->label_38->setPixmap(pixmap_fan);
+    }
+    animation_button_light->start();
+
+}

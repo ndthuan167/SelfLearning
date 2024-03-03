@@ -35,6 +35,11 @@
         <file>Image/icons8-tick-25.png</file>
         <file>Image/icons8-x-20.png</file>
         <file>Image/icons8-reload-30.png</file>
+        <file>Image/icons8-adjust-64.png</file>
+        <file>Image/icons8-fan-64.png</file>
+        <file>Image/icons8-light-60.png</file>
+        <file>Image/icons8-fan-40.png</file>
+        <file>Image/icons8-light-40.png</file>
     </qresource>
     <qresource prefix="/IconApplication">
         <file>Image/facebook.png</file>
@@ -44,6 +49,7 @@
         <file>Image/zalo.png</file>
         <file>Image/icons8-google-96.png</file>
         <file>Image/icons8-gear-30.png</file>
+        <file>Image/fan.gif</file>
     </qresource>
     <qresource prefix="/ImagePersonal">
         <file>Image/ImagePersonal/1.jpg</file>

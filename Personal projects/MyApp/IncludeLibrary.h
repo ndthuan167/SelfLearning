@@ -16,4 +16,5 @@
 #include <QCalendarWidget>
 #include <QScrollArea>
 #include <QFileDialog>
+#include <QMovie>
 #endif // INCLUDELIBRARY_H

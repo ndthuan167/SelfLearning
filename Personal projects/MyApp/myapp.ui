@@ -1500,7 +1500,7 @@ thu chi</string>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>5</x>
+         <x>10</x>
          <y>5</y>
          <width>25</width>
          <height>25</height>
@@ -1510,12 +1510,261 @@ thu chi</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-note-30.png</pixmap>
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-adjust-64.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>10</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>11</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>Control</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Fanbutton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI Variable Text Semibold</family>
+         <pointsize>11</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Fanbutton
+{
+	border: 0px solid white;
+	background-color: #5E1675;
+	border-radius: 10px;
+}
+#Fanbutton::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#Fanbutton::hover
+{
+	background-color: #8E7AB5;
+	border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>48</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>63</x>
+         <y>32</y>
+         <width>37</width>
+         <height>37</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border-radius: 10px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-fan-40.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>42</y>
+         <width>45</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border: 1px solid #8E7AB5;
+border-radius: 8px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>95</y>
+         <width>45</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border: 1px solid #8E7AB5;
+border-radius: 8px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Lightbutton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>93</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI Variable Text Semibold</family>
+         <pointsize>11</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Lightbutton
+{
+	border: 0px solid white;
+	background-color: #5E1675;
+	border-radius: 10px;
+}
+#Lightbutton::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#Lightbutton::hover
+{
+	background-color: #8E7AB5;
+	border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>48</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>85</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border-radius: 20px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-light-40.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>70</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>OFF</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>70</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>ON</string>
+       </property>
+      </widget>
+      <zorder>label_7</zorder>
+      <zorder>label_35</zorder>
+      <zorder>label_34</zorder>
+      <zorder>label_36</zorder>
+      <zorder>label_37</zorder>
+      <zorder>Fanbutton</zorder>
+      <zorder>Lightbutton</zorder>
+      <zorder>label_38</zorder>
+      <zorder>label_39</zorder>
+      <zorder>label_40</zorder>
      </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_back">
