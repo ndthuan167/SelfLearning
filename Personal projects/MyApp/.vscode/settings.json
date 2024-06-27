@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "system_error": "cpp",
+        "sstream": "cpp"
+    },
+    "CodeGPT.apiKey": "OpenAI"
+}

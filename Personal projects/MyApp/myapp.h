@@ -5,6 +5,9 @@
 #include "IncludeLibrary.h"
 #include "myapp_horizontal.h"
 #include "ui_myapp_horizontal.h"
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QChar>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MyApp; }
@@ -69,8 +72,15 @@ public slots:
     bool CheckCharecterEnterInVector(QString charecter_enter);
 
 // Electrical Device Control
-    void FanControl(void);
-    void LightControl(void);
+    void SettingUartForElecDeviceControl(void);
+    void SettingUart();
+    void ConnectUart(void);
+    void DisconnectUart(void);
+    void receiveMessage();
+    void SendMsgFanControl(void);
+    void FanControl(bool IsFanOn);
+    void SendMsgLightControl(void);
+    void LightControl(bool IsLightOn);
 
 private:
     Ui::MyApp *ui;
@@ -125,6 +135,10 @@ private:
     bool is_passchange_show = false;
 
 // Electrical Device Control
+    bool IsUartSettingShow = false;
+    QSerialPort* serialPort;
+    QString data_receive;
+    QChar charecter[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ,'i','j' ,'k' , 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     bool is_Fan_ON = false;
     bool is_Light_ON = false;
 };

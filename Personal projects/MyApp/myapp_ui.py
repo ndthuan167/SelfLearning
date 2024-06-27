@@ -760,12 +760,139 @@ class Ui_MyApp(object):
         self.frame_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_note.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_note.setObjectName("frame_note")
-        self.label_7 = QtWidgets.QLabel(self.frame_note)
-        self.label_7.setGeometry(QtCore.QRect(5, 5, 25, 25))
-        self.label_7.setText("")
-        self.label_7.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-30.png"))
-        self.label_7.setScaledContents(True)
-        self.label_7.setObjectName("label_7")
+        self.label_35 = QtWidgets.QLabel(self.frame_note)
+        self.label_35.setGeometry(QtCore.QRect(40, 5, 61, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_35.setFont(font)
+        self.label_35.setStyleSheet("color: #5E1675")
+        self.label_35.setObjectName("label_35")
+        self.Fanbutton = QtWidgets.QPushButton(self.frame_note)
+        self.Fanbutton.setGeometry(QtCore.QRect(10, 40, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable Text Semibold")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.Fanbutton.setFont(font)
+        self.Fanbutton.setStyleSheet("#Fanbutton\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #5E1675;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#Fanbutton::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#Fanbutton::hover\n"
+"{\n"
+"    background-color: #5C4B99;\n"
+"    border-style: inset;\n"
+"}")
+        self.Fanbutton.setText("")
+        self.Fanbutton.setIconSize(QtCore.QSize(35, 48))
+        self.Fanbutton.setObjectName("Fanbutton")
+        self.label_36 = QtWidgets.QLabel(self.frame_note)
+        self.label_36.setGeometry(QtCore.QRect(63, 32, 37, 37))
+        self.label_36.setStyleSheet("background-color: white;\n"
+"border-radius: 10px")
+        self.label_36.setText("")
+        self.label_36.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-fan-40.png"))
+        self.label_36.setScaledContents(True)
+        self.label_36.setObjectName("label_36")
+        self.label_34 = QtWidgets.QLabel(self.frame_note)
+        self.label_34.setGeometry(QtCore.QRect(10, 42, 45, 16))
+        self.label_34.setStyleSheet("background-color: white;\n"
+"border: 1px solid #8E7AB5;\n"
+"border-radius: 8px")
+        self.label_34.setText("")
+        self.label_34.setObjectName("label_34")
+        self.label_37 = QtWidgets.QLabel(self.frame_note)
+        self.label_37.setGeometry(QtCore.QRect(10, 95, 45, 17))
+        self.label_37.setStyleSheet("background-color: white;\n"
+"border: 1px solid #8E7AB5;\n"
+"border-radius: 8px")
+        self.label_37.setText("")
+        self.label_37.setObjectName("label_37")
+        self.Lightbutton = QtWidgets.QPushButton(self.frame_note)
+        self.Lightbutton.setGeometry(QtCore.QRect(10, 93, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable Text Semibold")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.Lightbutton.setFont(font)
+        self.Lightbutton.setStyleSheet("#Lightbutton\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #5E1675;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#Lightbutton::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#Lightbutton::hover\n"
+"{\n"
+"    background-color: #8E7AB5;\n"
+"    border-style: inset;\n"
+"}")
+        self.Lightbutton.setText("")
+        self.Lightbutton.setIconSize(QtCore.QSize(35, 48))
+        self.Lightbutton.setObjectName("Lightbutton")
+        self.label_38 = QtWidgets.QLabel(self.frame_note)
+        self.label_38.setGeometry(QtCore.QRect(60, 85, 41, 41))
+        self.label_38.setStyleSheet("background-color: white;\n"
+"border-radius: 20px")
+        self.label_38.setText("")
+        self.label_38.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-light-40.png"))
+        self.label_38.setScaledContents(True)
+        self.label_38.setObjectName("label_38")
+        self.label_39 = QtWidgets.QLabel(self.frame_note)
+        self.label_39.setGeometry(QtCore.QRect(8, 70, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_39.setFont(font)
+        self.label_39.setStyleSheet("color: #5E1675")
+        self.label_39.setObjectName("label_39")
+        self.label_40 = QtWidgets.QLabel(self.frame_note)
+        self.label_40.setGeometry(QtCore.QRect(40, 70, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_40.setFont(font)
+        self.label_40.setStyleSheet("color: #5E1675")
+        self.label_40.setObjectName("label_40")
+        self.UartSettingButton = QtWidgets.QPushButton(self.frame_note)
+        self.UartSettingButton.setGeometry(QtCore.QRect(5, 0, 31, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable Text Semibold")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.UartSettingButton.setFont(font)
+        self.UartSettingButton.setStyleSheet("border: 0px")
+        self.UartSettingButton.setText("")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-adjust-64.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.UartSettingButton.setIcon(icon8)
+        self.UartSettingButton.setIconSize(QtCore.QSize(25, 25))
+        self.UartSettingButton.setObjectName("UartSettingButton")
+        self.label_35.raise_()
+        self.label_34.raise_()
+        self.label_36.raise_()
+        self.label_37.raise_()
+        self.Fanbutton.raise_()
+        self.Lightbutton.raise_()
+        self.label_38.raise_()
+        self.label_39.raise_()
+        self.label_40.raise_()
+        self.UartSettingButton.raise_()
         self.pushButton_back = QtWidgets.QPushButton(self.frame)
         self.pushButton_back.setGeometry(QtCore.QRect(105, 60, 30, 30))
         self.pushButton_back.setStyleSheet("#pushButton_back\n"
@@ -784,9 +911,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_back.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/Icon/Image/back.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_back.setIcon(icon8)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(":/Icon/Image/back.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_back.setIcon(icon9)
         self.pushButton_back.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_back.setObjectName("pushButton_back")
         self.pushButton_next = QtWidgets.QPushButton(self.frame)
@@ -807,9 +934,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_next.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/Icon/Image/next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_next.setIcon(icon9)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(":/Icon/Image/next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_next.setIcon(icon10)
         self.pushButton_next.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_next.setObjectName("pushButton_next")
         self.frame_info = QtWidgets.QFrame(self.frame)
@@ -896,9 +1023,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_password.setText("")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-password-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_password.setIcon(icon10)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-password-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_password.setIcon(icon11)
         self.pushButton_password.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_password.setObjectName("pushButton_password")
         self.frame_password_2 = QtWidgets.QFrame(self.frame)
@@ -930,9 +1057,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_menu.setText("")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-menu-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_menu.setIcon(icon11)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-menu-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_menu.setIcon(icon12)
         self.pushButton_menu.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_menu.setObjectName("pushButton_menu")
         self.pushButton_login = QtWidgets.QPushButton(self.frame_password_2)
@@ -954,9 +1081,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_login.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-login-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_login.setIcon(icon12)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-login-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_login.setIcon(icon13)
         self.pushButton_login.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_login.setObjectName("pushButton_login")
         self.frame_Image.raise_()
@@ -1083,9 +1210,9 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-next-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_SetChi.setIcon(icon13)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-next-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_SetChi.setIcon(icon14)
         self.pushButton_SetChi.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SetChi.setObjectName("pushButton_SetChi")
         self.plainTextEdit_5 = QtWidgets.QPlainTextEdit(self.PopupChi)
@@ -1137,9 +1264,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_Selectday.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_Selectday.setIcon(icon14)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-calendar-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_Selectday.setIcon(icon15)
         self.pushButton_Selectday.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_Selectday.setObjectName("pushButton_Selectday")
         self.label_date_selected = QtWidgets.QLabel(self.PopupChi)
@@ -1196,7 +1323,7 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_SelectedDay.setIcon(icon13)
+        self.pushButton_SelectedDay.setIcon(icon14)
         self.pushButton_SelectedDay.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SelectedDay.setObjectName("pushButton_SelectedDay")
         self.pushButton_back_day = QtWidgets.QPushButton(self.PopupselectDay)
@@ -1217,7 +1344,7 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_back_day.setText("")
-        self.pushButton_back_day.setIcon(icon8)
+        self.pushButton_back_day.setIcon(icon9)
         self.pushButton_back_day.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_back_day.setObjectName("pushButton_back_day")
         self.pushButton_next_day = QtWidgets.QPushButton(self.PopupselectDay)
@@ -1238,7 +1365,7 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_next_day.setText("")
-        self.pushButton_next_day.setIcon(icon9)
+        self.pushButton_next_day.setIcon(icon10)
         self.pushButton_next_day.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_next_day.setObjectName("pushButton_next_day")
         self.label_date_select = QtWidgets.QLabel(self.PopupselectDay)
@@ -1295,7 +1422,7 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_SelectedDay_Thu.setIcon(icon13)
+        self.pushButton_SelectedDay_Thu.setIcon(icon14)
         self.pushButton_SelectedDay_Thu.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SelectedDay_Thu.setObjectName("pushButton_SelectedDay_Thu")
         self.pushButton_back_day_Thu = QtWidgets.QPushButton(self.PopupselectDay_Thu)
@@ -1316,7 +1443,7 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_back_day_Thu.setText("")
-        self.pushButton_back_day_Thu.setIcon(icon8)
+        self.pushButton_back_day_Thu.setIcon(icon9)
         self.pushButton_back_day_Thu.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_back_day_Thu.setObjectName("pushButton_back_day_Thu")
         self.pushButton_next_day_Thu = QtWidgets.QPushButton(self.PopupselectDay_Thu)
@@ -1337,7 +1464,7 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_next_day_Thu.setText("")
-        self.pushButton_next_day_Thu.setIcon(icon9)
+        self.pushButton_next_day_Thu.setIcon(icon10)
         self.pushButton_next_day_Thu.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_next_day_Thu.setObjectName("pushButton_next_day_Thu")
         self.label_date_select_Thu = QtWidgets.QLabel(self.PopupselectDay_Thu)
@@ -1466,7 +1593,7 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_SetThu.setIcon(icon13)
+        self.pushButton_SetThu.setIcon(icon14)
         self.pushButton_SetThu.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_SetThu.setObjectName("pushButton_SetThu")
         self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(self.frametest)
@@ -1533,7 +1660,7 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_Selectday_Thu.setText("")
-        self.pushButton_Selectday_Thu.setIcon(icon14)
+        self.pushButton_Selectday_Thu.setIcon(icon15)
         self.pushButton_Selectday_Thu.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_Selectday_Thu.setObjectName("pushButton_Selectday_Thu")
         self.label_date_selected_Thu = QtWidgets.QLabel(self.frametest)
@@ -4187,7 +4314,7 @@ class Ui_MyApp(object):
         self.checkBox_11.setIconSize(QtCore.QSize(15, 15))
         self.checkBox_11.setObjectName("checkBox_11")
         self.frame_password_manage = QtWidgets.QFrame(self.centralwidget)
-        self.frame_password_manage.setGeometry(QtCore.QRect(1240, 440, 271, 151))
+        self.frame_password_manage.setGeometry(QtCore.QRect(1370, 440, 271, 151))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(11)
@@ -4312,9 +4439,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_search.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-search-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_search.setIcon(icon15)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-search-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_search.setIcon(icon16)
         self.pushButton_search.setObjectName("pushButton_search")
         self.textEdit_search = QtWidgets.QTextEdit(self.frame_password_manage)
         self.textEdit_search.setGeometry(QtCore.QRect(56, 34, 101, 30))
@@ -4380,9 +4507,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_reload.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-reload-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_reload.setIcon(icon16)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(":/Icon/Image/icons8-reload-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_reload.setIcon(icon17)
         self.pushButton_reload.setObjectName("pushButton_reload")
         self.label_24 = QtWidgets.QLabel(self.frame_password_manage)
         self.label_24.setGeometry(QtCore.QRect(50, 30, 171, 38))
@@ -4409,9 +4536,9 @@ class Ui_MyApp(object):
 "    border-style: inset;\n"
 "}")
         self.pushButton_AdjustPass.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(":/IconApplication/Image/icons8-gear-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_AdjustPass.setIcon(icon17)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(":/IconApplication/Image/icons8-gear-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_AdjustPass.setIcon(icon18)
         self.pushButton_AdjustPass.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_AdjustPass.setObjectName("pushButton_AdjustPass")
         self.label_24.raise_()
@@ -4641,11 +4768,11 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_Setpassword.setIcon(icon13)
+        self.pushButton_Setpassword.setIcon(icon14)
         self.pushButton_Setpassword.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_Setpassword.setObjectName("pushButton_Setpassword")
         self.frame_password_manage_5 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_password_manage_5.setGeometry(QtCore.QRect(1300, 280, 221, 141))
+        self.frame_password_manage_5.setGeometry(QtCore.QRect(1390, 280, 221, 141))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(11)
@@ -4750,7 +4877,7 @@ class Ui_MyApp(object):
 "    background-color: #BBBBBB;\n"
 "    border-style: inset;\n"
 "}")
-        self.pushButton_changed.setIcon(icon13)
+        self.pushButton_changed.setIcon(icon14)
         self.pushButton_changed.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_changed.setObjectName("pushButton_changed")
         self.label_25 = QtWidgets.QLabel(self.frame_password_manage_5)
@@ -4790,6 +4917,373 @@ class Ui_MyApp(object):
         self.textEdit_pass_change.setStyleSheet("border: 0px;\n"
 "border-radius: 10px")
         self.textEdit_pass_change.setObjectName("textEdit_pass_change")
+        self.label_41 = QtWidgets.QLabel(self.centralwidget)
+        self.label_41.setGeometry(QtCore.QRect(1442, 700, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_41.setFont(font)
+        self.label_41.setStyleSheet("color: #5E1675")
+        self.label_41.setObjectName("label_41")
+        self.label_42 = QtWidgets.QLabel(self.centralwidget)
+        self.label_42.setGeometry(QtCore.QRect(1410, 700, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.label_42.setFont(font)
+        self.label_42.setStyleSheet("color: #5E1675")
+        self.label_42.setObjectName("label_42")
+        self.frameUart = QtWidgets.QFrame(self.centralwidget)
+        self.frameUart.setGeometry(QtCore.QRect(1360, 840, 211, 181))
+        self.frameUart.setStyleSheet("#frameUart{\n"
+"    background-color: #EDE4E0;\n"
+"    border-radius: 15;\n"
+"    border: 2px solid white;\n"
+"}")
+        self.frameUart.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frameUart.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frameUart.setObjectName("frameUart")
+        self.pushButton_connectUart = QtWidgets.QPushButton(self.frameUart)
+        self.pushButton_connectUart.setGeometry(QtCore.QRect(25, 150, 71, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_connectUart.setFont(font)
+        self.pushButton_connectUart.setStyleSheet("#pushButton_connectUart\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_connectUart::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_connectUart::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_connectUart.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_connectUart.setObjectName("pushButton_connectUart")
+        self.layoutWidget = QtWidgets.QWidget(self.frameUart)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 194, 133))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_date_selected_3 = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_date_selected_3.setFont(font)
+        self.label_date_selected_3.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_3.setObjectName("label_date_selected_3")
+        self.verticalLayout.addWidget(self.label_date_selected_3)
+        self.label_date_selected_4 = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_date_selected_4.setFont(font)
+        self.label_date_selected_4.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_4.setObjectName("label_date_selected_4")
+        self.verticalLayout.addWidget(self.label_date_selected_4)
+        self.label_date_selected_5 = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_date_selected_5.setFont(font)
+        self.label_date_selected_5.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_5.setObjectName("label_date_selected_5")
+        self.verticalLayout.addWidget(self.label_date_selected_5)
+        self.label_date_selected_6 = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_date_selected_6.setFont(font)
+        self.label_date_selected_6.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_6.setObjectName("label_date_selected_6")
+        self.verticalLayout.addWidget(self.label_date_selected_6)
+        self.label_date_selected_7 = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.label_date_selected_7.setFont(font)
+        self.label_date_selected_7.setStyleSheet("#label_date_selected{\n"
+"    background-color: white;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"}")
+        self.label_date_selected_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_date_selected_7.setObjectName("label_date_selected_7")
+        self.verticalLayout.addWidget(self.label_date_selected_7)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.comboBox_port = QtWidgets.QComboBox(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(False)
+        self.comboBox_port.setFont(font)
+        self.comboBox_port.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_port.setAutoFillBackground(False)
+        self.comboBox_port.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox_port.setEditable(False)
+        self.comboBox_port.setMaxVisibleItems(10)
+        self.comboBox_port.setObjectName("comboBox_port")
+        self.verticalLayout_2.addWidget(self.comboBox_port)
+        self.comboBox_Baudrate = QtWidgets.QComboBox(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(False)
+        self.comboBox_Baudrate.setFont(font)
+        self.comboBox_Baudrate.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_Baudrate.setAutoFillBackground(False)
+        self.comboBox_Baudrate.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox_Baudrate.setEditable(False)
+        self.comboBox_Baudrate.setMaxVisibleItems(10)
+        self.comboBox_Baudrate.setObjectName("comboBox_Baudrate")
+        self.verticalLayout_2.addWidget(self.comboBox_Baudrate)
+        self.comboBox_parity = QtWidgets.QComboBox(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(False)
+        self.comboBox_parity.setFont(font)
+        self.comboBox_parity.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_parity.setAutoFillBackground(False)
+        self.comboBox_parity.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox_parity.setEditable(False)
+        self.comboBox_parity.setMaxVisibleItems(10)
+        self.comboBox_parity.setObjectName("comboBox_parity")
+        self.comboBox_parity.addItem("")
+        self.comboBox_parity.addItem("")
+        self.comboBox_parity.addItem("")
+        self.comboBox_parity.addItem("")
+        self.comboBox_parity.addItem("")
+        self.verticalLayout_2.addWidget(self.comboBox_parity)
+        self.comboBox_Stopbits = QtWidgets.QComboBox(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(False)
+        self.comboBox_Stopbits.setFont(font)
+        self.comboBox_Stopbits.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_Stopbits.setAutoFillBackground(False)
+        self.comboBox_Stopbits.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox_Stopbits.setEditable(False)
+        self.comboBox_Stopbits.setMaxVisibleItems(10)
+        self.comboBox_Stopbits.setObjectName("comboBox_Stopbits")
+        self.comboBox_Stopbits.addItem("")
+        self.comboBox_Stopbits.addItem("")
+        self.comboBox_Stopbits.addItem("")
+        self.verticalLayout_2.addWidget(self.comboBox_Stopbits)
+        self.comboBox_Databits = QtWidgets.QComboBox(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(False)
+        self.comboBox_Databits.setFont(font)
+        self.comboBox_Databits.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_Databits.setAutoFillBackground(False)
+        self.comboBox_Databits.setStyleSheet("QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    min-width: 6em;\n"
+"    padding-left: 10;\n"
+"}\n"
+"\n"
+"QComboBox:on {\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    border-bottom-right-radius: 10px;\n"
+"    border-bottom-left-radius: 10px;\n"
+"    background: transparent;\n"
+"    border: 1px solid gray;\n"
+"    padding: 4px 4px 4px 4px\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    image: url(\":/Icon/Image/icons8-down-25.png\");\n"
+"    width:20;\n"
+"    padding-left: 5\n"
+"}\n"
+"")
+        self.comboBox_Databits.setEditable(False)
+        self.comboBox_Databits.setMaxVisibleItems(10)
+        self.comboBox_Databits.setObjectName("comboBox_Databits")
+        self.comboBox_Databits.addItem("")
+        self.comboBox_Databits.addItem("")
+        self.comboBox_Databits.addItem("")
+        self.comboBox_Databits.addItem("")
+        self.verticalLayout_2.addWidget(self.comboBox_Databits)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.pushButton_disconnect = QtWidgets.QPushButton(self.frameUart)
+        self.pushButton_disconnect.setGeometry(QtCore.QRect(105, 150, 81, 25))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.pushButton_disconnect.setFont(font)
+        self.pushButton_disconnect.setStyleSheet("#pushButton_disconnect\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: white;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#pushButton_disconnect::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#pushButton_disconnect::hover\n"
+"{\n"
+"    background-color: #BBBBBB;\n"
+"    border-style: inset;\n"
+"}")
+        self.pushButton_disconnect.setIconSize(QtCore.QSize(20, 20))
+        self.pushButton_disconnect.setObjectName("pushButton_disconnect")
         MyApp.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MyApp)
@@ -4797,6 +5291,11 @@ class Ui_MyApp(object):
         self.comboBox_MonthChi.setCurrentIndex(0)
         self.comboBox_2.setCurrentIndex(0)
         self.comboBox.setCurrentIndex(0)
+        self.comboBox_port.setCurrentIndex(-1)
+        self.comboBox_Baudrate.setCurrentIndex(-1)
+        self.comboBox_parity.setCurrentIndex(0)
+        self.comboBox_Stopbits.setCurrentIndex(0)
+        self.comboBox_Databits.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MyApp)
 
     def retranslateUi(self, MyApp):
@@ -4838,6 +5337,9 @@ class Ui_MyApp(object):
 "thu chi"))
         self.pushButton_Plus_plan.setText(_translate("MyApp", "+"))
         self.label_no_data.setText(_translate("MyApp", "No plan"))
+        self.label_35.setText(_translate("MyApp", "Control"))
+        self.label_39.setText(_translate("MyApp", "OFF"))
+        self.label_40.setText(_translate("MyApp", "ON"))
         self.label_10.setText(_translate("MyApp", "Đình\n"
 " Thuận"))
         self.pushButton_Plus_pass.setText(_translate("MyApp", "+"))
@@ -5013,4 +5515,25 @@ class Ui_MyApp(object):
         self.label_33.setText(_translate("MyApp", "New\n"
 "password"))
         self.pushButton_changed.setText(_translate("MyApp", "Enter"))
+        self.label_41.setText(_translate("MyApp", "ON"))
+        self.label_42.setText(_translate("MyApp", "OFF"))
+        self.pushButton_connectUart.setText(_translate("MyApp", "Connect"))
+        self.label_date_selected_3.setText(_translate("MyApp", "Port"))
+        self.label_date_selected_4.setText(_translate("MyApp", "Baud rate"))
+        self.label_date_selected_5.setText(_translate("MyApp", "Parity Bit"))
+        self.label_date_selected_6.setText(_translate("MyApp", "Stop bit"))
+        self.label_date_selected_7.setText(_translate("MyApp", "Data bit"))
+        self.comboBox_parity.setItemText(0, _translate("MyApp", "No Parity"))
+        self.comboBox_parity.setItemText(1, _translate("MyApp", "Odd Parity"))
+        self.comboBox_parity.setItemText(2, _translate("MyApp", "Even Parity"))
+        self.comboBox_parity.setItemText(3, _translate("MyApp", "Mark Parity"))
+        self.comboBox_parity.setItemText(4, _translate("MyApp", "Space Parity"))
+        self.comboBox_Stopbits.setItemText(0, _translate("MyApp", "1 Bit"))
+        self.comboBox_Stopbits.setItemText(1, _translate("MyApp", "1,5 Bits"))
+        self.comboBox_Stopbits.setItemText(2, _translate("MyApp", "2 Bits"))
+        self.comboBox_Databits.setItemText(0, _translate("MyApp", "5 Bits"))
+        self.comboBox_Databits.setItemText(1, _translate("MyApp", "6 Bits"))
+        self.comboBox_Databits.setItemText(2, _translate("MyApp", "7 Bits"))
+        self.comboBox_Databits.setItemText(3, _translate("MyApp", "8 Bits"))
+        self.pushButton_disconnect.setText(_translate("MyApp", "Disconnect"))
 import ResourceFile_rc

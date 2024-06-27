@@ -74,10 +74,13 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_exitpassword_4, SIGNAL(clicked(bool)), this, SLOT(ExitPasswordAdjustmentAndReshowManager()));
     connect(ui->pushButton_changed, SIGNAL(clicked(bool)), this, SLOT(EnterPasswordAdjustmentAndReshowManager()));
 
-// Electrical Device Control
-    connect(ui->Fanbutton, SIGNAL(clicked(bool)), this, SLOT(FanControl()));
-    connect(ui->Lightbutton, SIGNAL(clicked(bool)), this, SLOT(LightControl()));
-
+    // Electrical Device Control
+    connect(ui->UartSettingButton, SIGNAL(clicked(bool)), this, SLOT(SettingUartForElecDeviceControl()));
+    connect(ui->pushButton_connectUart, SIGNAL(clicked(bool)), this, SLOT(ConnectUart()));
+    connect(ui->pushButton_disconnect, SIGNAL(clicked(bool)), this, SLOT(DisconnectUart()));
+    SettingUart();
+    connect(ui->Fanbutton, SIGNAL(clicked(bool)), this, SLOT(SendMsgFanControl()));
+    connect(ui->Lightbutton, SIGNAL(clicked(bool)), this, SLOT(SendMsgLightControl()));
 }
 
 MyApp::~MyApp()
@@ -200,55 +203,55 @@ void MyApp::ChangeToHorizontalLayout()
         ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
         ui->ZaloButton->setGeometry(QRect(9, 15, 93, 50));
         ui->ZaloButton->setStyleSheet(" #ZaloButton"
-                                    "{"
-                                    "border: 0px solid white;"
-                                    "background-color: white;"
-                                    "border-radius: 20px;"
-                                    "}"
-                                    "#ZaloButton::pressed"
-                                    "{"
-                                    "background-color: #99FFFF;"
-                                    "border-style: inset;"
-                                    "}"
-                                    "#ZaloButton::hover"
-                                    "{"
-                                    "background-color: #BBBBBB;"
-                                    "border-style: inset;"
-                                    "}");
+                                      "{"
+                                      "border: 0px solid white;"
+                                      "background-color: white;"
+                                      "border-radius: 20px;"
+                                      "}"
+                                      "#ZaloButton::pressed"
+                                      "{"
+                                      "background-color: #99FFFF;"
+                                      "border-style: inset;"
+                                      "}"
+                                      "#ZaloButton::hover"
+                                      "{"
+                                      "background-color: #BBBBBB;"
+                                      "border-style: inset;"
+                                      "}");
         ui->YoutubeButton->setGeometry(QRect(9, 77, 93, 50));
         ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
-                                        "{"
-                                        "border: 0px solid white;"
-                                        "background-color: white;"
-                                        "border-radius: 20px;"
-                                        "}"
-                                        "#YoutubeButton::pressed"
-                                        "{"
-                                        "background-color: #99FFFF;"
-                                        "border-style: inset;"
-                                        "}"
-                                        "#YoutubeButton::hover"
-                                        "{"
-                                        "background-color: #BBBBBB;"
-                                        "border-style: inset;"
-                                        "}");
+                                         "{"
+                                         "border: 0px solid white;"
+                                         "background-color: white;"
+                                         "border-radius: 20px;"
+                                         "}"
+                                         "#YoutubeButton::pressed"
+                                         "{"
+                                         "background-color: #99FFFF;"
+                                         "border-style: inset;"
+                                         "}"
+                                         "#YoutubeButton::hover"
+                                         "{"
+                                         "background-color: #BBBBBB;"
+                                         "border-style: inset;"
+                                         "}");
         ui->FacebookButton->setGeometry(QRect(9, 136, 93, 50));
         ui->FacebookButton->setStyleSheet(" #FacebookButton"
-                                        "{"
-                                        "border: 0px solid white;"
-                                        "background-color: white;"
-                                        "border-radius: 20px;"
-                                        "}"
-                                        "#FacebookButton::pressed"
-                                        "{"
-                                        "background-color: #99FFFF;"
-                                        "border-style: inset;"
-                                        "}"
-                                        "#FacebookButton::hover"
-                                        "{"
-                                        "background-color: #BBBBBB;"
-                                        "border-style: inset;"
-                                        "}");
+                                          "{"
+                                          "border: 0px solid white;"
+                                          "background-color: white;"
+                                          "border-radius: 20px;"
+                                          "}"
+                                          "#FacebookButton::pressed"
+                                          "{"
+                                          "background-color: #99FFFF;"
+                                          "border-style: inset;"
+                                          "}"
+                                          "#FacebookButton::hover"
+                                          "{"
+                                          "background-color: #BBBBBB;"
+                                          "border-style: inset;"
+                                          "}");
         ui->GoogleButton->setGeometry(QRect(9, 196, 93, 50));
         ui->GoogleButton->setStyleSheet(" #GoogleButton"
                                         "{"
@@ -308,6 +311,27 @@ void MyApp::ChangeToHorizontalLayout()
             ui->frame_password_manage_4->setGeometry(QRect(180, 450, 190, 180));
         if (is_passchange_show == true)
             ui->frame_password_manage_5->setGeometry(QRect(630, 190, 220, 140));
+        if (IsUartSettingShow == true)
+            ui->frameUart->setGeometry(QRect(190, 420, 210, 180));
+
+        // Electrical Device Control
+        ui->UartSettingButton->setGeometry(QRect(10, 10, 25, 25));
+        ui->label_35->setGeometry(QRect(50, 10, 120, 20));
+        ui->label_35->setText("Device Control");
+        ui->label_36->setGeometry(QRect(60, 50, 80, 80));
+        ui->label_34->setGeometry(QRect(80, 142, 45, 16));
+        if (is_Fan_ON == true)
+            ui->Fanbutton->setGeometry(QRect(80 + 25, 140, 20, 20));
+        else
+            ui->Fanbutton->setGeometry(QRect(80, 140, 20, 20));
+        ui->label_39->setGeometry(QRect(68, 1365, 31, 16));
+        ui->label_40->setGeometry(QRect(120, 1365, 31, 16));
+        ui->label_38->setGeometry(QRect(60, 200, 80, 80));
+        ui->label_37->setGeometry(QRect(80, 300, 45, 16));
+        if (is_Light_ON == true)
+            ui->Lightbutton->setGeometry(QRect(80 + 25, 298, 20, 20));
+        else
+            ui->Lightbutton->setGeometry(QRect(80, 298, 20, 20));
     }
     else
     {
@@ -379,55 +403,55 @@ void MyApp::ChangeToHorizontalLayout()
         ui->frame_Enter_app->setStyleSheet("#frame_Enter_app{\n	background-color: white;\n	border-radius: 15;\n	border: 1px solid white;\n}");
         ui->ZaloButton->setGeometry(QRect(188, 9, 54, 50));
         ui->ZaloButton->setStyleSheet(" #ZaloButton"
-                                    "{"
-                                    "border: 0px solid white;"
-                                    "background-color: white;"
-                                    "border-radius: 20px;"
-                                    "}"
-                                    "#ZaloButton::pressed"
-                                    "{"
-                                    "background-color: #99FFFF;"
-                                    "border-style: inset;"
-                                    "}"
-                                    "#ZaloButton::hover"
-                                    "{"
-                                    "background-color: #BBBBBB;"
-                                    "border-style: inset;"
-                                    "}");
+                                      "{"
+                                      "border: 0px solid white;"
+                                      "background-color: white;"
+                                      "border-radius: 20px;"
+                                      "}"
+                                      "#ZaloButton::pressed"
+                                      "{"
+                                      "background-color: #99FFFF;"
+                                      "border-style: inset;"
+                                      "}"
+                                      "#ZaloButton::hover"
+                                      "{"
+                                      "background-color: #BBBBBB;"
+                                      "border-style: inset;"
+                                      "}");
         ui->YoutubeButton->setGeometry(QRect(128, 11, 54, 47));
         ui->YoutubeButton->setStyleSheet(" #YoutubeButton"
-                                        "{"
-                                        "border: 0px solid white;"
-                                        "background-color: white;"
-                                        "border-radius: 20px;"
-                                        "}"
-                                        "#YoutubeButton::pressed"
-                                        "{"
-                                        "background-color: #99FFFF;"
-                                        "border-style: inset;"
-                                        "}"
-                                        "#YoutubeButton::hover"
-                                        "{"
-                                        "background-color: #BBBBBB;"
-                                        "border-style: inset;"
-                                        "}");
+                                         "{"
+                                         "border: 0px solid white;"
+                                         "background-color: white;"
+                                         "border-radius: 20px;"
+                                         "}"
+                                         "#YoutubeButton::pressed"
+                                         "{"
+                                         "background-color: #99FFFF;"
+                                         "border-style: inset;"
+                                         "}"
+                                         "#YoutubeButton::hover"
+                                         "{"
+                                         "background-color: #BBBBBB;"
+                                         "border-style: inset;"
+                                         "}");
         ui->FacebookButton->setGeometry(QRect(69, 10, 52, 48));
         ui->FacebookButton->setStyleSheet(" #FacebookButton"
-                                        "{"
-                                        "border: 0px solid white;"
-                                        "background-color: white;"
-                                        "border-radius: 20px;"
-                                        "}"
-                                        "#FacebookButton::pressed"
-                                        "{"
-                                        "background-color: #99FFFF;"
-                                        "border-style: inset;"
-                                        "}"
-                                        "#FacebookButton::hover"
-                                        "{"
-                                        "background-color: #BBBBBB;"
-                                        "border-style: inset;"
-                                        "}");
+                                          "{"
+                                          "border: 0px solid white;"
+                                          "background-color: white;"
+                                          "border-radius: 20px;"
+                                          "}"
+                                          "#FacebookButton::pressed"
+                                          "{"
+                                          "background-color: #99FFFF;"
+                                          "border-style: inset;"
+                                          "}"
+                                          "#FacebookButton::hover"
+                                          "{"
+                                          "background-color: #BBBBBB;"
+                                          "border-style: inset;"
+                                          "}");
         ui->GoogleButton->setGeometry(QRect(9, 10, 52, 48));
         ui->GoogleButton->setStyleSheet(" #GoogleButton"
                                         "{"
@@ -487,6 +511,27 @@ void MyApp::ChangeToHorizontalLayout()
             ui->frame_password_manage_4->setGeometry(QRect(100, 70, 190, 180));
         if (is_passchange_show == true)
             ui->frame_password_manage_5->setGeometry(QRect(110, 190, 220, 140));
+        if (IsUartSettingShow == true)
+            ui->frameUart->setGeometry(QRect(60, 180, 210, 180));
+
+        // Electrical Device Control
+        ui->UartSettingButton->setGeometry(QRect(10, 5, 25, 25));
+        ui->label_35->setGeometry(QRect(40, 10, 120, 20));
+        ui->label_35->setText("Control");
+        ui->label_36->setGeometry(QRect(63, 32, 37, 37));
+        ui->label_34->setGeometry(QRect(10, 42, 45, 16));
+        if (is_Fan_ON == true)
+            ui->Fanbutton->setGeometry(QRect(10 + 25, 40, 20, 20));
+        else
+            ui->Fanbutton->setGeometry(QRect(10, 40, 20, 20));
+        ui->label_39->setGeometry(QRect(8, 70, 31, 16));
+        ui->label_40->setGeometry(QRect(40, 70, 31, 16));
+        ui->label_38->setGeometry(QRect(60, 85, 40, 40));
+        ui->label_37->setGeometry(QRect(10, 95, 45, 16));
+        if (is_Light_ON == true)
+            ui->Lightbutton->setGeometry(QRect(10 + 25, 93, 20, 20));
+        else
+            ui->Lightbutton->setGeometry(QRect(10, 93, 20, 20));
     }
 }
 
@@ -717,8 +762,8 @@ void MyApp::BackImage()
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
     ui->label_image->setStyleSheet(stringplus +
-                                    "border-radius: 15px;"
-                                    "border: 1pxsolid white;");
+                                   "border-radius: 15px;"
+                                   "border: 1pxsolid white;");
 }
 
 void MyApp::NextImage()
@@ -731,8 +776,8 @@ void MyApp::NextImage()
     QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus = string1 + string2 + string3;
     ui->label_image->setStyleSheet(stringplus +
-                                    "border-radius: 15px;"
-                                    "border: 1pxsolid white;");
+                                   "border-radius: 15px;"
+                                   "border: 1pxsolid white;");
 
     QPropertyAnimation *animation_image = new QPropertyAnimation(ui->label_image, "geometry");
     animation_image->setDuration(500);
@@ -775,8 +820,8 @@ void MyApp::NextImage()
     QString string3_2 = ".jpg) 0 0 0 0 stretch stretch;";
     QString stringplus_2 = string1_2 + string2_2 + string3_2;
     ui->label_image_2->setStyleSheet(stringplus_2 +
-                                    "border-radius: 15px;"
-                                    "border: 1pxsolid white;");
+                                     "border-radius: 15px;"
+                                     "border: 1pxsolid white;");
 }
 
 void MyApp::HidetheTotal()
@@ -1737,9 +1782,9 @@ bool MyApp::CheckCharecterEnterInVector(QString charecter_enter)
         index_data_pass_added++;
     }
 
-    for (int i = 0 ; i < passwordAdded.size(); i++)
+    for (int i = 0; i < passwordAdded.size(); i++)
     {
-        if(charecter_enter == passwordAdded.at(i))
+        if (charecter_enter == passwordAdded.at(i))
         {
             index_of_name_change = i + 3;
             bReturn = true;
@@ -1771,7 +1816,7 @@ void MyApp::ShowPasswordFollowCharecter(void)
     ui->label_password->setText("**********");
     hide_pass = false;
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
-    
+
     while (xlsx.read(index_data_pass, 1).toString() != "")
     {
         passwordSaved.push_back(xlsx.read(index_data_pass, 1).toString());
@@ -1876,12 +1921,11 @@ void MyApp::SetNewPasswordAndClose(void)
         index_data_pass_add_pass++;
     }
 
-    xlsx.write(index_data_pass_add_pass , 1, ui->textEdit_name_add->text());
-    xlsx.write(index_data_pass_add_pass , 2, ui->textEdit_ID_add->text());
-    xlsx.write(index_data_pass_add_pass , 3, ui->textEdit_key_pass_add->text());
+    xlsx.write(index_data_pass_add_pass, 1, ui->textEdit_name_add->text());
+    xlsx.write(index_data_pass_add_pass, 2, ui->textEdit_ID_add->text());
+    xlsx.write(index_data_pass_add_pass, 3, ui->textEdit_key_pass_add->text());
 
     xlsx.saveAs("Data_source.xlsx");
-
 
     ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
     is_AddPassword_window_on = false;
@@ -1905,7 +1949,6 @@ void MyApp::ShowPasswordAdjustment(void)
     {
         is_passchange_show = false;
     }
-
 }
 
 void MyApp::ExitPasswordAdjustmentAndReshowManager(void)
@@ -1944,7 +1987,7 @@ void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
     qDebug() << index_of_name_change;
     if (ui->textEdit_pass_change->toPlainText() != "")
     {
-        xlsx.write(index_of_name_change ,3 , ui->textEdit_pass_change->toPlainText());
+        xlsx.write(index_of_name_change, 3, ui->textEdit_pass_change->toPlainText());
         xlsx.saveAs("Data_source.xlsx");
     }
 
@@ -1963,28 +2006,159 @@ void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
     hide_pass = false;
     is_password_window_on = false;
-
 }
 
 // Electrical Device Control
-void MyApp::FanControl(void)
+
+void MyApp::SettingUartForElecDeviceControl(void)
+{
+    if (IsUartSettingShow == false)
+        IsUartSettingShow = true;
+    else
+        IsUartSettingShow = false;
+
+    if (IsUartSettingShow == true)
+        if (set_horizontal_layout == true)
+            ui->frameUart->setGeometry(QRect(190, 420, 210, 180));
+        else
+            ui->frameUart->setGeometry(QRect(60, 180, 210, 180));
+    else
+        ui->frameUart->setGeometry(QRect(60, 1000, 210, 180));
+}
+
+void MyApp::SettingUart(void)
+{
+    // Ports
+    QSerialPortInfo info;
+    QList<QSerialPortInfo> ports = info.availablePorts();
+    QList<QString> stringPorts;
+    for (int i = 0; i < ports.size(); i++)
+    {
+        stringPorts.append(ports.at(i).portName());
+    }
+    ui->comboBox_port->addItems(stringPorts);
+
+    QList<qint32> baudRates = info.standardBaudRates();
+    QList<QString> stringBaudRates;
+    for (int i = 0; i < baudRates.size(); i++)
+    {
+        stringBaudRates.append(QString::number(baudRates.at(i)));
+    }
+    ui->comboBox_Baudrate->addItems(stringBaudRates);
+
+    serialPort = new QSerialPort();
+    // Port
+    QString portName = ui->comboBox_port->currentText();
+    serialPort->setPortName(portName);
+
+    // Baudrate
+    QString stringbaudRate = ui->comboBox_Baudrate->currentText();
+    if (stringbaudRate == "4800")
+        serialPort->setBaudRate(QSerialPort::BaudRate::Baud4800);
+    else if (stringbaudRate == "9600")
+        serialPort->setBaudRate(QSerialPort::BaudRate::Baud9600);
+    else if (stringbaudRate == "115200")
+        serialPort->setBaudRate(QSerialPort::BaudRate::Baud115200);
+
+    // Data bits
+    QString dataBits = ui->comboBox_Databits->currentText();
+    if (dataBits == "5 Bits")
+        serialPort->setDataBits(QSerialPort::DataBits::Data5);
+    else if ((dataBits == "6 Bits"))
+        serialPort->setDataBits(QSerialPort::DataBits::Data6);
+    else if (dataBits == "7 Bits")
+        serialPort->setDataBits(QSerialPort::DataBits::Data7);
+    else if (dataBits == "8 Bits")
+        serialPort->setDataBits(QSerialPort::DataBits::Data8);
+    // Stop bits:
+    QString stopBits = ui->comboBox_Stopbits->currentText();
+    if (stopBits == "1 Bit")
+        serialPort->setStopBits(QSerialPort::StopBits::OneStop);
+    else if (stopBits == "1,5 Bits")
+        serialPort->setStopBits(QSerialPort::StopBits::OneAndHalfStop);
+    else if (stopBits == "2 Bits")
+        serialPort->setStopBits(QSerialPort::StopBits::TwoStop);
+    // Parity
+    QString parity = ui->comboBox_parity->currentText();
+    if (parity == "No Parity")
+        serialPort->setParity(QSerialPort::Parity::NoParity);
+    else if (parity == "Even Parity")
+        serialPort->setParity(QSerialPort::Parity::EvenParity);
+    else if (parity == "Odd Parity")
+        serialPort->setParity(QSerialPort::Parity::OddParity);
+    else if (parity == "Mark Parity")
+        serialPort->setParity(QSerialPort::Parity::MarkParity);
+    else if (parity == "Space Parity")
+        serialPort->setParity(QSerialPort::Parity::SpaceParity);
+
+    connect(serialPort, SIGNAL(readyRead()), this, SLOT(receiveMessage()));
+}
+
+void MyApp::ConnectUart(void)
+{
+    serialPort->open(QIODevice::ReadWrite);
+    ui->frameUart->setGeometry(QRect(60, 1000, 210, 180));
+    IsUartSettingShow = false;
+}
+
+void MyApp::DisconnectUart(void)
+{
+    QString string_off = "t";
+    serialPort->write(string_off.toUtf8());
+    serialPort->close();
+}
+
+void MyApp::receiveMessage()
+{
+    QByteArray dataBA = serialPort->readAll();
+    data_receive += (charecter[(static_cast<int>(dataBA[dataBA.size() - 1])) - 1]);
+    if( data_receive == "fanon")
+    {
+        data_receive = "";
+        FanControl(true);
+    }
+    else if(data_receive == "fanoff")
+    {
+        data_receive = "";
+        FanControl(false);
+    }
+    else if(data_receive == "lighton")
+    {
+        data_receive = "";
+        LightControl(true);
+    }
+    else if(data_receive == "lightoff")
+    {
+        data_receive = "";
+        LightControl(false);
+    }
+
+}
+
+void MyApp::SendMsgFanControl(void)
 {
     if (is_Fan_ON == false)
         is_Fan_ON = true;
     else
         is_Fan_ON = false;
 
+    QString Fan_string = "a";
+    serialPort->write(Fan_string.toUtf8());
+    
+}
+
+void MyApp::FanControl(bool IsFanOn)
+{
     QPropertyAnimation *animation_button_fan = new QPropertyAnimation(ui->Fanbutton, "geometry");
     animation_button_fan->setDuration(50);
-
-    if(is_Fan_ON == true)
+    if (IsFanOn == true)
     {
         animation_button_fan->setStartValue(QRect(ui->Fanbutton->geometry().x(), ui->Fanbutton->geometry().y(), 20, 20));
         animation_button_fan->setEndValue(QRect(ui->Fanbutton->geometry().x() + 25, ui->Fanbutton->geometry().y(), 20, 20));
         ui->label_34->setStyleSheet("background-color: #8E7AB5;"
                                     "border: 1px solid #8E7AB5;"
                                     "border-radius: 8px");
-        QMovie *movie = new QMovie(":/IconApplication/Image/fan.gif"); // Example path
+        QMovie *movie = new QMovie(":/IconApplication/Image/fan.gif");
         ui->label_36->setMovie(movie);
         movie->start();
     }
@@ -1998,20 +2172,27 @@ void MyApp::FanControl(void)
         QPixmap pixmap_fan(":/Icon/Image/icons8-fan-40.png");
         ui->label_36->setPixmap(pixmap_fan);
     }
+
     animation_button_fan->start();
 }
 
-void MyApp::LightControl(void)
+void MyApp::SendMsgLightControl(void)
 {
     if (is_Light_ON == false)
         is_Light_ON = true;
     else
         is_Light_ON = false;
 
+    QString light_string = "b";
+    serialPort->write(light_string.toUtf8());
+}
+
+void MyApp::LightControl(bool IsLightOn)
+{
     QPropertyAnimation *animation_button_light = new QPropertyAnimation(ui->Lightbutton, "geometry");
     animation_button_light->setDuration(50);
 
-    if(is_Light_ON == true)
+    if (IsLightOn == true)
     {
         animation_button_light->setStartValue(QRect(ui->Lightbutton->geometry().x(), ui->Lightbutton->geometry().y(), 20, 20));
         animation_button_light->setEndValue(QRect(ui->Lightbutton->geometry().x() + 25, ui->Lightbutton->geometry().y(), 20, 20));
@@ -2032,5 +2213,4 @@ void MyApp::LightControl(void)
         ui->label_38->setPixmap(pixmap_fan);
     }
     animation_button_light->start();
-
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1527</width>
-    <height>900</height>
+    <height>909</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -294,6 +294,7 @@
           <font>
            <family>Segoe UI Variable Text Semibold</family>
            <pointsize>11</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -318,6 +319,7 @@
           <font>
            <family>Segoe UI Variable Text Semibold</family>
            <pointsize>11</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -394,6 +396,7 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -546,6 +549,7 @@
         <font>
          <family>SamsungOne 400</family>
          <pointsize>22</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -648,6 +652,7 @@
         <font>
          <family>SamsungOne 400</family>
          <pointsize>25</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -674,6 +679,7 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>16</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
          <underline>false</underline>
          <strikeout>false</strikeout>
@@ -740,6 +746,7 @@
         <font>
          <family>SamsungOne 700</family>
          <pointsize>32</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -911,6 +918,7 @@ border-radius: 20px</string>
         <font>
          <family>SamsungOne 400</family>
          <pointsize>22</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -956,6 +964,7 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -987,6 +996,7 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1228,6 +1238,7 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1259,6 +1270,7 @@ border-radius: 20px</string>
         <font>
          <family>Samsung Sharp Sans</family>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1386,6 +1398,7 @@ border-radius: 20px</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>12</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1417,6 +1430,7 @@ border-radius: 20px</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1648,6 +1662,7 @@ thu chi</string>
          <font>
           <family>SamsungOne</family>
           <pointsize>9</pointsize>
+          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1675,6 +1690,7 @@ thu chi</string>
         <property name="font">
          <font>
           <family>SamsungOne</family>
+          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1703,6 +1719,7 @@ thu chi</string>
          <font>
           <family>SamsungOne</family>
           <pointsize>9</pointsize>
+          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1761,11 +1778,11 @@ thu chi</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>5</y>
+         <x>10</x>
+         <y>10</y>
          <width>25</width>
          <height>25</height>
         </rect>
@@ -1774,12 +1791,316 @@ thu chi</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-note-30.png</pixmap>
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-adjust-64.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>10</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>Device Control</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Fanbutton">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>140</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI Variable Text Semibold</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Fanbutton
+{
+	border: 0px solid white;
+	background-color: #5E1675;
+	border-radius: 10px;
+}
+#Fanbutton::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#Fanbutton::hover
+{
+	background-color: #5C4B99;
+	border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>48</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>50</y>
+         <width>81</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border-radius: 40px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-fan-40.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>142</y>
+         <width>45</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border: 1px solid #8E7AB5;
+border-radius: 8px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>300</y>
+         <width>45</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border: 1px solid #8E7AB5;
+border-radius: 8px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Lightbutton">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>299</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI Variable Text Semibold</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Lightbutton
+{
+	border: 0px solid white;
+	background-color: #5E1675;
+	border-radius: 10px;
+}
+#Lightbutton::pressed
+{
+	background-color: #99FFFF;
+	border-style: inset;
+}
+#Lightbutton::hover
+{
+	background-color: #8E7AB5;
+	border-style: inset;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>35</width>
+         <height>48</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>200</y>
+         <width>81</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+border-radius: 40px</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="ResourceFile.qrc">:/Icon/Image/icons8-light-40.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>68</x>
+         <y>320</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>OFF</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>320</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>ON</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_42">
+       <property name="geometry">
+        <rect>
+         <x>68</x>
+         <y>165</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>OFF</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_43">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>165</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Samsung Sharp Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #5E1675</string>
+       </property>
+       <property name="text">
+        <string>ON</string>
+       </property>
+      </widget>
+      <zorder>label_11</zorder>
+      <zorder>label_41</zorder>
+      <zorder>label_34</zorder>
+      <zorder>label_36</zorder>
+      <zorder>label_37</zorder>
+      <zorder>Fanbutton</zorder>
+      <zorder>label_38</zorder>
+      <zorder>label_39</zorder>
+      <zorder>label_40</zorder>
+      <zorder>Lightbutton</zorder>
+      <zorder>label_42</zorder>
+      <zorder>label_43</zorder>
      </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_back">
@@ -1916,6 +2237,7 @@ thu chi</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2044,6 +2366,7 @@ thu chi</string>
        <font>
         <family>Samsung Sharp Sans</family>
         <pointsize>10</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2098,6 +2421,7 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2125,6 +2449,7 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -2152,6 +2477,7 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2179,6 +2505,7 @@ thu chi</string>
       <property name="font">
        <font>
         <family>Samsung Sharp Sans</family>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2258,6 +2585,7 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2386,6 +2714,7 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2440,6 +2769,7 @@ thu chi</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2524,6 +2854,7 @@ QComboBox::drop-down {
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2607,6 +2938,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>12</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2627,6 +2959,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2675,6 +3008,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2719,6 +3053,7 @@ padding-left: 15</string>
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2786,6 +3121,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2840,6 +3176,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2909,6 +3246,7 @@ QComboBox::drop-down {
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -2992,6 +3330,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>12</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3012,6 +3351,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3060,6 +3400,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3086,6 +3427,7 @@ padding-left: 8</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3116,6 +3458,7 @@ padding-left: 8</string>
      <property name="font">
       <font>
        <family>Samsung Sharp Sans</family>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -3202,6 +3545,7 @@ padding-left: 5</string>
       <font>
        <family>Samsung Sharp Sans</family>
        <pointsize>10</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>

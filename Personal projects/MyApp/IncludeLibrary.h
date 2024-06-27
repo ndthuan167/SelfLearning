@@ -17,4 +17,6 @@
 #include <QScrollArea>
 #include <QFileDialog>
 #include <QMovie>
+#include <QCoreApplication>
+#include <QList>
 #endif // INCLUDELIBRARY_H

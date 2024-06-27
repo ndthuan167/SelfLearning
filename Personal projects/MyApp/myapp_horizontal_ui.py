@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_myApp_horizontal(object):
     def setupUi(self, myApp_horizontal):
         myApp_horizontal.setObjectName("myApp_horizontal")
-        myApp_horizontal.resize(1527, 900)
+        myApp_horizontal.resize(1527, 909)
         self.centralwidget = QtWidgets.QWidget(myApp_horizontal)
         self.centralwidget.setStyleSheet("#frame\n"
 "{\n"
@@ -842,9 +842,8 @@ class Ui_myApp_horizontal(object):
         self.frame_plan_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_plan_note.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_plan_note.setObjectName("frame_plan_note")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_plan_note)
-        self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_plan = QtWidgets.QFrame(self.frame_plan_note)
+        self.frame_plan.setGeometry(QtCore.QRect(230, 10, 311, 351))
         self.frame_plan.setStyleSheet("#frame_plan{\n"
 "    background-color: #B5CB99;\n"
 "    border-radius: 15;\n"
@@ -859,8 +858,70 @@ class Ui_myApp_horizontal(object):
         self.label_8.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-plan-30.png"))
         self.label_8.setScaledContents(True)
         self.label_8.setObjectName("label_8")
-        self.horizontalLayout.addWidget(self.frame_plan)
+        self.frame_Plan_2 = QtWidgets.QFrame(self.frame_plan)
+        self.frame_Plan_2.setGeometry(QtCore.QRect(40, 5, 265, 26))
+        self.frame_Plan_2.setStyleSheet("#frame_Plan_2{\n"
+"    background-color: #9ECCA4;\n"
+"    border-radius: 10;\n"
+"    border: 1px solid white;\n"
+"    color: white\n"
+"}")
+        self.frame_Plan_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_Plan_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_Plan_2.setObjectName("frame_Plan_2")
+        self.label_day_plan1_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_day_plan1_2.setGeometry(QtCore.QRect(23, 5, 21, 16))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_day_plan1_2.setFont(font)
+        self.label_day_plan1_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_day_plan1_2.setObjectName("label_day_plan1_2")
+        self.label_time_plan1_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_time_plan1_2.setGeometry(QtCore.QRect(49, 4, 61, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_time_plan1_2.setFont(font)
+        self.label_time_plan1_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_time_plan1_2.setText("")
+        self.label_time_plan1_2.setObjectName("label_time_plan1_2")
+        self.label_content_plan_2 = QtWidgets.QLabel(self.frame_Plan_2)
+        self.label_content_plan_2.setGeometry(QtCore.QRect(115, 4, 145, 17))
+        font = QtGui.QFont()
+        font.setFamily("SamsungOne")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_content_plan_2.setFont(font)
+        self.label_content_plan_2.setStyleSheet("\n"
+"    background-color: white;\n"
+"    border-radius: 7;\n"
+"    border: 1px solid white;\n"
+"    color: black\n"
+"")
+        self.label_content_plan_2.setText("")
+        self.label_content_plan_2.setObjectName("label_content_plan_2")
+        self.checkBox_2 = QtWidgets.QCheckBox(self.frame_Plan_2)
+        self.checkBox_2.setGeometry(QtCore.QRect(5, 3, 15, 20))
+        self.checkBox_2.setText("")
+        self.checkBox_2.setIconSize(QtCore.QSize(15, 15))
+        self.checkBox_2.setObjectName("checkBox_2")
         self.frame_note = QtWidgets.QFrame(self.frame_plan_note)
+        self.frame_note.setGeometry(QtCore.QRect(10, 10, 211, 351))
         self.frame_note.setStyleSheet("#frame_note{\n"
 "    background-color: #F8F6F4;\n"
 "    border-radius: 15;\n"
@@ -869,13 +930,158 @@ class Ui_myApp_horizontal(object):
         self.frame_note.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_note.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_note.setObjectName("frame_note")
-        self.label_7 = QtWidgets.QLabel(self.frame_note)
-        self.label_7.setGeometry(QtCore.QRect(5, 5, 25, 25))
-        self.label_7.setText("")
-        self.label_7.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-note-30.png"))
-        self.label_7.setScaledContents(True)
-        self.label_7.setObjectName("label_7")
-        self.horizontalLayout.addWidget(self.frame_note)
+        self.label_11 = QtWidgets.QLabel(self.frame_note)
+        self.label_11.setGeometry(QtCore.QRect(10, 10, 25, 25))
+        self.label_11.setText("")
+        self.label_11.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-adjust-64.png"))
+        self.label_11.setScaledContents(True)
+        self.label_11.setObjectName("label_11")
+        self.label_36 = QtWidgets.QLabel(self.frame_note)
+        self.label_36.setGeometry(QtCore.QRect(50, 10, 121, 20))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_36.setFont(font)
+        self.label_36.setStyleSheet("color: #5E1675")
+        self.label_36.setObjectName("label_36")
+        self.Fanbutton = QtWidgets.QPushButton(self.frame_note)
+        self.Fanbutton.setGeometry(QtCore.QRect(80, 140, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable Text Semibold")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Fanbutton.setFont(font)
+        self.Fanbutton.setStyleSheet("#Fanbutton\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #5E1675;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#Fanbutton::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#Fanbutton::hover\n"
+"{\n"
+"    background-color: #5C4B99;\n"
+"    border-style: inset;\n"
+"}")
+        self.Fanbutton.setText("")
+        self.Fanbutton.setIconSize(QtCore.QSize(35, 48))
+        self.Fanbutton.setObjectName("Fanbutton")
+        self.label_37 = QtWidgets.QLabel(self.frame_note)
+        self.label_37.setGeometry(QtCore.QRect(60, 50, 81, 81))
+        self.label_37.setStyleSheet("background-color: white;\n"
+"border-radius: 40px")
+        self.label_37.setText("")
+        self.label_37.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-fan-40.png"))
+        self.label_37.setScaledContents(True)
+        self.label_37.setObjectName("label_37")
+        self.label_34 = QtWidgets.QLabel(self.frame_note)
+        self.label_34.setGeometry(QtCore.QRect(80, 142, 45, 16))
+        self.label_34.setStyleSheet("background-color: white;\n"
+"border: 1px solid #8E7AB5;\n"
+"border-radius: 8px")
+        self.label_34.setText("")
+        self.label_34.setObjectName("label_34")
+        self.label_38 = QtWidgets.QLabel(self.frame_note)
+        self.label_38.setGeometry(QtCore.QRect(80, 300, 45, 17))
+        self.label_38.setStyleSheet("background-color: white;\n"
+"border: 1px solid #8E7AB5;\n"
+"border-radius: 8px")
+        self.label_38.setText("")
+        self.label_38.setObjectName("label_38")
+        self.Lightbutton = QtWidgets.QPushButton(self.frame_note)
+        self.Lightbutton.setGeometry(QtCore.QRect(80, 299, 20, 20))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable Text Semibold")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Lightbutton.setFont(font)
+        self.Lightbutton.setStyleSheet("#Lightbutton\n"
+"{\n"
+"    border: 0px solid white;\n"
+"    background-color: #5E1675;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"#Lightbutton::pressed\n"
+"{\n"
+"    background-color: #99FFFF;\n"
+"    border-style: inset;\n"
+"}\n"
+"#Lightbutton::hover\n"
+"{\n"
+"    background-color: #8E7AB5;\n"
+"    border-style: inset;\n"
+"}")
+        self.Lightbutton.setText("")
+        self.Lightbutton.setIconSize(QtCore.QSize(35, 48))
+        self.Lightbutton.setObjectName("Lightbutton")
+        self.label_39 = QtWidgets.QLabel(self.frame_note)
+        self.label_39.setGeometry(QtCore.QRect(60, 200, 81, 81))
+        self.label_39.setStyleSheet("background-color: white;\n"
+"border-radius: 40px")
+        self.label_39.setText("")
+        self.label_39.setPixmap(QtGui.QPixmap(":/Icon/Image/icons8-light-40.png"))
+        self.label_39.setScaledContents(True)
+        self.label_39.setObjectName("label_39")
+        self.label_40 = QtWidgets.QLabel(self.frame_note)
+        self.label_40.setGeometry(QtCore.QRect(68, 320, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_40.setFont(font)
+        self.label_40.setStyleSheet("color: #5E1675")
+        self.label_40.setObjectName("label_40")
+        self.label_41 = QtWidgets.QLabel(self.frame_note)
+        self.label_41.setGeometry(QtCore.QRect(120, 320, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_41.setFont(font)
+        self.label_41.setStyleSheet("color: #5E1675")
+        self.label_41.setObjectName("label_41")
+        self.label_42 = QtWidgets.QLabel(self.frame_note)
+        self.label_42.setGeometry(QtCore.QRect(68, 165, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_42.setFont(font)
+        self.label_42.setStyleSheet("color: #5E1675")
+        self.label_42.setObjectName("label_42")
+        self.label_43 = QtWidgets.QLabel(self.frame_note)
+        self.label_43.setGeometry(QtCore.QRect(120, 165, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Samsung Sharp Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_43.setFont(font)
+        self.label_43.setStyleSheet("color: #5E1675")
+        self.label_43.setObjectName("label_43")
+        self.label_11.raise_()
+        self.label_41.raise_()
+        self.label_34.raise_()
+        self.label_36.raise_()
+        self.label_37.raise_()
+        self.Fanbutton.raise_()
+        self.label_38.raise_()
+        self.label_39.raise_()
+        self.label_40.raise_()
+        self.Lightbutton.raise_()
+        self.label_42.raise_()
+        self.label_43.raise_()
         self.pushButton_back = QtWidgets.QPushButton(self.frame)
         self.pushButton_back.setGeometry(QtCore.QRect(150, 170, 30, 30))
         self.pushButton_back.setStyleSheet("#pushButton_back\n"
@@ -1649,6 +1855,12 @@ class Ui_myApp_horizontal(object):
         self.label_total.setText(_translate("myApp_horizontal", "Tổng tích lũy: *** *** *** VNĐ"))
         self.label_3.setText(_translate("myApp_horizontal", "Quản lý \n"
 "thu chi"))
+        self.label_day_plan1_2.setText(_translate("myApp_horizontal", "10"))
+        self.label_36.setText(_translate("myApp_horizontal", "Device Control"))
+        self.label_40.setText(_translate("myApp_horizontal", "OFF"))
+        self.label_41.setText(_translate("myApp_horizontal", "ON"))
+        self.label_42.setText(_translate("myApp_horizontal", "OFF"))
+        self.label_43.setText(_translate("myApp_horizontal", "ON"))
         self.pushButton_SelectedDay_Thu.setText(_translate("myApp_horizontal", "Enter"))
         self.label_date_select_Thu.setText(_translate("myApp_horizontal", "09/12/2023"))
         self.label_29.setText(_translate("myApp_horizontal", "10"))
