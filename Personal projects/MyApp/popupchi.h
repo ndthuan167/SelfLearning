@@ -2,6 +2,7 @@
 #define POPUPCHI_H
 
 #include <QDialog>
+#include "QDate"
 
 namespace Ui {
 class PopupChi;
@@ -16,22 +17,20 @@ public:
     PopupChi(QWidget *parent = nullptr, QString message = "default");
     ~PopupChi();
 signals:
-    void dataAvaiable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent);
+    void ConnectDataSpending(const QString &lsDataDateSpending, const QString &lsDataMoneySpending, const QString &lsDataMoneyTypeSpending, const QString &lsDataContentSpending);
 private slots:
     void on_pushButton_SetChi_clicked();
 
 public slots:
-    void ShowCalendarSelection();
-    void BackDayinCalendar();
-    void NextDayinCalendar();
-    void SetDateCalendar();
+    void ShowCalendarSelection(void);
+    void BackDayinCalendar(void);
+    void NextDayinCalendar(void);
+    void SetDateCalendar(void);
 
 private:
     Ui::PopupChi *ui;
-    int today = 0;
-    QString total_date;
-
-
+    int giToday = 0;
+    QString gsSettingDate;
 };
 
 #endif // POPUPCHI_H

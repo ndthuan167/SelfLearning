@@ -2,6 +2,7 @@
 #define POPUP_PLAN_H
 
 #include <QDialog>
+#include "QDate"
 
 namespace Ui {
 class Popup_Plan;
@@ -18,21 +19,21 @@ public:
     ~Popup_Plan();
 
 signals:
-    void dataAvaiable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetail_plan);
+    void ConnectDataPlanning(const QString &lsDataDatePlanning, const QString &lsDataTimePlanning, const QString &data_textdetail_plan);
 
 public slots:
-    void ShowCalendarSelection();
-    void BackDayinCalendar();
-    void NextDayinCalendar();
-    void SetDateCalendar();
+    void ShowCalendarSelection(void);
+    void BackDayinCalendar(void);
+    void NextDayinCalendar(void);
+    void SetDateCalendar(void);
 
 private slots:
     void on_pushButton_SetPlan_clicked();
 
 private:
     Ui::Popup_Plan *ui;
-    int today = 0;
-    QString total_date;
+    int giToday = 0;
+    QString gsSettingDate;
 };
 
 #endif // POPUP_PLAN_H

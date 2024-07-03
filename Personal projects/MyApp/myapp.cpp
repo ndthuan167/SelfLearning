@@ -1,15 +1,5 @@
 #include "myapp.h"
 #include "ui_myapp.h"
-#include "popupchi.h"
-#include "popup_thu.h"
-#include "popup_plan.h"
-#include "xlsxdocument.h"
-#include "xlsxchartsheet.h"
-#include "xlsxcellrange.h"
-#include "xlsxchart.h"
-#include "xlsxrichstring.h"
-#include "xlsxworkbook.h"
-#include "xlsxworksheet.h"
 
 using namespace QXlsx;
 
@@ -17,33 +7,20 @@ MyApp::MyApp(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MyApp)
 {
     ui->setupUi(this);
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
-    timer->start(1000);
-
-    QDate day = QDate::currentDate();
-    int current_month_show = day.toString("MM").toInt();
-    ui->comboBox_MonthThu->setCurrentIndex(current_month_show - 1);
-
-    // Animation for Image
-    QTimer *timer_image = new QTimer(this);
-    connect(timer_image, SIGNAL(timeout()), this, SLOT(NextImage()));
-    timer_image->start(5000);
-
-    QTimer *timer_updatedata = new QTimer(this);
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataFromDataSource()));
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataPlan()));
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(HandleCheckBoxPlan()));
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecter()));
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecterOfNameChange()));
-    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(EnterKeyToSeePasswordAndClose()));
-
-    timer_updatedata->start(100);
-
     this->setFixedSize(460, 690);
     this->setWindowTitle("Thuan's App");
     this->setWindowIcon(QIcon(":/Icon/Image/Icon.jpg"));
 
+    // Time/Date Display (Calendar)
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(CurrentDateTime()));
+    timer->start(1000);
+
+    QDate ldDate = QDate::currentDate();
+    int liCurrentMonth = ldDate.toString("MM").toInt();
+    ui->comboBox_MonthThu->setCurrentIndex(liCurrentMonth - 1);
+
+    // Website/App Opening
     connect(ui->YoutubeButton, SIGNAL(clicked(bool)), this, SLOT(OpenYoutubeWebsite()));
     connect(ui->GithubButton, SIGNAL(clicked(bool)), this, SLOT(OpenGithubWebsite()));
     connect(ui->FacebookButton, SIGNAL(clicked(bool)), this, SLOT(OpenFacebookWebsite()));
@@ -52,15 +29,25 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->GoogleButton, SIGNAL(clicked(bool)), this, SLOT(OpenGoogleSearch()));
     connect(ui->pushButton_Excel, SIGNAL(clicked(bool)), this, SLOT(OpenExcelDataSource()));
 
-    connect(ui->pushButton_hide, SIGNAL(clicked(bool)), this, SLOT(HidetheTotal()));
+    // Image Animation
+    QTimer *timer_image = new QTimer(this);
+    connect(timer_image, SIGNAL(timeout()), this, SLOT(NextImage()));
+    timer_image->start(5000);
     connect(ui->pushButton_back, SIGNAL(clicked(bool)), this, SLOT(BackImage()));
     connect(ui->pushButton_next, SIGNAL(clicked(bool)), this, SLOT(NextImage()));
-    connect(ui->pushButton_Plus_thu, SIGNAL(clicked(bool)), this, SLOT(ShowFrameTest()));
-    connect(ui->pushButton_Plus_chi, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpChi()));
-    connect(ui->pushButton_Plus_plan, SIGNAL(clicked(bool)), this, SLOT(ShowPopUpPlan()));
 
+    // Earning/Spending management
+    connect(ui->pushButton_Plus_thu, SIGNAL(clicked(bool)), this, SLOT(ShowEarningWindow()));
+    connect(ui->pushButton_Plus_chi, SIGNAL(clicked(bool)), this, SLOT(ShowSpendingWindow()));
+    connect(ui->pushButton_hide, SIGNAL(clicked(bool)), this, SLOT(HidetheTotal()));
+
+    // Planning management
+    connect(ui->pushButton_Plus_plan, SIGNAL(clicked(bool)), this, SLOT(ShowPlanWindow()));
+
+    // Vertical/Horizontal layout management
     connect(ui->pushButton_login, SIGNAL(clicked(bool)), this, SLOT(ChangeToHorizontalLayout()));
 
+    // Password management
     connect(ui->pushButton_password, SIGNAL(clicked(bool)), this, SLOT(ShowPasswordManager()));
     connect(ui->pushButton_exitpassword, SIGNAL(clicked(bool)), this, SLOT(ExitPasswordWindow()));
     connect(ui->pushButton_search, SIGNAL(clicked(bool)), this, SLOT(ShowPasswordFollowCharecter()));
@@ -75,67 +62,280 @@ MyApp::MyApp(QWidget *parent)
     connect(ui->pushButton_changed, SIGNAL(clicked(bool)), this, SLOT(EnterPasswordAdjustmentAndReshowManager()));
 
     // Electrical Device Control
-    connect(ui->UartSettingButton, SIGNAL(clicked(bool)), this, SLOT(SettingUartForElecDeviceControl()));
+    connect(ui->UartSettingButton, SIGNAL(clicked(bool)), this, SLOT(ShowSettingUartForElecDeviceControlWindow()));
     connect(ui->pushButton_connectUart, SIGNAL(clicked(bool)), this, SLOT(ConnectUart()));
     connect(ui->pushButton_disconnect, SIGNAL(clicked(bool)), this, SLOT(DisconnectUart()));
     SettingUart();
     connect(ui->Fanbutton, SIGNAL(clicked(bool)), this, SLOT(SendMsgFanControl()));
     connect(ui->Lightbutton, SIGNAL(clicked(bool)), this, SLOT(SendMsgLightControl()));
+
+    // Using Timer function
+    QTimer *timer_updatedata = new QTimer(this);
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowEarningSpendingDataFromSource()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(ShowDataPlan()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(HandleCheckBoxPlan()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecter()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(CheckEnterCharecterOfNameChange()));
+    connect(timer_updatedata, SIGNAL(timeout()), this, SLOT(EnterKeyToSeePasswordAndClose()));
+
+    timer_updatedata->start(100);
+
 }
 
-MyApp::~MyApp()
+/* ======================================================================================================================= */
+/*                                                     WEBSITE/APP OPENING                                                 */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     OpenYoutubeWebsite(void)
+ * @brief  Open youtube website from url
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenYoutubeWebsite(void)
 {
-    delete ui;
+    const QString lsYoutubeURL = "https://www.youtube.com/";
+    QDesktopServices::openUrl(QUrl(lsYoutubeURL));
 }
 
-void MyApp::OpenYoutubeWebsite()
+/**
+ * @fn     OpenGithubWebsite(void)
+ * @brief  Open my github page from url
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenGithubWebsite(void)
 {
-    QString Youtube_url = "https://www.youtube.com/";
-    QDesktopServices::openUrl(QUrl(Youtube_url));
+    const QString lsMyGithubURL = "https://github.com/ndthuan167";
+    QDesktopServices::openUrl(QUrl(lsMyGithubURL));
 }
 
-void MyApp::OpenGithubWebsite()
+/**
+ * @fn     OpenFacebookWebsite(void)
+ * @brief  Open facebook website from url
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenFacebookWebsite(void)
 {
-    QString myGithub_url = "https://github.com/ndthuan167";
-    QDesktopServices::openUrl(QUrl(myGithub_url));
+    const QString lsFacebookURL = "https://www.facebook.com/";
+    QDesktopServices::openUrl(QUrl(lsFacebookURL));
 }
 
-void MyApp::OpenFacebookWebsite()
+/**
+ * @fn     OpenGoogleSearch(void)
+ * @brief  Open google search website from url
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenGoogleSearch(void)
 {
-    QString Facebook_url = "https://www.facebook.com/";
-    QDesktopServices::openUrl(QUrl(Facebook_url));
+    const QString lsGoogleSearchURL = "https://www.google.com/";
+    QDesktopServices::openUrl(QUrl(lsGoogleSearchURL));
 }
 
-void MyApp::OpenZaloApp()
+/**
+ * @fn     OpenZaloApp(void)
+ * @brief  Open Zalo App from Zalo.exe file
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenZaloApp(void)
 {
     QProcess::startDetached("C:/Users/dinht/AppData/Local/Programs/Zalo/Zalo.exe");
 }
 
+/**
+ * @fn     OpenVSCode(void)
+ * @brief  Open VSCode App from .exe file
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
 void MyApp::OpenVSCode()
 {
     QProcess::startDetached("D:/Phanmemhoctap/Visual Studio Code/Microsoft VS Code/Code.exe");
 }
 
-void MyApp::OpenGoogleSearch()
+/**
+ * @fn     OpenExcelDataSource(void)
+ * @brief  Open Data_source.xlsx file (data source) by click to icon Excel using system() function.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::OpenExcelDataSource(void)
 {
-    QString Google_Search_url = "https://www.google.com/";
-    QDesktopServices::openUrl(QUrl(Google_Search_url));
+    const char* lcOpenExcelCommand = "start excel.exe Data_source.xlsx";
+    system(lcOpenExcelCommand);
 }
 
-void MyApp::OpenExcelDataSource()
+/* ======================================================================================================================= */
+/*                                                    IMAGE ANIMATION                                                      */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     BackImage(void)
+ * @brief  Minus the number of image to show the previous image.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   10/12/2023
+ * @return void
+ * @param   void
+ */
+void MyApp::BackImage(void)
 {
-    //    QProcess::execute("C:/Program Files/Microsoft Office/root/Office16/EXCEL.EXE", QStringList() << "Data_source.xlsx");
-    //    QFileDialog::getOpenFileName(this, "Data_source.xlsx");
+    giNumberOfImageBefore--;
+    if (giNumberOfImageBefore == 0)
+        giNumberOfImageBefore = 11;
+    QString lsStringImageDirectory1 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
+    QString lsStringImageDirectory2 = QString::number(giNumberOfImageBefore);
+    QString lsStringImageDirectory3 = ".jpg) 0 0 0 0 stretch stretch;";
+    QString lsStringImageDirectory = lsStringImageDirectory1 + lsStringImageDirectory2 + lsStringImageDirectory3;
+    ui->label_image->setStyleSheet(lsStringImageDirectory +
+                                   "border-radius: 15px;"
+                                   "border: 1pxsolid white;");
 }
 
-void MyApp::ChangeToHorizontalLayout()
+/**
+ * @fn     NextImage(void)
+ * @brief  Plus the number of image to show the after image and transfer Animation.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   10/12/2023
+ * @return void
+ * @param   void
+ */
+void MyApp::NextImage()
 {
-    if (set_horizontal_layout == false)
-        set_horizontal_layout = true;
+    giNumberOfImageBefore++;
+    if (giNumberOfImageBefore > 11)
+        giNumberOfImageBefore = 1;
+    QString lsStringImageDirectory1 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
+    QString lsStringImageDirectory2 = QString::number(giNumberOfImageBefore);
+    QString lsStringImageDirectory3 = ".jpg) 0 0 0 0 stretch stretch;";
+    QString lsStringImageDirectory = lsStringImageDirectory1 + lsStringImageDirectory2 + lsStringImageDirectory3;
+    ui->label_image->setStyleSheet(lsStringImageDirectory +
+                                   "border-radius: 15px;"
+                                   "border: 1pxsolid white;");
+
+    QPropertyAnimation *animation_image = new QPropertyAnimation(ui->label_image, "geometry");
+    animation_image->setDuration(500);
+
+    if (gbIsHorizontalLayoutSet == true)
+    {
+        ui->label_image->setGeometry(5, 5, 521, 331);
+        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 521, 331));
+        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 521, ui->label_image->geometry().y(), 521, 331));
+    }
     else
-        set_horizontal_layout = false;
+    {
+        ui->label_image->setGeometry(5, 5, 185, 115);
+        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 185, 115));
+        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 185, ui->label_image->geometry().y(), 185, 115));
+    }
+    animation_image->start();
 
-    if (set_horizontal_layout == true)
+    QPropertyAnimation *animation_image_2 = new QPropertyAnimation(ui->label_image_2, "geometry");
+    animation_image_2->setDuration(500);
+
+    if (gbIsHorizontalLayoutSet == true)
+    {
+        ui->label_image_2->setGeometry(5, 5, 521, 331);
+        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 530, ui->label_image_2->geometry().y(), 521, 331));
+        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 521, 331));
+    }
+    else
+    {
+        ui->label_image_2->setGeometry(10, 5, 185, 115);
+        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 185, ui->label_image_2->geometry().y(), 185, 115));
+        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 185, 115));
+    }
+    animation_image_2->start();
+    QString string1_2 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
+    giNumberOfImageAfter = giNumberOfImageBefore - 1;
+    if (giNumberOfImageAfter == 0)
+        giNumberOfImageAfter = 11;
+    QString string2_2 = QString::number(giNumberOfImageAfter);
+    QString string3_2 = ".jpg) 0 0 0 0 stretch stretch;";
+    QString stringplus_2 = string1_2 + string2_2 + string3_2;
+    ui->label_image_2->setStyleSheet(stringplus_2 +
+                                     "border-radius: 15px;"
+                                     "border: 1pxsolid white;");
+}
+
+/* ======================================================================================================================= */
+/*                                            TIME/DATE DISPLAY (CALENDAR)                                                 */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     CurrentDateTime(void)
+ * @brief  Show current date and ltCurrentTime and handle icon in Date/Time section.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   10/12/2023
+ * @return void
+ * @param   void
+ */
+void MyApp::CurrentDateTime(void)
+{
+    QTime ltCurrentTime = QTime::currentTime();
+    QDate ldDate = QDate::currentDate();
+    QString lsCurrentDate = ldDate.toString("dd");
+    QString lsCurrentThu = ldDate.toString("dddd");
+    QString lsCurrentTimeHourMinute = ltCurrentTime.toString("hh:mm");
+    ui->label_time->setText(lsCurrentTimeHourMinute);
+    ui->label_day->setText(lsCurrentDate);
+    ui->label_thu->setText(lsCurrentThu);
+
+    QString lsCurrentTimeHour = ltCurrentTime.toString("hh");
+    int liCurrentTimeHour = lsCurrentTimeHour.toInt();
+    QString lsStyleSheetDay = "background-color:  " + gsSunOrNight + "; color: #3085C3; border-radius: 25px";
+    if (liCurrentTimeHour >= 18 || (liCurrentTimeHour >= 0 && liCurrentTimeHour <= 5))
+    {
+        gsSunOrNight = "#CBBCF6";
+        QPixmap pixmap(":/Icon/Image/night.png");
+        ui->label_night->setPixmap(pixmap);
+        ui->label_day->setStyleSheet(lsStyleSheetDay);
+    }
+    else
+    {
+        gsSunOrNight = "#FDFFAE";
+        QPixmap pixmap(":/Icon/Image/sun.png");
+        ui->label_sun->setPixmap(pixmap);
+        ui->label_day->setStyleSheet(lsStyleSheetDay);
+    }
+}
+
+/* ======================================================================================================================= */
+/*                                              VERTICAL/HORIZONTAL LAYOUT SETTING                                         */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     ChangeToHorizontalLayout(void)
+ * @brief  Convert items from Vertical layout to Horizontal layout.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   24/12/2023
+ * @return void
+ * @param  void
+ */
+void MyApp::ChangeToHorizontalLayout(void)
+{
+    if (gbIsHorizontalLayoutSet == false)
+        gbIsHorizontalLayoutSet = true;
+    else
+        gbIsHorizontalLayoutSet = false;
+
+    if (gbIsHorizontalLayoutSet == true)
     {
         QPixmap pixmap(":/Icon/Image/icons8-login-rounded-up-35.png");
         ui->pushButton_login->setIcon(QIcon(pixmap));
@@ -305,13 +505,13 @@ void MyApp::ChangeToHorizontalLayout()
                                         "background-color: #BBBBBB;"
                                         "border-style: inset;"
                                         "}");
-        if (is_password_window_on == true && is_passchange_show == false)
+        if (gbIsPasswordWindowOn == true && gbIsPasswordShow == false)
             ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
-        if (is_AddPassword_window_on == true)
+        if (gbIsAdditionalPasswordWindowOn == true)
             ui->frame_password_manage_4->setGeometry(QRect(180, 450, 190, 180));
-        if (is_passchange_show == true)
+        if (gbIsPasswordShow == true)
             ui->frame_password_manage_5->setGeometry(QRect(630, 190, 220, 140));
-        if (IsUartSettingShow == true)
+        if (gbIsUartSettingShow == true)
             ui->frameUart->setGeometry(QRect(190, 420, 210, 180));
 
         // Electrical Device Control
@@ -320,7 +520,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->label_35->setText("Device Control");
         ui->label_36->setGeometry(QRect(60, 50, 80, 80));
         ui->label_34->setGeometry(QRect(80, 142, 45, 16));
-        if (is_Fan_ON == true)
+        if (gbIsFanOn == true)
             ui->Fanbutton->setGeometry(QRect(80 + 25, 140, 20, 20));
         else
             ui->Fanbutton->setGeometry(QRect(80, 140, 20, 20));
@@ -328,7 +528,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->label_40->setGeometry(QRect(120, 1365, 31, 16));
         ui->label_38->setGeometry(QRect(60, 200, 80, 80));
         ui->label_37->setGeometry(QRect(80, 300, 45, 16));
-        if (is_Light_ON == true)
+        if (gbIsLightOn == true)
             ui->Lightbutton->setGeometry(QRect(80 + 25, 298, 20, 20));
         else
             ui->Lightbutton->setGeometry(QRect(80, 298, 20, 20));
@@ -339,7 +539,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->pushButton_login->setIcon(QIcon(pixmap));
         ui->pushButton_login->setIconSize(QSize(35, 35));
 
-        ShowDataFromDataSource();
+        ShowEarningSpendingDataFromSource();
         ShowDataPlan();
         // Change Geometry to vertical layout
         this->setFixedSize(460, 690);
@@ -505,13 +705,13 @@ void MyApp::ChangeToHorizontalLayout()
                                         "background-color: #BBBBBB;"
                                         "border-style: inset;"
                                         "}");
-        if (is_password_window_on == true && is_passchange_show == false)
+        if (gbIsPasswordWindowOn == true && gbIsPasswordShow == false)
             ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
-        if (is_AddPassword_window_on == true)
+        if (gbIsAdditionalPasswordWindowOn == true)
             ui->frame_password_manage_4->setGeometry(QRect(100, 70, 190, 180));
-        if (is_passchange_show == true)
+        if (gbIsPasswordShow == true)
             ui->frame_password_manage_5->setGeometry(QRect(110, 190, 220, 140));
-        if (IsUartSettingShow == true)
+        if (gbIsUartSettingShow == true)
             ui->frameUart->setGeometry(QRect(60, 180, 210, 180));
 
         // Electrical Device Control
@@ -520,7 +720,7 @@ void MyApp::ChangeToHorizontalLayout()
         ui->label_35->setText("Control");
         ui->label_36->setGeometry(QRect(63, 32, 37, 37));
         ui->label_34->setGeometry(QRect(10, 42, 45, 16));
-        if (is_Fan_ON == true)
+        if (gbIsFanOn == true)
             ui->Fanbutton->setGeometry(QRect(10 + 25, 40, 20, 20));
         else
             ui->Fanbutton->setGeometry(QRect(10, 40, 20, 20));
@@ -528,190 +728,813 @@ void MyApp::ChangeToHorizontalLayout()
         ui->label_40->setGeometry(QRect(40, 70, 31, 16));
         ui->label_38->setGeometry(QRect(60, 85, 40, 40));
         ui->label_37->setGeometry(QRect(10, 95, 45, 16));
-        if (is_Light_ON == true)
+        if (gbIsLightOn == true)
             ui->Lightbutton->setGeometry(QRect(10 + 25, 93, 20, 20));
         else
             ui->Lightbutton->setGeometry(QRect(10, 93, 20, 20));
     }
 }
 
-void MyApp::onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent)
+/* ======================================================================================================================= */
+/*                                                    EARNING/SPENDING MANAGEMENT                                          */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     ShowEarningWindow(void)
+ * @brief  Connect with Popup Thu and show.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/01/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowEarningWindow(void)
+{
+    popup_Thu *mypopup_thu = new popup_Thu(this, "Hello1");
+    mypopup_thu->show();
+    connect(mypopup_thu, &popup_Thu::ConnectDataEarning, this, &MyApp::HandleDataEarning);
+}
+
+/**
+ * @fn     HandleDataEarning()
+ * @brief  Receive data from Popup_Thu dialog.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/01/2024
+ * @return void
+ * @param   const QString &lsDataDateEaning, const QString &lsDataMoneyEaning, const QString &lsDataTypeMoneyEaning, const QString &lsDataContentEaning
+ */
+void MyApp::HandleDataEarning(const QString &lsDataDateEaning, const QString &lsDataMoneyEaning, const QString &lsDataTypeMoneyEaning, const QString &lsDataContentEaning)
 {
     Document xlsx("Data_source.xlsx");
 
-    int index_month_thu = ui->comboBox_MonthThu->currentIndex();
-    xlsx.selectSheet(index_month_thu);
+    int liIndexOfMonthEarning = ui->comboBox_MonthThu->currentIndex();
+    xlsx.selectSheet(liIndexOfMonthEarning);
 
-    if (data_textmoney != "" && data_textcontent != "")
+    if (lsDataMoneyEaning != "" && lsDataContentEaning != "")
     {
-        while (xlsx.read(number_data_write_chi_index, 7).toInt() != 0)
+        while (xlsx.read(giWriteIndexEarning, 1).toInt() != 0)
         {
-            number_data_write_chi_index++;
+            giWriteIndexEarning++;
         }
 
-        xlsx.write(number_data_write_chi_index, 7, data_textday);
-        xlsx.write(number_data_write_chi_index, 8, data_textmoney);
-        xlsx.write(number_data_write_chi_index, 9, data_texttype);
-        xlsx.write(number_data_write_chi_index, 10, data_textcontent);
+        xlsx.write(giWriteIndexEarning, 1, lsDataDateEaning);
+        xlsx.write(giWriteIndexEarning, 3, lsDataMoneyEaning);
+        xlsx.write(giWriteIndexEarning, 2, lsDataTypeMoneyEaning);
+        xlsx.write(giWriteIndexEarning, 4, lsDataContentEaning);
 
         xlsx.saveAs("Data_source.xlsx");
-        number_data_write_chi_index = 5;
+        giWriteIndexEarning = 5;
     }
 }
 
-void MyApp::onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu, const QString &data_textcontent_thu)
+/**
+ * @fn     ShowSpendingWindow(void)
+ * @brief  Connect with Popup Chi tieu and show.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/01/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowSpendingWindow(void)
+{
+    PopupChi *mypopup = new PopupChi(this, "Hello");
+    mypopup->show();
+    connect(mypopup, &PopupChi::ConnectDataSpending, this, &MyApp::HandleDataSpending);
+}
+
+/**
+ * @fn     HandleDataSpending()
+ * @brief  Receive data from Popup_Chi dialog.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   26/12/2023
+ * @return void
+ * @param   const QString &lsDataDateSpending, const QString &lsDataMoneySpending, const QString &lsDataMoneyTypeSpending, const QString &lsDataContentSpending
+ */
+void MyApp::HandleDataSpending(const QString &lsDataDateSpending, const QString &lsDataMoneySpending, const QString &lsDataMoneyTypeSpending, const QString &lsDataContentSpending)
 {
     Document xlsx("Data_source.xlsx");
 
-    int index_month_thu = ui->comboBox_MonthThu->currentIndex();
-    xlsx.selectSheet(index_month_thu);
+    int liIndexOfMonthEarning = ui->comboBox_MonthThu->currentIndex();
+    xlsx.selectSheet(liIndexOfMonthEarning);
 
-    if (data_textmoney_thu != "" && data_textcontent_thu != "")
+    if (lsDataMoneySpending != "" && lsDataContentSpending != "")
     {
-        while (xlsx.read(number_data_write_thu_index, 1).toInt() != 0)
+        while (xlsx.read(giWriteIndexSpending, 7).toInt() != 0)
         {
-            number_data_write_thu_index++;
+            giWriteIndexSpending++;
         }
 
-        xlsx.write(number_data_write_thu_index, 1, data_textday_thu);
-        xlsx.write(number_data_write_thu_index, 3, data_textmoney_thu);
-        xlsx.write(number_data_write_thu_index, 2, data_texttype_thu);
-        xlsx.write(number_data_write_thu_index, 4, data_textcontent_thu);
+        xlsx.write(giWriteIndexSpending, 7, lsDataDateSpending);
+        xlsx.write(giWriteIndexSpending, 8, lsDataMoneySpending);
+        xlsx.write(giWriteIndexSpending, 9, lsDataMoneyTypeSpending);
+        xlsx.write(giWriteIndexSpending, 10, lsDataContentSpending);
 
         xlsx.saveAs("Data_source.xlsx");
-        number_data_write_thu_index = 5;
+        giWriteIndexSpending = 5;
     }
 }
 
-void MyApp::onDataAvailable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetailPlan)
+
+/**
+ * @fn     ShowEarningSpendingDataFromSource(void)
+ * @brief  Read Earning/Spending data from Excel source to show in App in Vertical and Horizontal layout.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   26/12/2023
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowEarningSpendingDataFromSource(void)
 {
     Document xlsx("Data_source.xlsx");
-    xlsx.selectSheet(12);
 
-    if (data_textdetailPlan != "" && data_texttime_plan != "")
+    int liIndexOfMonthEarning = ui->comboBox_MonthThu->currentIndex();
+    ui->comboBox_MonthChi->setCurrentIndex(liIndexOfMonthEarning);
+    xlsx.selectSheet(liIndexOfMonthEarning);
+
+    while (xlsx.read(giIndexDataEarning, 1).toInt() != 0)
     {
-        while (xlsx.read(number_data_write_plan_index, 2).toInt() != 0)
-        {
-            number_data_write_plan_index++;
-        }
-
-        xlsx.write(number_data_write_plan_index, 1, "X");
-        xlsx.write(number_data_write_plan_index, 2, data_textday_plan);
-        xlsx.write(number_data_write_plan_index, 3, data_texttime_plan);
-        xlsx.write(number_data_write_plan_index, 4, data_textdetailPlan);
-
-        xlsx.saveAs("Data_source.xlsx");
-        number_data_write_plan_index = 4;
+        giIndexDataEarning++;
+        giNumberOfDataEarning++;
     }
-}
+    if (giNumberOfDataEarning >= 8)
+        giNumberOfDataEarning -= (giNumberOfDataEarning - 8);
 
-void MyApp::HandleCheckBoxPlan()
-{
-    Document xlsx("Data_source.xlsx");
-    xlsx.selectSheet(12);
-
-    int index_numberofplan = 4;
-    while (index_numberofplan < numberofplan)
+    if (giNumberOfDataEarning >= 1)
     {
-        if (xlsx.read(index_numberofplan, 1).toString() == "X")
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_1->setGeometry(QRect(740, 110, 265, 28));
+        else
+            ui->frame_Thu_1->setGeometry(QRect(27, 395, 97, 28));
+        ui->label_day_thu1->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning, 1).toString());
+        ui->label_money_thu1->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning, 3).toString());
+        ui->label_typethu1->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning, 2).toString());
+        ui->label_content_thu1->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning, 4).toString());
+    }
+    else
+        ui->frame_Thu_1->setGeometry(QRect(2400, 395, 97, 28));
+
+    if (giNumberOfDataEarning >= 2)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_2->setGeometry(QRect(740 + 265 + 5, 110, 265, 28));
+        else
+            ui->frame_Thu_2->setGeometry(QRect(27 + 97 + 2, 395, 97, 28));
+        ui->label_day_thu2->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 1, 1).toString());
+        ui->label_money_thu2->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 1, 3).toString());
+        ui->label_typethu2->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 1, 2).toString());
+        ui->label_content_thu2->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 1, 4).toString());
+    }
+    else
+        ui->frame_Thu_2->setGeometry(QRect(2400, 395, 97, 28));
+
+    if (giNumberOfDataEarning >= 3)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_3->setGeometry(QRect(740, 110 + 28 + 5, 265, 28));
+        else
+            ui->frame_Thu_3->setGeometry(QRect(27, 395 + 28 + 5, 97, 28));
+        ui->label_day_thu3->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 2, 1).toString());
+        ui->label_money_thu3->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 2, 3).toString());
+        ui->label_typethu3->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 2, 2).toString());
+        ui->label_content_thu3->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 2, 4).toString());
+    }
+    else
+        ui->frame_Thu_3->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataEarning >= 4)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_4->setGeometry(QRect(740 + 265 + 5, 110 + 28 + 5, 265, 28));
+        else
+            ui->frame_Thu_4->setGeometry(QRect(27 + 97 + 2, 395 + 28 + 5, 97, 28));
+        ui->label_day_thu4->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 3, 1).toString());
+        ui->label_money_thu4->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 3, 3).toString());
+        ui->label_typethu4->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 3, 2).toString());
+        ui->label_content_thu4->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 3, 4).toString());
+    }
+    else
+        ui->frame_Thu_4->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataEarning >= 5)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_5->setGeometry(QRect(740, 110 + 2 * (28 + 5), 265, 28));
+        else
+            ui->frame_Thu_5->setGeometry(QRect(27, 395 + 2 * (28 + 5), 97, 28));
+        ui->label_day_thu5->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 4, 1).toString());
+        ui->label_money_thu5->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 4, 3).toString());
+        ui->label_typethu5->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 4, 2).toString());
+        ui->label_content_thu5->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 4, 4).toString());
+    }
+    else
+        ui->frame_Thu_5->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataEarning >= 6)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_6->setGeometry(QRect(740 + 265 + 5, 110 + 2 * (28 + 5), 265, 28));
+        else
+            ui->frame_Thu_6->setGeometry(QRect(27 + 97 + 2, 395 + 2 * (28 + 5), 97, 28));
+        ui->label_day_thu6->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 5, 1).toString());
+        ui->label_money_thu6->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 5, 3).toString());
+        ui->label_typethu6->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 5, 2).toString());
+        ui->label_content_thu6->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 5, 4).toString());
+    }
+    else
+        ui->frame_Thu_6->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataEarning >= 7)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_7->setGeometry(QRect(740, 110 + 3 * (28 + 5), 265, 28));
+        else
+            ui->frame_Thu_7->setGeometry(QRect(27, 395 + 3 * (28 + 5), 97, 28));
+        ui->label_day_thu7->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 6, 1).toString());
+        ui->label_money_thu7->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 6, 3).toString());
+        ui->label_typethu7->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 6, 2).toString());
+        ui->label_content_thu7->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 6, 4).toString());
+    }
+    else
+        ui->frame_Thu_7->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataEarning >= 8)
+    {
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Thu_8->setGeometry(QRect(740 + 265 + 5, 110 + 3 * (28 + 5), 265, 28));
+        else
+            ui->frame_Thu_8->setGeometry(QRect(27 + 97 + 2, 395 + 3 * (28 + 5), 97, 28));
+        ui->label_day_thu8->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 7, 1).toString());
+        ui->label_money_thu8->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 7, 3).toString());
+        ui->label_typethu8->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 7, 2).toString());
+        ui->label_content_thu8->setText(xlsx.read(giIndexDataEarning - giNumberOfDataEarning + 7, 4).toString());
+    }
+    else
+        ui->frame_Thu_8->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    while (xlsx.read(giIndexDataSpending, 7).toInt() != 0)
+    {
+        giIndexDataSpending++;
+        giNumberOfDataSpending++;
+    }
+    if (giNumberOfDataSpending >= 22)
+        giNumberOfDataSpending -= (giNumberOfDataSpending - 22);
+
+    if (giNumberOfDataSpending >= 1)
+    {
+        ui->label_day_chi1->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending, 7).toString());
+        ui->label_money_chi1->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending, 8).toString());
+        ui->label_typechi1->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending, 9).toString());
+        ui->label_content_chi1->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending, 10).toString());
+
+        if (gbIsHorizontalLayoutSet == true)
         {
-            index_plan_check.push_back(index_numberofplan);
+            ui->frame_Chi_1->setGeometry(QRect(740, 340, 265, 28));
         }
-        index_numberofplan++;
+        else
+        {
+            ui->frame_Chi_1->setGeometry(QRect(240, 395, 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi1->setText(xlsx.read(giIndexDataSpending - 8, 7).toString());
+                ui->label_money_chi1->setText(xlsx.read(giIndexDataSpending - 8, 8).toString());
+                ui->label_typechi1->setText(xlsx.read(giIndexDataSpending - 8, 9).toString());
+                ui->label_content_chi1->setText(xlsx.read(giIndexDataSpending - 8, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_1->setGeometry(QRect(2400, 395, 97, 28));
+
+    if (giNumberOfDataSpending >= 2)
+    {
+        ui->label_day_chi2->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 1, 7).toString());
+        ui->label_money_chi2->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 1, 8).toString());
+        ui->label_typechi2->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 1, 9).toString());
+        ui->label_content_chi2->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 1, 10).toString());
+
+        if (gbIsHorizontalLayoutSet == true)
+        {
+            ui->frame_Chi_2->setGeometry(QRect(740 + 265 + 5, 340, 265, 28));
+        }
+        else
+        {
+            ui->frame_Chi_2->setGeometry(QRect(240 + 98 + 2, 395, 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi2->setText(xlsx.read(giIndexDataSpending - 8 + 1, 7).toString());
+                ui->label_money_chi2->setText(xlsx.read(giIndexDataSpending - 8 + 1, 8).toString());
+                ui->label_typechi2->setText(xlsx.read(giIndexDataSpending - 8 + 1, 9).toString());
+                ui->label_content_chi2->setText(xlsx.read(giIndexDataSpending - 8 + 1, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_2->setGeometry(QRect(2400 + 98 + 2, 395, 97, 28));
+
+    if (giNumberOfDataSpending >= 3)
+    {
+        ui->label_day_chi3->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 2, 7).toString());
+        ui->label_money_chi3->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 2, 8).toString());
+        ui->label_typechi3->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 2, 9).toString());
+        ui->label_content_chi3->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 2, 10).toString());
+
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_3->setGeometry(QRect(740, 340 + 28 + 5, 265, 28));
+        else
+        {
+            ui->frame_Chi_3->setGeometry(QRect(240, 395 + 28 + 5, 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi3->setText(xlsx.read(giIndexDataSpending - 8 + 2, 7).toString());
+                ui->label_money_chi3->setText(xlsx.read(giIndexDataSpending - 8 + 2, 8).toString());
+                ui->label_typechi3->setText(xlsx.read(giIndexDataSpending - 8 + 2, 9).toString());
+                ui->label_content_chi3->setText(xlsx.read(giIndexDataSpending - 8 + 2, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_3->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataSpending >= 4)
+    {
+        ui->label_day_chi4->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 3, 7).toString());
+        ui->label_money_chi4->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 3, 8).toString());
+        ui->label_typechi4->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 3, 9).toString());
+        ui->label_content_chi4->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 3, 10).toString());
+
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_4->setGeometry(QRect(740 + 265 + 5, 340 + 28 + 5, 265, 28));
+        else
+        {
+            ui->frame_Chi_4->setGeometry(QRect(240 + 98 + 2, 395 + 28 + 5, 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi4->setText(xlsx.read(giIndexDataSpending - 8 + 3, 7).toString());
+                ui->label_money_chi4->setText(xlsx.read(giIndexDataSpending - 8 + 3, 8).toString());
+                ui->label_typechi4->setText(xlsx.read(giIndexDataSpending - 8 + 3, 9).toString());
+                ui->label_content_chi4->setText(xlsx.read(giIndexDataSpending - 8 + 3, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_4->setGeometry(QRect(2400 + 98 + 2, 395 + 28 + 5, 97, 28));
+
+    if (giNumberOfDataSpending >= 5)
+    {
+        ui->label_day_chi5->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 4, 7).toString());
+        ui->label_money_chi5->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 4, 8).toString());
+        ui->label_typechi5->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 4, 9).toString());
+        ui->label_content_chi5->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 4, 10).toString());
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_5->setGeometry(QRect(740, 340 + 2 * (28 + 5), 265, 28));
+        else
+        {
+            ui->frame_Chi_5->setGeometry(QRect(240, 395 + 2 * (28 + 5), 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi5->setText(xlsx.read(giIndexDataSpending - 8 + 4, 7).toString());
+                ui->label_money_chi5->setText(xlsx.read(giIndexDataSpending - 8 + 4, 8).toString());
+                ui->label_typechi5->setText(xlsx.read(giIndexDataSpending - 8 + 4, 9).toString());
+                ui->label_content_chi5->setText(xlsx.read(giIndexDataSpending - 8 + 4, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_5->setGeometry(QRect(2400, 395 + 2 * (28 + 5), 97, 28));
+
+    if (giNumberOfDataSpending >= 6)
+    {
+        ui->label_day_chi6->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 5, 7).toString());
+        ui->label_money_chi6->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 5, 8).toString());
+        ui->label_typechi6->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 5, 9).toString());
+        ui->label_content_chi6->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 5, 10).toString());
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_6->setGeometry(QRect(740 + 265 + 5, 340 + 2 * (28 + 5), 265, 28));
+        else
+        {
+            ui->frame_Chi_6->setGeometry(QRect(240 + 98 + 2, 395 + 2 * (28 + 5), 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi6->setText(xlsx.read(giIndexDataSpending - 8 + 5, 7).toString());
+                ui->label_money_chi6->setText(xlsx.read(giIndexDataSpending - 8 + 5, 8).toString());
+                ui->label_typechi6->setText(xlsx.read(giIndexDataSpending - 8 + 5, 9).toString());
+                ui->label_content_chi6->setText(xlsx.read(giIndexDataSpending - 8 + 5, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_6->setGeometry(QRect(2400 + 98 + 2, 395 + 2 * (28 + 5), 97, 28));
+
+    if (giNumberOfDataSpending >= 7)
+    {
+        ui->label_day_chi7->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 6, 7).toString());
+        ui->label_money_chi7->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 6, 8).toString());
+        ui->label_typechi7->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 6, 9).toString());
+        ui->label_content_chi7->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 6, 10).toString());
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_7->setGeometry(QRect(740, 340 + 3 * (28 + 5), 265, 28));
+        else
+        {
+            ui->frame_Chi_7->setGeometry(QRect(240, 395 + 3 * (28 + 5), 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi7->setText(xlsx.read(giIndexDataSpending - 8 + 6, 7).toString());
+                ui->label_money_chi7->setText(xlsx.read(giIndexDataSpending - 8 + 6, 8).toString());
+                ui->label_typechi7->setText(xlsx.read(giIndexDataSpending - 8 + 6, 9).toString());
+                ui->label_content_chi7->setText(xlsx.read(giIndexDataSpending - 8 + 6, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_7->setGeometry(QRect(2400, 395 + 3 * (28 + 5), 97, 28));
+
+    if (giNumberOfDataSpending >= 8)
+    {
+        ui->label_day_chi8->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 7, 7).toString());
+        ui->label_money_chi8->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 7, 8).toString());
+        ui->label_typechi8->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 7, 9).toString());
+        ui->label_content_chi8->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 7, 10).toString());
+        if (gbIsHorizontalLayoutSet == true)
+            ui->frame_Chi_8->setGeometry(QRect(740 + 265 + 5, 340 + 3 * (28 + 5), 265, 28));
+        else
+        {
+            ui->frame_Chi_8->setGeometry(QRect(240 + 98 + 2, 395 + 3 * (28 + 5), 97, 28));
+            if (giNumberOfDataSpending >= 8)
+            {
+                ui->label_day_chi8->setText(xlsx.read(giIndexDataSpending - 8 + 7, 7).toString());
+                ui->label_money_chi8->setText(xlsx.read(giIndexDataSpending - 8 + 7, 8).toString());
+                ui->label_typechi8->setText(xlsx.read(giIndexDataSpending - 8 + 7, 9).toString());
+                ui->label_content_chi8->setText(xlsx.read(giIndexDataSpending - 8 + 7, 10).toString());
+            }
+        }
+    }
+    else
+        ui->frame_Chi_8->setGeometry(QRect(2400 + 98 + 2, 395 + 3 * (28 + 5), 97, 28));
+
+    if (gbIsHorizontalLayoutSet == true)
+    {
+        if (giNumberOfDataSpending >= 9)
+        {
+            ui->frame_Chi_9->setGeometry(QRect(740, 340 + 4 * (28 + 5), 265, 28));
+            ui->label_day_chi9->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 8, 7).toString());
+            ui->label_money_chi9->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 8, 8).toString());
+            ui->label_typechi9->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 8, 9).toString());
+            ui->label_content_chi9->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 8, 10).toString());
+        }
+        else
+            ui->frame_Chi_9->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 10)
+        {
+            ui->frame_Chi_10->setGeometry(QRect(740 + 265 + 5, 340 + 4 * (28 + 5), 265, 28));
+            ui->label_day_chi10->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 9, 7).toString());
+            ui->label_money_chi10->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 9, 8).toString());
+            ui->label_typechi10->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 9, 9).toString());
+            ui->label_content_chi10->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 9, 10).toString());
+        }
+        else
+            ui->frame_Chi_10->setGeometry(QRect(7040, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 11)
+        {
+            ui->frame_Chi_11->setGeometry(QRect(740, 340 + 5 * (28 + 5), 265, 28));
+            ui->label_day_chi11->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 10, 7).toString());
+            ui->label_money_chi11->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 10, 8).toString());
+            ui->label_typechi11->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 10, 9).toString());
+            ui->label_content_chi11->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 10, 10).toString());
+        }
+        else
+            ui->frame_Chi_11->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 12)
+        {
+            ui->frame_Chi_12->setGeometry(QRect(740 + 265 + 5, 340 + 5 * (28 + 5), 265, 28));
+            ui->label_day_chi12->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 11, 7).toString());
+            ui->label_money_chi12->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 11, 8).toString());
+            ui->label_typechi12->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 11, 9).toString());
+            ui->label_content_chi12->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 11, 10).toString());
+        }
+        else
+            ui->frame_Chi_12->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 13)
+        {
+            ui->frame_Chi_13->setGeometry(QRect(740, 340 + 6 * (28 + 5), 265, 28));
+            ui->label_day_chi13->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 12, 7).toString());
+            ui->label_money_chi13->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 12, 8).toString());
+            ui->label_typechi13->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 12, 9).toString());
+            ui->label_content_chi13->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 12, 10).toString());
+        }
+        else
+            ui->frame_Chi_13->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 14)
+        {
+            ui->frame_Chi_14->setGeometry(QRect(740 + 265 + 5, 340 + 6 * (28 + 5), 265, 28));
+            ui->label_day_chi14->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 13, 7).toString());
+            ui->label_money_chi14->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 13, 8).toString());
+            ui->label_typechi14->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 13, 9).toString());
+            ui->label_content_chi14->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 13, 10).toString());
+        }
+        else
+            ui->frame_Chi_14->setGeometry(QRect(7400 + 265 + 5, 340 + 6 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 15)
+        {
+            ui->frame_Chi_15->setGeometry(QRect(740, 340 + 7 * (28 + 5), 265, 28));
+            ui->label_day_chi15->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 14, 7).toString());
+            ui->label_money_chi15->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 14, 8).toString());
+            ui->label_typechi15->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 14, 9).toString());
+            ui->label_content_chi15->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 14, 10).toString());
+        }
+        else
+            ui->frame_Chi_15->setGeometry(QRect(7400, 340 + 7 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 16)
+        {
+            ui->frame_Chi_16->setGeometry(QRect(740 + 265 + 5, 340 + 7 * (28 + 5), 265, 28));
+            ui->label_day_chi16->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 15, 7).toString());
+            ui->label_money_chi16->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 15, 8).toString());
+            ui->label_typechi16->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 15, 9).toString());
+            ui->label_content_chi16->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 15, 10).toString());
+        }
+        else
+            ui->frame_Chi_16->setGeometry(QRect(7400 + 265 + 5, 340 + 7 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 17)
+        {
+            ui->frame_Chi_17->setGeometry(QRect(740, 340 + 8 * (28 + 5), 265, 28));
+            ui->label_day_chi17->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 16, 7).toString());
+            ui->label_money_chi17->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 16, 8).toString());
+            ui->label_typechi17->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 16, 9).toString());
+            ui->label_content_chi17->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 16, 10).toString());
+        }
+        else
+            ui->frame_Chi_17->setGeometry(QRect(7400, 340 + 8 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 18)
+        {
+            ui->frame_Chi_18->setGeometry(QRect(740 + 265 + 5, 340 + 8 * (28 + 5), 265, 28));
+            ui->label_day_chi18->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 17, 7).toString());
+            ui->label_money_chi18->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 17, 8).toString());
+            ui->label_typechi18->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 17, 9).toString());
+            ui->label_content_chi18->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 17, 10).toString());
+        }
+        else
+            ui->frame_Chi_18->setGeometry(QRect(7400 + 265 + 5, 340 + 8 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 19)
+        {
+            ui->frame_Chi_19->setGeometry(QRect(740, 340 + 9 * (28 + 5), 265, 28));
+            ui->label_day_chi19->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 18, 7).toString());
+            ui->label_money_chi19->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 18, 8).toString());
+            ui->label_typechi19->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 18, 9).toString());
+            ui->label_content_chi19->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 18, 10).toString());
+        }
+        else
+            ui->frame_Chi_19->setGeometry(QRect(7400, 340 + 9 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 20)
+        {
+            ui->frame_Chi_20->setGeometry(QRect(740 + 265 + 5, 340 + 9 * (28 + 5), 265, 28));
+            ui->label_day_chi20->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 19, 7).toString());
+            ui->label_money_chi20->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 19, 8).toString());
+            ui->label_typechi20->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 19, 9).toString());
+            ui->label_content_chi20->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 19, 10).toString());
+        }
+        else
+            ui->frame_Chi_20->setGeometry(QRect(7400 + 265 + 5, 340 + 9 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 21)
+        {
+            ui->frame_Chi_21->setGeometry(QRect(740, 340 + 10 * (28 + 5), 265, 28));
+            ui->label_day_chi21->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 20, 7).toString());
+            ui->label_money_chi21->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 20, 8).toString());
+            ui->label_typechi21->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 20, 9).toString());
+            ui->label_content_chi21->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 20, 10).toString());
+        }
+        else
+            ui->frame_Chi_21->setGeometry(QRect(7400, 340 + 10 * (28 + 5), 265, 28));
+
+        if (giNumberOfDataSpending >= 22)
+        {
+            ui->frame_Chi_22->setGeometry(QRect(740 + 265 + 5, 340 + 10 * (28 + 5), 265, 28));
+            ui->label_day_chi22->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 21, 7).toString());
+            ui->label_money_chi22->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 21, 8).toString());
+            ui->label_typechi22->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 21, 9).toString());
+            ui->label_content_chi22->setText(xlsx.read(giIndexDataSpending - giNumberOfDataSpending + 21, 10).toString());
+        }
+        else
+            ui->frame_Chi_22->setGeometry(QRect(7400 + 265 + 5, 340 + 10 * (28 + 5), 265, 28));
     }
 
-    if (index_plan_check.size() <= 4)
+    for (int iIndex = 0; iIndex < 12; iIndex++)
     {
-        for (int i = 0; i < index_plan_check.size(); i++)
+        xlsx.selectSheet(iIndex);
+        for (int j = 5; j <= giIndexDataSpending - 1; j++)
         {
-            index_plan_check_show[i] = index_plan_check.at(i);
+            giIndexMoneySpending += xlsx.read(j, 8).toInt();
+        }
+        for (int k = 5; k <= giIndexDataEarning - 1; k++)
+        {
+            giIndexMoneyEarning += xlsx.read(k, 3).toInt();
+        }
+        gvDataMoneyEarning.push_back(giIndexMoneyEarning);
+        gvDataMoneySpending.push_back(giIndexMoneySpending);
+        giIndexMoneyEarning = 0;
+        giIndexMoneySpending = 0;
+    }
+
+    gsMoneyEarning = "Tổng: " + QString::number(gvDataMoneyEarning.at(liIndexOfMonthEarning)) + " VNĐ";
+    ui->label_total_thu->setText(gsMoneyEarning);
+    gsMoneySpending = "Tổng: " + QString::number(gvDataMoneySpending.at(liIndexOfMonthEarning)) + " VNĐ";
+    ui->label_total_chi->setText(gsMoneySpending);
+    gsMoneyAccumulate = QString::number(gvDataMoneyEarning.at(liIndexOfMonthEarning) - gvDataMoneySpending.at(liIndexOfMonthEarning));
+
+    if (gbIsHorizontalLayoutSet == true)
+    {
+        if (gbHide == true)
+        {
+            ui->label_total->setText("Tổng tích lũy tháng " + QString::number(liIndexOfMonthEarning + 1) + " : " + gsMoneyAccumulate + " VNĐ");
+        }
+        else
+        {
+            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
+            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
+            ui->label_total->setText("Tổng tích lũy tháng " + QString::number(liIndexOfMonthEarning + 1) + " : *** *** *** VNĐ");
         }
     }
     else
     {
-        for (int i = 0; i < 4; i++)
+        if (gbHide == true)
         {
-            index_plan_check_show[i] = index_plan_check.at(index_plan_check.size() - (4 - i));
-        }
-    }
-
-    if (index_plan_check.size() > 4)
-    {
-        if (set_horizontal_layout == false)
-        {
-            if (ui->checkBox_1->isChecked() == true)
-                xlsx.write(index_plan_check_show[0], 1, "O");
-            if (ui->checkBox_2->isChecked() == true)
-                xlsx.write(index_plan_check_show[1], 1, "O");
-            if (ui->checkBox_3->isChecked() == true)
-                xlsx.write(index_plan_check_show[2], 1, "O");
-            if (ui->checkBox_4->isChecked() == true)
-                xlsx.write(index_plan_check_show[3], 1, "O");
+            ui->label_total->setText("Tích lũy tháng " + QString::number(liIndexOfMonthEarning + 1) + " : " + gsMoneyAccumulate + " VNĐ");
         }
         else
         {
-            if (index_plan_check.size() > 11)
+            ui->label_total->setText("Tích lũy tháng " + QString::number(liIndexOfMonthEarning + 1) + " : *** *** *** VNĐ");
+            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
+            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
+        }
+    }
+
+    QString total_tichluy_string = "Tích lũy tháng " + QString::number(liIndexOfMonthEarning + 1) + " : " + gsMoneyAccumulate + " VNĐ";
+    xlsx.selectSheet(liIndexOfMonthEarning);
+    xlsx.write("A1", total_tichluy_string);
+    xlsx.saveAs("Data_source.xlsx");
+
+    gvDataMoneyEarning.clear();
+    gvDataMoneySpending.clear();
+    giIndexDataSpending = 5;
+    giNumberOfDataSpending = 0;
+    giIndexDataEarning = 5;
+    giNumberOfDataEarning = 0;
+}
+
+/* ======================================================================================================================= */
+/*                                                      PLANNING MANAGEMENT                                                */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     HandleDataPlanning()
+ * @brief  Receive data from Popup_Plan dialog.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   07/01/2024
+ * @return void
+ * @param   const QString &lsDataDatePlanning, const QString &lsDataTimePlanning, const QString &lsDataDetailsPlanning
+ */
+void MyApp::HandleDataPlanning(const QString &lsDataDatePlanning, const QString &lsDataTimePlanning, const QString &lsDataDetailsPlanning)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(12);
+
+    if (lsDataDetailsPlanning != "" && lsDataTimePlanning != "")
+    {
+        while (xlsx.read(giWriteIndexPlanning, 2).toInt() != 0)
+        {
+            giWriteIndexPlanning++;
+        }
+
+        xlsx.write(giWriteIndexPlanning, 1, "X");
+        xlsx.write(giWriteIndexPlanning, 2, lsDataDatePlanning);
+        xlsx.write(giWriteIndexPlanning, 3, lsDataTimePlanning);
+        xlsx.write(giWriteIndexPlanning, 4, lsDataDetailsPlanning);
+
+        xlsx.saveAs("Data_source.xlsx");
+        giWriteIndexPlanning = 4;
+    }
+}
+
+/**
+ * @fn     HandleCheckBoxPlan(void)
+ * @brief  Handle staus of checkbox plan when the plan is planed or implemented in App and in Excel source.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/01/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::HandleCheckBoxPlan(void)
+{
+    Document xlsx("Data_source.xlsx");
+    xlsx.selectSheet(12);
+
+    int liIndexOfPlan = 4;
+    while (liIndexOfPlan < giNumberOfPlan)
+    {
+        if (xlsx.read(liIndexOfPlan, 1).toString() == "X")
+        {
+            gvIndexPlanningChecked.push_back(liIndexOfPlan);
+        }
+        liIndexOfPlan++;
+    }
+
+    if (gvIndexPlanningChecked.size() <= 4)
+    {
+        for (int iIndex = 0; iIndex < gvIndexPlanningChecked.size(); iIndex++)
+            gaiShowIndexPlanningChecked[iIndex] = gvIndexPlanningChecked.at(iIndex);
+    }
+    else
+    {
+        for (int iIndex = 0; iIndex < 4; iIndex++)
+            gaiShowIndexPlanningChecked[iIndex] = gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (4 - iIndex));
+    }
+
+    if (gvIndexPlanningChecked.size() > 4)
+    {
+        if (gbIsHorizontalLayoutSet == false)
+        {
+            if (ui->checkBox_1->isChecked() == true)
+                xlsx.write(gaiShowIndexPlanningChecked[0], 1, "O");
+            if (ui->checkBox_2->isChecked() == true)
+                xlsx.write(gaiShowIndexPlanningChecked[1], 1, "O");
+            if (ui->checkBox_3->isChecked() == true)
+                xlsx.write(gaiShowIndexPlanningChecked[2], 1, "O");
+            if (ui->checkBox_4->isChecked() == true)
+                xlsx.write(gaiShowIndexPlanningChecked[3], 1, "O");
+        }
+        else
+        {
+            if (gvIndexPlanningChecked.size() > 11)
             {
                 if (ui->checkBox_1->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 0)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 0)), 1, "O");
                 if (ui->checkBox_2->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 1)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 1)), 1, "O");
                 if (ui->checkBox_3->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 2)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 2)), 1, "O");
                 if (ui->checkBox_4->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 3)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 3)), 1, "O");
                 if (ui->checkBox_5->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 4)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 4)), 1, "O");
                 if (ui->checkBox_6->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 5)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 5)), 1, "O");
                 if (ui->checkBox_7->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 6)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 6)), 1, "O");
                 if (ui->checkBox_8->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 7)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 7)), 1, "O");
                 if (ui->checkBox_9->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 8)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 8)), 1, "O");
                 if (ui->checkBox_10->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 9)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 9)), 1, "O");
                 if (ui->checkBox_11->isChecked() == true)
-                    xlsx.write(index_plan_check.at(index_plan_check.size() - (11 - 10)), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(gvIndexPlanningChecked.size() - (11 - 10)), 1, "O");
             }
             else
             {
                 if (ui->checkBox_1->isChecked() == true)
-                    xlsx.write(index_plan_check.at(0), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(0), 1, "O");
                 if (ui->checkBox_2->isChecked() == true)
-                    xlsx.write(index_plan_check.at(1), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(1), 1, "O");
                 if (ui->checkBox_3->isChecked() == true)
-                    xlsx.write(index_plan_check.at(2), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(2), 1, "O");
                 if (ui->checkBox_4->isChecked() == true)
-                    xlsx.write(index_plan_check.at(3), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(3), 1, "O");
                 if (ui->checkBox_5->isChecked() == true)
-                    xlsx.write(index_plan_check.at(4), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(4), 1, "O");
                 if (ui->checkBox_6->isChecked() == true)
-                    xlsx.write(index_plan_check.at(5), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(5), 1, "O");
                 if (ui->checkBox_7->isChecked() == true)
-                    xlsx.write(index_plan_check.at(6), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(6), 1, "O");
                 if (ui->checkBox_8->isChecked() == true)
-                    xlsx.write(index_plan_check.at(7), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(7), 1, "O");
                 if (ui->checkBox_9->isChecked() == true)
-                    xlsx.write(index_plan_check.at(8), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(8), 1, "O");
                 if (ui->checkBox_10->isChecked() == true)
-                    xlsx.write(index_plan_check.at(9), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(9), 1, "O");
                 if (ui->checkBox_11->isChecked() == true)
-                    xlsx.write(index_plan_check.at(10), 1, "O");
+                    xlsx.write(gvIndexPlanningChecked.at(10), 1, "O");
             }
         }
     }
     else
     {
         if (ui->checkBox_1->isChecked() == true)
-            xlsx.write(index_plan_check_show[0], 1, "O");
+            xlsx.write(gaiShowIndexPlanningChecked[0], 1, "O");
         if (ui->checkBox_2->isChecked() == true)
-            xlsx.write(index_plan_check_show[1], 1, "O");
+            xlsx.write(gaiShowIndexPlanningChecked[1], 1, "O");
         if (ui->checkBox_3->isChecked() == true)
-            xlsx.write(index_plan_check_show[2], 1, "O");
+            xlsx.write(gaiShowIndexPlanningChecked[2], 1, "O");
         if (ui->checkBox_4->isChecked() == true)
-            xlsx.write(index_plan_check_show[3], 1, "O");
+            xlsx.write(gaiShowIndexPlanningChecked[3], 1, "O");
     }
 
     xlsx.saveAs("Data_source.xlsx");
@@ -728,213 +1551,121 @@ void MyApp::HandleCheckBoxPlan()
     ui->checkBox_10->setChecked(false);
     ui->checkBox_11->setChecked(false);
 
-    index_plan_check.clear();
+    gvIndexPlanningChecked.clear();
 }
 
-void MyApp::ShowFrameTest()
-{
-    popup_Thu *mypopup_thu = new popup_Thu(this, "Hello1");
-    mypopup_thu->show();
-    connect(mypopup_thu, &popup_Thu::dataAvaiable_Thu, this, &MyApp::onDataAvailable_Thu);
-}
-
-void MyApp::ShowPopUpChi()
-{
-    PopupChi *mypopup = new PopupChi(this, "Hello");
-    mypopup->show();
-    connect(mypopup, &PopupChi::dataAvaiable, this, &MyApp::onDataAvailable);
-}
-
-void MyApp::ShowPopUpPlan()
+/**
+ * @fn     ShowPlanWindow(void)
+ * @brief  Connect with Popup Plan and show.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   07/01/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowPlanWindow(void)
 {
     Popup_Plan *MyPopupPlan = new Popup_Plan(this, "helloPlan");
     MyPopupPlan->show();
-    connect(MyPopupPlan, &Popup_Plan::dataAvaiable_Plan, this, &MyApp::onDataAvailable_Plan);
+    connect(MyPopupPlan, &Popup_Plan::ConnectDataPlanning, this, &MyApp::HandleDataPlanning);
 }
 
-void MyApp::BackImage()
+/**
+ * @fn     HidetheTotal(void)
+ * @brief  Handle Hide/Show icon and set hide/unhide condition.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   10/12/2023
+ * @return void
+ * @param   void
+ */
+void MyApp::HidetheTotal(void)
 {
-    numberofimage--;
-    if (numberofimage == 0)
-        numberofimage = 11;
-    QString string1 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
-    QString string2 = QString::number(numberofimage);
-    QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
-    QString stringplus = string1 + string2 + string3;
-    ui->label_image->setStyleSheet(stringplus +
-                                   "border-radius: 15px;"
-                                   "border: 1pxsolid white;");
-}
-
-void MyApp::NextImage()
-{
-    numberofimage++;
-    if (numberofimage > 11)
-        numberofimage = 1;
-    QString string1 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
-    QString string2 = QString::number(numberofimage);
-    QString string3 = ".jpg) 0 0 0 0 stretch stretch;";
-    QString stringplus = string1 + string2 + string3;
-    ui->label_image->setStyleSheet(stringplus +
-                                   "border-radius: 15px;"
-                                   "border: 1pxsolid white;");
-
-    QPropertyAnimation *animation_image = new QPropertyAnimation(ui->label_image, "geometry");
-    animation_image->setDuration(500);
-
-    if (set_horizontal_layout == true)
+    if (gbHide == false)
     {
-        ui->label_image->setGeometry(5, 5, 521, 331);
-        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 521, 331));
-        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 521, ui->label_image->geometry().y(), 521, 331));
-    }
-    else
-    {
-        ui->label_image->setGeometry(5, 5, 185, 115);
-        animation_image->setEndValue(QRect(ui->label_image->geometry().x(), ui->label_image->geometry().y(), 185, 115));
-        animation_image->setStartValue(QRect(ui->label_image->geometry().x() - 185, ui->label_image->geometry().y(), 185, 115));
-    }
-    animation_image->start();
-
-    QPropertyAnimation *animation_image_2 = new QPropertyAnimation(ui->label_image_2, "geometry");
-    animation_image_2->setDuration(500);
-
-    if (set_horizontal_layout == true)
-    {
-        ui->label_image_2->setGeometry(5, 5, 521, 331);
-        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 530, ui->label_image_2->geometry().y(), 521, 331));
-        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 521, 331));
-    }
-    else
-    {
-        ui->label_image_2->setGeometry(10, 5, 185, 115);
-        animation_image_2->setEndValue(QRect(ui->label_image_2->geometry().x() + 185, ui->label_image_2->geometry().y(), 185, 115));
-        animation_image_2->setStartValue(QRect(ui->label_image_2->geometry().x(), ui->label_image_2->geometry().y(), 185, 115));
-    }
-    animation_image_2->start();
-    QString string1_2 = "border-image: url(:/ImagePersonal/Image/ImagePersonal/";
-    numberofimage_2 = numberofimage - 1;
-    if (numberofimage_2 == 0)
-        numberofimage_2 = 11;
-    QString string2_2 = QString::number(numberofimage_2);
-    QString string3_2 = ".jpg) 0 0 0 0 stretch stretch;";
-    QString stringplus_2 = string1_2 + string2_2 + string3_2;
-    ui->label_image_2->setStyleSheet(stringplus_2 +
-                                     "border-radius: 15px;"
-                                     "border: 1pxsolid white;");
-}
-
-void MyApp::HidetheTotal()
-{
-    if (Hide == false)
-    {
-        Hide = true;
+        gbHide = true;
         ui->pushButton_hide->setIcon(QIcon(":/Icon/Image/icons8-hide-15.png"));
     }
     else
     {
-        Hide = false;
+        gbHide = false;
         ui->pushButton_hide->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
     }
 }
 
-void MyApp::showTime()
-{
-    QTime time = QTime::currentTime();
-    QDate day = QDate::currentDate();
-    QString text_day = day.toString("dd");
-    QString text_thu = day.toString("dddd");
-    QString text = time.toString("hh:mm");
-    ui->label_time->setText(text);
-    ui->label_day->setText(text_day);
-    ui->label_thu->setText(text_thu);
-
-    QString text_hour = time.toString("hh");
-    int hour = text_hour.toInt();
-    QString StyleSheetDay = "background-color:  " + SunNight + "; color: #3085C3; border-radius: 25px";
-    if (hour >= 18 || (hour >= 0 && hour <= 5))
-    {
-        SunNight = "#CBBCF6";
-        QPixmap pixmap(":/Icon/Image/night.png");
-        ui->label_night->setPixmap(pixmap);
-        ui->label_day->setStyleSheet(StyleSheetDay);
-    }
-    else
-    {
-        SunNight = "#FDFFAE";
-        QPixmap pixmap(":/Icon/Image/sun.png");
-        ui->label_sun->setPixmap(pixmap);
-        ui->label_day->setStyleSheet(StyleSheetDay);
-    }
-}
-
-void MyApp::ShowDataPlan()
+/**
+ * @fn     ShowDataPlan(void)
+ * @brief  Read status of plan was set from Excel source to App in vertical and horizontal layout.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   13/01/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowDataPlan(void)
 {
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(12);
 
-    while (xlsx.read(numberofplan, 2).toInt() != 0)
+    while (xlsx.read(giNumberOfPlan, 2).toInt() != 0)
     {
-        numberofplan++;
+        giNumberOfPlan++;
     }
 
-    int index_numberofplan = 4;
-    while (index_numberofplan < numberofplan)
+    int liIndexOfPlan = 4;
+    while (liIndexOfPlan < giNumberOfPlan)
     {
-        if (xlsx.read(index_numberofplan, 1).toString() == "X")
+        if (xlsx.read(liIndexOfPlan, 1).toString() == "X")
         {
-            index_plan_unchecked.push_back(index_numberofplan);
+            gvIndexPlanningUnChecked.push_back(liIndexOfPlan);
         }
-        index_numberofplan++;
+        liIndexOfPlan++;
     }
 
-    if (index_plan_unchecked.size() <= 4)
+    if (gvIndexPlanningUnChecked.size() <= 4)
     {
-        for (int i = 0; i < index_plan_unchecked.size(); i++)
+        for (int iIndex = 0; iIndex < gvIndexPlanningUnChecked.size(); iIndex++)
         {
-            index_plan_unchecked_show[i] = index_plan_unchecked.at(i);
+            gaiShowIndexPlanningUnchecked[iIndex] = gvIndexPlanningUnChecked.at(iIndex);
         }
     }
     else
     {
-        for (int i = 0; i < 4; i++)
+        for (int iIndex = 0; iIndex < 4; iIndex++)
         {
-            index_plan_unchecked_show[i] = index_plan_unchecked.at(index_plan_unchecked.size() - (4 - i));
+            gaiShowIndexPlanningUnchecked[iIndex] = gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (4 - iIndex));
         }
     }
 
-    if (index_plan_unchecked.size() != 0)
+    if (gvIndexPlanningUnChecked.size() != 0)
         ui->label_no_data->setGeometry(QRect(2138, 165, 265, 26));
     else
     {
-        if (set_horizontal_layout == false)
+        if (gbIsHorizontalLayoutSet == false)
             ui->label_no_data->setGeometry(QRect(80, 50, 161, 21));
         else
             ui->label_no_data->setGeometry(QRect(80, 150, 161, 21));
     }
 
-    if (index_plan_unchecked.size() >= 1)
+    if (gvIndexPlanningUnChecked.size() >= 1)
     {
-        ui->label_day_plan1->setText(xlsx.read(index_plan_unchecked_show[0], 2).toString());
-        ui->label_time_plan1->setText(xlsx.read(index_plan_unchecked_show[0], 3).toString());
-        ui->label_content_plan_1->setText(xlsx.read(index_plan_unchecked_show[0], 4).toString());
+        ui->label_day_plan1->setText(xlsx.read(gaiShowIndexPlanningUnchecked[0], 2).toString());
+        ui->label_time_plan1->setText(xlsx.read(gaiShowIndexPlanningUnchecked[0], 3).toString());
+        ui->label_content_plan_1->setText(xlsx.read(gaiShowIndexPlanningUnchecked[0], 4).toString());
 
-        if (set_horizontal_layout == true)
+        if (gbIsHorizontalLayoutSet == true)
         {
             ui->frame_Plan_1->setGeometry(QRect(393, 392, 265, 26));
-            if (index_plan_unchecked.size() >= 4)
+            if (gvIndexPlanningUnChecked.size() >= 4)
             {
-                if (index_plan_unchecked.size() > 11)
+                if (gvIndexPlanningUnChecked.size() > 11)
                 {
-                    ui->label_day_plan1->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 0)), 2).toString());
-                    ui->label_time_plan1->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 0)), 3).toString());
-                    ui->label_content_plan_1->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 0)), 4).toString());
+                    ui->label_day_plan1->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 0)), 2).toString());
+                    ui->label_time_plan1->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 0)), 3).toString());
+                    ui->label_content_plan_1->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 0)), 4).toString());
                 }
                 else
                 {
-                    ui->label_day_plan1->setText(xlsx.read(index_plan_unchecked.at(0), 2).toString());
-                    ui->label_time_plan1->setText(xlsx.read(index_plan_unchecked.at(0), 3).toString());
-                    ui->label_content_plan_1->setText(xlsx.read(index_plan_unchecked.at(0), 4).toString());
+                    ui->label_day_plan1->setText(xlsx.read(gvIndexPlanningUnChecked.at(0), 2).toString());
+                    ui->label_time_plan1->setText(xlsx.read(gvIndexPlanningUnChecked.at(0), 3).toString());
+                    ui->label_content_plan_1->setText(xlsx.read(gvIndexPlanningUnChecked.at(0), 4).toString());
                 }
             }
         }
@@ -946,28 +1677,28 @@ void MyApp::ShowDataPlan()
     else
         ui->frame_Plan_1->setGeometry(QRect(2138, 165, 265, 26));
 
-    if (index_plan_unchecked.size() >= 2)
+    if (gvIndexPlanningUnChecked.size() >= 2)
     {
-        ui->label_day_plan1_2->setText(xlsx.read(index_plan_unchecked_show[1], 2).toString());
-        ui->label_time_plan1_2->setText(xlsx.read(index_plan_unchecked_show[1], 3).toString());
-        ui->label_content_plan_2->setText(xlsx.read(index_plan_unchecked_show[1], 4).toString());
+        ui->label_day_plan1_2->setText(xlsx.read(gaiShowIndexPlanningUnchecked[1], 2).toString());
+        ui->label_time_plan1_2->setText(xlsx.read(gaiShowIndexPlanningUnchecked[1], 3).toString());
+        ui->label_content_plan_2->setText(xlsx.read(gaiShowIndexPlanningUnchecked[1], 4).toString());
 
-        if (set_horizontal_layout == true)
+        if (gbIsHorizontalLayoutSet == true)
         {
             ui->frame_Plan_2->setGeometry(QRect(393, 397 + 26, 265, 26));
-            if (index_plan_unchecked.size() >= 4)
+            if (gvIndexPlanningUnChecked.size() >= 4)
             {
-                if (index_plan_unchecked.size() > 11)
+                if (gvIndexPlanningUnChecked.size() > 11)
                 {
-                    ui->label_day_plan1_2->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 1)), 2).toString());
-                    ui->label_time_plan1_2->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 1)), 3).toString());
-                    ui->label_content_plan_2->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 1)), 4).toString());
+                    ui->label_day_plan1_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 1)), 2).toString());
+                    ui->label_time_plan1_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 1)), 3).toString());
+                    ui->label_content_plan_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 1)), 4).toString());
                 }
                 else
                 {
-                    ui->label_day_plan1_2->setText(xlsx.read(index_plan_unchecked.at(1), 2).toString());
-                    ui->label_time_plan1_2->setText(xlsx.read(index_plan_unchecked.at(1), 3).toString());
-                    ui->label_content_plan_2->setText(xlsx.read(index_plan_unchecked.at(1), 4).toString());
+                    ui->label_day_plan1_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(1), 2).toString());
+                    ui->label_time_plan1_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(1), 3).toString());
+                    ui->label_content_plan_2->setText(xlsx.read(gvIndexPlanningUnChecked.at(1), 4).toString());
                 }
             }
         }
@@ -979,28 +1710,28 @@ void MyApp::ShowDataPlan()
     else
         ui->frame_Plan_2->setGeometry(QRect(2355, 165 + 26 + 5, 265, 26));
 
-    if (index_plan_unchecked.size() >= 3)
+    if (gvIndexPlanningUnChecked.size() >= 3)
     {
-        ui->label_day_plan1_3->setText(xlsx.read(index_plan_unchecked_show[2], 2).toString());
-        ui->label_time_plan1_3->setText(xlsx.read(index_plan_unchecked_show[2], 3).toString());
-        ui->label_content_plan_3->setText(xlsx.read(index_plan_unchecked_show[2], 4).toString());
+        ui->label_day_plan1_3->setText(xlsx.read(gaiShowIndexPlanningUnchecked[2], 2).toString());
+        ui->label_time_plan1_3->setText(xlsx.read(gaiShowIndexPlanningUnchecked[2], 3).toString());
+        ui->label_content_plan_3->setText(xlsx.read(gaiShowIndexPlanningUnchecked[2], 4).toString());
 
-        if (set_horizontal_layout == true)
+        if (gbIsHorizontalLayoutSet == true)
         {
             ui->frame_Plan_3->setGeometry(QRect(393, 392 + 2 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() >= 4)
+            if (gvIndexPlanningUnChecked.size() >= 4)
             {
-                if (index_plan_unchecked.size() > 11)
+                if (gvIndexPlanningUnChecked.size() > 11)
                 {
-                    ui->label_day_plan1_3->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 2)), 2).toString());
-                    ui->label_time_plan1_3->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 2)), 3).toString());
-                    ui->label_content_plan_3->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 2)), 4).toString());
+                    ui->label_day_plan1_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 2)), 2).toString());
+                    ui->label_time_plan1_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 2)), 3).toString());
+                    ui->label_content_plan_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 2)), 4).toString());
                 }
                 else
                 {
-                    ui->label_day_plan1_3->setText(xlsx.read(index_plan_unchecked.at(2), 2).toString());
-                    ui->label_time_plan1_3->setText(xlsx.read(index_plan_unchecked.at(2), 3).toString());
-                    ui->label_content_plan_3->setText(xlsx.read(index_plan_unchecked.at(2), 4).toString());
+                    ui->label_day_plan1_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(2), 2).toString());
+                    ui->label_time_plan1_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(2), 3).toString());
+                    ui->label_content_plan_3->setText(xlsx.read(gvIndexPlanningUnChecked.at(2), 4).toString());
                 }
             }
         }
@@ -1012,28 +1743,28 @@ void MyApp::ShowDataPlan()
     else
         ui->frame_Plan_3->setGeometry(QRect(2355, 165 + 26 + 5, 265, 26));
 
-    if (index_plan_unchecked.size() >= 4)
+    if (gvIndexPlanningUnChecked.size() >= 4)
     {
-        ui->label_day_plan1_4->setText(xlsx.read(index_plan_unchecked_show[3], 2).toString());
-        ui->label_time_plan1_4->setText(xlsx.read(index_plan_unchecked_show[3], 3).toString());
-        ui->label_content_plan_4->setText(xlsx.read(index_plan_unchecked_show[3], 4).toString());
+        ui->label_day_plan1_4->setText(xlsx.read(gaiShowIndexPlanningUnchecked[3], 2).toString());
+        ui->label_time_plan1_4->setText(xlsx.read(gaiShowIndexPlanningUnchecked[3], 3).toString());
+        ui->label_content_plan_4->setText(xlsx.read(gaiShowIndexPlanningUnchecked[3], 4).toString());
 
-        if (set_horizontal_layout == true)
+        if (gbIsHorizontalLayoutSet == true)
         {
             ui->frame_Plan_4->setGeometry(QRect(393, 392 + 3 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() >= 4)
+            if (gvIndexPlanningUnChecked.size() >= 4)
             {
-                if (index_plan_unchecked.size() > 11)
+                if (gvIndexPlanningUnChecked.size() > 11)
                 {
-                    ui->label_day_plan1_4->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 3)), 2).toString());
-                    ui->label_time_plan1_4->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 3)), 3).toString());
-                    ui->label_content_plan_4->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 3)), 4).toString());
+                    ui->label_day_plan1_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 3)), 2).toString());
+                    ui->label_time_plan1_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 3)), 3).toString());
+                    ui->label_content_plan_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 3)), 4).toString());
                 }
                 else
                 {
-                    ui->label_day_plan1_4->setText(xlsx.read(index_plan_unchecked.at(3), 2).toString());
-                    ui->label_time_plan1_4->setText(xlsx.read(index_plan_unchecked.at(3), 3).toString());
-                    ui->label_content_plan_4->setText(xlsx.read(index_plan_unchecked.at(3), 4).toString());
+                    ui->label_day_plan1_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(3), 2).toString());
+                    ui->label_time_plan1_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(3), 3).toString());
+                    ui->label_content_plan_4->setText(xlsx.read(gvIndexPlanningUnChecked.at(3), 4).toString());
                 }
             }
         }
@@ -1045,136 +1776,136 @@ void MyApp::ShowDataPlan()
     else
         ui->frame_Plan_4->setGeometry(QRect(2355, 165 + 26 + 5, 265, 26));
 
-    if (set_horizontal_layout == true)
+    if (gbIsHorizontalLayoutSet == true)
     {
-        if (index_plan_unchecked.size() >= 5)
+        if (gvIndexPlanningUnChecked.size() >= 5)
         {
             ui->frame_Plan_5->setGeometry(QRect(388, 387 + 4 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_5->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 4)), 2).toString());
-                ui->label_time_plan1_5->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 4)), 3).toString());
-                ui->label_content_plan_5->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 4)), 4).toString());
+                ui->label_day_plan1_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 4)), 2).toString());
+                ui->label_time_plan1_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 4)), 3).toString());
+                ui->label_content_plan_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 4)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_5->setText(xlsx.read(index_plan_unchecked.at(4), 2).toString());
-                ui->label_time_plan1_5->setText(xlsx.read(index_plan_unchecked.at(4), 3).toString());
-                ui->label_content_plan_5->setText(xlsx.read(index_plan_unchecked.at(4), 4).toString());
+                ui->label_day_plan1_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(4), 2).toString());
+                ui->label_time_plan1_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(4), 3).toString());
+                ui->label_content_plan_5->setText(xlsx.read(gvIndexPlanningUnChecked.at(4), 4).toString());
             }
         }
         else
             ui->frame_Plan_5->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 6)
+        if (gvIndexPlanningUnChecked.size() >= 6)
         {
             ui->frame_Plan_6->setGeometry(QRect(388, 387 + 5 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_6->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 5)), 2).toString());
-                ui->label_time_plan1_6->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 5)), 3).toString());
-                ui->label_content_plan_6->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 5)), 4).toString());
+                ui->label_day_plan1_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 5)), 2).toString());
+                ui->label_time_plan1_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 5)), 3).toString());
+                ui->label_content_plan_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 5)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_6->setText(xlsx.read(index_plan_unchecked.at(5), 2).toString());
-                ui->label_time_plan1_6->setText(xlsx.read(index_plan_unchecked.at(5), 3).toString());
-                ui->label_content_plan_6->setText(xlsx.read(index_plan_unchecked.at(5), 4).toString());
+                ui->label_day_plan1_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(5), 2).toString());
+                ui->label_time_plan1_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(5), 3).toString());
+                ui->label_content_plan_6->setText(xlsx.read(gvIndexPlanningUnChecked.at(5), 4).toString());
             }
         }
         else
             ui->frame_Plan_6->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 7)
+        if (gvIndexPlanningUnChecked.size() >= 7)
         {
             ui->frame_Plan_7->setGeometry(QRect(388, 387 + 6 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_7->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 6)), 2).toString());
-                ui->label_time_plan1_7->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 6)), 3).toString());
-                ui->label_content_plan_7->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 6)), 4).toString());
+                ui->label_day_plan1_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 6)), 2).toString());
+                ui->label_time_plan1_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 6)), 3).toString());
+                ui->label_content_plan_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 6)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_7->setText(xlsx.read(index_plan_unchecked.at(6), 2).toString());
-                ui->label_time_plan1_7->setText(xlsx.read(index_plan_unchecked.at(6), 3).toString());
-                ui->label_content_plan_7->setText(xlsx.read(index_plan_unchecked.at(6), 4).toString());
+                ui->label_day_plan1_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(6), 2).toString());
+                ui->label_time_plan1_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(6), 3).toString());
+                ui->label_content_plan_7->setText(xlsx.read(gvIndexPlanningUnChecked.at(6), 4).toString());
             }
         }
         else
             ui->frame_Plan_7->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 8)
+        if (gvIndexPlanningUnChecked.size() >= 8)
         {
             ui->frame_Plan_8->setGeometry(QRect(388, 387 + 7 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_8->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 7)), 2).toString());
-                ui->label_time_plan1_8->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 7)), 3).toString());
-                ui->label_content_plan_8->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 7)), 4).toString());
+                ui->label_day_plan1_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 7)), 2).toString());
+                ui->label_time_plan1_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 7)), 3).toString());
+                ui->label_content_plan_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 7)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_8->setText(xlsx.read(index_plan_unchecked.at(7), 2).toString());
-                ui->label_time_plan1_8->setText(xlsx.read(index_plan_unchecked.at(7), 3).toString());
-                ui->label_content_plan_8->setText(xlsx.read(index_plan_unchecked.at(7), 4).toString());
+                ui->label_day_plan1_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(7), 2).toString());
+                ui->label_time_plan1_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(7), 3).toString());
+                ui->label_content_plan_8->setText(xlsx.read(gvIndexPlanningUnChecked.at(7), 4).toString());
             }
         }
         else
             ui->frame_Plan_8->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 9)
+        if (gvIndexPlanningUnChecked.size() >= 9)
         {
             ui->frame_Plan_9->setGeometry(QRect(388, 387 + 8 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_9->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 8)), 2).toString());
-                ui->label_time_plan1_9->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 8)), 3).toString());
-                ui->label_content_plan_9->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 8)), 4).toString());
+                ui->label_day_plan1_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 8)), 2).toString());
+                ui->label_time_plan1_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 8)), 3).toString());
+                ui->label_content_plan_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 8)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_9->setText(xlsx.read(index_plan_unchecked.at(8), 2).toString());
-                ui->label_time_plan1_9->setText(xlsx.read(index_plan_unchecked.at(8), 3).toString());
-                ui->label_content_plan_9->setText(xlsx.read(index_plan_unchecked.at(8), 4).toString());
+                ui->label_day_plan1_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(8), 2).toString());
+                ui->label_time_plan1_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(8), 3).toString());
+                ui->label_content_plan_9->setText(xlsx.read(gvIndexPlanningUnChecked.at(8), 4).toString());
             }
         }
         else
             ui->frame_Plan_9->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 10)
+        if (gvIndexPlanningUnChecked.size() >= 10)
         {
             ui->frame_Plan_10->setGeometry(QRect(388, 387 + 9 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_10->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 9)), 2).toString());
-                ui->label_time_plan1_10->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 9)), 3).toString());
-                ui->label_content_plan_10->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 9)), 4).toString());
+                ui->label_day_plan1_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 9)), 2).toString());
+                ui->label_time_plan1_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 9)), 3).toString());
+                ui->label_content_plan_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 9)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_10->setText(xlsx.read(index_plan_unchecked.at(9), 2).toString());
-                ui->label_time_plan1_10->setText(xlsx.read(index_plan_unchecked.at(9), 3).toString());
-                ui->label_content_plan_10->setText(xlsx.read(index_plan_unchecked.at(9), 4).toString());
+                ui->label_day_plan1_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(9), 2).toString());
+                ui->label_time_plan1_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(9), 3).toString());
+                ui->label_content_plan_10->setText(xlsx.read(gvIndexPlanningUnChecked.at(9), 4).toString());
             }
         }
         else
             ui->frame_Plan_10->setGeometry(QRect(2393, 392 + 4 * (26 + 5), 265, 26));
 
-        if (index_plan_unchecked.size() >= 11)
+        if (gvIndexPlanningUnChecked.size() >= 11)
         {
             ui->frame_Plan_11->setGeometry(QRect(388, 387 + 10 * (26 + 5), 265, 26));
-            if (index_plan_unchecked.size() > 11)
+            if (gvIndexPlanningUnChecked.size() > 11)
             {
-                ui->label_day_plan1_11->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 10)), 2).toString());
-                ui->label_time_plan1_11->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 10)), 3).toString());
-                ui->label_content_plan_11->setText(xlsx.read(index_plan_unchecked.at(index_plan_unchecked.size() - (11 - 10)), 4).toString());
+                ui->label_day_plan1_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 10)), 2).toString());
+                ui->label_time_plan1_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 10)), 3).toString());
+                ui->label_content_plan_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(gvIndexPlanningUnChecked.size() - (11 - 10)), 4).toString());
             }
             else
             {
-                ui->label_day_plan1_11->setText(xlsx.read(index_plan_unchecked.at(10), 2).toString());
-                ui->label_time_plan1_11->setText(xlsx.read(index_plan_unchecked.at(10), 3).toString());
-                ui->label_content_plan_11->setText(xlsx.read(index_plan_unchecked.at(10), 4).toString());
+                ui->label_day_plan1_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(10), 2).toString());
+                ui->label_time_plan1_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(10), 3).toString());
+                ui->label_content_plan_11->setText(xlsx.read(gvIndexPlanningUnChecked.at(10), 4).toString());
             }
         }
         else
@@ -1191,571 +1922,43 @@ void MyApp::ShowDataPlan()
         ui->frame_Plan_5->setGeometry(QRect(1393, 392 + 4 * (26 + 5), 265, 26));
     }
 
-    index_plan_unchecked.clear();
+    gvIndexPlanningUnChecked.clear();
 }
 
-void MyApp::ShowDataFromDataSource()
-{
-    Document xlsx("Data_source.xlsx");
+/* ======================================================================================================================= */
+/*                                                      PASSWORD MANAGEMENT                                                */
+/* ======================================================================================================================= */
 
-    int index_month_thu = ui->comboBox_MonthThu->currentIndex();
-    ui->comboBox_MonthChi->setCurrentIndex(index_month_thu);
-    xlsx.selectSheet(index_month_thu);
-
-    while (xlsx.read(number_data_thu_index, 1).toInt() != 0)
-    {
-        number_data_thu_index++;
-        number_data_thu++;
-    }
-    if (number_data_thu >= 8)
-        number_data_thu -= (number_data_thu - 8);
-
-    if (number_data_thu >= 1)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_1->setGeometry(QRect(740, 110, 265, 28));
-        else
-            ui->frame_Thu_1->setGeometry(QRect(27, 395, 97, 28));
-        ui->label_day_thu1->setText(xlsx.read(number_data_thu_index - number_data_thu, 1).toString());
-        ui->label_money_thu1->setText(xlsx.read(number_data_thu_index - number_data_thu, 3).toString());
-        ui->label_typethu1->setText(xlsx.read(number_data_thu_index - number_data_thu, 2).toString());
-        ui->label_content_thu1->setText(xlsx.read(number_data_thu_index - number_data_thu, 4).toString());
-    }
-    else
-        ui->frame_Thu_1->setGeometry(QRect(2400, 395, 97, 28));
-
-    if (number_data_thu >= 2)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_2->setGeometry(QRect(740 + 265 + 5, 110, 265, 28));
-        else
-            ui->frame_Thu_2->setGeometry(QRect(27 + 97 + 2, 395, 97, 28));
-        ui->label_day_thu2->setText(xlsx.read(number_data_thu_index - number_data_thu + 1, 1).toString());
-        ui->label_money_thu2->setText(xlsx.read(number_data_thu_index - number_data_thu + 1, 3).toString());
-        ui->label_typethu2->setText(xlsx.read(number_data_thu_index - number_data_thu + 1, 2).toString());
-        ui->label_content_thu2->setText(xlsx.read(number_data_thu_index - number_data_thu + 1, 4).toString());
-    }
-    else
-        ui->frame_Thu_2->setGeometry(QRect(2400, 395, 97, 28));
-
-    if (number_data_thu >= 3)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_3->setGeometry(QRect(740, 110 + 28 + 5, 265, 28));
-        else
-            ui->frame_Thu_3->setGeometry(QRect(27, 395 + 28 + 5, 97, 28));
-        ui->label_day_thu3->setText(xlsx.read(number_data_thu_index - number_data_thu + 2, 1).toString());
-        ui->label_money_thu3->setText(xlsx.read(number_data_thu_index - number_data_thu + 2, 3).toString());
-        ui->label_typethu3->setText(xlsx.read(number_data_thu_index - number_data_thu + 2, 2).toString());
-        ui->label_content_thu3->setText(xlsx.read(number_data_thu_index - number_data_thu + 2, 4).toString());
-    }
-    else
-        ui->frame_Thu_3->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_thu >= 4)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_4->setGeometry(QRect(740 + 265 + 5, 110 + 28 + 5, 265, 28));
-        else
-            ui->frame_Thu_4->setGeometry(QRect(27 + 97 + 2, 395 + 28 + 5, 97, 28));
-        ui->label_day_thu4->setText(xlsx.read(number_data_thu_index - number_data_thu + 3, 1).toString());
-        ui->label_money_thu4->setText(xlsx.read(number_data_thu_index - number_data_thu + 3, 3).toString());
-        ui->label_typethu4->setText(xlsx.read(number_data_thu_index - number_data_thu + 3, 2).toString());
-        ui->label_content_thu4->setText(xlsx.read(number_data_thu_index - number_data_thu + 3, 4).toString());
-    }
-    else
-        ui->frame_Thu_4->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_thu >= 5)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_5->setGeometry(QRect(740, 110 + 2 * (28 + 5), 265, 28));
-        else
-            ui->frame_Thu_5->setGeometry(QRect(27, 395 + 2 * (28 + 5), 97, 28));
-        ui->label_day_thu5->setText(xlsx.read(number_data_thu_index - number_data_thu + 4, 1).toString());
-        ui->label_money_thu5->setText(xlsx.read(number_data_thu_index - number_data_thu + 4, 3).toString());
-        ui->label_typethu5->setText(xlsx.read(number_data_thu_index - number_data_thu + 4, 2).toString());
-        ui->label_content_thu5->setText(xlsx.read(number_data_thu_index - number_data_thu + 4, 4).toString());
-    }
-    else
-        ui->frame_Thu_5->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_thu >= 6)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_6->setGeometry(QRect(740 + 265 + 5, 110 + 2 * (28 + 5), 265, 28));
-        else
-            ui->frame_Thu_6->setGeometry(QRect(27 + 97 + 2, 395 + 2 * (28 + 5), 97, 28));
-        ui->label_day_thu6->setText(xlsx.read(number_data_thu_index - number_data_thu + 5, 1).toString());
-        ui->label_money_thu6->setText(xlsx.read(number_data_thu_index - number_data_thu + 5, 3).toString());
-        ui->label_typethu6->setText(xlsx.read(number_data_thu_index - number_data_thu + 5, 2).toString());
-        ui->label_content_thu6->setText(xlsx.read(number_data_thu_index - number_data_thu + 5, 4).toString());
-    }
-    else
-        ui->frame_Thu_6->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_thu >= 7)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_7->setGeometry(QRect(740, 110 + 3 * (28 + 5), 265, 28));
-        else
-            ui->frame_Thu_7->setGeometry(QRect(27, 395 + 3 * (28 + 5), 97, 28));
-        ui->label_day_thu7->setText(xlsx.read(number_data_thu_index - number_data_thu + 6, 1).toString());
-        ui->label_money_thu7->setText(xlsx.read(number_data_thu_index - number_data_thu + 6, 3).toString());
-        ui->label_typethu7->setText(xlsx.read(number_data_thu_index - number_data_thu + 6, 2).toString());
-        ui->label_content_thu7->setText(xlsx.read(number_data_thu_index - number_data_thu + 6, 4).toString());
-    }
-    else
-        ui->frame_Thu_7->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_thu >= 8)
-    {
-        if (set_horizontal_layout == true)
-            ui->frame_Thu_8->setGeometry(QRect(740 + 265 + 5, 110 + 3 * (28 + 5), 265, 28));
-        else
-            ui->frame_Thu_8->setGeometry(QRect(27 + 97 + 2, 395 + 3 * (28 + 5), 97, 28));
-        ui->label_day_thu8->setText(xlsx.read(number_data_thu_index - number_data_thu + 7, 1).toString());
-        ui->label_money_thu8->setText(xlsx.read(number_data_thu_index - number_data_thu + 7, 3).toString());
-        ui->label_typethu8->setText(xlsx.read(number_data_thu_index - number_data_thu + 7, 2).toString());
-        ui->label_content_thu8->setText(xlsx.read(number_data_thu_index - number_data_thu + 7, 4).toString());
-    }
-    else
-        ui->frame_Thu_8->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    while (xlsx.read(number_data_chi_index, 7).toInt() != 0)
-    {
-        number_data_chi_index++;
-        number_data_chi++;
-    }
-    if (number_data_chi >= 22)
-        number_data_chi -= (number_data_chi - 22);
-
-    if (number_data_chi >= 1)
-    {
-        ui->label_day_chi1->setText(xlsx.read(number_data_chi_index - number_data_chi, 7).toString());
-        ui->label_money_chi1->setText(xlsx.read(number_data_chi_index - number_data_chi, 8).toString());
-        ui->label_typechi1->setText(xlsx.read(number_data_chi_index - number_data_chi, 9).toString());
-        ui->label_content_chi1->setText(xlsx.read(number_data_chi_index - number_data_chi, 10).toString());
-
-        if (set_horizontal_layout == true)
-        {
-            ui->frame_Chi_1->setGeometry(QRect(740, 340, 265, 28));
-        }
-        else
-        {
-            ui->frame_Chi_1->setGeometry(QRect(240, 395, 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi1->setText(xlsx.read(number_data_chi_index - 8, 7).toString());
-                ui->label_money_chi1->setText(xlsx.read(number_data_chi_index - 8, 8).toString());
-                ui->label_typechi1->setText(xlsx.read(number_data_chi_index - 8, 9).toString());
-                ui->label_content_chi1->setText(xlsx.read(number_data_chi_index - 8, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_1->setGeometry(QRect(2400, 395, 97, 28));
-
-    if (number_data_chi >= 2)
-    {
-        ui->label_day_chi2->setText(xlsx.read(number_data_chi_index - number_data_chi + 1, 7).toString());
-        ui->label_money_chi2->setText(xlsx.read(number_data_chi_index - number_data_chi + 1, 8).toString());
-        ui->label_typechi2->setText(xlsx.read(number_data_chi_index - number_data_chi + 1, 9).toString());
-        ui->label_content_chi2->setText(xlsx.read(number_data_chi_index - number_data_chi + 1, 10).toString());
-
-        if (set_horizontal_layout == true)
-        {
-            ui->frame_Chi_2->setGeometry(QRect(740 + 265 + 5, 340, 265, 28));
-        }
-        else
-        {
-            ui->frame_Chi_2->setGeometry(QRect(240 + 98 + 2, 395, 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi2->setText(xlsx.read(number_data_chi_index - 8 + 1, 7).toString());
-                ui->label_money_chi2->setText(xlsx.read(number_data_chi_index - 8 + 1, 8).toString());
-                ui->label_typechi2->setText(xlsx.read(number_data_chi_index - 8 + 1, 9).toString());
-                ui->label_content_chi2->setText(xlsx.read(number_data_chi_index - 8 + 1, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_2->setGeometry(QRect(2400 + 98 + 2, 395, 97, 28));
-
-    if (number_data_chi >= 3)
-    {
-        ui->label_day_chi3->setText(xlsx.read(number_data_chi_index - number_data_chi + 2, 7).toString());
-        ui->label_money_chi3->setText(xlsx.read(number_data_chi_index - number_data_chi + 2, 8).toString());
-        ui->label_typechi3->setText(xlsx.read(number_data_chi_index - number_data_chi + 2, 9).toString());
-        ui->label_content_chi3->setText(xlsx.read(number_data_chi_index - number_data_chi + 2, 10).toString());
-
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_3->setGeometry(QRect(740, 340 + 28 + 5, 265, 28));
-        else
-        {
-            ui->frame_Chi_3->setGeometry(QRect(240, 395 + 28 + 5, 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi3->setText(xlsx.read(number_data_chi_index - 8 + 2, 7).toString());
-                ui->label_money_chi3->setText(xlsx.read(number_data_chi_index - 8 + 2, 8).toString());
-                ui->label_typechi3->setText(xlsx.read(number_data_chi_index - 8 + 2, 9).toString());
-                ui->label_content_chi3->setText(xlsx.read(number_data_chi_index - 8 + 2, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_3->setGeometry(QRect(2400, 395 + 28 + 5, 97, 28));
-
-    if (number_data_chi >= 4)
-    {
-        ui->label_day_chi4->setText(xlsx.read(number_data_chi_index - number_data_chi + 3, 7).toString());
-        ui->label_money_chi4->setText(xlsx.read(number_data_chi_index - number_data_chi + 3, 8).toString());
-        ui->label_typechi4->setText(xlsx.read(number_data_chi_index - number_data_chi + 3, 9).toString());
-        ui->label_content_chi4->setText(xlsx.read(number_data_chi_index - number_data_chi + 3, 10).toString());
-
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_4->setGeometry(QRect(740 + 265 + 5, 340 + 28 + 5, 265, 28));
-        else
-        {
-            ui->frame_Chi_4->setGeometry(QRect(240 + 98 + 2, 395 + 28 + 5, 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi4->setText(xlsx.read(number_data_chi_index - 8 + 3, 7).toString());
-                ui->label_money_chi4->setText(xlsx.read(number_data_chi_index - 8 + 3, 8).toString());
-                ui->label_typechi4->setText(xlsx.read(number_data_chi_index - 8 + 3, 9).toString());
-                ui->label_content_chi4->setText(xlsx.read(number_data_chi_index - 8 + 3, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_4->setGeometry(QRect(2400 + 98 + 2, 395 + 28 + 5, 97, 28));
-
-    if (number_data_chi >= 5)
-    {
-        ui->label_day_chi5->setText(xlsx.read(number_data_chi_index - number_data_chi + 4, 7).toString());
-        ui->label_money_chi5->setText(xlsx.read(number_data_chi_index - number_data_chi + 4, 8).toString());
-        ui->label_typechi5->setText(xlsx.read(number_data_chi_index - number_data_chi + 4, 9).toString());
-        ui->label_content_chi5->setText(xlsx.read(number_data_chi_index - number_data_chi + 4, 10).toString());
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_5->setGeometry(QRect(740, 340 + 2 * (28 + 5), 265, 28));
-        else
-        {
-            ui->frame_Chi_5->setGeometry(QRect(240, 395 + 2 * (28 + 5), 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi5->setText(xlsx.read(number_data_chi_index - 8 + 4, 7).toString());
-                ui->label_money_chi5->setText(xlsx.read(number_data_chi_index - 8 + 4, 8).toString());
-                ui->label_typechi5->setText(xlsx.read(number_data_chi_index - 8 + 4, 9).toString());
-                ui->label_content_chi5->setText(xlsx.read(number_data_chi_index - 8 + 4, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_5->setGeometry(QRect(2400, 395 + 2 * (28 + 5), 97, 28));
-
-    if (number_data_chi >= 6)
-    {
-        ui->label_day_chi6->setText(xlsx.read(number_data_chi_index - number_data_chi + 5, 7).toString());
-        ui->label_money_chi6->setText(xlsx.read(number_data_chi_index - number_data_chi + 5, 8).toString());
-        ui->label_typechi6->setText(xlsx.read(number_data_chi_index - number_data_chi + 5, 9).toString());
-        ui->label_content_chi6->setText(xlsx.read(number_data_chi_index - number_data_chi + 5, 10).toString());
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_6->setGeometry(QRect(740 + 265 + 5, 340 + 2 * (28 + 5), 265, 28));
-        else
-        {
-            ui->frame_Chi_6->setGeometry(QRect(240 + 98 + 2, 395 + 2 * (28 + 5), 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi6->setText(xlsx.read(number_data_chi_index - 8 + 5, 7).toString());
-                ui->label_money_chi6->setText(xlsx.read(number_data_chi_index - 8 + 5, 8).toString());
-                ui->label_typechi6->setText(xlsx.read(number_data_chi_index - 8 + 5, 9).toString());
-                ui->label_content_chi6->setText(xlsx.read(number_data_chi_index - 8 + 5, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_6->setGeometry(QRect(2400 + 98 + 2, 395 + 2 * (28 + 5), 97, 28));
-
-    if (number_data_chi >= 7)
-    {
-        ui->label_day_chi7->setText(xlsx.read(number_data_chi_index - number_data_chi + 6, 7).toString());
-        ui->label_money_chi7->setText(xlsx.read(number_data_chi_index - number_data_chi + 6, 8).toString());
-        ui->label_typechi7->setText(xlsx.read(number_data_chi_index - number_data_chi + 6, 9).toString());
-        ui->label_content_chi7->setText(xlsx.read(number_data_chi_index - number_data_chi + 6, 10).toString());
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_7->setGeometry(QRect(740, 340 + 3 * (28 + 5), 265, 28));
-        else
-        {
-            ui->frame_Chi_7->setGeometry(QRect(240, 395 + 3 * (28 + 5), 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi7->setText(xlsx.read(number_data_chi_index - 8 + 6, 7).toString());
-                ui->label_money_chi7->setText(xlsx.read(number_data_chi_index - 8 + 6, 8).toString());
-                ui->label_typechi7->setText(xlsx.read(number_data_chi_index - 8 + 6, 9).toString());
-                ui->label_content_chi7->setText(xlsx.read(number_data_chi_index - 8 + 6, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_7->setGeometry(QRect(2400, 395 + 3 * (28 + 5), 97, 28));
-
-    if (number_data_chi >= 8)
-    {
-        ui->label_day_chi8->setText(xlsx.read(number_data_chi_index - number_data_chi + 7, 7).toString());
-        ui->label_money_chi8->setText(xlsx.read(number_data_chi_index - number_data_chi + 7, 8).toString());
-        ui->label_typechi8->setText(xlsx.read(number_data_chi_index - number_data_chi + 7, 9).toString());
-        ui->label_content_chi8->setText(xlsx.read(number_data_chi_index - number_data_chi + 7, 10).toString());
-        if (set_horizontal_layout == true)
-            ui->frame_Chi_8->setGeometry(QRect(740 + 265 + 5, 340 + 3 * (28 + 5), 265, 28));
-        else
-        {
-            ui->frame_Chi_8->setGeometry(QRect(240 + 98 + 2, 395 + 3 * (28 + 5), 97, 28));
-            if (number_data_chi >= 8)
-            {
-                ui->label_day_chi8->setText(xlsx.read(number_data_chi_index - 8 + 7, 7).toString());
-                ui->label_money_chi8->setText(xlsx.read(number_data_chi_index - 8 + 7, 8).toString());
-                ui->label_typechi8->setText(xlsx.read(number_data_chi_index - 8 + 7, 9).toString());
-                ui->label_content_chi8->setText(xlsx.read(number_data_chi_index - 8 + 7, 10).toString());
-            }
-        }
-    }
-    else
-        ui->frame_Chi_8->setGeometry(QRect(2400 + 98 + 2, 395 + 3 * (28 + 5), 97, 28));
-
-    if (set_horizontal_layout == true)
-    {
-        if (number_data_chi >= 9)
-        {
-            ui->frame_Chi_9->setGeometry(QRect(740, 340 + 4 * (28 + 5), 265, 28));
-            ui->label_day_chi9->setText(xlsx.read(number_data_chi_index - number_data_chi + 8, 7).toString());
-            ui->label_money_chi9->setText(xlsx.read(number_data_chi_index - number_data_chi + 8, 8).toString());
-            ui->label_typechi9->setText(xlsx.read(number_data_chi_index - number_data_chi + 8, 9).toString());
-            ui->label_content_chi9->setText(xlsx.read(number_data_chi_index - number_data_chi + 8, 10).toString());
-        }
-        else
-            ui->frame_Chi_9->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 10)
-        {
-            ui->frame_Chi_10->setGeometry(QRect(740 + 265 + 5, 340 + 4 * (28 + 5), 265, 28));
-            ui->label_day_chi10->setText(xlsx.read(number_data_chi_index - number_data_chi + 9, 7).toString());
-            ui->label_money_chi10->setText(xlsx.read(number_data_chi_index - number_data_chi + 9, 8).toString());
-            ui->label_typechi10->setText(xlsx.read(number_data_chi_index - number_data_chi + 9, 9).toString());
-            ui->label_content_chi10->setText(xlsx.read(number_data_chi_index - number_data_chi + 9, 10).toString());
-        }
-        else
-            ui->frame_Chi_10->setGeometry(QRect(7040, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 11)
-        {
-            ui->frame_Chi_11->setGeometry(QRect(740, 340 + 5 * (28 + 5), 265, 28));
-            ui->label_day_chi11->setText(xlsx.read(number_data_chi_index - number_data_chi + 10, 7).toString());
-            ui->label_money_chi11->setText(xlsx.read(number_data_chi_index - number_data_chi + 10, 8).toString());
-            ui->label_typechi11->setText(xlsx.read(number_data_chi_index - number_data_chi + 10, 9).toString());
-            ui->label_content_chi11->setText(xlsx.read(number_data_chi_index - number_data_chi + 10, 10).toString());
-        }
-        else
-            ui->frame_Chi_11->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 12)
-        {
-            ui->frame_Chi_12->setGeometry(QRect(740 + 265 + 5, 340 + 5 * (28 + 5), 265, 28));
-            ui->label_day_chi12->setText(xlsx.read(number_data_chi_index - number_data_chi + 11, 7).toString());
-            ui->label_money_chi12->setText(xlsx.read(number_data_chi_index - number_data_chi + 11, 8).toString());
-            ui->label_typechi12->setText(xlsx.read(number_data_chi_index - number_data_chi + 11, 9).toString());
-            ui->label_content_chi12->setText(xlsx.read(number_data_chi_index - number_data_chi + 11, 10).toString());
-        }
-        else
-            ui->frame_Chi_12->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 13)
-        {
-            ui->frame_Chi_13->setGeometry(QRect(740, 340 + 6 * (28 + 5), 265, 28));
-            ui->label_day_chi13->setText(xlsx.read(number_data_chi_index - number_data_chi + 12, 7).toString());
-            ui->label_money_chi13->setText(xlsx.read(number_data_chi_index - number_data_chi + 12, 8).toString());
-            ui->label_typechi13->setText(xlsx.read(number_data_chi_index - number_data_chi + 12, 9).toString());
-            ui->label_content_chi13->setText(xlsx.read(number_data_chi_index - number_data_chi + 12, 10).toString());
-        }
-        else
-            ui->frame_Chi_13->setGeometry(QRect(7400, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 14)
-        {
-            ui->frame_Chi_14->setGeometry(QRect(740 + 265 + 5, 340 + 6 * (28 + 5), 265, 28));
-            ui->label_day_chi14->setText(xlsx.read(number_data_chi_index - number_data_chi + 13, 7).toString());
-            ui->label_money_chi14->setText(xlsx.read(number_data_chi_index - number_data_chi + 13, 8).toString());
-            ui->label_typechi14->setText(xlsx.read(number_data_chi_index - number_data_chi + 13, 9).toString());
-            ui->label_content_chi14->setText(xlsx.read(number_data_chi_index - number_data_chi + 13, 10).toString());
-        }
-        else
-            ui->frame_Chi_14->setGeometry(QRect(7400 + 265 + 5, 340 + 6 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 15)
-        {
-            ui->frame_Chi_15->setGeometry(QRect(740, 340 + 7 * (28 + 5), 265, 28));
-            ui->label_day_chi15->setText(xlsx.read(number_data_chi_index - number_data_chi + 14, 7).toString());
-            ui->label_money_chi15->setText(xlsx.read(number_data_chi_index - number_data_chi + 14, 8).toString());
-            ui->label_typechi15->setText(xlsx.read(number_data_chi_index - number_data_chi + 14, 9).toString());
-            ui->label_content_chi15->setText(xlsx.read(number_data_chi_index - number_data_chi + 14, 10).toString());
-        }
-        else
-            ui->frame_Chi_15->setGeometry(QRect(7400, 340 + 7 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 16)
-        {
-            ui->frame_Chi_16->setGeometry(QRect(740 + 265 + 5, 340 + 7 * (28 + 5), 265, 28));
-            ui->label_day_chi16->setText(xlsx.read(number_data_chi_index - number_data_chi + 15, 7).toString());
-            ui->label_money_chi16->setText(xlsx.read(number_data_chi_index - number_data_chi + 15, 8).toString());
-            ui->label_typechi16->setText(xlsx.read(number_data_chi_index - number_data_chi + 15, 9).toString());
-            ui->label_content_chi16->setText(xlsx.read(number_data_chi_index - number_data_chi + 15, 10).toString());
-        }
-        else
-            ui->frame_Chi_16->setGeometry(QRect(7400 + 265 + 5, 340 + 7 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 17)
-        {
-            ui->frame_Chi_17->setGeometry(QRect(740, 340 + 8 * (28 + 5), 265, 28));
-            ui->label_day_chi17->setText(xlsx.read(number_data_chi_index - number_data_chi + 16, 7).toString());
-            ui->label_money_chi17->setText(xlsx.read(number_data_chi_index - number_data_chi + 16, 8).toString());
-            ui->label_typechi17->setText(xlsx.read(number_data_chi_index - number_data_chi + 16, 9).toString());
-            ui->label_content_chi17->setText(xlsx.read(number_data_chi_index - number_data_chi + 16, 10).toString());
-        }
-        else
-            ui->frame_Chi_17->setGeometry(QRect(7400, 340 + 8 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 18)
-        {
-            ui->frame_Chi_18->setGeometry(QRect(740 + 265 + 5, 340 + 8 * (28 + 5), 265, 28));
-            ui->label_day_chi18->setText(xlsx.read(number_data_chi_index - number_data_chi + 17, 7).toString());
-            ui->label_money_chi18->setText(xlsx.read(number_data_chi_index - number_data_chi + 17, 8).toString());
-            ui->label_typechi18->setText(xlsx.read(number_data_chi_index - number_data_chi + 17, 9).toString());
-            ui->label_content_chi18->setText(xlsx.read(number_data_chi_index - number_data_chi + 17, 10).toString());
-        }
-        else
-            ui->frame_Chi_18->setGeometry(QRect(7400 + 265 + 5, 340 + 8 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 19)
-        {
-            ui->frame_Chi_19->setGeometry(QRect(740, 340 + 9 * (28 + 5), 265, 28));
-            ui->label_day_chi19->setText(xlsx.read(number_data_chi_index - number_data_chi + 18, 7).toString());
-            ui->label_money_chi19->setText(xlsx.read(number_data_chi_index - number_data_chi + 18, 8).toString());
-            ui->label_typechi19->setText(xlsx.read(number_data_chi_index - number_data_chi + 18, 9).toString());
-            ui->label_content_chi19->setText(xlsx.read(number_data_chi_index - number_data_chi + 18, 10).toString());
-        }
-        else
-            ui->frame_Chi_19->setGeometry(QRect(7400, 340 + 9 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 20)
-        {
-            ui->frame_Chi_20->setGeometry(QRect(740 + 265 + 5, 340 + 9 * (28 + 5), 265, 28));
-            ui->label_day_chi20->setText(xlsx.read(number_data_chi_index - number_data_chi + 19, 7).toString());
-            ui->label_money_chi20->setText(xlsx.read(number_data_chi_index - number_data_chi + 19, 8).toString());
-            ui->label_typechi20->setText(xlsx.read(number_data_chi_index - number_data_chi + 19, 9).toString());
-            ui->label_content_chi20->setText(xlsx.read(number_data_chi_index - number_data_chi + 19, 10).toString());
-        }
-        else
-            ui->frame_Chi_20->setGeometry(QRect(7400 + 265 + 5, 340 + 9 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 21)
-        {
-            ui->frame_Chi_21->setGeometry(QRect(740, 340 + 10 * (28 + 5), 265, 28));
-            ui->label_day_chi21->setText(xlsx.read(number_data_chi_index - number_data_chi + 20, 7).toString());
-            ui->label_money_chi21->setText(xlsx.read(number_data_chi_index - number_data_chi + 20, 8).toString());
-            ui->label_typechi21->setText(xlsx.read(number_data_chi_index - number_data_chi + 20, 9).toString());
-            ui->label_content_chi21->setText(xlsx.read(number_data_chi_index - number_data_chi + 20, 10).toString());
-        }
-        else
-            ui->frame_Chi_21->setGeometry(QRect(7400, 340 + 10 * (28 + 5), 265, 28));
-
-        if (number_data_chi >= 22)
-        {
-            ui->frame_Chi_22->setGeometry(QRect(740 + 265 + 5, 340 + 10 * (28 + 5), 265, 28));
-            ui->label_day_chi22->setText(xlsx.read(number_data_chi_index - number_data_chi + 21, 7).toString());
-            ui->label_money_chi22->setText(xlsx.read(number_data_chi_index - number_data_chi + 21, 8).toString());
-            ui->label_typechi22->setText(xlsx.read(number_data_chi_index - number_data_chi + 21, 9).toString());
-            ui->label_content_chi22->setText(xlsx.read(number_data_chi_index - number_data_chi + 21, 10).toString());
-        }
-        else
-            ui->frame_Chi_22->setGeometry(QRect(7400 + 265 + 5, 340 + 10 * (28 + 5), 265, 28));
-    }
-
-    for (int i = 0; i < 12; i++)
-    {
-        xlsx.selectSheet(i);
-        for (int j = 5; j <= number_data_chi_index - 1; j++)
-        {
-            int_money_chi += xlsx.read(j, 8).toInt();
-        }
-        for (int k = 5; k <= number_data_thu_index - 1; k++)
-        {
-            int_money_thu += xlsx.read(k, 3).toInt();
-        }
-        data_money_thu.push_back(int_money_thu);
-        data_money_chi.push_back(int_money_chi);
-        int_money_thu = 0;
-        int_money_chi = 0;
-    }
-
-    money_thu = "Tổng: " + QString::number(data_money_thu.at(index_month_thu)) + " VNĐ";
-    ui->label_total_thu->setText(money_thu);
-    money_chi = "Tổng: " + QString::number(data_money_chi.at(index_month_thu)) + " VNĐ";
-    ui->label_total_chi->setText(money_chi);
-    money_tichluy = QString::number(data_money_thu.at(index_month_thu) - data_money_chi.at(index_month_thu));
-
-    if (set_horizontal_layout == true)
-    {
-        if (Hide == true)
-        {
-            ui->label_total->setText("Tổng tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ");
-        }
-        else
-        {
-            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
-            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
-            ui->label_total->setText("Tổng tích lũy tháng " + QString::number(index_month_thu + 1) + " : *** *** *** VNĐ");
-        }
-    }
-    else
-    {
-        if (Hide == true)
-        {
-            ui->label_total->setText("Tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ");
-        }
-        else
-        {
-            ui->label_total->setText("Tích lũy tháng " + QString::number(index_month_thu + 1) + " : *** *** *** VNĐ");
-            ui->label_total_chi->setText("Tổng: *** *** *** VNĐ");
-            ui->label_total_thu->setText("Tổng: *** *** *** VNĐ");
-        }
-    }
-
-    QString total_tichluy_string = "Tích lũy tháng " + QString::number(index_month_thu + 1) + " : " + money_tichluy + " VNĐ";
-    xlsx.selectSheet(index_month_thu);
-    xlsx.write("A1", total_tichluy_string);
-    xlsx.saveAs("Data_source.xlsx");
-
-    data_money_thu.clear();
-    data_money_chi.clear();
-    number_data_chi_index = 5;
-    number_data_chi = 0;
-    number_data_thu_index = 5;
-    number_data_thu = 0;
-}
-
+/**
+ * @fn     ShowPasswordManager(void)
+ * @brief  Show Password manager window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ShowPasswordManager(void)
 {
-    if (is_password_window_on == false)
+    if (gbIsPasswordWindowOn == false)
     {
-        is_password_window_on = true;
-        if (set_horizontal_layout == false)
+        gbIsPasswordWindowOn = true;
+        if (gbIsHorizontalLayoutSet == false)
             ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
         else
             ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
     }
     else
-        is_password_window_on = false;
+        gbIsPasswordWindowOn = false;
 }
 
+/**
+ * @fn     ShowPasswordManager(void)
+ * @brief  Show Password manager window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ExitPasswordWindow(void)
 {
     ui->frame_password_manage->setGeometry(QRect(100, 2500, 270, 150));
@@ -1766,37 +1969,54 @@ void MyApp::ExitPasswordWindow(void)
     ui->label_password->setText("**********");
     ui->textEdit_key_pass->setText("");
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
-    hide_pass = false;
-    is_password_window_on = false;
+    gbIsHidePasswordOn = false;
+    gbIsPasswordWindowOn = false;
 }
 
-bool MyApp::CheckCharecterEnterInVector(QString charecter_enter)
+/**
+ * @fn     CheckCharecterEnterInVector(void)
+ * @brief  Check the gacCharecterTable was entered is mapping with the password type was set before or not.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return bool
+ * @param   QString liCharecterEntering
+ */
+bool MyApp::CheckCharecterEnterInVector(QString liCharecterEntering)
 {
-    bool bReturn = false;
+    bool lbReturn = false;
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(13);
 
-    while (xlsx.read(index_data_pass_added, 1).toString() != "")
+    while (xlsx.read(gIndexDataAddedPassword, 1).toString() != "")
     {
-        passwordAdded.push_back(xlsx.read(index_data_pass_added, 1).toString());
-        index_data_pass_added++;
+        gvsPasswordAdded.push_back(xlsx.read(gIndexDataAddedPassword, 1).toString());
+        gIndexDataAddedPassword++;
     }
 
-    for (int i = 0; i < passwordAdded.size(); i++)
+    for (int iIndex = 0; iIndex < gvsPasswordAdded.size(); iIndex++)
     {
-        if (charecter_enter == passwordAdded.at(i))
+        if (liCharecterEntering == gvsPasswordAdded.at(iIndex))
         {
-            index_of_name_change = i + 3;
-            bReturn = true;
+            giIndexOfPasswordNameChange = iIndex + 3;
+            lbReturn = true;
         }
     }
-    return bReturn;
+    return lbReturn;
 }
+
+/**
+ * @fn     CheckEnterCharecter(void)
+ * @brief  Show tick True icon or X icon with the gacCharecterTable was entered.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::CheckEnterCharecter(void)
 {
-    QString charecter_enter = ui->textEdit_search->toPlainText();
+    QString liCharecterEntering = ui->textEdit_search->toPlainText();
 
-    if (CheckCharecterEnterInVector(charecter_enter) == true)
+    if (CheckCharecterEnterInVector(liCharecterEntering) == true)
     {
         QPixmap pix_tick(":/Icon/Image/icons8-tick-25.png");
         ui->label_check_charecter->setPixmap(pix_tick);
@@ -1808,39 +2028,55 @@ void MyApp::CheckEnterCharecter(void)
     }
 }
 
+/**
+ * @fn     ShowPasswordFollowCharecter(void)
+ * @brief  set the password of password type was enter -> show ******** first in gbHide status.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ShowPasswordFollowCharecter(void)
 {
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(13);
 
     ui->label_password->setText("**********");
-    hide_pass = false;
+    gbIsHidePasswordOn = false;
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
 
-    while (xlsx.read(index_data_pass, 1).toString() != "")
+    while (xlsx.read(giIndexDataPassword, 1).toString() != "")
     {
-        passwordSaved.push_back(xlsx.read(index_data_pass, 1).toString());
-        index_data_pass++;
+        gvsPasswordSaved.push_back(xlsx.read(giIndexDataPassword, 1).toString());
+        giIndexDataPassword++;
     }
 
-    QString charecter_enter = ui->textEdit_search->toPlainText();
+    QString liCharecterEntering = ui->textEdit_search->toPlainText();
 
-    for (int index = 0; index < passwordSaved.size(); index++)
+    for (int iIndex = 0; iIndex < gvsPasswordSaved.size(); iIndex++)
     {
-        if (charecter_enter == passwordSaved.at(index))
+        if (liCharecterEntering == gvsPasswordSaved.at(iIndex))
         {
-            index_of_password = index;
-            ui->label_ID->setText(xlsx.read(index + 3, 2).toString());
+            giIndexOfPassword = iIndex;
+            ui->label_ID->setText(xlsx.read(iIndex + 3, 2).toString());
         }
     }
 }
 
+/**
+ * @fn     ShowPasswordFollowCharecter(void)
+ * @brief  Set status of password is hide or no hide and change icon.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::NoHidePassword(void)
 {
-    if (hide_pass == false)
+    if (gbIsHidePasswordOn == false)
     {
-        hide_pass = true;
-        if (set_horizontal_layout == false)
+        gbIsHidePasswordOn = true;
+        if (gbIsHorizontalLayoutSet == false)
             ui->frame_password_manage_3->setGeometry(QRect(130, 260, 200, 100));
         else
             ui->frame_password_manage_3->setGeometry(QRect(630, 260, 200, 100));
@@ -1849,26 +2085,57 @@ void MyApp::NoHidePassword(void)
     else
     {
         ui->label_password->setText("**********");
-        hide_pass = false;
+        gbIsHidePasswordOn = false;
         ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
     }
 }
 
+/**
+ * @fn     EnterKeyToSeePasswordAndClose(void)
+ * @brief  Enter the key to see the password.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::EnterKeyToSeePasswordAndClose(void)
 {
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(13);
 
-    QString key = "1810565";
-    if (ui->textEdit_key_pass->text() == key)
+    const QString lsKey = "1810565";
+    if (ui->textEdit_key_pass->text() == lsKey)
     {
         ui->frame_password_manage_3->setGeometry(QRect(130, 2600, 200, 100));
         ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-hide-15.png"));
-        ui->label_password->setText(xlsx.read(index_of_password + 3, 3).toString());
+        ui->label_password->setText(xlsx.read(giIndexOfPassword + 3, 3).toString());
         ui->textEdit_key_pass->setText("");
     }
 }
 
+/**
+ * @fn     ExitKeyEnter(void)
+ * @brief  Click exit to close the key enter window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ExitKeyEnter(void)
+{
+    ui->frame_password_manage_3->setGeometry(QRect(130, 2600, 200, 100));
+    ui->textEdit_key_pass->setText("");
+    gbIsHidePasswordOn = false;
+}
+
+/**
+ * @fn     ReloadCheckPassword(void)
+ * @brief  Reload the checking gacCharecterTable of password type.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ReloadCheckPassword(void)
 {
     QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
@@ -1878,68 +2145,99 @@ void MyApp::ReloadCheckPassword(void)
     ui->label_password->setText("**********");
     ui->textEdit_key_pass->setText("");
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
-    hide_pass = false;
+    gbIsHidePasswordOn = false;
 }
 
-void MyApp::ExitKeyEnter(void)
-{
-    ui->frame_password_manage_3->setGeometry(QRect(130, 2600, 200, 100));
-    ui->textEdit_key_pass->setText("");
-    hide_pass = false;
-}
-
+/* ======================================================================================================================= */
+/*                                                  PASSWORD ADDITIONAL MANAGEMENT                                         */
+/* ======================================================================================================================= */
+/**
+ * @fn     AddPassword(void)
+ * @brief  Click to show additional password window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::AddPassword(void)
 {
-    if (is_AddPassword_window_on == false)
+    if (gbIsAdditionalPasswordWindowOn == false)
     {
-        is_AddPassword_window_on = true;
-        if (set_horizontal_layout == false)
+        gbIsAdditionalPasswordWindowOn = true;
+        if (gbIsHorizontalLayoutSet == false)
             ui->frame_password_manage_4->setGeometry(QRect(100, 70, 190, 180));
         else
             ui->frame_password_manage_4->setGeometry(QRect(180, 450, 190, 180));
     }
     else
-        is_AddPassword_window_on = false;
+        gbIsAdditionalPasswordWindowOn = false;
 }
 
-void MyApp::CloseAddPassword(void)
-{
-    ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
-    is_AddPassword_window_on = false;
-    ui->textEdit_name_add->setText("");
-    ui->textEdit_ID_add->setText("");
-    ui->textEdit_key_pass_add->setText("");
-}
-
+/**
+ * @fn     SetNewPasswordAndClose(void)
+ * @brief  Set new password was set to Excel source and close Additional password window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::SetNewPasswordAndClose(void)
 {
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(13);
 
-    while (xlsx.read(index_data_pass_add_pass, 1).toString() != "")
+    while (xlsx.read(gIndexDataAdditionalPassword, 1).toString() != "")
     {
-        index_data_pass_add_pass++;
+        gIndexDataAdditionalPassword++;
     }
 
-    xlsx.write(index_data_pass_add_pass, 1, ui->textEdit_name_add->text());
-    xlsx.write(index_data_pass_add_pass, 2, ui->textEdit_ID_add->text());
-    xlsx.write(index_data_pass_add_pass, 3, ui->textEdit_key_pass_add->text());
+    xlsx.write(gIndexDataAdditionalPassword, 1, ui->textEdit_name_add->text());
+    xlsx.write(gIndexDataAdditionalPassword, 2, ui->textEdit_ID_add->text());
+    xlsx.write(gIndexDataAdditionalPassword, 3, ui->textEdit_key_pass_add->text());
 
     xlsx.saveAs("Data_source.xlsx");
 
     ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
-    is_AddPassword_window_on = false;
+    gbIsAdditionalPasswordWindowOn = false;
     ui->textEdit_name_add->setText("");
     ui->textEdit_ID_add->setText("");
     ui->textEdit_key_pass_add->setText("");
 }
 
+/**
+ * @fn     CloseAddPassword(void)
+ * @brief  Click to close Additional password window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::CloseAddPassword(void)
+{
+    ui->frame_password_manage_4->setGeometry(QRect(180, 1450, 190, 180));
+    gbIsAdditionalPasswordWindowOn = false;
+    ui->textEdit_name_add->setText("");
+    ui->textEdit_ID_add->setText("");
+    ui->textEdit_key_pass_add->setText("");
+}
+
+/* ======================================================================================================================= */
+/*                                               PASSWORD ADJUSTMENT MANAGEMENT                                            */
+/* ======================================================================================================================= */
+/**
+ * @fn     ShowPasswordAdjustment(void)
+ * @brief  Click to show Adjustment password window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ShowPasswordAdjustment(void)
 {
-    if (is_passchange_show == false)
+    if (gbIsPasswordShow == false)
     {
-        is_passchange_show = true;
-        if (set_horizontal_layout == false)
+        gbIsPasswordShow = true;
+        if (gbIsHorizontalLayoutSet == false)
             ui->frame_password_manage_5->setGeometry(QRect(110, 190, 220, 140));
         else
             ui->frame_password_manage_5->setGeometry(QRect(630, 190, 220, 140));
@@ -1947,27 +2245,23 @@ void MyApp::ShowPasswordAdjustment(void)
     }
     else
     {
-        is_passchange_show = false;
+        gbIsPasswordShow = false;
     }
 }
 
-void MyApp::ExitPasswordAdjustmentAndReshowManager(void)
-{
-    ui->frame_password_manage_5->setGeometry(QRect(110, 1590, 220, 140));
-    if (set_horizontal_layout == false)
-        ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
-    else
-        ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
-    ui->textEdit_name_change_2->setText("");
-    ui->textEdit_pass_change->setText("");
-    is_passchange_show = false;
-}
-
+/**
+ * @fn     CheckEnterCharecterOfNameChange(void)
+ * @brief  Check gacCharecterTable enter with password type was saved.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::CheckEnterCharecterOfNameChange(void)
 {
-    QString charecter_enter = ui->textEdit_name_change_2->toPlainText();
+    QString liCharecterEntering = ui->textEdit_name_change_2->toPlainText();
 
-    if (CheckCharecterEnterInVector(charecter_enter) == true)
+    if (CheckCharecterEnterInVector(liCharecterEntering) == true)
     {
         QPixmap pix_tick(":/Icon/Image/icons8-tick-25.png");
         ui->label_check_charecter_2->setPixmap(pix_tick);
@@ -1979,15 +2273,22 @@ void MyApp::CheckEnterCharecterOfNameChange(void)
     }
 }
 
+/**
+ * @fn     EnterPasswordAdjustmentAndReshowManager(void)
+ * @brief  Set the new password to Excel source, close adjustment window and reshow main password window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
 {
     Document xlsx("Data_source.xlsx");
     xlsx.selectSheet(13);
 
-    qDebug() << index_of_name_change;
     if (ui->textEdit_pass_change->toPlainText() != "")
     {
-        xlsx.write(index_of_name_change, 3, ui->textEdit_pass_change->toPlainText());
+        xlsx.write(giIndexOfPasswordNameChange, 3, ui->textEdit_pass_change->toPlainText());
         xlsx.saveAs("Data_source.xlsx");
     }
 
@@ -1995,7 +2296,7 @@ void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
     ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
     ui->textEdit_name_change_2->setText("");
     ui->textEdit_pass_change->setText("");
-    is_passchange_show = false;
+    gbIsPasswordShow = false;
 
     QPixmap pix_wrong(":/Icon/Image/icons8-x-20.png");
     ui->label_check_charecter->setPixmap(pix_wrong);
@@ -2004,21 +2305,52 @@ void MyApp::EnterPasswordAdjustmentAndReshowManager(void)
     ui->label_password->setText("**********");
     ui->textEdit_key_pass->setText("");
     ui->pushButton_hide_2->setIcon(QIcon(":/Icon/Image/icons8-eye-15.png"));
-    hide_pass = false;
-    is_password_window_on = false;
+    gbIsHidePasswordOn = false;
+    gbIsPasswordWindowOn = false;
 }
 
-// Electrical Device Control
-
-void MyApp::SettingUartForElecDeviceControl(void)
+/**
+ * @fn     ExitPasswordAdjustmentAndReshowManager(void)
+ * @brief  Click to close Adjustment password window and reshow Password manager window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   28/02/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ExitPasswordAdjustmentAndReshowManager(void)
 {
-    if (IsUartSettingShow == false)
-        IsUartSettingShow = true;
+    ui->frame_password_manage_5->setGeometry(QRect(110, 1590, 220, 140));
+    if (gbIsHorizontalLayoutSet == false)
+        ui->frame_password_manage->setGeometry(QRect(100, 250, 270, 150));
     else
-        IsUartSettingShow = false;
+        ui->frame_password_manage->setGeometry(QRect(600, 250, 270, 150));
+    ui->textEdit_name_change_2->setText("");
+    ui->textEdit_pass_change->setText("");
+    gbIsPasswordShow = false;
+}
 
-    if (IsUartSettingShow == true)
-        if (set_horizontal_layout == true)
+
+/* ======================================================================================================================= */
+/*                                                ELECTRICAL DEVICE CONTROL                                                */
+/* ======================================================================================================================= */
+
+/**
+ * @fn     ShowSettingUartForElecDeviceControlWindow(void)
+ * @brief  Click to show UART setting window.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::ShowSettingUartForElecDeviceControlWindow(void)
+{
+    if (gbIsUartSettingShow == false)
+        gbIsUartSettingShow = true;
+    else
+        gbIsUartSettingShow = false;
+
+    if (gbIsUartSettingShow == true)
+        if (gbIsHorizontalLayoutSet == true)
             ui->frameUart->setGeometry(QRect(190, 420, 210, 180));
         else
             ui->frameUart->setGeometry(QRect(60, 180, 210, 180));
@@ -2026,127 +2358,159 @@ void MyApp::SettingUartForElecDeviceControl(void)
         ui->frameUart->setGeometry(QRect(60, 1000, 210, 180));
 }
 
+/**
+ * @fn     SettingUart(void)
+ * @brief  Setting UART items: Port/Baudrate/DataBits/StopBits/Parity.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::SettingUart(void)
 {
     // Ports
     QSerialPortInfo info;
     QList<QSerialPortInfo> ports = info.availablePorts();
-    QList<QString> stringPorts;
-    for (int i = 0; i < ports.size(); i++)
+    QList<QString> llsStringPorts;
+    for (int iIndex = 0; iIndex < ports.size(); iIndex++)
     {
-        stringPorts.append(ports.at(i).portName());
+        llsStringPorts.append(ports.at(iIndex).portName());
     }
-    ui->comboBox_port->addItems(stringPorts);
+    ui->comboBox_port->addItems(llsStringPorts);
 
     QList<qint32> baudRates = info.standardBaudRates();
     QList<QString> stringBaudRates;
-    for (int i = 0; i < baudRates.size(); i++)
+    for (int iIndex = 0; iIndex < baudRates.size(); iIndex++)
     {
-        stringBaudRates.append(QString::number(baudRates.at(i)));
+        stringBaudRates.append(QString::number(baudRates.at(iIndex)));
     }
     ui->comboBox_Baudrate->addItems(stringBaudRates);
 
     serialPort = new QSerialPort();
+
     // Port
-    QString portName = ui->comboBox_port->currentText();
-    serialPort->setPortName(portName);
+    QString lsPortName = ui->comboBox_port->currentText();
+    serialPort->setPortName(lsPortName);
 
     // Baudrate
-    QString stringbaudRate = ui->comboBox_Baudrate->currentText();
-    if (stringbaudRate == "4800")
+    QString lsStringOfBaudrate = ui->comboBox_Baudrate->currentText();
+    if (lsStringOfBaudrate == "4800")
         serialPort->setBaudRate(QSerialPort::BaudRate::Baud4800);
-    else if (stringbaudRate == "9600")
+    else if (lsStringOfBaudrate == "9600")
         serialPort->setBaudRate(QSerialPort::BaudRate::Baud9600);
-    else if (stringbaudRate == "115200")
+    else if (lsStringOfBaudrate == "115200")
         serialPort->setBaudRate(QSerialPort::BaudRate::Baud115200);
 
     // Data bits
-    QString dataBits = ui->comboBox_Databits->currentText();
-    if (dataBits == "5 Bits")
+    QString lsStringOfDataBits = ui->comboBox_Databits->currentText();
+    if (lsStringOfDataBits == "5 Bits")
         serialPort->setDataBits(QSerialPort::DataBits::Data5);
-    else if ((dataBits == "6 Bits"))
+    else if ((lsStringOfDataBits == "6 Bits"))
         serialPort->setDataBits(QSerialPort::DataBits::Data6);
-    else if (dataBits == "7 Bits")
+    else if (lsStringOfDataBits == "7 Bits")
         serialPort->setDataBits(QSerialPort::DataBits::Data7);
-    else if (dataBits == "8 Bits")
+    else if (lsStringOfDataBits == "8 Bits")
         serialPort->setDataBits(QSerialPort::DataBits::Data8);
     // Stop bits:
-    QString stopBits = ui->comboBox_Stopbits->currentText();
-    if (stopBits == "1 Bit")
+    QString lsStringOfStopBits = ui->comboBox_Stopbits->currentText();
+    if (lsStringOfStopBits == "1 Bit")
         serialPort->setStopBits(QSerialPort::StopBits::OneStop);
-    else if (stopBits == "1,5 Bits")
+    else if (lsStringOfStopBits == "1,5 Bits")
         serialPort->setStopBits(QSerialPort::StopBits::OneAndHalfStop);
-    else if (stopBits == "2 Bits")
+    else if (lsStringOfStopBits == "2 Bits")
         serialPort->setStopBits(QSerialPort::StopBits::TwoStop);
     // Parity
-    QString parity = ui->comboBox_parity->currentText();
-    if (parity == "No Parity")
+    QString lsStringOfParity = ui->comboBox_parity->currentText();
+    if (lsStringOfParity == "No Parity")
         serialPort->setParity(QSerialPort::Parity::NoParity);
-    else if (parity == "Even Parity")
+    else if (lsStringOfParity == "Even Parity")
         serialPort->setParity(QSerialPort::Parity::EvenParity);
-    else if (parity == "Odd Parity")
+    else if (lsStringOfParity == "Odd Parity")
         serialPort->setParity(QSerialPort::Parity::OddParity);
-    else if (parity == "Mark Parity")
+    else if (lsStringOfParity == "Mark Parity")
         serialPort->setParity(QSerialPort::Parity::MarkParity);
-    else if (parity == "Space Parity")
+    else if (lsStringOfParity == "Space Parity")
         serialPort->setParity(QSerialPort::Parity::SpaceParity);
 
     connect(serialPort, SIGNAL(readyRead()), this, SLOT(receiveMessage()));
 }
 
+/**
+ * @fn     ConnectUart(void)
+ * @brief  Click to connect UART.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::ConnectUart(void)
 {
     serialPort->open(QIODevice::ReadWrite);
     ui->frameUart->setGeometry(QRect(60, 1000, 210, 180));
-    IsUartSettingShow = false;
+    gbIsUartSettingShow = false;
 }
 
-void MyApp::DisconnectUart(void)
-{
-    QString string_off = "t";
-    serialPort->write(string_off.toUtf8());
-    serialPort->close();
-}
-
-void MyApp::receiveMessage()
-{
-    QByteArray dataBA = serialPort->readAll();
-    data_receive += (charecter[(static_cast<int>(dataBA[dataBA.size() - 1])) - 1]);
-    if( data_receive == "fanon")
-    {
-        data_receive = "";
-        FanControl(true);
-    }
-    else if(data_receive == "fanoff")
-    {
-        data_receive = "";
-        FanControl(false);
-    }
-    else if(data_receive == "lighton")
-    {
-        data_receive = "";
-        LightControl(true);
-    }
-    else if(data_receive == "lightoff")
-    {
-        data_receive = "";
-        LightControl(false);
-    }
-
-}
-
+/**
+ * @fn     SendMsgFanControl(void)
+ * @brief  Send data to port through UART to set Turn on the FAN.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::SendMsgFanControl(void)
 {
-    if (is_Fan_ON == false)
-        is_Fan_ON = true;
+    if (gbIsFanOn == false)
+        gbIsFanOn = true;
     else
-        is_Fan_ON = false;
+        gbIsFanOn = false;
 
-    QString Fan_string = "a";
-    serialPort->write(Fan_string.toUtf8());
-    
+    QString lsFanStringSending = "a";
+    serialPort->write(lsFanStringSending.toUtf8());
 }
 
+/**
+ * @fn     receiveMessage(void)
+ * @brief  Received data through UART to setting fan and light control.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::receiveMessage()
+{
+    QByteArray lBADataReceived = serialPort->readAll();
+    gsUartDataReceived += (gacCharecterTable[(static_cast<int>(lBADataReceived[lBADataReceived.size() - 1])) - 1]);
+    if (gsUartDataReceived == "fanon")
+    {
+        gsUartDataReceived = "";
+        FanControl(true);
+    }
+    else if (gsUartDataReceived == "fanoff")
+    {
+        gsUartDataReceived = "";
+        FanControl(false);
+    }
+    else if (gsUartDataReceived == "lighton")
+    {
+        gsUartDataReceived = "";
+        LightControl(true);
+    }
+    else if (gsUartDataReceived == "lightoff")
+    {
+        gsUartDataReceived = "";
+        LightControl(false);
+    }
+}
+
+/**
+ * @fn     FanControl(void)
+ * @brief  Display the FAN in App (Turn On/Off) follow data receive.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   bool IsFanOn
+ */
 void MyApp::FanControl(bool IsFanOn)
 {
     QPropertyAnimation *animation_button_fan = new QPropertyAnimation(ui->Fanbutton, "geometry");
@@ -2176,17 +2540,33 @@ void MyApp::FanControl(bool IsFanOn)
     animation_button_fan->start();
 }
 
+/**
+ * @fn     SendMsgLightControl(void)
+ * @brief  Send data to port through UART to set Turn on the LIGHT.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
 void MyApp::SendMsgLightControl(void)
 {
-    if (is_Light_ON == false)
-        is_Light_ON = true;
+    if (gbIsLightOn == false)
+        gbIsLightOn = true;
     else
-        is_Light_ON = false;
+        gbIsLightOn = false;
 
-    QString light_string = "b";
-    serialPort->write(light_string.toUtf8());
+    QString lsLightStringSending = "b";
+    serialPort->write(lsLightStringSending.toUtf8());
 }
 
+/**
+ * @fn     LightControl(void)
+ * @brief  Display the LIGHT in App (Turn On/Off) follow data receive.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   bool IsLightOn
+ */
 void MyApp::LightControl(bool IsLightOn)
 {
     QPropertyAnimation *animation_button_light = new QPropertyAnimation(ui->Lightbutton, "geometry");
@@ -2213,4 +2593,24 @@ void MyApp::LightControl(bool IsLightOn)
         ui->label_38->setPixmap(pixmap_fan);
     }
     animation_button_light->start();
+}
+
+/**
+ * @fn     DisconnectUart(void)
+ * @brief  Click to disconnect Uart and send message to turn Off all.
+ * @author Nguyen Dinh Thuan (ndthuan167)
+ * @date   27/06/2024
+ * @return void
+ * @param   void
+ */
+void MyApp::DisconnectUart(void)
+{
+    QString lsOffDeviceStringSending = "t";
+    serialPort->write(lsOffDeviceStringSending.toUtf8());
+    serialPort->close();
+}
+
+MyApp::~MyApp()
+{
+    delete ui;
 }

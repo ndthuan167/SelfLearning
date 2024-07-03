@@ -2,6 +2,7 @@
 #define POPUP_THU_H
 
 #include <QDialog>
+#include "QDate"
 
 namespace Ui {
 class popup_Thu;
@@ -18,21 +19,21 @@ public:
     ~popup_Thu();
 
 signals:
-    void dataAvaiable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu , const QString &data_textcontent_thu);
+    void ConnectDataEarning(const QString &lsDataDateEaning, const QString &lsDataMoneyEaning, const QString &lsDataTypeMoneyEaning , const QString &lsDataContentEaning);
 
 private slots:
     void on_pushButton_SetThu_clicked();
 
 public slots:
-    void ShowCalendarSelection();
-    void BackDayinCalendar();
-    void NextDayinCalendar();
-    void SetDateCalendar();
+    void ShowCalendarSelection(void);
+    void BackDayinCalendar(void);
+    void NextDayinCalendar(void);
+    void SetDateCalendar(void);
 
 private:
     Ui::popup_Thu *ui;
-    int today = 0;
-    QString total_date;
+    int giToday = 0;
+    QString gsSettingDate;
 };
 
 #endif // POPUP_THU_H

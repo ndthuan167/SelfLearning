@@ -3,11 +3,9 @@
 
 #include <QMainWindow>
 #include "IncludeLibrary.h"
-#include "myapp_horizontal.h"
-#include "ui_myapp_horizontal.h"
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
-#include <QChar>
+#include "popupchi.h"
+#include "popup_thu.h"
+#include "popup_plan.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MyApp; }
@@ -21,37 +19,44 @@ public:
     MyApp(QWidget *parent = nullptr);
     ~MyApp();
 
-    int numberofimage = 0;
-    int numberofimage_2;
+    int giNumberOfImageBefore = 0;
+    int giNumberOfImageAfter;
 
 public slots:
-    void OpenYoutubeWebsite();
-    void OpenGithubWebsite();
-    void OpenFacebookWebsite();
-    void OpenZaloApp();
-    void OpenVSCode();
-    void OpenGoogleSearch();
-    void OpenExcelDataSource();
+    // Website/App Opening
+    void OpenYoutubeWebsite(void);
+    void OpenGithubWebsite(void);
+    void OpenFacebookWebsite(void);
+    void OpenZaloApp(void);
+    void OpenVSCode(void);
+    void OpenGoogleSearch(void);
+    void OpenExcelDataSource(void);
 
-    void showTime();
-    void HidetheTotal();
+    // Time/Date Display (Calendar)
+    void CurrentDateTime(void);
 
-    void ShowFrameTest();
-    void ShowPopUpChi();
-    void ShowPopUpPlan();
+    // Image Animation
+    void BackImage(void);
+    void NextImage(void);
 
-    void BackImage();
-    void NextImage();
+    // Earning/Spending management
+    void ShowEarningWindow(void);
+    void ShowSpendingWindow(void);
+    void HidetheTotal(void);
+    void ShowEarningSpendingDataFromSource(void);
+    void HandleDataSpending(const QString &lsDataDateSpending, const QString &lsDataMoneySpending, const QString &lsDataMoneyTypeSpending, const QString &lsDataContentSpending);
+    void HandleDataEarning(const QString &lsDataDateEaning, const QString &lsDataMoneyEaning, const QString &lsDataTypeMoneyEaning, const QString &lsDataContentEaning);
+    void HandleDataPlanning(const QString &lsDataDatePlanning, const QString &lsDataTimePlanning, const QString &lsDataDetailsPlanning);
 
-    void ChangeToHorizontalLayout();
-    void ShowDataFromDataSource();
-    void ShowDataPlan();
+    // Vertical/Horizontal layout management
+    void ChangeToHorizontalLayout(void);
+    
+    // Planning management
+    void ShowPlanWindow(void);
+    void ShowDataPlan(void);
+    void HandleCheckBoxPlan(void);
 
-    void onDataAvailable(const QString &data_textday, const QString &data_textmoney, const QString &data_texttype, const QString &data_textcontent);
-    void onDataAvailable_Thu(const QString &data_textday_thu, const QString &data_textmoney_thu, const QString &data_texttype_thu, const QString &data_textcontent_thu);
-    void onDataAvailable_Plan(const QString &data_textday_plan, const QString &data_texttime_plan, const QString &data_textdetailPlan);
-
-    void HandleCheckBoxPlan();
+    // Password management
     void ShowPasswordManager(void);
     void ExitPasswordWindow(void);
     void CheckEnterCharecter(void);
@@ -60,7 +65,6 @@ public slots:
     void EnterKeyToSeePasswordAndClose(void);
     void ReloadCheckPassword(void);
     void ExitKeyEnter(void);
-
     void AddPassword(void);
     void CloseAddPassword(void);
     void SetNewPasswordAndClose(void);
@@ -68,11 +72,10 @@ public slots:
     void ExitPasswordAdjustmentAndReshowManager(void);
     void EnterPasswordAdjustmentAndReshowManager(void);
     void CheckEnterCharecterOfNameChange(void);
+    bool CheckCharecterEnterInVector(QString liCharecterEntering);
 
-    bool CheckCharecterEnterInVector(QString charecter_enter);
-
-// Electrical Device Control
-    void SettingUartForElecDeviceControl(void);
+    // Electrical Device Control
+    void ShowSettingUartForElecDeviceControlWindow(void);
     void SettingUart();
     void ConnectUart(void);
     void DisconnectUart(void);
@@ -84,62 +87,54 @@ public slots:
 
 private:
     Ui::MyApp *ui;
-    myApp_horizontal *myapp_horizon;
-    Ui::myApp_horizontal *horizon_ui;
 
-    bool Hide = false;
+    bool gbHide = false;
+    QVector <int> gvDataMoneyEarning;
+    QVector <int> gvDataMoneySpending;
+    QString gsMoneyEarning;
+    int giIndexMoneyEarning = 0;
+    QString gsMoneySpending;
+    int giIndexMoneySpending = 0;
+    QString gsMoneyAccumulate = "0";
 
-    int today = 0;
-    QString total_date;
+    QString gsSunOrNight;
+    bool gbIsHorizontalLayoutSet = false;
 
-    QVector <int> data_money_thu;
-    QVector <int> data_money_chi;
-    QString money_thu;
-    int int_money_thu = 0;
-    QString money_chi;
-    int int_money_chi = 0;
-    QString money_tichluy = "0";
+    int giIndexDataSpending = 5;
+    int giNumberOfDataSpending = 0;
 
-    QString SunNight;
-    bool showframetest = false;
-    bool showPopupChi = false;
-    bool set_horizontal_layout = false;
+    int giIndexDataEarning = 5;
+    int giNumberOfDataEarning = 0;
 
-    int number_data_chi_index = 5;
-    int number_data_chi = 0;
+    int giWriteIndexSpending = 5;
+    int giWriteIndexEarning = 5;
+    int giWriteIndexPlanning = 4;
 
-    int number_data_thu_index = 5;
-    int number_data_thu = 0;
+    QVector <int> gvIndexPlanningUnChecked;
+    QVector <int> gvIndexPlanningChecked;
+    int gaiShowIndexPlanningUnchecked[4];
+    int gaiShowIndexPlanningChecked[4];
+    int giNumberOfPlan = 4 ;
 
-    int number_data_write_chi_index = 5;
-    int number_data_write_thu_index = 5;
-    int number_data_write_plan_index = 4;
-
-    QVector <int> index_plan_unchecked;
-    QVector <int> index_plan_check;
-    int index_plan_unchecked_show[4];
-    int index_plan_check_show[4];
-    int numberofplan = 4 ;
-
-    bool is_password_window_on = false;
-    int index_data_pass = 3;
-    int index_data_pass_add_pass = 3;
-    int index_data_pass_added = 3;
-    QVector <QString> passwordSaved;
-    QVector <QString> passwordAdded;
-    int index_of_password;
-    bool key_is_true = false;
-    bool hide_pass = false;
-    bool is_AddPassword_window_on = false;
-    int index_of_name_change;
-    bool is_passchange_show = false;
+    bool gbIsPasswordWindowOn = false;
+    int giIndexDataPassword = 3;
+    int gIndexDataAdditionalPassword = 3;
+    int gIndexDataAddedPassword = 3;
+    QVector <QString> gvsPasswordSaved;
+    QVector <QString> gvsPasswordAdded;
+    int giIndexOfPassword;
+    bool gbIsKeyEnterTrue = false;
+    bool gbIsHidePasswordOn = false;
+    bool gbIsAdditionalPasswordWindowOn = false;
+    int giIndexOfPasswordNameChange;
+    bool gbIsPasswordShow = false;
 
 // Electrical Device Control
-    bool IsUartSettingShow = false;
+    bool gbIsUartSettingShow = false;
     QSerialPort* serialPort;
-    QString data_receive;
-    QChar charecter[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ,'i','j' ,'k' , 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    bool is_Fan_ON = false;
-    bool is_Light_ON = false;
+    QString gsUartDataReceived;
+    const QChar gacCharecterTable[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ,'i','j' ,'k' , 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    bool gbIsFanOn = false;
+    bool gbIsLightOn = false;
 };
 #endif // MYAPP_H
